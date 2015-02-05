@@ -14,7 +14,8 @@
 \usepackage{a4}
 \input{content/definitions}
 
-
+\newcommand{\name}{$\mathcal{H}$eaven } 
+\newcommand{\namens}{$\mathcal{H}$eaven} 
 \begin{document}
 
 
@@ -31,17 +32,24 @@
 \renewcommand{\headrulewidth}{0pt}}
 
 
-\include{side/dedication} \clearemptydoublepage
-\include{side/thanksto}\clearemptydoublepage
-\include{side/preface}\clearemptydoublepage
+%\include{side/dedication} \clearemptydoublepage
+%\include{side/thanksto}\clearemptydoublepage
+%\include{side/preface}\clearemptydoublepage
 \tableofcontents \clearemptydoublepage
 
-\include{content/intro/intro} \clearemptydoublepage
-\include{content/heaven/heaven} \clearemptydoublepage
-\include{content/rspengine/rspengine} \clearemptydoublepage
-\include{content/experiments/experiments} \clearemptydoublepage
+%\include{content/executive-summary} \clearemptydoublepage
+%\include{content/background} \clearemptydoublepage
+\include{content/problem-settings} \clearemptydoublepage
+%\include{content/heaven} \clearemptydoublepage
+%\include{content/implementation-experience} \clearemptydoublepage
+%\include{content/evaluation} \clearemptydoublepage
+%\include{content/conclusions} \clearemptydoublepage
+
+
 
 \include{AppendiceA} \clearemptydoublepage
+
+
 
 \nocite{*}
 \bibliographystyle{plain}
