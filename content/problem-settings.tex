@@ -1,60 +1,42 @@
 \chapter{Problem Settings}
 
+In this chapter we present firstly the question that leads our research and the motivations which sustain it. Next we extend in Section x  the requirements posed by the research question and the issues it involves. In the end we provide the technical formalization of those requirements and why our work must cover them, which issue they solves and which limitation we have to face to.
+
 \section{Overview}
+Stream Reasoning research filed wonders to achieve a tight integration of known reasoning systems and DSMS, to exploit reasoning techniques upon rapid changing information \cite{Background SW, DSMS, SR}. An RDF Stream Processing Engine, shortly RSP Engine, is the abstraction that realizes this integration: it can  manage rapidly changing worlds at the semantic level and answer complex queries typical of Semantic Web. The Stream Reasoning community is working on the standardization of a protocol to talk with RSP Engines, which actually can be implemented applying a number of RSP techniques. Their number is increasing together with the need of shared practices and tools to perform analyses and evaluations. As stated in Chapter 2, benchmarking RSP Engines is possible thanks to the proposed RDF streams, continuous queries, and performance measurements. The critics on these works have showed their limits and further developments partially went beyond \cite{paper paper}. However, the the community still lacks the formalization of a comparative approach and an infrastructure that allows to apply it rigorously.
 
-Stream Reasoning research filed wonders to achieve a tight integration of known reasoning systems and DSMS, to exploit reasoning techniques upon rapid changing information. An RDF Stream Processing Engine, shortly RSP Engine, is the system that realizes this integration: it can  manage rapidly changing worlds at the semantic level and answer complex queries typical of Semantic Web. The Stream Reasoning community is working on the standardization of a protocol to talk with RSP Engines, which actually can be implemented applying a number of RSP techniques. This number is increasing together with the need of shared practices and tools to perform analyses and evaluations. As stated in Chapter 2, benchmarking RSP Engines is possible thanks to the proposed RDF streams, continuous queries, and performance measurements. the critics on these works have showed their limits and further developments partially went beyond. However, the the community still lacks the formalization of a comparative approach and an infrastructure that allows to apply it in rigorously.
-The comparative research is case-oriented. It allows the systematic analysis of complex cases, exploiting comparative methods. The complex cases are seen as configurations, a combination of known properties upon which is possible to read parallelism or contrasts.
+In this thesis we propose \namens, a framework that tries to solve the Stream Reasoning need of a Systematic Comparative Approach on RSP Engine evaluation.
 
-In this thesis we propose \namens, a framework that tries to solve the Stream Reasoning need of a Systematic Comparative Approach on RSP Engine evaluation. A Systematic Comparative Approach requires firstly the definition of \textit{Metrics that allow comparison} and standardization of \textit{Evaluation conditions}. Because of this we include in \name the possibility  to define custom metrics collection and the concept of experiment as execution setting. The next step consists in providing \textit{Tools for qualitative analysis} and \textit{Simple Terms of comparison}, which have an experimental validity. The Analyser and the four Baselines fulfil this requests. Last but not least, the comparative method needs \textit{Examples of successful analysis and evaluations}, which can be exploited as guidelines. The Chapter 5 of this thesis present a set of experimental evaluation and show deeply the potential of \name using the Baselines as subject of the analysis.
+
 
 \section{Requirements} \label{sec:requirements}
 
-We developed \name in order to simplify and support comparative research on RSP engines. Moreover we want to make it systematic  and prove the value of a comparative approach. To this extent we need to answer the following questions: 
+We developed \name in order to simplify and support Systematic Comparative Research Approach on RSP engines. To this extent we need to answer the following questions: 
 \begin{enumerate}
 \item[Q.1] How can the behaviour of system be evaluated? 
-\item[Q.2] What makes this evaluation rigorous? %ex Q.3
-%\item[Q.3] How can this evaluation be supported? %ex. Q.2
-\item[Q.3] How can this rigorous evaluation be automated? %ex Q.4
-\item[Q.4] How to identify the point of comparison which sustain the comparative approach? %ex Q.5
-\item[Q.5] Exist a set of case-studies that can be consider ad the patient-zero of our evaluation? %ex Q.6
+\item[Q.2] What makes this evaluation rigorous? 
+\item[Q.3] How can this rigorous evaluation be automated?
 \end{enumerate}
 
-%domande originali scritte da Riccardo
-%\item[Q.1] Which is the best way to evaluate the RSP engine behaviour? 
-%\item[Q.2] How this investigation should be supported? 
-%\item[Q.3] Which are the methods that make this investigation rigorous?
-%\item[Q.4] How this methods should be applied?
+A proper answer to Question Q.1 can be stated exploiting the traditional definition of \textit{experiment}: a test under controlled conditions that is made to demonstrate a known truth or examine the validity of an hypothesis. Going deeply, we answer Q.2 bringing about the notions of \textit{reproducibility}, \textit{repeatability}, and \textit{comparability} of experiments. The concepts we identified make easy to answer Q.3 formalising the technical requirements for \namens.
 
-We answer Question Q.1 using the definition of \textit{experiment}: a test under controlled conditions that is made to demonstrate a known truth or examine the validity of a hypothesis.
-%\textbf{[R0]} 
-Moreover, we answer Q.2 bringing about the notions of  \textit{reproducibility}, \textit{repeatability}, and \textit{comparability} of experiments.
-%To answer those questions we formulates some technical requirements. The answer to Question 1 comes from the formalisation of the evaluation, that takes care of all RSP engine variants. The proper way to proceed is applying the definition of experiment, i.e.,  a test under controlled conditions that is made to demonstrate a known truth or examine the validity of a hypothesis \cite{} \textbf{[R0]}. Under this formal statement some properties answer Question 3, underlining which requirements make the evaluation rigorous, responding also to Question 4: \textsc{repeatability} \textbf{[R1]}; \textsc{reproducibility} \textbf{[R2]} and \textsc{comparability} \textbf{[R3]}.
-At this point we are able to answer Q.3 by eliciting the requirements for \name.
-
-To support reproducibility, \name must allow its users to define an experiment. More specifically: 
+Reproducibility is related to the variation in measurements made on a subject under changing conditions. The concept of experiment gather this conditions. \name must allow its users to define it in details: 
 \begin{enumerate}
 \item[R.1] it must be \textit{test data independent}, thus allowing users to chose relevant RDF data streams and ontologies from their domain of interest. %R.2.1
 \item[R.2] it must be \textit{query independent}, thus allowing users to register relevant queries from their domains of interest. %R.2.2
 \item[R.3] it must be \textit{engine independent}, thus allowing users to put an RSP engine on the test stand by the means of easy to implement software interfaces, e.g., it should adopt an event-base architecture as normally done by RSP engines and present events to RSP engine in a simple to parse RDF serialisation. %R4 e R5
-\item[R.4] it must include a \textit{basic set of performance measurements} \cite{DBLP:conf/esws/ScharrenbachUMVB13} including \textbf{Latency} --defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Usage} -- defined as the difference between total system memory and free memory --, and \textbf{Completeness \& Soundness} of query-answering results.  %R2.3
+\item[R.4] it must include a \textit{basic set of performance measurements} \cite{DBLP:conf/esws/ScharrenbachUMVB13} including \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Usage} -- defined as the difference between total system memory and free memory --, and \textbf{Completeness \& Soundness} of query-answering results.  %R2.3
 \item[R.5] it should enable users to extend the test stand adding their own software sensors in order to other performance measurements %???
 \end{enumerate}
 
-%Experiment conditions may change and this must not affect result validity to ensure \textbf{[R2]}. \name has to guarantee firstly \textit{Data Independence} \textbf{[R2.1]} and \textit{Query Independence} \textbf{[R2.2]}. The definition of experiment dataset and the evaluation to queries response are domain specific problems that we do not face at this point. However, the general nature of our research question demands the possibility to do it later, changing these parameters to study specific sub-problems. Moreover it must provide \textit{Performance Measurements} \textbf{[R2.3]} to identify meaningful experiment variants and support consequent KPI analysis. The minimal measurements set consist in: \textbf{Time Latency} defined as the amount of time between the injection of an event in the RSP Engine and its response; \textbf{Memory Usage} defined as the difference between total system memory and free memory; \textbf{Completeness \& Soundness} of Query-Answering results. 
+In terms of software engineering the list of requirements above demands an \textit{Extendable Design} [R6], i.e.,  the possibility to replace theoretically each module with one with the same interfaces, but different behaviour, without affecting architecture stability.
 
-In terms of software engineering the list of requirements above demands an \textit{Extendable Design} [R6], i.e.,  the possibility to replace theoretically each module with one with the same interfaces, but different behaviour, without affecting architecture stability. % R2.4
-
-To allow repeatability \name must not affect the RSP engine evaluation. This from a practical point of view poses two requirements to the test stand:
+Repeatability of measurements regards the variation in repeat measurements made on the same subject under identical conditions. \name must not affect the RSP engine evaluation to grant it. This from a practical point of view poses two requirements to the test stand:
 \begin{enumerate}
 \item[R.7] it must not be running when the RSP engine is under execution. %R.1.2
 \item[R.8] it must have reduced (and possibly constant) memory footprint. %R.1.1
 \end{enumerate}
 
-%sono arrivato qui
+The comparative research is case-oriented. It allows the systematic analysis of complex cases, exploiting comparable metrics. The complex cases are seen as configurations, a combination of known properties, upon which is possible to identify parallelism or state contrasts. A Systematic Comparative Research Approach (SCRA) requires firstly the definition of \textit{Metrics that allow comparison} and standardization of \textit{Evaluation conditions}.  \name must support the collection of the performance measurements as custom metrics [R.9]; again the concept of experiment is required a formalization for the execution setting. The next step consists in providing \textit{Tools for qualitative analysis}, which allow visualisation of the results [R.10].
 
-%This can be achieve making the test stand transparent w.r.t. the RSP engine process, thus \textbf{[R1.3]}  .  which practically means provide a \textit{reduced memory load} \textbf{[R1.1]} and a \textit{balanced computational effort} \textbf{[R1.2]}.
-
-%Experiment conditions may change and this must not affect result validity to ensure \textbf{[R2]}. \name has to guarantee firstly \textit{Data Independence} \textbf{[R2.1]} and \textit{Query Independence} \textbf{[R2.2]}. The definition of experiment dataset and the evaluation to queries response are domain specific problems that we do not face at this point. However, the general nature of our research question demands the possibility to do it later, changing these parameters to study specific sub-problems. Moreover it must provide \textit{Performance Measurements} \textbf{[R2.3]} to identify meaningful experiment variants and support consequent KPI analysis. The minimal measurements set consist in: \textbf{Time Latency} defined as the amount of time between the injection of an event in the RSP Engine and its response; \textbf{Memory Usage} defined as the difference between total system memory and free memory; \textbf{Completeness \& Soundness} of Query-Answering results. 
-%In terms of software engineering R2 requires an \textit{Extendable Design} \textbf{[R2.4]}, that allows us to replace theoretically each module without affecting architecture stability.
-
-Last but not least, to enable comparability of experiments, \name must support the collection of the performance measurements [R.9] and it should provide tools to analyse and visualise them [R.10].%R.3
+Last but not least, to simplify SCRA is important to identify \textit{Simple terms of comparison}, which have an experimental validity. \name contains specific modules to fulfil this requests, more details about them in Chapter 6 . Those modules support the consequent need of \textit{Examples of successful analysis and evaluations}, which can be exploited as guidelines. Chapter 7 of this thesis present a set of experimental evaluations which show deeply the potential of \name.
