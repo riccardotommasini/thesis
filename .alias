@@ -1,0 +1,2 @@
+alias compth="pdflatex thesis.tex && pdflatex thesis.tex" 
+
