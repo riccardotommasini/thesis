@@ -41,16 +41,23 @@ Repeatability of measurements regards the variation in repeat measurements made 
 
 The comparative research is case-oriented. It allows the systematic analysis of complex cases, exploiting comparable metrics. The complex cases are seen as configurations, a combination of known properties, upon which is possible to identify parallelism or state contrasts. A Systematic Comparative Research Approach (SCRA) requires both the definition of \textit{Metrics that allow comparison} and the standardization of \textit{Evaluation conditions}.  \name must support the collection of the performance measurements as custom metrics [R.9]; again the concept of experiment is required as a formalization for the execution setting. The next step consists in providing \textit{Tools for qualitative analysis}, which allow visualisation of the results [R.10].
 
-Moreover \textit{Initial terms of comparison}, a.k.a. baselines, are needed to guide the SCRA. A baseline is an elementary solution for the research problem, which maintains experimental validity and consequently is relevant as a term of comparison. Baselines can be exploited as a simple case-studies to support the need of \textit{Examples of successful analysis and evaluations}, which can be seen as guidelines
+Moreover \textit{Initial terms of comparison}, a.k.a. baselines, are needed to guide the SCRA. A baseline is an elementary solution for the research problem, which maintains experimental validity and consequently is relevant as a term of comparison. Baselines can be exploited as a simple case-studies to support the need of \textit{Successful analysis and evaluations examples}, which can be seen as guidelines.
 
-\name contains specific modules to fulfil this request, which of course presents their own requirements.
+\name contains specific modules to fulfil this request, which of course presents their own requirements. As follow, a Baseline must be.. 
 
 \begin{enumerate}
-\item[B.R.1] They must be a solution: entirely solve the problem, maybe at the expense of the performances % devono risolvere interamente il problema, nel nostro caso devono essere complete e sound rispetto ad entailment regime che si è scelto
-\item[B.R.3] They must be elementary: not represent a innovative solution w.r.t. the state of the art % non devono essere soluzioni smart, devono chiedere il minimo effort
-\item[B.R.2] They must be valid: the performance measurements must be comparable %e' inutile se sono sopra un'ordine di grandezza ad esempio in latenza, rispetto ad una soluzione commerciale. probabilmente è sbagliata la domanda di ricerca
-\item[B.R.2] They must be relevant: They must cover one of the most relevant variants in theoretical solution %la soluzione che coprono deve essere una delle immediate soluzioni del problema iniziale: Graph vs Statement o Inc vs Naive, tempo controllato esternamente, ecc
-\item[B.R.4] They must %non devono offrire api più complesse rispetto a un RSPEngine tradizionale.
+\item[R.11] a solution: it solves the problem entirely,without concerning about performance % devono risolvere interamente il problema, nel nostro caso devono essere complete e sound rispetto ad entailment regime che si è scelto
+\item[R.12] elementary: it does not represent a innovative solution w.r.t. the state of the art. Baselines requires the minimum effort in terms of design % non devono essere soluzioni smart, devono chiedere il minimo effort
+\item[R.13] valid: the performance measurements must be comparable with smarter solution and their comparison must have sense in a realistic context%e' inutile se sono sopra un'ordine di grandezza ad esempio in latenza, rispetto ad una soluzione commerciale. probabilmente è sbagliata la domanda di ricerca
+\item[R.14] relevant: it must cover one of the most relevant variations in theoretical solution, in agreement with the case-oriented nature of CSRA %la soluzione che coprono deve essere una delle immediate soluzioni del problema iniziale: Graph vs Statement o Inc vs Naive, tempo controllato esternamente, ecc
+\item[R.15] simple: the solution design it implements must be easy to understand. In this way is possible to formulate hypothesis from a theoretical viewpoint. Obviously there are no guarantees about the experimental verification   %non devono offrire api più complesse rispetto a un RSPEngine tradizionale.
 \end{enumerate}
 
+Some of those requirements assume a problem-specific meaning. As advocated in the early works on Stream Reasoning \cite{1,2} the most simple approach to create a stream reasoning system is arrange into a pipeline DSMS with a reasoner. Baselines design must follow this statement to develop a full solution [R.11] which is very simple w.r.t the commercial ones presented in Chapter 2 [R.12]. The background section related to this states how two main design decisions can distinguish the baselines: the RDF stream model and the architecture. From this point of view \name must provide at least 4 Baselines [R.14], which cover all possible combinations of the two alternative RDF stream models and the possible architectures variants, which are again two. 
 
+
+%B.R.1 
+%naive, incremental reasoning; statement graph rdf stream, external timekeeping, different entailment regime
+%B.R.2 ldobbiamo implementare soluzioni che coprano tutte le varianti teoriche presentate nel backgroun, 'architettura più semplice possibile è quella presentata nel paper x, rappresenta una integraione di due sistem come pipeline che di fatto significa semplicemente concatenarli
+%B.R.3. e' un parmetro che si può valutare solo in contesto sperimentale, ecco perchè esperimenti riguardanti le baselines sono importanti
+%B.R.4 vedi BR2 
