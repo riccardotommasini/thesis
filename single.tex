@@ -116,47 +116,10 @@
 %--------------------------------------------------------------------------------
 % include title page
 %--------------------------------------------------------------------------------
-\include{title}
+
 
 \pagestyle{fancy}
 \renewcommand{\contentsname}{Table of Contents}%
-
-%--------------------------------------------------------------------------------
-% include the abstract in italian
-%--------------------------------------------------------------------------------
-\chapter*{Estratto}
-\input{estratto}
-
-%--------------------------------------------------------------------------------
-% include the abstract in english
-%--------------------------------------------------------------------------------
-\chapter*{Abstract}
-\input{abstract}
-
-%--------------------------------------------------------------------------------
-% talbe of contents
-%--------------------------------------------------------------------------------
-\tableofcontents
-\cleardoublepage
-
-\pagenumbering{arabic}
-
-\setcounter{page}{1}
-
-
-%--------------------------------------------------------------------------------
-% introduction
-%--------------------------------------------------------------------------------
-\chapter{Introduction}
-\label{chap:one}
-\input{chap_one}
-
-%--------------------------------------------------------------------------------
-% chapters
-%--------------------------------------------------------------------------------
-\chapter{\dots}
-\label{chap:two}
-\input{chap_two}
 
 %--------------------------------------------------------------------------------
 % problem settings
@@ -166,26 +129,6 @@
 \input{content/problem-settings}
 
 
-
-%--------------------------------------------------------------------------------
-% conclusions and future works
-%--------------------------------------------------------------------------------
-\chapter{Conclusions and Future Works}
-\label{chap:conclusions}
-\input{chap_conclusions}
-
-%--------------------------------------------------------------------------------
-% appendices
-%--------------------------------------------------------------------------------
-\part*{Appendices\label{part:app}\addcontentsline{toc}{part}{Appendices}}
-\appendix
-\chapter{\dots}
-\label{app:one}
-\input{app_one}
-
-\chapter{\dots}
-\label{app:two}
-\input{app_two}
 
 \bibliographystyle{plain}
 \bibliography{tesi.bib}
