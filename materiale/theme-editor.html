@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 wp-toolbar"  lang="en-US">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="wp-toolbar"  lang="en-US">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Edit Themes &lsaquo; ERMES VIAGGI &#8212; WordPress</title>
+<script type="text/javascript">
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = '/wp-admin/admin-ajax.php',
+	pagenow = 'theme-editor',
+	typenow = '',
+	adminpage = 'theme-editor-php',
+	thousandsSeparator = ',',
+	decimalPoint = '.',
+	isRtl = 0;
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel='stylesheet' href='http://www.ermesviaggi.it/wp-admin/load-styles.php?c=1&amp;dir=ltr&amp;load=dashicons,admin-bar,wp-admin,buttons,wp-auth-check&amp;ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='functions-css'  href='http://www.ermesviaggi.it/wp-content/themes/OldTravelo/themeoptions/style//um_style.css?ver=1.0' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='ie-css'  href='http://www.ermesviaggi.it/wp-admin/css/ie.min.css?ver=4.0.1' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='thickbox-css'  href='http://www.ermesviaggi.it/wp-includes/js/thickbox/thickbox.css?ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='BookingCss-css'  href='http://www.ermesviaggi.it/wp-content/themes/OldTravelo/includes/bookingStyle.css?ver=1.0' type='text/css' media='all' />
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var userSettings = {"url":"\/","uid":"1","time":"1425063383","secure":""};/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.ermesviaggi.it/wp-admin/load-scripts.php?c=1&amp;load%5B%5D=jquery-core,jquery-migrate,utils&amp;ver=4.0.1'></script>
+<script type='text/javascript' src='http://www.ermesviaggi.it/wp-content/themes/OldTravelo/includes/adminJS.js?ver=4.0.1'></script>
+		<script type="text/javascript">
+			var revslider_shortcodes = [];
+		</script>
+		<script type="text/javascript">var _wpColorScheme = {"icons":{"base":"#999","focus":"#2ea2cc","current":"#fff"}};</script>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+</head>
+<body class="wp-admin wp-core-ui no-js  theme-editor-php auto-fold admin-bar branch-4 version-4-0-1 admin-color-fresh locale-en-us no-customize-support no-svg">
+<script type="text/javascript">
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+			request = true;
+
+			b[c] = b[c].replace( rcs, ' ' );
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+	
+<div id="wpwrap">
+<a tabindex="1" href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+<ul id="adminmenu" role="navigation">
+
+
+	<li class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" id="menu-dashboard">
+	<a href='index.php' class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-dashboard'><br /></div><div class='wp-menu-name'>Dashboard</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Dashboard</li><li class="wp-first-item"><a href='index.php' class="wp-first-item">Home</a></li><li><a href='update-core.php'>Updates <span class='update-plugins count-5' title='1 WordPress Update, 1 Plugin Update, 3 Theme Updates'><span class='update-count'>5</span></span></a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu open-if-no-js menu-top menu-icon-post menu-top-first" id="menu-posts">
+	<a href='edit.php' class="wp-has-submenu wp-not-current-submenu open-if-no-js menu-top menu-icon-post menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Posts</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Posts</li><li class="wp-first-item"><a href='edit.php' class="wp-first-item">All Posts</a></li><li><a href='post-new.php'>Add New</a></li><li><a href='edit-tags.php?taxonomy=category'>Categories</a></li><li><a href='edit-tags.php?taxonomy=post_tag'>Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
+	<a href='upload.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-media'><br /></div><div class='wp-menu-name'>Media</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Media</li><li class="wp-first-item"><a href='upload.php' class="wp-first-item">Library</a></li><li><a href='media-new.php'>Add New</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" id="menu-pages">
+	<a href='edit.php?post_type=page' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-page'><br /></div><div class='wp-menu-name'>Pages</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Pages</li><li class="wp-first-item"><a href='edit.php?post_type=page' class="wp-first-item">All Pages</a></li><li><a href='post-new.php?post_type=page'>Add New</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-comments" id="menu-comments">
+	<a href='edit-comments.php' class="wp-not-current-submenu menu-top menu-icon-comments" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-comments'><br /></div><div class='wp-menu-name'>Comments <span class='awaiting-mod count-1'><span class='pending-count'>1</span></span></div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post menu-top-last" id="menu-posts-tours_post">
+	<a href='edit.php?post_type=tours_post' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Tours</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Tours</li><li class="wp-first-item"><a href='edit.php?post_type=tours_post' class="wp-first-item">Tours</a></li><li><a href='post-new.php?post_type=tours_post'>Add New</a></li><li><a href='edit-tags.php?taxonomy=tour_category&amp;post_type=tours_post'>Tour Category</a></li><li><a href='edit-tags.php?taxonomy=um_destinazioni&amp;post_type=tours_post'>Destinazioni</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-appearance menu-top-first" id="menu-appearance">
+	<a href='themes.php' class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-appearance menu-top-first" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-appearance'><br /></div><div class='wp-menu-name'>Appearance</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Appearance</li><li class="wp-first-item"><a href='themes.php' class="wp-first-item">Themes</a></li><li class="hide-if-no-customize"><a href='customize.php?return=%2Fwp-admin%2Ftheme-editor.php%3Ffile%3Dsingle-tours_post.php%26theme%3DOldTravelo' class="hide-if-no-customize">Customize</a></li><li><a href='widgets.php'>Widgets</a></li><li><a href='nav-menus.php'>Menus</a></li><li class="current"><a href='theme-editor.php' class="current">Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" id="menu-plugins">
+	<a href='plugins.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-plugins'><br /></div><div class='wp-menu-name'>Plugins <span class='update-plugins count-1'><span class='plugin-count'>1</span></span></div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Plugins <span class='update-plugins count-1'><span class='plugin-count'>1</span></span></li><li class="wp-first-item"><a href='plugins.php' class="wp-first-item">Installed Plugins</a></li><li><a href='plugin-install.php'>Add New</a></li><li><a href='plugin-editor.php'>Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" id="menu-users">
+	<a href='users.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-users'><br /></div><div class='wp-menu-name'>Users</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Users</li><li class="wp-first-item"><a href='users.php' class="wp-first-item">All Users</a></li><li><a href='user-new.php'>Add New</a></li><li><a href='profile.php'>Your Profile</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" id="menu-tools">
+	<a href='tools.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-tools'><br /></div><div class='wp-menu-name'>Tools</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Tools</li><li class="wp-first-item"><a href='tools.php' class="wp-first-item">Available Tools</a></li><li><a href='import.php'>Import</a></li><li><a href='export.php'>Export</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" id="menu-settings">
+	<a href='options-general.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-settings'><br /></div><div class='wp-menu-name'>Settings</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Settings</li><li class="wp-first-item"><a href='options-general.php' class="wp-first-item">General</a></li><li><a href='options-writing.php'>Writing</a></li><li><a href='options-reading.php'>Reading</a></li><li><a href='options-discussion.php'>Discussion</a></li><li><a href='options-media.php'>Media</a></li><li><a href='options-permalink.php'>Permalinks</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-not-current-submenu menu-top toplevel_page_revslider menu-top-first" id="toplevel_page_revslider">
+	<a href='admin.php?page=revslider' class="wp-not-current-submenu menu-top toplevel_page_revslider menu-top-first" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-update'><br /></div><div class='wp-menu-name'>Revolution Slider</div></a></li>
+	<li class="wp-not-current-submenu menu-top toplevel_page_themepunch-google-fonts" id="toplevel_page_themepunch-google-fonts">
+	<a href='admin.php?page=themepunch-google-fonts' class="wp-not-current-submenu menu-top toplevel_page_themepunch-google-fonts" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-editor-textcolor'><br /></div><div class='wp-menu-name'>Punch Fonts</div></a></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-generic toplevel_page_se-all-bookings" id="toplevel_page_se-all-bookings">
+	<a href='admin.php?page=se-all-bookings' class="wp-not-current-submenu menu-top menu-icon-generic toplevel_page_se-all-bookings" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Booking</div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_acf-options-main menu-top-last" id="toplevel_page_acf-options-main"><a href='admin.php?page=acf-options-main' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_acf-options-main menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Options</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Options</li><li class="wp-first-item"><a href='admin.php?page=acf-options-main' class="wp-first-item">Main</a></li><li><a href='admin.php?page=acf-options-filter'>Filter</a></li><li><a href='admin.php?page=acf-options-default-tour-attibutes'>Default Tour Attibutes</a></li><li><a href='admin.php?page=acf-options-booking-options'>Booking Options</a></li><li><a href='admin.php?page=acf-options-footer'>Footer</a></li><li><a href='admin.php?page=acf-options-shortcode-sliders'>Shortcode Sliders</a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><div id="collapse-button"><div></div></div><span>Collapse menu</span></li></ul>
+</div>
+<div id="wpcontent">
+
+		<div id="wpadminbar" class="nojq nojs" role="navigation">
+			<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+			<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-menu-toggle"><a class="ab-item"  href="#"><span class="ab-icon"></span><span class="screen-reader-text">Menu</span></a>		</li>
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://www.ermesviaggi.it/wp-admin/about.php" title="About WordPress"><span class="ab-icon"></span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="http://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://www.ermesviaggi.it/">ERMES VIAGGI</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-view-site"><a class="ab-item"  href="http://www.ermesviaggi.it/">Visit Site</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-updates"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/update-core.php" title="1 WordPress Update, 1 Plugin Update, 3 Theme Updates"><span class="ab-icon"></span><span class="ab-label">5</span><span class="screen-reader-text">1 WordPress Update, 1 Plugin Update, 3 Theme Updates</span></a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/edit-comments.php" title="1 comment awaiting moderation"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-1">1</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://www.ermesviaggi.it/wp-admin/post-new.php" title="Add New"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/post-new.php">Post</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/media-new.php">Media</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-tours_post"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/post-new.php?post_type=tours_post">Tour</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/user-new.php">User</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="http://www.ermesviaggi.it/wp-admin/profile.php" title="My Account">Howdy, admin<img alt='' src='http://0.gravatar.com/avatar/2da53b411bcdd8b5dbe946000ebf34d8?s=26&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D26&amp;r=G' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://www.ermesviaggi.it/wp-admin/profile.php"><img alt='' src='http://0.gravatar.com/avatar/2da53b411bcdd8b5dbe946000ebf34d8?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>admin</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-admin/profile.php">Edit My Profile</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item"  href="http://www.ermesviaggi.it/wp-login.php?action=logout&#038;_wpnonce=b669afea6e">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="http://www.ermesviaggi.it/wp-login.php?action=logout&#038;_wpnonce=b669afea6e">Log Out</a>
+					</div>
+
+		
+<div id="wpbody">
+
+<div id="wpbody-content" aria-label="Main content" tabindex="0">
+		<div id="screen-meta" class="metabox-prefs">
+
+			<div id="contextual-help-wrap" class="hidden" tabindex="-1" aria-label="Contextual Help Tab">
+				<div id="contextual-help-back"></div>
+				<div id="contextual-help-columns">
+					<div class="contextual-help-tabs">
+						<ul>
+						
+							<li id="tab-link-overview" class="active">
+								<a href="#tab-panel-overview" aria-controls="tab-panel-overview">
+									Overview								</a>
+							</li>
+												</ul>
+					</div>
+
+										<div class="contextual-help-sidebar">
+						<p><strong>For more information:</strong></p><p><a href="http://codex.wordpress.org/Theme_Development" target="_blank">Documentation on Theme Development</a></p><p><a href="http://codex.wordpress.org/Using_Themes" target="_blank">Documentation on Using Themes</a></p><p><a href="http://codex.wordpress.org/Editing_Files" target="_blank">Documentation on Editing Files</a></p><p><a href="http://codex.wordpress.org/Template_Tags" target="_blank">Documentation on Template Tags</a></p><p><a href="https://wordpress.org/support/" target="_blank">Support Forums</a></p>					</div>
+					
+					<div class="contextual-help-tabs-wrap">
+						
+							<div id="tab-panel-overview" class="help-tab-content active">
+								<p>You can use the Theme Editor to edit the individual CSS and PHP files which make up your theme.</p>
+	<p>Begin by choosing a theme to edit from the dropdown menu and clicking Select. A list then appears of all the template files. Clicking once on any file name causes the file to appear in the large Editor box.</p>
+	<p>For PHP files, you can use the Documentation dropdown to select from functions recognized in that file. Look Up takes you to a web page with reference material about that particular function.</p>
+	<p id="newcontent-description">In the editing area the Tab key enters a tab character. To move below this area by pressing Tab, press the Esc key followed by the Tab key.</p>
+	<p>After typing in your edits, click Update File.</p>
+	<p><strong>Advice:</strong> think very carefully about your site crashing if you are live-editing the theme currently in use.</p>
+	<p>Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href="http://codex.wordpress.org/Child_Themes" target="_blank">child theme</a> instead.</p>							</div>
+											</div>
+				</div>
+			</div>
+				</div>
+				<div id="screen-meta-links">
+					<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
+			<a href="#contextual-help-wrap" id="contextual-help-link" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false">Help</a>
+			</div>
+				</div>
+		<div class='update-nag'><a href="http://codex.wordpress.org/Version_4.1.1">WordPress 4.1.1</a> is available! <a href="http://www.ermesviaggi.it/wp-admin/update-core.php">Please update now</a>.</div><div class="wrap">
+<h2>Edit Themes</h2>
+
+<div class="fileedit-sub">
+<div class="alignleft">
+<h3>Travelo: single-tours_post.php</h3>
+</div>
+<div class="alignright">
+	<form action="theme-editor.php" method="post">
+		<strong><label for="theme">Select theme to edit: </label></strong>
+		<select name="theme" id="theme">
+
+	<option value="OldTravelo" selected="selected">Travelo</option>
+	<option value="Travelo">Travelo</option>
+	<option value="twentyfourteen">Twenty Fourteen</option>
+	<option value="twentythirteen">Twenty Thirteen</option>
+	<option value="twentytwelve">Twenty Twelve</option>		</select>
+		<input type="submit" name="Submit" id="Submit" class="button" value="Select"  />	</form>
+</div>
+<br class="clear" />
+</div>
+	<div id="templateside">
+	<h3>Templates</h3>
+		<ul>
+		<li><a href="theme-editor.php?file=advanced-custom-fields%2Facf.php&amp;theme=OldTravelo">acf.php</a></li>
+		<li><a href="theme-editor.php?file=archive.php&amp;theme=OldTravelo">Archives<br /><span class="nonessential">(archive.php)</span></a></li>
+		<li><a href="theme-editor.php?file=bu_template-contact.php&amp;theme=OldTravelo">Contact Page Template<br /><span class="nonessential">(bu_template-contact.php)</span></a></li>
+		<li><a href="theme-editor.php?file=comments.php&amp;theme=OldTravelo">Comments<br /><span class="nonessential">(comments.php)</span></a></li>
+		<li><a href="theme-editor.php?file=content-bucket.php&amp;theme=OldTravelo">content-bucket.php</a></li>
+		<li><a href="theme-editor.php?file=css%2Ftemplate-iframe.php&amp;theme=OldTravelo">iFrame Page Template<br /><span class="nonessential">(css/template-iframe.php)</span></a></li>
+		<li><a href="theme-editor.php?file=footer.php&amp;theme=OldTravelo">Footer<br /><span class="nonessential">(footer.php)</span></a></li>
+		<li><a href="theme-editor.php?file=functions.php&amp;theme=OldTravelo">Theme Functions<br /><span class="nonessential">(functions.php)</span></a></li>
+		<li><a href="theme-editor.php?file=header.php&amp;theme=OldTravelo">Header<br /><span class="nonessential">(header.php)</span></a></li>
+		<li><a href="theme-editor.php?file=home.php&amp;theme=OldTravelo">home.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fbooking.php&amp;theme=OldTravelo">booking.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fbooking_import.php&amp;theme=OldTravelo">booking_import.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fcomment.php&amp;theme=OldTravelo">comment.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fcostume_fields.php&amp;theme=OldTravelo">costume_fields.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Ffilter-search.php&amp;theme=OldTravelo">filter-search.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fpagination.php&amp;theme=OldTravelo">pagination.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fpost-types.php&amp;theme=OldTravelo">post-types.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fregister-sidebar.php&amp;theme=OldTravelo">register-sidebar.php</a></li>
+		<li><a href="theme-editor.php?file=includes%2Fshortcodes.php&amp;theme=OldTravelo">shortcodes.php</a></li>
+		<li><a href="theme-editor.php?file=index.php&amp;theme=OldTravelo">Main Index Template<br /><span class="nonessential">(index.php)</span></a></li>
+		<li><a href="theme-editor.php?file=page.php&amp;theme=OldTravelo">Page Template<br /><span class="nonessential">(page.php)</span></a></li>
+		<li><a href="theme-editor.php?file=post-comments.php&amp;theme=OldTravelo">post-comments.php</a></li>
+		<li><a href="theme-editor.php?file=registered-fields%2Fgoogle-fonts.php&amp;theme=OldTravelo">google-fonts.php</a></li>
+		<li><a href="theme-editor.php?file=registered-fields%2Fgooglefonts.php&amp;theme=OldTravelo">googlefonts.php</a></li>
+		<li><a href="theme-editor.php?file=registered-fields%2Fpatterns.php&amp;theme=OldTravelo">patterns.php</a></li>
+		<li><a href="theme-editor.php?file=registered-fields%2Fpresets.php&amp;theme=OldTravelo">presets.php</a></li>
+		<li><a href="theme-editor.php?file=search.php&amp;theme=OldTravelo">Search Results<br /><span class="nonessential">(search.php)</span></a></li>
+		<li><a href="theme-editor.php?file=sidebar.php&amp;theme=OldTravelo">Sidebar<br /><span class="nonessential">(sidebar.php)</span></a></li>
+		<li><a href="theme-editor.php?file=single-tours_post.php&amp;theme=OldTravelo"><span class="highlight">single-tours_post.php</span></a></li>
+		<li><a href="theme-editor.php?file=single.php&amp;theme=OldTravelo">Single Post<br /><span class="nonessential">(single.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-about.php&amp;theme=OldTravelo">About Page Template<br /><span class="nonessential">(template-about.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-blog.php&amp;theme=OldTravelo">Blog Page Template<br /><span class="nonessential">(template-blog.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-booking.php&amp;theme=OldTravelo">Booking Page Template<br /><span class="nonessential">(template-booking.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-contact.php&amp;theme=OldTravelo">Contact Page Template<br /><span class="nonessential">(template-contact.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-full-width.php&amp;theme=OldTravelo">Full Width Page Template<br /><span class="nonessential">(template-full-width.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-home.php&amp;theme=OldTravelo">Home Page Template<br /><span class="nonessential">(template-home.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-iframe.php&amp;theme=OldTravelo">iFrame Page Template<br /><span class="nonessential">(template-iframe.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-search.php&amp;theme=OldTravelo">Search Page Template<br /><span class="nonessential">(template-search.php)</span></a></li>
+		<li><a href="theme-editor.php?file=template-travels.php&amp;theme=OldTravelo">Travels Page Template<br /><span class="nonessential">(template-travels.php)</span></a></li>
+		<li><a href="theme-editor.php?file=tgm%2Fclass-tgm-plugin-activation.php&amp;theme=OldTravelo">class-tgm-plugin-activation.php</a></li>
+		<li><a href="theme-editor.php?file=tgm%2Fplugins.php&amp;theme=OldTravelo">plugins.php</a></li>
+		<li><a href="theme-editor.php?file=themeoptions%2Foptions-page.php&amp;theme=OldTravelo">options-page.php</a></li>
+		<li><a href="theme-editor.php?file=themeoptions%2Foptions.php&amp;theme=OldTravelo">options.php</a></li>
+		<li><a href="theme-editor.php?file=themeoptions%2Ftest.php&amp;theme=OldTravelo">test.php</a></li>
+		<li><a href="theme-editor.php?file=widgets%2Fwidget-search-filter.php&amp;theme=OldTravelo">widget-search-filter.php</a></li>
+	</ul>
+	<h3>Styles</h3>
+	<ul>
+		<li><a href="theme-editor.php?file=style.css&amp;theme=OldTravelo">Stylesheet<br /><span class="nonessential">(style.css)</span></a></li>
+		<li><a href="theme-editor.php?file=skin_blue.css&amp;theme=OldTravelo">skin_blue.css</a></li>
+</ul>
+</div>
+	<form name="template" id="template" action="theme-editor.php" method="post">
+	<input type="hidden" id="_wpnonce" name="_wpnonce" value="55caf9d71e" /><input type="hidden" name="_wp_http_referer" value="/wp-admin/theme-editor.php?file=single-tours_post.php&amp;theme=OldTravelo" />		<div><textarea cols="70" rows="30" name="newcontent" id="newcontent" aria-describedby="newcontent-description">&lt;?php
+     get_header(); 
+     global $post;
+     setup_postdata( $post );
+     ?&gt;
+   &lt;script&gt;
+        var tourRate = &quot;&lt;?php echo get_field(&#039;rating&#039;); ?&gt;&quot;;
+		&lt;?php if(!get_field(&#039;disable_all_price&#039;,&#039;options&#039;)):?&gt;
+			 var priceValue =&quot;&lt;h5 class=\&quot;sliderPrice\&quot;&gt;&lt;b&gt;&lt;?php the_field(&#039;tour_currency&#039;); the_field(&#039;price&#039;);?&gt;&lt;/b&gt;&lt;/h5&gt;&quot;;
+			&lt;?php else:?&gt;
+			var priceValue = &quot;&quot;;
+		&lt;?php endif; ?&gt;
+    &lt;/script&gt;
+ 		    	&lt;div class=&quot;contentCity&quot;&gt;
+            	&lt;div class=&quot;leftCity&quot;&gt;
+
+   &lt;div class=&quot;latestOffers&quot;&gt; 
+            &lt;h5&gt;Ultimi Tours&lt;/h5&gt;
+             &lt;img src=&quot;&lt;?php echo get_template_directory_uri().&#039;/images/blog_arrow.png&#039; ?&gt;&quot; /&gt;
+            &lt;?php 
+                $tours = array(&#039;post_type&#039; =&gt; &#039;tours_post&#039; , &#039;posts_per_page&#039; =&gt; -1);
+                $the_query = new WP_Query($tours);
+                 while ( $the_query-&gt;have_posts() ) :
+	            $the_query-&gt;the_post();
+	            ?&gt;
+                    &lt;p&gt;&lt;a href=&quot;&lt;?php the_permalink(); ?&gt;&quot;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/p&gt;
+              &lt;?php 
+                endwhile;
+                 wp_reset_postdata();
+                ?&gt;
+        &lt;/div&gt;
+                	&lt;div class=&quot;citySlider&quot;&gt;
+
+                &lt;div id=&quot;gallery&quot; class=&quot;ad-gallery&quot;&gt;
+                  &lt;div class=&quot;ad-image-wrapper&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ad-nav&quot;&gt;
+                    &lt;div class=&quot;ad-thumbs&quot;&gt;
+                      &lt;ul class=&quot;ad-thumb-list&quot;&gt;
+                        &lt;?php 
+                        $tour_images = get_field(&#039;tour_slider&#039;);
+                        if($tour_images):
+                            foreach($tour_images as $image):
+                        ?&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;&lt;?php echo $image[&#039;image&#039;]; ?&gt;&quot;&gt;
+                            &lt;img src=&quot;&lt;?php echo $image[&#039;image&#039;]; ?&gt;&quot;&gt;
+                            &lt;/a&gt;                      
+                        &lt;/li&gt;
+                        &lt;?php 
+                            endforeach; 
+                            endif;                       
+                        ?&gt;
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+      
+                   &lt;/div&gt;
+
+                     &lt;?php 
+                        $taxonomies = array();
+                        $tourCategories = get_field(&#039;filter_options_attributes&#039;,&#039;options&#039;);
+			if($tourCategories){
+                            foreach($tourCategories as $cat)
+                                {
+                                        $current_cat = &quot;um_&quot;.toAscii($cat[&quot;category_name&quot;]);
+                                        $tax = wp_get_post_terms($post-&gt;ID, $current_cat , array(&quot;fields&quot; =&gt; &quot;all&quot;)); 
+                                        if(!empty($tax[0]-&gt;name))
+                                        {
+                                            array_push($taxonomies,array(
+                                                    &quot;Name&quot;  =&gt; $cat[&quot;category_name&quot;],
+                                                    &quot;Value&quot; =&gt; $tax[0]-&gt;name
+                                            ));
+                                        }
+                                 }
+                        }
+                       
+                    ?&gt;
+                    &lt;div class=&quot;property&quot;&gt;
+                        &lt;?php if($taxonomies):?&gt;
+                            &lt;?php foreach($taxonomies as $tax):?&gt;
+                        	&lt;div&gt;   
+                                &lt;p&gt;&lt;b&gt;&lt;?php echo $tax[&#039;Name&#039;];?&gt;: &lt;/b&gt;
+                                &lt;?php echo $tax[&#039;Value&#039;];?&gt;&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;?php endforeach;?&gt;
+                        &lt;?php endif;?&gt;                               
+                       &lt;!-- &lt;div&gt;
+                            &lt;p&gt;&lt;b&gt;&lt;?php _e(&#039;Stars&#039;,&#039;um_lang&#039;);?&gt;&lt;/b&gt;&lt;/p&gt;
+                            &lt;p class=&quot;ratingStars&quot;&gt;&lt;/p&gt;
+                        &lt;/div&gt;    --&gt;       
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;rightCity&quot;&gt;
+                	&lt;h3&gt;&lt;b&gt;&lt;?php the_title();?&gt;&lt;/b&gt;&lt;/h3&gt;
+
+                    &lt;?php
+                         $available_dates = get_field(&#039;available_dates&#039;);
+                            if($available_dates)
+                            {
+                                $count = count($available_dates);
+                                if($count &gt; 1)
+                                {
+                                     echo &#039;&lt;h6 class=&quot;blue&quot;&gt;From &lt;b&gt;&#039;.date(&quot;F d, Y&quot;, strtotime($available_dates[0][&#039;arrival_date&#039;])).&#039;&lt;/b&gt; to &lt;b&gt;&#039;.date(&quot;F d, Y&quot;, strtotime($available_dates[$count - 1][&#039;arrival_date&#039;])).&#039;&lt;/b&gt;&lt;/h6&gt;&#039;;
+                                }
+                                else
+                                {
+                                     echo &#039;&lt;h6 class=&quot;blue&quot;&gt;From &lt;b&gt;&#039;.date(&quot;F d, Y&quot;, strtotime($available_dates[0][&#039;arrival_date&#039;])).&#039;&lt;/b&gt;&lt;/h6&gt;&#039;;
+                                }
+                            }
+                            ?&gt;
+
+                    &lt;p&gt;&lt;?php the_content();?&gt;&lt;/p&gt;
+                    &lt;table&gt;    
+                        &lt;?php 
+                            $checkForDefault = get_field(&#039;use_default_tour_attribute&#039;);
+                            if($checkForDefault)    { $tour_attributes = get_field(&#039;tour_attributes&#039;,&#039;options&#039;); }
+                            else                    { $tour_attributes = get_field(&#039;tour_attributes&#039;); }
+                    
+                            if($tour_attributes):
+                                foreach($tour_attributes as $attribute):
+                                    if($attribute[&#039;show_on_tour&#039;]):     
+                        ?&gt;
+                        &lt;tr&gt;
+                               &lt;td&gt;&lt;?php echo $attribute[&#039;attribute_name&#039;]?&gt;&lt;/td&gt;
+                                &lt;td&gt;&lt;?php echo $attribute[&#039;attribute_value&#039;]?&gt;&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;?php
+                              endif;
+                              endforeach; 
+                              endif;
+                         ?&gt;
+                    &lt;/table&gt; 
+            
+&lt;?php 
+  
+   $pages = get_pages(array(
+                &#039;meta_key&#039; =&gt; &#039;_wp_page_template&#039;,
+                &#039;meta_value&#039; =&gt; &#039;template-booking.php&#039;,
+                &#039;hierarchical&#039; =&gt; 0
+        )); 
+
+?&gt;                 
+            &lt;form method=&quot;post&quot; action=&quot;&lt;?php echo get_permalink(get_page_by_title($pages[0]-&gt;post_title)); ?&gt;&quot; class=&quot;cityBook&quot;&gt;
+                &lt;span class=&quot;selector&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name =&quot;um_choose&quot; value=&quot;&lt;?php echo the_id();?&gt;&quot;&gt;
+            	   &lt;a href=&quot;&quot; onclick=&quot;jQuery(this).closest(&#039;form&#039;).submit(); return false;&quot;&gt;&lt;div class=&quot;bookBtn&quot;&gt;&lt;p&gt;Prenota&lt;/p&gt;&lt;/div&gt;&lt;/a&gt; 
+                &lt;/span&gt;
+            &lt;/form&gt;   
+&lt;?php wp_reset_postdata();?&gt;            
+                &lt;/div&gt;&lt;!-- END rightCity --&gt;
+            &lt;/div&gt;&lt;!-- END contentCity --&gt;
+    
+            &lt;?php $tabs = get_field(&quot;tabs&quot;);
+                  $showTabs = get_field(&#039;show_on_page&#039;);
+               if($showTabs):
+                    if($tabs):
+             ?&gt;    
+           &lt;div class=&quot;tabHolder&quot;&gt;
+                &lt;div class=&quot;tabsWrapper&quot;&gt;
+                    &lt;div class=&quot;tabs&quot;&gt;
+                        &lt;div class=&quot;tabsHeader&quot;&gt;
+                            &lt;?php foreach($tabs as $tab): ?&gt;
+                	            &lt;h5 class=&quot;tab&quot;&gt;&lt;?php echo $tab[&#039;title&#039;];?&gt;&lt;/h5&gt;
+                            &lt;?php endforeach;?&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;tabsBody&quot;&gt;
+                            &lt;?php foreach($tabs as $tab): ?&gt;
+								&lt;div&gt;							
+     	                            &lt;p&gt;&lt;?php echo $tab[&#039;content&#039;];?&gt;&lt;/p&gt;
+								&lt;/div&gt;
+							&lt;?php endforeach;?&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+               &lt;?php
+                    endif;
+                endif;
+                ?&gt;
+                &lt;?php if(get_field(&#039;show_reviews_on_page&#039;))
+                        {comments_template();}?&gt;
+                &lt;?php get_footer(); ?&gt;
+               </textarea>
+		<input type="hidden" name="action" value="update" />
+		<input type="hidden" name="file" value="single-tours_post.php" />
+		<input type="hidden" name="theme" value="OldTravelo" />
+		<input type="hidden" name="scrollto" id="scrollto" value="0" />
+		</div>
+			<div id="documentation" class="hide-if-no-js">
+		<label for="docs-list">Documentation:</label>
+		<select name="docs-list" id="docs-list"><option value="">Function Name&hellip;</option><option value="WP_Query">WP_Query()</option><option value="_e">_e()</option><option value="array_push">array_push()</option><option value="comments_template">comments_template()</option><option value="count">count()</option><option value="date">date()</option><option value="get_field">get_field()</option><option value="get_footer">get_footer()</option><option value="get_header">get_header()</option><option value="get_page_by_title">get_page_by_title()</option><option value="get_pages">get_pages()</option><option value="get_permalink">get_permalink()</option><option value="get_template_directory_uri">get_template_directory_uri()</option><option value="setup_postdata">setup_postdata()</option><option value="strtotime">strtotime()</option><option value="the_content">the_content()</option><option value="the_field">the_field()</option><option value="the_id">the_id()</option><option value="the_permalink">the_permalink()</option><option value="the_title">the_title()</option><option value="toAscii">toAscii()</option><option value="wp_get_post_terms">wp_get_post_terms()</option><option value="wp_reset_postdata">wp_reset_postdata()</option></select>		<input type="button" class="button" value=" Look Up " onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'http://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=en_US&amp;version=4.0.1&amp;redirect=true'); }" />
+		</div>
+	
+		<div>
+		<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Update File"  /></p>		</div>
+	</form>
+<br class="clear" />
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){
+	$('#template').submit(function(){ $('#scrollto').val( $('#newcontent').scrollTop() ); });
+	$('#newcontent').scrollTop( $('#scrollto').val() );
+});
+/* ]]> */
+</script>
+
+<div class="clear"></div></div><!-- wpbody-content -->
+<div class="clear"></div></div><!-- wpbody -->
+<div class="clear"></div></div><!-- wpcontent -->
+
+<div id="wpfooter">
+		<p id="footer-left" class="alignleft">
+		<span id="footer-thankyou">Thank you for creating with <a href="https://wordpress.org/">WordPress</a>.</span>	</p>
+	<p id="footer-upgrade" class="alignright">
+		<strong><a href="http://www.ermesviaggi.it/wp-admin/update-core.php">Get Version 4.1.1</a></strong>	</p>
+	<div class="clear"></div>
+</div>
+	<div id="wp-auth-check-wrap" class="hidden">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<div class="wp-auth-check-close" tabindex="0" title="Close"></div>
+			<div id="wp-auth-check-form" data-src="http://www.ermesviaggi.it/wp-login.php?interim-login=1"></div>
+			<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0">Session expired</b></p>
+		<p><a href="http://www.ermesviaggi.it/wp-login.php" target="_blank">Please log in again.</a>
+		The login page will open in a new window. After logging in you can close it and return to this page.</p>
+	</div>
+	</div>
+	</div>
+	
+<script type='text/javascript'>
+/* <![CDATA[ */
+var commonL10n = {"warnDelete":"You are about to permanently delete the selected items.\n  'Cancel' to stop, 'OK' to delete."};var heartbeatSettings = {"nonce":"6e8d240575"};var authcheckL10n = {"beforeunload":"Your session has expired. You can log in again from this page or go to the login page.","interval":"180"};var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/www.ermesviaggi.it\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.ermesviaggi.it/wp-admin/load-scripts.php?c=1&amp;load%5B%5D=hoverIntent,common,admin-bar,svg-painter,heartbeat,wp-auth-check,thickbox&amp;ver=4.0.1'></script>
+
+<div class="clear"></div></div><!-- wpwrap -->
+<script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
+</body>
+</html>

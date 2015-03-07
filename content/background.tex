@@ -1,17 +1,53 @@
-\chapter{Background}
 \section{Semantic Web}
 \section{Stream Processing}
 \section{Stream Reasoning}
-\section{Benchmarks}
-\subsection{TCP}
-\subsection{Stream Reasoning Benchmark}
-\subsubsection{LSBench}
-\subsubsection{SRBench}
-\subsubsection{Correttezza}
-\subsubsection{Seven Commandaments}
-\subsection{Reasoning Benchmark}
-\subsubsection{LUBM}
-\subsection{DBMS \& CEP Benchmarking}
+\section{Empirical Research}
+
+Tichy and collaborators [15] evaluated 400 articles published in 1993, 50 of them randomly selected papers published by ACM in 1993 and the rest systematically selected from a few journals in Systems and Software Engineering, and classified the research re- ported in the paper in five categories (quoting [15] definitions): \begin{itemize}
+\item Formal theory: articles whose main contributions are formally tractable propositions, e.g., lemmata and theorems and their proofs.
+\item Design and modelling: systems, techniques, or models, whose claimed properties cannot be proven formally. Examples include software tools, performance prediction models, and complex hardware and software systems of all kinds. The papers in this class were further classified in the categories 0\%, 0–10\%, 10– 20\%, 20–50\, and +50\%, according to the proportion of the paper that was dedicated to the evaluation of the new system, technique, or model.
+\item Empirical work: articles that collect, analyse, and interpret observations about known designs, systems, or models, or about abstract theories or subjects (as this paper does). The emphasis is on evaluation, not on new designs or models.
+\item Hypothesis testing: articles that define hypotheses and describe experiments to test them.
+\item Others: articles that do not fit any of the four categories above, e.g., surveys.
+\end{itemize}
+
 \subsection{Software Testing}
 \subsubsection{SOAK}
 \subsubsection{Stress}
+
+\section{Benchmarks}
+\subsection{TCP}  \label{sec:tcp}
+
+
+\subsection{Reasoning Benchmark}
+\subsubsection{LUBM}
+\subsection{DBMS \& CEP Benchmarking}
+\subsubsection{Linear Road}
+\subsection{Stream Reasoning Benchmark}
+\subsubsection{SRBench}
+SRBench [5] proposes a suite of test queries and defines metrics to evaluate the
+performance of the system. This benchmark contains 17 queries to gather the
+properties of the RDF stream engines. The queries vary to ensure that several
+features of the target system are tested: queries involving single or multiple input
+streams, queries over stream-only data sources or over mixed stream and static
+data source, etc. In [5] the authors applied the benchmark on the existent RDF
+stream engines, and explained the differences in term of supported functionalities.
+Time and memory performance tests, and scalability tests are not targeted
+in the actual version of SRBench.
+\subsubsection{LSBench}
+LSBench [6] proposes three tests to evaluate the RDF stream engines. The
+first one is a functional test to verify the operators and the functionalities supported
+by the engines: it is a test similar to the one proposed by SRBench. The
+second test is a correctness test: its goal is to verify if the tested RDF stream
+engine produces the correct output. Actually this analyses only the number of
+produced answers, assuming that the contents of the output are correct. Finally,
+the third test is a maximum input throughput test: it has the goal evaluate the
+maximum throughput of the RDF stream engines. This test is done increasing
+the rate of data in the stream and verifying the number of the answers. For each
+test a set of 12 queries is provided; similarly to SRBench, the queries vary to
+take into account different features of the engines (single and multiple streams,
+presence of static data, etc)
+
+\subsubsection{Correttezza}
+\subsubsection{Seven Commandaments}
+

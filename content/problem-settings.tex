@@ -1,75 +1,81 @@
-In this chapter we present firstly the question that leads our research and the motivations which sustain it. We extend the issues our work involves and the methods we follow to face them. In the end we state the requirements we must satisfy together with their the technical formalization. 
+eIn this chapter we state the questions that leads our research and the issues it poses. We present a possible solution and the requirements it must satisfy.
 
-\section{Overview}
-Stream Reasoning research field wonders to achieve a tight integration of known reasoning systems and DSMS. An RDF Stream Processing Engine, shortly RSP Engine, is the abstraction that realizes this integration. It can exploit reasoning techniques upon rapid changing information \cite{Background SW, DSMS, SR} managing the information stream at semantic level. Consequently an RSP Engine can answer the complex queries typical of Semantic Web. The Stream Reasoning community is working on the standardization of a protocol to talk with RSP Engines, because the number of different RSP techniques they implement is increasing, together with the need of shared practices and tools to perform analyses and evaluations. As stated in Chapter 2, benchmarking RSP Engines is possible,
-%thanks to the proposed RDF streams, continuous queries, and performance measurements.
-but the critics on these works have showed their limitations and further developments goes only partially beyond \cite{paper paper}. Moreover we noted that the community still lacks the formalization of a comparative approach for the research on RSP Engines and also an infrastructure that allows the its rigorous application.
+\section{Comparative Research}
+The Computer Science (CS) community classifies its activity in many works and shows that its research mostly follow an engineering epistemology \cite{Wainer:2009:EEC:1518331.1518552, }. A majority of publications belongs to \textit{empirical work} and \textit{design \& modelling} classes of Tichy's taxonomy (See \ref{sec:tcp} ) and, among them, proposals of new systems or models  are more common then the evaluations of existing ones. This contrasts with other engineering areas, where the experimental research is almost dominant. CS needs to focus on collecting, analysing, and interpreting the observations of those works it usually only designs or implements. Now the question is: \textit{What are the motivation under this CS research lack?} The main problem in evaluating software systems or models regards their complex and multifaceted nature. Other explanations concern the difficulties of conducting realistic evaluations, because of the number of the involved variables.
 
-In this thesis we propose \namens, an open source framework that tries to solve the Stream Reasoning need of a Systematic Comparative Research Approach for RSP Engine evaluation.
+A Systematic Comparative Research Approach (SCRA) is typically used in those research field where the complexity of its research subjects goes beyond the possible observable models. This is the case of the social sciences, which exploit techniques to deal with complex cases that can not be simplified in experimental setting. The analysis of a single case study allows to deeply understand it, but it makes difficult to engage any form of generalisation. On the other hand, cross-case studies are more relevant and allow general thinking, but their final complexity represents a problem. We need a strategy that reduces the analysis complexity without lose the relevance of each involved system. In this regard, Russel Schutt discusses four stages to systematic qualitative comparative studies for history social phenomena:
+\begin{enumerate}
+\item[S.1] Premise of the investigation: identification of possible causes.
+\item[S.2] Choose the cases to examine (location, language, gender).
+\item[S.3] Examine the similarities and the differences with shared methods.
+\item[S.4] Propose a causal explanation for the phenomena.
+\end{enumerate} We will return on these stages later. Is important to understand that this investigation method becomes meaningful inside the experimental environment. An \textit{experiment} is a test under controlled conditions that is made to demonstrate a known truth or examine the validity of an hypothesis (W.R Inge). Complex cases are seen as a combination of known properties upon which is possible to identify parallelism or state contrasts and are used to set up experiment configuration. Researcher can exploit the notions of \textit{reproducibility} to appreciate variations on changing experiment conditions, \textit{repeatability} to consolidate observations trough multiple identical executions and \textit{comparability} to contrast the results to identify the differences.
 
-\section{Why Comparative?}
+Some Computer Science sub-fields attempt to lead Case-driven analysis by the notion of experiment. Database community explores the idea of comparative research trough benchmarking techniques and actually the quality of empirical studies is rising \cite{•}. It is worth to note Jim Gray's work about transactional benchmarking (TCP, Section 2) and Domain Specific Benchmarks (DSB). He states that \textit{any comparison on performances starts with the definition of a benchmark or a workload}, but we need know the relevance of the metrics. Measurement variations are very frequent from one application to another, because each system is thought to solve a small problems set. A DSB must response properly to system diversities, by specifying a synthetic workload to describe typical applications in the problem domain; moreover it must provide workload performances on various systems and an estimation of relative performance on the problem domain.
+Gray proposes also four criteria that a DSB must meet, which are:
+\begin{enumerate}
+\item[G.1] \textsc{Relevance}, it must measure the performance peak of systems when
+performing domain typical operations.
+\item[G.2] \textsc{Portability}, it must be easy-to-implement on many different systems and architectures
+\item[G.3] \textsc{Scalability}, it must be meaningful for both small and large computer systems
+\item[G.4] \textsc{Simplicity}, it must be understandable to obtain credibility
+\end{enumerate} 
 
-The comparative research approach is typical of the Social Science, where the complexity of the subject go beyond the possible observable models. Single case studies allow a deep understanding of that case, but is difficult to engage any form of generalisation. Cross-case studies is necessary and their multifaceted nature represents an first research problem. We need a strategy which allow comparison without loose the case complexity. A solution is considering complex cases as configurations, a combination of known conditions, upon which is possible to identify parallelism or state contrasts. RSP Engines are complex system too and may be difficult to analyse them even in case of simple and well defined architectures (Chapter 6 show this in details). This emphasises the importance to be able to conduct comparative research based on controlled experimental conditions and, thus, the need for a open source framework like \name.
+Let's consider the relation between this criteria and Schutt's stages presented above. Gray states G.1 to identify the relevant metrics for the evaluation, as Schutt does in his first stage (S.1), which demands a pre-analysis phase of the phenomenon. Moreover, Social Science does not care about problem scaling, because those properties that define the case also determine the problem dimension (S.2). Gray poses the same concept in the DB context with G.2, demanding implementation-related conditions, but it also explicit the need to consider the dimension-related issues in G.3, because DB must consider the scaling problem. Last but not least, G.4 demands simplicity to obtain credibility while S.3 suggests to exploit those evaluation methods that are commonly accepted (shared) by the research community. 
+
+Motivated by the growing number of RDF Stream Processing techniques, the Stream Reasoning (SR) community strongly calls of evaluation practices to allow comparison on them. RSP Engines, see \ref{sec:rspengines}), the system that implements this techniques, have an high resulting complexity. The execution mechanism they implement together with their execution semantic and the environment where this execution happens are evaluation-related characteristics, which demonstrate that a meaningful comparison between RSP Engines is non-trivial. Chapter 6 shows in details that may be difficult to analyse those system, even in case of simple and well defined architectures. 
+The interest on cross-case analysis between complex subjects draw the need of a comparative research approach. Initial efforts in this direction try to define frameworks that resume  DSMSs [\ref{sec:dsms}] and Reasoning [\ref{sec:reasoning}] benchmarking studies. LS Bench and SR Bench propose a set of queries, data sets, and methods to test and compare existing RSP engines [\ref{sec:sr-benchmarking}]. Both these works share a common background: the Linear Road Benchmark (LRB) is the only existing benchmark for relational data stream processing engines. Actually LRB only states which requirements a benchmarked DSMS must satisfy, without proposing a concrete solution. LS Bench and SR Bench implement and extend this work, but they do not re-contextualise this requirements in SR context. Following discussions identify other lacks, i.e none of them completely face the problem of evaluating query result correctness, because they do not analyse engine semantics. LS Bench concentrates attention to the evaluation of engines throughput and it checks the correctness of the query result measuring the mismatch after comparing different RSP Engines. SR Bench entirely ignores this issue and analyses the coverage of SPARQL constructs for each commercial engine. More recent works describe deeply all the RSP Engine properties, identify the future challenges and provide a standardization benchmarking requirements: commandments for a meaningful testing on RSP Engines\cite{DBLP:conf/esws/ScharrenbachUMVB13}.
+
+Stream Reasoning community still lacks an infrastructure that can control the execution environment and allow to systematic testing. LRB provides a simulator to validate the benchmarked DSMS systems, but does not face the problem of an online evaluation it. Researches in this area demonstrates that RSPEngine execution semantic is relevant \cite{SECRET}, but does not evaluate its cost. From the aerospace engineering we borrow the idea of an \textit{Engine Test Stand}, a tool that allows experiments design, their systematic execution and automatic results comparison. An engine can not be evaluated only by an architectural viewpoint, it is necessary to understand it behaviour during the execution: \textit{A process cannot be understood by stopping it. Understanding must move with the flow of the process, must join it and flow with it}\footnote{The First Law of Mentat, quoted by Paul Atreides to Reverend Mother Gaius Helen Mohiam}. Previously the community questioned itself \textit{How to support SRCA on RSP Engines}? Now we have queries, dataset and methods, that partially answer it and the new research question is "\textit{Can an engine test stands, together with queries, datasets and methods, support SCRA for Stream Reasoning?}". The next section poses the requirements a proper answer to this research question must satisfy.
 
 \section{Requirements} \label{sec:requirements}
 
-We developed \name in order to simplify and support Systematic Comparative Research Approach on RSP engines. To this extent we need to answer the following questions: 
+In order to simplify and support Systematic Comparative Research Approach on RSP engines trough an Engine Test Stand we need to answer the following questions: 
 \begin{enumerate}
 \item[Q.1] How can the behaviour of system be evaluated? 
 \item[Q.2] What makes this evaluation rigorous? 
 \item[Q.3] How can this rigorous evaluation be automated?
-\end{enumerate}
+\end{enumerate} To answer Question Q.1 we exploit traditional definition of \textit{experiment} presented above. We answer Q.2 referring to \textit{reproducibility}, \textit{repeatability}, and \textit{comparability} of experiments. Trough this concepts it is easy to answer Q.3 formalising the requirements for the solution.
 
-A proper answer to Question Q.1 can be stated exploiting the traditional definition of \textit{experiment}: a test under controlled conditions that is made to demonstrate a known truth or examine the validity of an hypothesis. Going deeply, we answer Q.2 bringing about the notions of \textit{reproducibility}, \textit{repeatability}, and \textit{comparability} of experiments. The concepts we identified make easy to answer Q.3 formalising the technical requirements for \namens.
-
-Reproducibility is related to the variation in measurements made on a subject under changing conditions. The concept of experiment gather this conditions  as a configuration. \name must be parametric from its configuration, whose specification is up to the user and poses the following requirements:
+\textit{Reproducibility} refers to measurement variations on a subject under changing conditions. We gather this conditions into experiment configuration, whose specification is up to the user. For this reason the solution must be independent from:
 \begin{enumerate}
-\item[R.1] \textit{test data independence}, relevant RDF data streams and ontologies can be choose from user domain of interest. %R.2.1
-\item[R.2] \textit{query independence}, relevant queries can be registered from user domain of interest.
+\item[R.1] \textit{Test data}, relevant RDF data streams and ontologies chosen from user domain of interest. %R.2.1
+\item[R.2] \textit{Query}, relevant queries registered from user domain of interest.
 %thus allowing users to register relevant queries from their domains of interest. %R.2.2
-\item[R.3] \textit{engine independence}, user must be able to put an RSP engine on the test by the means of easy to implement software interfaces. 
+\item[R.3] \textit{Engine}, any RSP Engine tested by the means of easy-to-implement software interfaces. 
 %thus allowing users to put an RSP engine on the test stand by the means of easy to implement software interfaces, e.g., it should adopt an event-base architecture as normally done by RSP engines and present events to RSP engine in a simple to parse RDF serialisation. %R4 e R5
 \end{enumerate}
 
-Repeatability regards the variation in repeated measurements made on the same subject under identical conditions. The last statement, maintain identical experimental conditions, is the main challenge. \name must not affect the RSP engine evaluation to win it. This, from a practical point of view, poses two requirements to the test stand:
+\textit{Repeatability} refers to variations on repeated measurements on a subject under identical conditions. The solution must not affect the RSP engine evaluation, which, from a practical point of view, poses two requirements:
 \begin{enumerate}
 \item[R.4] it must not be running when the RSP engine is under execution. %R.1.2
 \item[R.5] it must have reduced (and possibly constant) memory footprint. %R.1.1
 \end{enumerate}
 
-Comparability is related to the nature of the performance measurements and the relation between some experimental conditions. A Systematic Comparative Research Approach (SCRA) is case-oriented and it requires both the definition of \textit{Metrics that allow comparison} and the standardization of \textit{Evaluation conditions}.  \name must satisfies three requirements about this:
+\textit{Comparability} refers to performance measurements nature and the relations between experimental conditions. The SCRA demands both the definition of \textit{comparable metrics} and the standardization of \textit{evaluation methods}, which means the solution must:
 \begin{enumerate}
 \item[R.6] include \textit{basic set of performance measurements} \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
-\item[R.7] enable users to extend the test stand adding their own software sensors, in order to collect custom metrics results.
-\item[R.8] support the collection of the performance measurements, to allow further analysis.
+\item[R.7] enable users extensions with new software sensors and specific measurements collection.
+%\item[R.7] enable users software extensionsa and specific measurements collection.
+\item[R.8] support performance measurements collection for further analysis.
+\item[R.9] allow \textit{qualitative analysis} trough tools for result visualization
 \end{enumerate}
 
-Previous works about Stream reasoning benchmarking shows that the minimal performance measure set includes \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Usage} -- defined as the difference between total system memory and free memory --, and \textbf{Completeness \& Soundness} of query-answering results. 
-The next step consists in providing \textit{Tools for qualitative analysis}, which allow visualisation of the results [R.9], pivoting on different experiment which can be seen as a formalization for the execution setting.
+Previous works about Stream reasoning \cite{} shows that the minimal performance measure set includes \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Load} -- defined as the difference between total system memory and the free one --, and \textbf{Completeness \& Soundness} of query-answering results. 
 
-In terms of software engineering the list of requirements above demands: \begin{enumerate}
-\item[R.10] \textit{Extendible Design}, i.e.,  the possibility to replace theoretically each module with one with the same interfaces, but different behaviour, without affecting architecture stability.
-\item[R.11] \textit{Event-base architecture} to properly communicate with  RSP Engines, which normally exploit it.
-\item[R.12] \textit{Easy-to-Parse RDF Serialisation} for the event presented to the RSP Engine in exam by the test stand.
-\end{enumerate}
-
-SCRA states the need of \textit{Successful analysis and evaluations examples}, which can be followed as guideline, and \textit{Initial terms of comparison}, a.k.a. baselines. We call baseline  an elementary solution for the research problem, which maintains experimental validity and consequently is relevant as a term of comparison. Baselines can be exploited as a simple case-studies to start our research.
-
-\name must contain specific modules to fulfil this request, which of course presents their own requirements. As follow, a Baseline must be.. 
-
+In terms of software engineering, any solution which satisfies the requirements above demands also some technical ones: 
 \begin{enumerate}
-\item[R.13] a Solution: it solves the problem entirely, without concerning about performance. % devono risolvere interamente il problema, nel nostro caso devono essere complete e sound rispetto ad entailment regime che si è scelto
-\item[R.14] Elementary: it requires the minimum effort in terms of design. A baseline does not represent a innovative solution w.r.t. the state of the art.  % non devono essere soluzioni smart, devono chiedere il minimo effort
-\item[R.15] Valid: the performance measurements must be comparable with smarter solution and their comparison must have sense in a realistic context. %e' inutile se sono sopra un'ordine di grandezza ad esempio in latenza, rispetto ad una soluzione commerciale. probabilmente è sbagliata la domanda di ricerca
-\item[R.16] Relevant: it must cover one of the most relevant variations in theoretical solution, in agreement with the case-oriented nature of CSRA. %la soluzione che coprono deve essere una delle immediate soluzioni del problema iniziale: Graph vs Statement o Inc vs Naive, tempo controllato esternamente, ecc
-\item[R.17] Simple: the design of the solution it implements must be easy to understand. In this way is possible to formulate hypothesis from a theoretical viewpoint. Obviously there are no guarantees about the experimental verification.  %non devono offrire api più complesse rispetto a un RSPEngine tradizionale.
+\item[R.10] \textit{Extendible Design}, the possibility to replace theoretically each module with one with the same interfaces, but different behaviour, without affecting architecture stability.
+\item[R.11] \textit{Event-base architecture} to properly communicate with  RSP Engines, which normally exploit it.
+\item[R.12] \textit{Easy-to-Parse RDF Serialisation} for the events presented to the RSP Engine in exam
 \end{enumerate}
 
-Some of those requirements assume a problem-specific meaning. As advocated in the early works on Stream Reasoning \cite{1,2} the most simple approach to create a stream reasoning system is arrange into a pipeline DSMS with a reasoner. Baselines design must follow this statement to develop a full solution [R.13] which is very simple w.r.t the commercial ones presented in Chapter 2 [R.14]. Chapter 2 also states how two main design decisions can distinguish the baselines: the RDF stream model and the architecture. From this point of view \name must provide at least four Baselines [R.16], which cover all possible combinations those design choices.
+SCRA is case-oriented, it needs \textit{successful analysis and evaluations examples} to pose experimental guidelines and \textit{initial terms of comparison}. We call baseline an elementary solution for the RSP problem, which is relevant from an experimental viewpoint. To fulfil this request the answer to our research question must consider to have specific baseline modules and satisfy their own requirements, which are: \begin{enumerate}
+%\item[R.13] Be a Solution: it solves the problem entirely, without concerning about performance. % devono risolvere interamente il problema, nel nostro caso devono essere complete e sound rispetto ad entailment regime che si è scelto
+\item[R.13] It must be Elementary: requiring the minimum design effort, which means be a naive solution and do not care about performances.  % non devono essere soluzioni smart, devono chiedere il minimo effort
+\item[R.14] It must be Eligible: being a fair term of comparison w.r.t. commercial solutions. %e' inutile se sono sopra un'ordine di grandezzaad esempio in latenza, rispetto ad una soluzione commerciale. probabilmente è sbagliata la domanda di ricerca
+\item[R.15] It must be Relevant: covering one of the theoretical solutions. %la soluzione che coprono deve essere una delle immediate soluzioni del problema iniziale: Graph vs Statement o Inc vs Naive, tempo controllato esternamente, ecc
+\item[R.16] It must be Simple: allowing to identify easily those characteristics which support hypothesis formulation and comparison.  %non devono offrire api più complesse rispetto a un RSPEngine tradizion	ale.
+\end{enumerate}
 
-
-%B.R.1 
-%naive, incremental reasoning; statement graph rdf stream, external timekeeping, different entailment regime
-%B.R.2 ldobbiamo implementare soluzioni che coprano tutte le varianti teoriche presentate nel backgroun, 'architettura più semplice possibile è quella presentata nel paper x, rappresenta una integraione di due sistem come pipeline che di fatto significa semplicemente concatenarli
-%B.R.3. e' un parmetro che si può valutare solo in contesto sperimentale, ecco perchè esperimenti riguardanti le baselines sono importanti
-%B.R.4 vedi BR2 
+%Some of those requirements assume a problem-specific meaning. As advocated in the early works on Stream Reasoning \cite{1,2} the most simple approach to create a stream reasoning system is arrange into a pipeline DSMS with a reasoner. Baselines design must follow this statement to develop a full solution [R.13] which is very simple w.r.t the commercial ones presented in Chapter 2 [R.14]. Chapter 2 also states how two main design decisions can distinguish the baselines: the RDF stream model and the architecture. From this point of view the solution must provide at least four Baselines [R.16], which cover all possible combinations those design choices.

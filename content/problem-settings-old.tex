@@ -1,0 +1,77 @@
+In this chapter we present firstly the question that leads our research and the motivations which sustain it. We extend the issues our work involves and the methods we follow to face them. In the end we state the requirements we must satisfy together with their the technical formalization. 
+
+\section{Overview}
+Stream Reasoning research field wonders to achieve a tight integration of known reasoning systems and DSMS. An RDF Stream Processing Engine, shortly RSP Engine, is the abstraction that realizes this integration. It can exploit reasoning techniques upon rapid changing information \cite{Background SW, DSMS, SR} managing the information stream at semantic level. Consequently an RSP Engine can answer the complex queries typical of Semantic Web. The Stream Reasoning community is working on the standardization of a protocol to talk with RSP Engines, because the number of different RSP techniques and their implementation as engines is increasing, together with the need of shared practices and tools to perform analyses and evaluations. As stated in Chapter 2, benchmarking RSP Engines is possible,
+%thanks to the proposed RDF streams, continuous queries, and performance measurements.
+but the critics on these works have showed their limitations and further developments goes only partially beyond \cite{paper paper}. Moreover we noted that the community still lacks the formalization of a comparative approach for the research on RSP Engines and also an infrastructure that allows the its rigorous application.
+
+In this thesis we propose \namens, an open source framework that tries to solve the Stream Reasoning need of a Systematic Comparative Research Approach for RSP Engine evaluation.
+
+\section{Why Comparative?}
+
+The comparative research approach is typical of the Social Science, where the complexity of the subject go beyond the possible observable models. Single case studies allow a deep understanding of that case, but is difficult to engage any form of generalisation. Cross-case studies is necessary and their multifaceted nature represents a first research problem. We need a strategy which allow comparison without loose the case complexity. A solution is considering complex cases as configurations, a combination of known conditions, upon which is possible to identify parallelism or state contrasts. In out research field RSP Engines are complex system and may be difficult to analyse them even in case of simple and well defined architectures (Chapter 6 show this in details). This emphasises the importance to be able to conduct comparative research based on controlled experimental conditions and, thus, the need for a open source framework like \name.
+
+\section{Requirements} \label{sec:requirements}
+
+We developed \name in order to simplify and support Systematic Comparative Research Approach on RSP engines. To this extent we need to answer the following questions: 
+\begin{enumerate}
+\item[Q.1] How can the behaviour of system be evaluated? 
+\item[Q.2] What makes this evaluation rigorous? 
+\item[Q.3] How can this rigorous evaluation be automated?
+\end{enumerate}
+
+A proper answer to Question Q.1 can be stated exploiting the traditional definition of \textit{experiment}: a test under controlled conditions that is made to demonstrate a known truth or examine the validity of an hypothesis. Going deeply, we answer Q.2 bringing about the notions of \textit{reproducibility}, \textit{repeatability}, and \textit{comparability} of experiments. The concepts we identified make easy to answer Q.3 formalising the technical requirements for \namens.
+
+Reproducibility is related to the variation in measurements made on a subject under changing conditions. The concept of experiment gather this conditions  as a configuration. \name must be parametric from its configuration, whose specification is up to the user and poses the following requirements:
+\begin{enumerate}
+\item[R.1] \textit{test data independence}, relevant RDF data streams and ontologies can be choose from user domain of interest. %R.2.1
+\item[R.2] \textit{query independence}, relevant queries can be registered from user domain of interest.
+%thus allowing users to register relevant queries from their domains of interest. %R.2.2
+\item[R.3] \textit{engine independence}, user must be able to put an RSP engine on the test by the means of easy to implement software interfaces. 
+%thus allowing users to put an RSP engine on the test stand by the means of easy to implement software interfaces, e.g., it should adopt an event-base architecture as normally done by RSP engines and present events to RSP engine in a simple to parse RDF serialisation. %R4 e R5
+\end{enumerate}
+
+Repeatability regards the variation in repeated measurements made on the same subject under identical conditions. The last statement, maintain identical experimental conditions, is the main challenge. \name must not affect the RSP engine evaluation to win it. This, from a practical point of view, poses two requirements to the test stand:
+\begin{enumerate}
+\item[R.4] it must not be running when the RSP engine is under execution. %R.1.2
+\item[R.5] it must have reduced (and possibly constant) memory footprint. %R.1.1
+\end{enumerate}
+
+Comparability is related to the nature of the performance measurements and the relation between cross-case experimental conditions. The Systematic Comparative Research Approach (SCRA) is case-oriented and requires both the definition of \textit{Metrics which allow comparison} and the standardization of \textit{Evaluation methods}. \name must satisfies the following requirements to allow comparability:
+\begin{enumerate}
+\item[R.6] include \textit{basic set of performance measurements} \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
+\item[R.7] enable users to extend the test stand adding their own software sensors, in order to collect custom metrics results.
+\item[R.8] support the collection of the performance measurements, to allow further analysis.
+\end{enumerate}
+
+Previous works about Stream reasoning benchmarking shows that the minimal performance measure set includes \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Usage} -- defined as the difference between total system memory and free memory --, and \textbf{Completeness \& Soundness} of query-answering results. 
+The next step consists in providing \textit{Tools for qualitative analysis}, which allow at least visualisation of the results [R.9].
+
+
+In terms of software engineering \name realization, according to the requirements above, demands some technical requirements: 
+\begin{enumerate}
+\item[R.10] \textit{Extendible Design}, i.e.,  the possibility to replace theoretically each module with one with the same interfaces, but different behaviour, without affecting architecture stability.
+\item[R.11] \textit{Event-base architecture} to properly communicate with  RSP Engines, which normally exploit it.
+\item[R.12] \textit{Easy-to-Parse RDF Serialisation} for the event presented to the RSP Engine in exam by the test stand.
+\end{enumerate}
+
+SCRA states the need of \textit{Successful analysis and evaluations examples}, which can be followed as guideline, and \textit{Initial terms of comparison}, a.k.a. baselines. We call baseline  an elementary solution for the research problem, which maintains experimental validity and consequently is relevant as a term of comparison. Baselines can be exploited as a simple case-studies to start our research.
+
+\name must contain specific modules to fulfil this request, which of course presents their own requirements. As follow, a Baseline must be.. 
+
+\begin{enumerate}
+\item[R.13] Be a Solution: it solves the problem entirely, without concerning about performance. % devono risolvere interamente il problema, nel nostro caso devono essere complete e sound rispetto ad entailment regime che si è scelto
+\item[R.14] Be Elementary: it requires the minimum effort in terms of design. A baseline does not represent a innovative solution w.r.t. the state of the art.  % non devono essere soluzioni smart, devono chiedere il minimo effort
+\item[R.15] Be Eligible: the performance measurements must be a fair term of comparison w.r.t. smarter solutions. %e' inutile se sono sopra un'ordine di grandezza ad esempio in latenza, rispetto ad una soluzione commerciale. probabilmente è sbagliata la domanda di ricerca
+\item[R.16] Be Relevant: it must cover one of the most important variations in the theoretical solution set, in agreement with the case-oriented nature of CSRA. %la soluzione che coprono deve essere una delle immediate soluzioni del problema iniziale: Graph vs Statement o Inc vs Naive, tempo controllato esternamente, ecc
+\item[R.17] have a Simple design: The solution design must be easy to understand in order to clearly identify those characteristics which allow the formulation of hypothesis and support comparison.  %non devono offrire api più complesse rispetto a un RSPEngine tradizionale.
+\end{enumerate}
+
+%Some of those requirements assume a problem-specific meaning. As advocated in the early works on Stream Reasoning \cite{1,2} the most simple approach to create a stream reasoning system is arrange into a pipeline DSMS with a reasoner. Baselines design must follow this statement to develop a full solution [R.13] which is very simple w.r.t the commercial ones presented in Chapter 2 [R.14]. Chapter 2 also states how two main design decisions can distinguish the baselines: the RDF stream model and the architecture. From this point of view \name must provide at least four Baselines [R.16], which cover all possible combinations those design choices.
+
+
+%B.R.1 
+%naive, incremental reasoning; statement graph rdf stream, external timekeeping, different entailment regime
+%B.R.2 ldobbiamo implementare soluzioni che coprano tutte le varianti teoriche presentate nel backgroun, 'architettura più semplice possibile è quella presentata nel paper x, rappresenta una integraione di due sistem come pipeline che di fatto significa semplicemente concatenarli
+%B.R.3. e' un parmetro che si può valutare solo in contesto sperimentale, ecco perchè esperimenti riguardanti le baselines sono importanti
+%B.R.4 vedi BR2 

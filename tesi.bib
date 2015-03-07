@@ -1,52 +1,461 @@
-%% bibliografia della tesi
-%% un buon programma per gestirla e' JabRef
+% This file was created with JabRef 2.7b.
+% Encoding: UTF-8
 
+@STRING{ESWC2008 = {Proc. 5th Extended Semantic Web Conference ESWC 2008}}
 
-@BOOK{Ackley1987,
-  title = {A connectionist machine for genetic hillclimbing},
-  publisher = {Kluwer},
-  year = {1987},
-  author = {D. H. Ackley},
-  address = {Boston},
+@STRING{ESWC2009 = {Proc. 6th Extended Semantic Web Conference ESWC 2009}}
+
+@STRING{ESWC2010 = {Proc. 7th Extended Semantic Web Conference ESWC 2010}}
+
+@STRING{ESWC2011 = {Proc. 8th Extended Semantic Web Conference ESWC 2011}}
+
+@STRING{ICDE2007 = {Proc. IEEE 23rd International Conference on Data Engineering ICDE
+	2007}}
+
+@STRING{ICDE2008 = {Proc. IEEE 24th International Conference on Data Engineering ICDE
+	2008}}
+
+@STRING{ISWC2008 = {Proc. 7th International Semantic Web Conference ISWC 2008}}
+
+@STRING{ISWC2009 = {Proc. 8th International Semantic Web Conference ISWC 2009}}
+
+@STRING{ISWC2010 = {ISWC}}
+
+@STRING{ISWC2011 = {ISWC}}
+
+@STRING{ISWC2012 = {ISWC}}
+
+@STRING{WWW2009 = {Proc. 18th international conference on World wide web WWW 2009}}
+
+@STRING{WWW2011 = {WWW}}
+
+@STRING{WWW2012 = {Proc. 21st international conference on World wide web WWW 2012}}
+
+@INPROCEEDINGS{Anicic2011,
+  author = {Anicic, D. and Fodor, P. and Rudolph, S. and Stojanovic, N.},
+  title = {{EP-SPARQL}: a unified language for event processing and stream reasoning},
+  booktitle = WWW2011,
+  year = {2011},
+  pages = {635--644},
+  file = {:/media/Add/ref/rdfstreams/Anicic2011.pdf:PDF}
 }
 
-@INCOLLECTION{Altenberg1994,
-  author = {Lee Altenberg},
-  title = {The Evolution of Evolvability in Genetic Programming},
-  booktitle = {Advances in Genetic Programming},
-  publisher = {MIT Press},
-  year = {1994},
-  editor = {Kenneth E., Kinnear Jr.},
-  chapter = {3},
-  pages = {47--74},
-  notes = {Price's Covariance and Selection Theorem 1970 Nature 227 pages 520-521
-	 Fisher's Theorem 1930 The Genetical Theory of Natural Selection,
-	 Clarendon Press, Oxford, UK pages 30-37 Generally better theory for GP
-	 -> additional fitness (of blocks) Also known as Altenberg:1994EEGP},
-  keywords = {genetic algorithms, genetic programming},
-  abstract = {The notion of ``evolvability'' ---
-	 the ability of a population to produce variants fitter than any yet
-	 existing --- is developed as it applies to genetic algorithms. A
-	 theoretical analysis of the dynamics of genetic programming predicts the
-	 existence of a novel, emergent selection phenomenon: the evolution of
-	 evolvability. This is produced by the proliferation, within programs, of
-	 blocks of code that have a higher chance of increasing fitness when
-	 added to programs. Selection can then come to mold the variational
-	 aspects of the way evolved programs are represented. A model of code
-	 proliferation within programs is analyzed to illustrate this effect. The
-	 mathematical and conceptual framework includes: the definition of
-	 evolvability as a measure of performance for genetic algorithms;
-	 application of Price's Covariance and Selection Theorem to show how the
-	 fitness function, representation, and genetic operators must interact
-	 to produce evolvability --- namely, that genetic operators produce
-	 offspring with fitnesses specifically correlated with their parent's
-	 fitnesses; how blocks of code emerge as a new level of replicator,
-	 proliferating as a function of their ''constructional fitness'', which
-	 is distinct from their schema fitness; and how programs may change
-	 from innovative code to conservative code as the populations mature.
-	 Several new selection techniques and genetic operators are proposed
-	 in order to give better control over the evolution of evolvability
-	 and improved evolutionary performance. Copyright 1996 Lee Altenberg},
-  url = {http://dynamics.org/~altenber/PAPERS/EEGP/},
-  size = {29 pages},
+
+
+@article{DBLP:journals/semweb/ValleSKBCH13,
+  author    = {Emanuele {Della Valle} and
+               Stefan Schlobach and
+               Markus Kr{\"{o}}tzsch and
+               Alessandro Bozzon and
+               Stefano Ceri and
+               Ian Horrocks},
+  title     = {Order matters! Harnessing a world of orderings for reasoning over
+               massive data},
+  journal   = {Semantic Web},
+  volume    = {4},
+  number    = {2},
+  pages     = {219--231},
+  year      = {2013},
+  doi       = {10.3233/SW-2012-0085},
+  timestamp = {Tue, 16 Apr 2013 15:50:01 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/semweb/ValleSKBCH13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
+
+@article{DBLP:journals/ws/MargaraUHB14,
+  author    = {Alessandro Margara and
+               Jacopo Urbani and
+               Frank van Harmelen and
+               Henri E. Bal},
+  title     = {Streaming the Web: Reasoning over dynamic data},
+  journal   = {J. Web Sem.},
+  volume    = {25},
+  pages     = {24--44},
+  year      = {2014},
+  doi       = {10.1016/j.websem.2014.02.001},
+  timestamp = {Sun, 06 Jul 2014 12:10:06 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ws/MargaraUHB14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{oezcep14streamDL,
+  abstract = {The paper contributes to the recent efforts on temporalizing and streamifiying ontology based data access (OBDA) by discussing aspects of rewritability, i.e., compilability of the TBox into ontology-level queries,   and unfoldability, i.e., transformability  of ontology-level queries to queries  on datasource level, for the new query-language framework STARQL. The distinguishing feature  of STARQL is its  general stream windowing and ABox sequencing strategy which allows it to plugin well-known query languages such as unions of conjunctive queries (UCQs)  in combination with TBox languages such as DL-Lite and do temporal reasoning with a sorted first-order logic on top of them. 
+The paper discusses safety aspects under which STARQL queries that embed UCQs over DL-Lite ontologies can be rewritten and unfolded   to back-end relational stream query languages such as CQL.  With these results, the adoption of description logic technology in industrially relevant application areas such as industrial monitoring is crucially fostered.},
+  added-at = {2014-10-14T13:11:15.000+0200},
+  audience = {academic},
+  author = {{\"Ozg\"ur L. \"Oz\c{c}ep} and {M\"oller}, Ralf and Neuenstadt, Christian},
+  biburl = {http://www.bibsonomy.org/bibtex/2b7ba9ab3c576994db8ba4fc2251cb447/oezcep},
+  booktitle = {{DL}},
+  keywords = {OBDA optique-project},
+  partneroptique = {TUHH},
+  title = {A Stream-Temporal Query Language for Ontology Based Data Access},
+  wpoptique = {WP5},
+  year = 2014,
+  yearoptique = {Y2}
+}  
+
+@ARTICLE{Arasu2006,
+  author = {Arasu, Arvind and Babu, Shivnath and Widom, Jennifer},
+  title = {{The CQL continuous query language : semantic foundations}},
+  journal = {The VLDB Journal},
+  year = {2006},
+  volume = {15},
+  pages = {121--142},
+  number = {2},
+  doi = {10.1007/s00778-004-0147-z},
+  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/CQL.pdf:pdf},
+  keywords = {continuous queries,cql,data streams,query language,query processing},
+  mendeley-tags = {cql}
+}
+
+@INPROCEEDINGS{Arasu2004,
+  author = {Arvind Arasu and Mitch Cherniack and Eduardo F. Galvez and David
+	Maier and Anurag Maskey and Esther Ryvkina and Michael Stonebraker
+	and Richard Tibbetts},
+  title = {{Linear Road: A Stream Data Management Benchmark}},
+  booktitle = {VLDB},
+  year = {2004},
+  pages = {480-491},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://www.vldb.org/conf/2004/RS12P1.PDF}
+}
+
+@ARTICLE{Barbieri2010,
+  author = {Davide Francesco Barbieri and Daniele Braga and Stefano Ceri and
+	Emanuele {Della Valle} and Michael Grossniklaus},
+  title = {{C-SPARQL}: A Continuous Query Language for {RDF} Data Streams},
+  journal = {IJSC},
+  year = {2010},
+  volume = {4},
+  pages = {3--25},
+  number = {1},
+  file = {:/media/Add/ref/rdfstreams/Barbieri2010.pdf:PDF}
+}
+
+@ARTICLE{Bizer2009,
+  author = {Christian Bizer and Andreas Schultz},
+  title = {The Berlin {SPARQL} Benchmark},
+  journal = {IJSWIS},
+  year = {2009},
+  volume = {5},
+  pages = {1-24},
+  number = {2},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.4018/jswis.2009040101}
+}
+
+@ARTICLE{Botan2010,
+  author = {Botan, Irina and Derakhshan, Roozbeh and Dindar, Nihal and  Haas,
+	Laura and Miller, Renée J. and Tatbul, Nesime},
+  title = {{Secret: A model for analysis of the execution semantics of stream
+	processing systems}},
+  journal = {PVLDB},
+  year = {2010},
+  volume = {3},
+  pages = {232--243},
+  number = {1},
+  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/secret.pdf:pdf},
+  }
+
+@CONFERENCE{Calbimonte2010,
+  author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
+  title = {{Enabling ontology-based access to streaming data sources}},
+  booktitle = ISWC2010,
+  year = {2010},
+  pages = {96--111},
+  file = {:http\://oa.upm.es/5121/1/Enabling_Ontology-based_Access_to_Streaming_Data_Sources.pdf:PDF;:/media/Add/ref/rdfstreams/Calbimonte2010.pdf:PDF},
+  isbn = {364217745X}
+}
+
+@ARTICLE{Calbimonte2012,
+  author = {Jean-Paul Calbimonte and Hoyoung Jeung and Oscar Corcho and Karl
+	Aberer},
+  title = {{Enabling Query Technologies for the Semantic Sensor Web}},
+  journal = {IJSWIS},
+  year = {2012},
+  volume = {8},
+  pages = {43--63},
+  number = {1},
+  owner = {jpc},
+  timestamp = {2012.05.30}
+}
+
+@INPROCEEDINGS{DellAglio2013,
+  author = {Daniele {Dell'Aglio} and Marco Balduini and Emanuele {Della Valle}},
+  title = {On the need to include functional testing in RDF stream engine benchmarks},
+  booktitle = {BeRSys 2013},
+  year = {2013},
+  owner = {jpc},
+  timestamp = {2013.05.07}
+}
+
+@ARTICLE{Guo2005,
+  author = {Yuanbo Guo and Zhengxiang Pan and Jeff Heflin},
+  title = {{LUBM}: A Benchmark for {OWL} Knowledge Base Systems},
+  journal = {Journal of Web Semantics},
+  year = {2005},
+  volume = {3},
+  pages = {158--182},
+  number = {2-3},
+  abstract = {We describe our method for benchmarking Semantic Web knowledge base
+	systems with respect to use in large OWL applications. We present
+	the Lehigh University Benchmark (LUBM) as an example of how to design
+	such benchmarks. The LUBM features an ontology for the university
+	domain, synthetic OWL data scalable to an arbitrary size, fourteen
+	extensional queries representing a variety of properties, and several
+	performance metrics. The LUBM can be used to evaluate systems with
+	different reasoning capabilities and storage mechanisms. We demonstrate
+	this with an evaluation of two memorybased systems and two systems
+	with persistent storage.},
+  issn = {1570-8268},
+  keywords = {Semantic Web; Knowledge Base System; Lehigh University Benchmark;
+	Evaluation},
+  publisher = {Elsevier},
+  }
+
+@incollection{DellAglio2014,
+  author       = {Daniele {Dell'Aglio}, Emanuele {Della Valle}}, 
+  title        = {Incremental Reasoning on RDF Streams},
+  editor       = {Andreas Harth and Katja Hose and Ralf Schenkel},
+  booktitle    = {Linked Data Management},
+  chapter      = 16,
+  pages        = {413-436},
+  publisher    = {CRC Press},
+  year         = 2014,
+}
+
+@ARTICLE{Gutierrez2007,
+  author = {Gutierrez, C. and Hurtado, C.A. and Vaisman, A.},
+  title = {Introducing time into {RDF}},
+  journal = {IEEE Transactions on Knowledge and Data Engineering},
+  year = {2007},
+  volume = {19},
+  pages = {207--218},
+  number = {2},
+  publisher = {IEEE}
+}
+
+@INPROCEEDINGS{LePhuoc2012c,
+  author = {Danh Le-Phuoc and Minh Dao-Tran and Minh-Duc Pham and Peter Boncz
+	and Thomas Eiter and Michael Fink},
+  title = {Linked Stream Data Processing Engines: Facts and Figures},
+  booktitle = ISWC2012,
+  year = {2012},
+  pages = {300-312},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+}
+
+@INPROCEEDINGS{Lephuoc2011,
+  author = {Le-Phuoc, D. and Dao-Tran, M. and Xavier Parreira, J. and Hauswirth,
+	M.},
+  title = {A native and adaptive approach for unified processing of linked streams
+	and linked data},
+  booktitle = ISWC2011,
+  year = {2011},
+  pages = {370--388}
+}
+
+@INPROCEEDINGS{Srivastava2004,
+  author = {Srivastava, Utkarsh and Widom, Jennifer},
+  title = {{Flexible time management in data stream systems}},
+  booktitle = {PODS},
+  year = {2004},
+  pages = {263},
+  address = {New York, New York, USA},
+  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/flexible-time-management.pdf:pdf},
+  isbn = {158113858X},
+ }
+
+@INPROCEEDINGS{Zhang2012,
+  author = {Zhang, Y. and Duc, P. and Corcho, O. and Calbimonte, J.-P.},
+  title = {{SRBench: A Streaming RDF/SPARQL Benchmark}},
+  booktitle = ISWC2012,
+  year = {2012},
+  pages = {641--657}
+}
+
+@inproceedings{DBLP:conf/fis/ValleCBBC08,
+  author    = {Emanuele {Della Valle} and
+               Stefano Ceri and
+               Davide Francesco Barbieri and
+               Daniele Braga and
+               Alessandro Campi},
+  title     = {A First Step Towards Stream Reasoning},
+  booktitle = {{FIS}},
+  pages     = {72--81},
+  year      = {2008},
+}
+
+@inproceedings{Walavalkar08streamingknowledge,
+    author = {Onkar Walavalkar and Anupam Joshi and Tim Finin and Yelena Yesha},
+    title = {Streaming knowledge bases},
+    booktitle = {In International Workshop on Scalable Semantic Web Knowledge Base Systems},
+    year = {2008}
+}
+
+@article{DBLP:journals/sigmod/BarbieriBCVG10,
+  author    = {Davide Francesco Barbieri and
+               Daniele Braga and
+               Stefano Ceri and
+               Emanuele {Della Valle} and
+               Michael Grossniklaus},
+  title     = {Querying {RDF} streams with {C-SPARQL}},
+  journal   = {{SIGMOD} Record},
+  volume    = {39},
+  number    = {1},
+  pages     = {20--26},
+  year      = {2010},
+  timestamp = {Wed, 19 Sep 2012 09:16:25 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/sigmod/BarbieriBCVG10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/esws/ThomasPR10,
+  author    = {Edward Thomas and
+               Jeff Z. Pan and
+               Yuan Ren},
+  title     = {TrOWL: Tractable {OWL} 2 Reasoning Infrastructure},
+  booktitle = {{ESWC} Part {II}},
+  pages     = {431--435},
+  year      = {2010},
+  timestamp = {Tue, 08 Jun 2010 16:23:22 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/esws/ThomasPR10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cikm/RenP11,
+  author    = {Yuan Ren and
+               Jeff Z. Pan},
+  title     = {Optimising ontology stream reasoning with truth maintenance system},
+  booktitle = {{CIKM}},
+  pages     = {831--836},
+  year      = {2011},
+  doi       = {10.1145/2063576.2063696},
+  timestamp = {Fri, 11 Nov 2011 19:52:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/cikm/RenP11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+
+@inproceedings{DBLP:conf/esws/MunozPG07,
+  author    = {Sergio Mu{\~{n}}oz and
+               Jorge P{\'{e}}rez and
+               Claudio Guti{\'{e}}rrez},
+  title     = {Minimal Deductive Systems for {RDF}},
+  booktitle = {{ESWC}},
+  pages     = {53--67},
+  year      = {2007},
+  timestamp = {Tue, 05 Mar 2013 07:41:59 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/esws/MunozPG07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/expert/ValleCHF09,
+  author    = {Emanuele {Della Valle} and
+               Stefano Ceri and
+               Frank van Harmelen and
+               Dieter Fensel},
+  title     = {It's a Streaming World! Reasoning upon Rapidly Changing Information},
+  journal   = {{IEEE} Intelligent Systems},
+  volume    = {24},
+  number    = {6},
+  pages     = {83--89},
+  year      = {2009},
+  doi       = {10.1109/MIS.2009.125},
+  timestamp = {Thu, 10 Dec 2009 15:25:24 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/expert/ValleCHF09},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/esws/ScharrenbachUMVB13,
+  author    = {Thomas Scharrenbach and
+               Jacopo Urbani and
+               Alessandro Margara and
+               Emanuele {Della Valle} and
+               Abraham Bernstein},
+  title     = {Seven Commandments for Benchmarking Semantic Flow Processing Systems},
+  booktitle = {{ESWC}},
+  pages     = {305--319},
+  year      = {2013},
+  }
+
+  @inproceedings{DBLP:conf/semweb/DellAglioCBCV13,
+  author    = {Daniele {Dell'Aglio} and
+               Jean{-}Paul Calbimonte and
+               Marco Balduini and
+               {\'{O}}scar Corcho and
+               Emanuele {Della Valle}},
+  title     = {On Correctness in {RDF} Stream Processor Benchmarking},
+  booktitle = {{ISWC}},
+  pages     = {326--342},
+  year      = {2013},
+  }
+
+  @book{dustin2009implementing,
+  title={Implementing automated software testing: How to save time and lower costs while raising quality},
+  author={Dustin, Elfriede and Garrett, Thom and Gauf, Bernie},
+  year={2009},
+  publisher={Pearson Education}
+}
+
+@inproceedings{DBLP:conf/semweb/UrbaniMJHB13,
+  author    = {Jacopo Urbani and
+               Alessandro Margara and
+               Ceriel J. H. Jacobs and
+               Frank van Harmelen and
+               Henri E. Bal},
+  title     = {DynamiTE: Parallel Materialization of Dynamic {RDF} Data},
+  booktitle = {{ISWC} Part {I}},
+  pages     = {657--672},
+  year      = {2013},
+  }
+
+  @inproceedings{DBLP:conf/pods/BabcockBDMW02,
+  author    = {Brian Babcock and
+               Shivnath Babu and
+               Mayur Datar and
+               Rajeev Motwani and
+               Jennifer Widom},
+  title     = {Models and Issues in Data Stream Systems},
+  booktitle = {{SIGMOD}},
+  pages     = {1--16},
+  year      = {2002},
+ 
+}
+
+@inproceedings{DBLP:conf/debs/KomazecCF12,
+  author    = {Srdjan Komazec and
+               Davide Cerri and
+               Dieter Fensel},
+  title     = {Sparkwave: continuous schema-enhanced pattern matching over {RDF}
+               data streams},
+  booktitle = {{DEBS}},
+  pages     = {58--68},
+  year      = {2012},
+  }
+
+  @inproceedings{DBLP:conf/semweb/BalduiniVDTPC13,
+  author    = {Marco Balduini and
+               Emanuele {Della Valle} and
+               Daniele {Dell'Aglio} and
+               Mikalai Tsytsarau and
+               Themis Palpanas and
+               Cristian Confalonieri},
+  title     = {Social Listening of City Scale Events Using the Streaming Linked Data
+               Framework},
+  booktitle = {{ISWC} Part {II}},
+  pages     = {1--16},
+  year      = {2013},
+  }
+
+  @article{Tatbul2003b,
+  author = {N. Tatbul and U. Cetintemel and {S. B.} Zdonik and M. Cherniak and M. Stonebraker},
+  title = {Exploiting punctuation semantics in continuous data streams.},
+  journal = {IEEE Trans. on Knowledge and Data Eng.},
+  volume = {15},
+  number = {3},
+  year = {2003},
+  issn = {1089-7801},
+  pages = {555-568}
+  }
