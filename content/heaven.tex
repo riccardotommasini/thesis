@@ -1,11 +1,11 @@
 In this chapter we present  \namens,  an open source framework for Systematic Comparative Research on RSP Engine.
-It consists in four baselines and two main components: the Test Stand and the Analyser. The first section, Section \ref{sec:teststand} introduces the Test Stand, which satisfies requirements from R.1 to R.8 and from R.10 to R.12, by executing experiments on an RSP Engine. Section \ref{sec:baselines} describes the Baselines: four RSP Engines that are included in \name They fulfil requirements from R.13 to R.14, so are exploitable as naive terms of comparison. In Chapter \ref{chap:evaluation}  we use those Baselines to show \name potential). Finally Section \ref{sec:analyser} presents the Analyser, which addresses requirements R.9 and R.10  allowing the user to visualise, investigate and compare experiment results. %Soundness and completes of the query answering process are assessed post-hoc by comparing the results of an RSP engine with a term of comparison whose results are correct (see Section 5).
+It consists in four baselines and two main components: the Test Stand and the Analyser. Firstly, Section \ref{sec:teststand} introduces the Test Stand, which satisfies requirements from R.1 to R.8 and from R.10 to R.12, by executing experiments on an RSP Engine. Section \ref{sec:baselines} describes the Baselines, four RSP Engines that are included in \name as naive terms of comparison, since they fulfil requirements R.13 and R.14. Finally, Section \ref{sec:analyser} presents the Analyser, which addresses requirements R.9 and R.10  allowing the user to visualise, investigate and compare experiment results. %Soundness and completes of the query answering process are assessed post-hoc by comparing the results of an RSP engine with a term of comparison whose results are correct (see Section 5).
 
 \section{Test Stand}\label{sec:teststand}
 
 Aerospace engineering defines an Engine Test Stand as a facility used to develop, study and characterise engines. It allows to test operating regimes and offers measurement of several variables associated with engine workflow. A Test Stand may uses actuators for attaining a specific engine state, which is a unique combination of the engine properties. The information collected through the sensors depends on the engine manufacturer, which usually provides his own stand or the facilities to test the engine with commercial solutions. The Test Stand executes black box analysis, because usually the engines does not allow easily to interact with its internal mechanisms.
 
-A Test Stand can be described similarly in the SR context. The definition above still holds its relevance with the difference that the tested engines are IO-Systems. An RSP Engine consumes an RDF Stream and  produces a new one, by applying queries under some entailment regime and w.r.t. some static data (detailed in Section \ref{sec:rspengines}). Describe an RSP Engine means understanding the relation between input stream, the queries register to it and what we call "operational semantics", which is strictly implementation dependent and requires to know the RSP Engine internal process. Indeed, a Test Stand provides only black box testing, even having access to the entire RSP Engine code. Anyhow \name Test Stand allows the user (the RSP Engine developer) to add its own sensor to the execution, respecting requirement R.7 and R.10. In this way is possible to develop a specific testing procedure, which consider also the know-how about this particular engine.
+A Test Stand can be described similarly in the SR context. The definition above still holds its relevance with the difference that the tested engines are IO-Systems. An RSP Engine consumes an RDF Stream and  produces a new one, by applying queries under some entailment regime and w.r.t. some static data (detailed in Section \ref{sec:rspengines}). Describe an RSP Engine means understanding the relation between input stream, the queries registered to it and what we call "operational semantics", which is strictly implementation dependent and requires to know the RSP Engine internal process. Indeed, a Test Stand provides only black box testing, even having access to the entire RSP Engine code. Anyhow, \name Test Stand allows the user (the RSP Engine developer) to extend the sensors set add its own ones, according to requirements R.7 and R.10. In this way is possible to develop a specific testing procedure, which consider also the know-how about this particular engine.
 
 \subsection{Architecture \& Workflow}
 
@@ -20,19 +20,21 @@ A Test Stand can be described similarly in the SR context. The definition above 
 \begin{itemize}
 \item the \textsc{Streamer}, a source for the input RDF Stream
 \item the RSP Engine we want to test;
-\item the \textsc{Result Collector}, a Data acquisition system for both the query results and the gathered measurements.
+\item the \textsc{Result Collector}, a data acquisition system for both the query results and the gathered measurements.
 \end{itemize}
-Figure \ref{fig:architecture} shows both the architecture of \name TS, how the modules are configured, and its workflow, how the modules interact.
+Figure \ref{fig:architecture} shows both the architecture of \name TS and its workflow.
 
-We start presenting the TS architecture, where the components above are arranged into a pipeline and communicates exchanging events [R.11].  The communication starts from the \textsc{Streamer}, which hides the data generation logic in order to obtain data independence [R.1]. Moreover, it pushes an RDF Stream directly to any mounted RSP Engine, respecting [R.5] by not influence the memory footprint with heavy data loading tasks. 
+We start presenting how the modules are configured: the components above are arranged into a pipeline and communicates exchanging events [R.11].  The execution starts with the \textsc{Streamer}, which hides the data generation logic in order to obtain data independence [R.1]. It pushes an RDF Stream directly to the mounted RSP Engine. It is up to the \textsc{Streamer} respects [R.5] and not influence the memory footprint with heavy data loading tasks. 
 
 An interface adapts the event flow to the RSP Engine in use, fulfilling [R.2] (Engine Independence) and hiding the query registration process [R.3] (Query independence), which happens at engine level and is up to the RSP Engine provider.
 
 The \textsc{Result Collector} is the tail of the pipeline. It is part of the \textsc{Test Stand} because the performance measurements are processed and gathered during the execution, together with the queries results data.  The evaluation usually happens a-posteriori trough the Analyser (Section \ref{sec:analyser}). However, real time analysis  of the  Key Performance Indicator (KPI) are possible, but they may violate some requirements like [R.4 and 5]. 
 
-Last but not least,  the Test Stand has an external structure that sustains other modules. It allows the user to control the process through accessible APIs.  This structure can be considered as a module itself, it adds sensor data to query results controlling the execution flow as required by [R.4]. The \textsc{Test Stand} orchestrates the communication between the upstanding models, forcing the \textsc{Streamer} to push events to the RSP Engine and the \textsc{Result Collector} to listen the output an collect the results.\\
+Last but not least, the Test Stand has an external structure that sustains other modules and can be considered as a module itself. It allows the user to control the process through accessible APIs, it adds sensor data to query results, controlling the execution flow as required by [R.4]. \\
 
-\noindent To explain the \textsc{Test Stand} workflow we split the process at the points when the modules exchange events, since each event represent a different logic step in the experiment execution cycle. In this way we distinguish six steps.\\
+\noindent The \textsc{Test Stand} orchestrates the communication between the upstanding models, forcing the \textsc{Streamer} to push events to the RSP Engine and the \textsc{Result Collector} to listen the output an collect the results.  To explain its workflow we split the process at the points when the modules exchange events. Indeed, each message represents a different logic step in the experiment execution cycle and we have distinguished six different ones:\\
+
+\pagebreak
 
 \noindent In step (1) the Test Stand accepts as input an \textsc{Experiment} in the form of a tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$ where:
 \begin{itemize}
@@ -49,11 +51,11 @@ In step (3) $\mathcal{E}$ pushes to the \textsc{Result Collector} an event \text
 
 Notably, to place any RSP engine on the \textsc{Test Stand} (requirement [R.3]) \name provides a simple software wrapper that, when it receives a \textsc{CTEvent}, adapts it to the RSP engine specific format, pushes it in the RSP engine, and listens to the RSP engine output so to transform such an output in a \textsc{OutCTEvent}.
 
-To measure performances (requirement [R.6]) the \textsc{Test Stand} performs several actions both before step (2) and after step (3). To measure latency, it starts a timer before (2) and stops it after (3). To measure memory load, it asks for the free memory of the system after step (3). In step (4), those observations are added to the outputs of $\mathcal{E}$ as annotations and are pushed to the \textsc{Result Collector}.  We name \textsc{TSResult} the event that contains the sensor data plus the query results produced by the engine.  The \textsc{Test Stand} works in a single thread mode, blocking the execution of its components when it perform the performance measurements in (2) and (3) [R.4].  
+To measure performances (requirement [R.6]) the \textsc{Test Stand} performs several actions both before step (2) and after step (3). To measure latency, it starts a timer before (2) and stops it after (3). To measure memory load, it asks for the free memory of the system after step (3). In step (4), those observations are added to the outputs of $\mathcal{E}$ as annotations and are pushed to the \textsc{Result Collector}.  We name \textsc{TSResult} the event that contains the sensor data plus the query results produced by the engine.  The \textsc{Test Stand} works in a single thread mode, blocking the execution of its components when it performs the measurements in (2) and (3) [R.4].  
 
 In step (5) the \textsc{Result Collector} saves \textsc{TSResult} for post process analysis [R.9], executed trough the \textsc{Analyzer}. It does so appending TSResults to an open file to fulfil [R.8].
 
-We define there main kinds of experiment, distinguishing on the data we want to sample and save. This distinction is relevant from an experimental point of view: indeed, ask the system for the memory usage may influence the latency calculous or saving on disk the query results may influence the memory footprint. From the Analyser point of view we have:
+We define there main kinds of experiment distinguishing on the data we want to sample and save. This distinction is relevant from an experimental point of view: indeed, ask the system for the memory usage may influence the latency calculous or saving on disk the query results may influence the memory footprint. From the Analyser point of view we have:
 \begin{itemize}
 \item Latency Experiment, where only the latency is calculated and no query result is saved on file
 \item Memory Experiment, where only the memory is gathered and no query result is saved on file
@@ -80,12 +82,32 @@ We define there main kinds of experiment, distinguishing on the data we want to 
 \textsc{Output Triple}(\underline{Result ID, Experiment ID, S, P, O})\\
 \textsc{Input Triple}(\underline{Event ID, Experiment ID, S, P, O})\\
 
-The \textsc{Experiment} entity contains all the metadata of the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$. We  also save when it start and when it finishes since can be relevant metrics for further analysis. Each \textsc{Event} is unique inside an \textsc{Experiment}, even in case of the identical triple set. Moreover, a \textsc{Result Event} is associated with one and only one \textsc{Event}. It contains the results to the engine queries w.r.t the current window and the measurements set gathered during the execution. The measurement set is extendible to fulfil requirement [R.7]
+The \textsc{Experiment} entity contains all the metadata of the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$.Start time and end time are relevant metrics for further analysis ad system control. Each \textsc{Event} is unique inside an \textsc{Experiment}, even in case of the identical triple set. Moreover, a \textsc{Result Event} is associated with one and only one \textsc{Event}. It contains the results to the engine queries w.r.t the current window and the measurements set gathered during the execution. The measurement set is extendible to fulfil requirement [R.7]
 %a file, which contains a tuple with the sensor data and metadata for each event passed during the experiment execution; a set of TriG files that represents the window materialisation at each cycle, even in case of incremental reasoning. (It is also possible to save the non-materialised window, in order to verify the Completeness and Soundness of the reasoning procedure for the baselines).
 In practice the Test Stand outputs results in time series format and  the Analyser toolset has to handle this kind of information. 
 
 \section{Baselines}
 \label{sec:baselines}
+
+\noindent In Chapter \ref{chap:problem-setting} we state that a Systematic Comparative Research Approach needs initial terms of comparison to lead the investigation. \name contains a set simple and easy-to-use RSP Engines called "baselines", developed to fulfil this lack . 
+We exploit them to define some qualitative methods of investigation and to prove the usability of the Test Stand. 
+
+In section \ref{sec:requirements} we identifies four characteristics that classify a case-study as a baseline inside a research field and here we report how \name Baselines are \textit{Elementary}, \textit{Relevant}, \textit{Simple} and \textit{Eligible}.
+
+As explained in Section \ref{sec:stream reasoning}, the Stream Reasoning research area has three main building blocks: \begin{enumerate}
+\item[1.] RDF streams;
+\item[2.] An extensions of SPARQL to manage continuos data
+\item[3.] reasoning algorithms
+\end{enumerate}
+These there elements are summarised into RSP Engines, systems that can apply reasoning techniques upon rapidly changing information (Section \ref{sec:rspengine}). Early works on SR \cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge} describe the most simple approach to create a stream reasoning system: pipelining a DSMS with a reasoner. The DSMS is responsible to handle the data stream, moving from infinite sequences to finite (and processable) sets of events. The reasoner instead applies SPARQL queries on this set of events, exploiting its reasoning capabilities over a context that can be considered as static, but remains continuous. Follow this approach does not require any design effort, since it is necessary to link two existing technologies and develop the communication between them. But, how this design model fulfil the requirements poses in Section \ref{sec:requirements}?\\
+
+It is easy to show why the the proposed baselines are \textit{Elementary}. They pipeline a mature and open source DSMS with the a general purpose rule engine. it is easy to understand this architecture and it is only necessary to focus on how the subcomponents can interact.
+
+Baseline \textit{Eligibility} comes form the value of the DSMS and the Reasoner in the relative contexts. We can consider this goal as reached when the couple elements are simple and valid terms of comparison w.r.t the state of the art.
+
+Baselines \textit{Relevance} means to cover all the most important theoretical variants that the "pipeline approach" conveys. In terms of reasoning we can choose between to possible approaches and with reference to the data stream processing we have again two choice. Four baseline implementations cover these two main design decisions about the RDF Stream Model and the Reasoning procedures. 
+
+\pagebreak
 
 \begin{figure}[tbh]
   \centering
@@ -94,36 +116,25 @@ In practice the Test Stand outputs results in time series format and  the Analys
   	\label{fig:baselines}
 \end{figure}
 
-In Chapter \ref{chap:problem-setting} we state that a Systematic Comparative Research Approach needs initial terms of comparison to lead the investigation. \name contains a set simple and easy-to-use RSP Engines called "baselines", developed to fulfil this lack . 
-We exploit them to define some qualitative methods of investigation and to prove the usability of the Test Stand. In section \ref{sec:requirements} we identifies four characteristics that classify a case-study as a baseline inside a research field. Indeed, in this section we present how \name Baselines are \textit{Elementary}, \textit{Relevant}, \textit{Simple} and \textit{Eligible}.
+The RDF Stream model describes how the input RDF Stream is processed, different systems accept data in different models, which depends on how RDF Stream is considered in terms of events contemporaneity. The two most relevant ones are:
 
-As explained in Section \ref{sec:stream reasoning}, the Stream Reasoning research area has three main building blocks: 1) RDF streams, 2) an extensions of SPARQL to manage continuos data and 3) reasoning algorithms. These there elements are summarised into RSP Engines, systems that can apply reasoning techniques upon rapidly changing information (Section \ref{sec:rspengine}). Early works on SR \cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge} describe the most simple approach to create a stream reasoning system: pipelining a DSMS with a reasoner. 
-
-The first one, the DSMS, is responsible to handle the data stream, moving from infinite sequences to finite (and processable) sets of events. The second one, the reasoner, applies SPARQL queries on this set of events, exploiting its reasoning capabilities over a context that can be considered as static, but remains continuous. 
-
-Follow this approach does not require any new design effort. We just need to link two existing technologies and develop the communication between them. The proposed baselines are \textit{Elementary} because they pipeline Esper\footnote{\url{http://esper.codehaus.org/}}, a mature and open source DSMS, with the Jena general purpose rule engine\footnote{\url{http://jena.apache.org/documentation/inference/#rules}} that is a flexible reasoning engine.  Esper and Jena are two excellences in their context, Baseline \textit{Eligibility} comes form their value. We can consider their couple as a simple but valid term of comparison.
-
-Baselines \textit{Relevance} means to cover all the most important theoretical variants the approach above conveys. In terms of reasoning and with reference to the data stream processing model, four baseline implementations cover two main design decisions about the RDF Stream Model and the Reasoning architecture.  The first one, the RDF Stream model,  describes how the input RDF Stream is processed, different systems accept data in different models, which depends on how RDF Stream is considered in terms of events contemporaneity. The two most relevant ones are:
 \begin{itemize}	
 \item Triple-based model, where the events pushed in the DSMS are timestamped triples. The timestamps are non decreasing, different triples could have the same timestamp to denote that they are contemporary.
 \item RDF Graphs-based: the event pushed in the DSMS are timestamped RDF graph. The timestamps are increasing and the graph is used as a form of punctuation \cite{Tatbul2003b} to separate consequent portions of the RDF stream.
 \end{itemize}
-The Reasoning Architecture, depends on the techniques to make inference, which are strictly related to the way data can flow from the DSMS to the reasoner. Again the possibility are two:
+
+The Reasoning Architecture, the techniques to make inference, depends on the way data flow from the DSMS to the reasoner. Two reasoning solutions exist for the two triples data flow:
+
 \begin{itemize}
-\item Snapshot, where all the window contents is sent to the reasoner at each window slide
-\item IRStream, where the DSMS  outputs the differences between the current window and the previous one
-\end{itemize}
-Thus, two possible solutions for reasoning on the triples in the window are possible: 
-\begin{itemize}
-\item Naive solution: as shown in Figure \ref{fig:baselines}-A, the DSMS determines the triples in the current window, produces an RDF snapshot of it and the reasoner materialise all the implied triples at each cycle. This approach is implemented in the C-SPARQL Engine \cite{DBLP:journals/sigmod/BarbieriBCVG10} and in Sparkwave \cite{DBLP:conf/debs/KomazecCF12}.
-\item Incremental solution: as shown in Figure \ref{fig:baselines}-B, the DSMS outputs the IRStream. The $\Delta^{+}$ snapshot contains the new triples that have just entered in the current window, while the $\Delta^{-}$ snapshot contains the triples that have just exited from the current window. The reasoner, using $\Delta^{+}$ and $\Delta^{-}$, incrementally maintains the materialisation over time. This approach is taken as term of comparison in \cite{DellAglio2014} and it is inspired from \cite{DBLP:conf/cikm/RenP11}.
+\item Naive solution: (Figure \ref{fig:baselines}-A) the DSMS produces an RDF Snapshot of the current windows. Tt sends the entire content of the window to the reasoner, which materialises all the implied triples at each cycle. This is the approach implemented in the C-SPARQL Engine \cite{DBLP:journals/sigmod/BarbieriBCVG10} and in Sparkwave \cite{DBLP:conf/debs/KomazecCF12}.
+\item Incremental solution (Figure \ref{fig:baselines}-B) the DSMS outputs the IRStream, the differences between the current window and the previous one. The $\Delta^{+}$ snapshot contains the triples that have just entered in the window, while the $\Delta^{-}$ snapshot contains the triples that have just exited from the window. The reasoner, using $\Delta^{+}$ and $\Delta^{-}$, incrementally maintains the materialisation over time. This approach is taken as term of comparison in \cite{DellAglio2014} and it is inspired from \cite{DBLP:conf/cikm/RenP11}.
 \end{itemize}
 
-The baseline answer the most simple query that involves a big reasoning effort: the identity query, which requires to materialise all the implicit information entailed by the content of the window, given the ontology chosen by the user. We chose  $\rho$DF as entailment regime, because it is the minimal meaningful task for a Stream Reasoner. It is the minimal RDF-S fragment which reduce complexity but preserves the normative semantics and the core functionalities \cite{DBLP:conf/esws/MunozPG07},  several works in the field exploit it  \cite{DBLP:conf/semweb/UrbaniMJHB13}  and we do it as well to provide Simplicity. 
+To provide baselines \textsc{Simplicity} we chose as a RSP Engine $\mathcal{Q}$ the identity query, which requires to materialise all the implicit information entailed by the content of the window, given the ontology chosen by the user. Moreover, we  exploit $\rho$DF as entailment regime, because it is the minimal meaningful task for a Stream Reasoner. It is the minimal RDF-S fragment which reduce complexity but preserves the normative semantics and the core functionalities \cite{DBLP:conf/esws/MunozPG07},  several works in the field exploit it  \cite{DBLP:conf/semweb/UrbaniMJHB13}.
 
-Previous works on correctness of RDF stream processing \cite{DBLP:conf/semweb/DellAglioCBCV13} explain the importance of external control on time to assure that the RSP Engine always outputs the correct answers (even when overloaded). The proposed baselines take advantage of the ability of Esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. One time-keeping event is sent before injecting the triples in a \textsc{TCEvent} and another one after all triples in \textsc{TCEvent}  were sent. In this way all the triples in the TCEvent are consider contemporary by the baselines. Prove baselines soundness and completeness is important to sustain their Eligibility, and to allow the user to use them as an oracle for its own engine evaluation.
+Finally, previous works on correctness of RDF stream processing \cite{DBLP:conf/semweb/DellAglioCBCV13} explain the importance of external control on time to assure that the RSP Engine always outputs the correct answers (even when overloaded). The proposed baselines should take advantage of the ability of some DSMS as Esper for example, to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. One time-keeping event is sent before injecting the triples in a \textsc{TCEvent} and another one after all triples in \textsc{TCEvent}  were sent. In this way all the triples in the TCEvent are consider contemporary by the baselines. Prove baselines soundness and completeness is important to sustain their \textsc{Eligibility}, and to allow the user to use them as an oracle for its own engine evaluation.
 
-More consideration on Baseline Eligibility are presented in Chapter of \ref{chap:evaluation}, which deeply answer the questions about baselines performance with experimental results. 
+More consideration on Baseline \textsc{Eligibility} are presented in Chapter of \ref{chap:evaluation}, which deeply answers the questions about baselines performance with experimental results. 
 
 \section{Analyser}\label{sec:analyser}
 
