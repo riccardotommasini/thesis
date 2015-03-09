@@ -138,7 +138,7 @@ More consideration on Baseline \textsc{Eligibility} are presented in Chapter of 
 
 \section{Analyser}\label{sec:analyser}
 
-The Analyser is conceptually a set of tools that allows visualisation and statistical investigation of the data produced after executing an \textsc{experiment}. As reported in Section \ref{sec:teststand}, the Test Stand results are time series, whose study is a very wide matter. To this extent, it is difficult to design a general architecture for the Analyser. Another motivation regards the impossibility to complete decouple the analysis from the tools that can sustain it. Indeed, the first one depends on the hypothesis of the research while the second one requires research guidelines, which are related to the experiment. 
+The Analyser is conceptually a set of tools that allows visualisation and statistical investigation of the data . As reported in Section \ref{sec:teststand}, the Test Stand executes \textsc{experiments} and produces times series, whose study is a very wide matter. To this extent, it is hard to think the Analyser in a general way. Another motivation regards the relation between the hypothesis and    tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the datas, which are related to the experiment. 
 
 However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider many investigation methods, in particular the Systematic Comparative Approach presented in Chapter \ref{chap:problem-setting}), which demands to identify characteristics upon which is possible to build comparison. 
 
@@ -149,13 +149,13 @@ However, it is possible to identify some common characteristics that have a gene
   	\label{fig:steady-state}
 \end{figure}
 
-First of all, the Analyser tool-set must include an automatic procedure to repeat the experiment execution and average the data. Even if the Test Stand is designed to be system independent, it is a dynamic system and strange response may happen while an experiment is running. In order to reduce and possible eliminate the Byzantine errors, multiple runs of the same experiment must be mediated obtaining the average measures. 
+First of all, the Analyser tool-set must include an automatic procedure to repeat the experiment execution and average the data. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the Byzantine errors, multiple runs of the same experiment must be mediated obtaining the average measures. 
 
-Once we have statistical relevant data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data. 
+Once we have reliable data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions.
 
-Time series studies usually start with data visualisation analysis. The most common  plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
+Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
 
-The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to attempt this analysis. Figure \ref{fig:steady-state} shows a typical behaviour for a system in the time domain and also evidences the point when the the serie reaches the Steady State condition. Visualise the point of normalization is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
+The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to complete the task. Figure \ref{fig:steady-state} shows a typical behaviour for a system in the time domain and also evidences the point when the the serie reaches the Steady State condition. Visualise the point of normalisation is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
 
 \begin{figure}[tbh]
   \centering
@@ -164,7 +164,7 @@ The Steady State is the moment when a dynamic system reaches the equilibrium for
   	\label{fig:comp-intra}
 \end{figure}
 
-Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main comparative investigation option, the following images show a some examples of them:
+Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main investigation options, the following images show a some examples of them:
 % A) Intra-Experiment Comparison ; B) Inter-Experiment Comparison; C) Pattern Recognition. T
 
 \begin{figure}[tbh]
@@ -189,7 +189,8 @@ Independently from the Steady State condition, variables relation can be evidenc
 
 \pagebreak
 
-The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. We still distinguish in this context between intra-experiment and inter-experiment comparisons, but we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, beacuse it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
+The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. 
+The options of intra-experiment and inter-experiment comparisons are still meaningful, and now we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, because it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
 
 \begin{table}[htb]
 \scriptsize
