@@ -48,14 +48,13 @@ Gathering different metrics is relevant from an experimental point of view: inde
 \item Any combination of the previous experiment types.
 \end{itemize}
 
-\noindent The Entity Relation diagram in figure \ref{fig:er} presents data model of the \textsc{Test Stand} . The diagram does not include entity attributes, but the relative Logic Schema, which follows, reports each entity field:\\
+\noindent The Entity Relation diagram in figure \ref{fig:er} presents data model of the \textsc{Test Stand} . The diagram does not include entity attributes, but they are reported in the following Logic Schema:
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/er-db}
 	\caption{ER-Diagram For Experiment Output} 
   	\label{fig:er}
-\end{figure}
-
+\end{figure}\\
 \noindent\textsc{Experiment}(\underline{ID}, Timestamp Start, Timestamp End, Engine, Ontology, Query, Dataset, Description)\\
 \textsc{Event}(\underline{ID, Experiment ID}, Timestamp)\\
 \textsc{Result}(\underline{Result ID, Experiment ID}, Event ID)\\
@@ -65,9 +64,10 @@ Gathering different metrics is relevant from an experimental point of view: inde
 \textsc{Output Triple}(\underline{Result ID, Experiment ID, S, P, O})\\
 \textsc{Input Triple}(\underline{Event ID, Experiment ID, S, P, O})\\
 
-The \textsc{Experiment} entity contains all the metadata of the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$.Start time and end time are relevant metrics for further analysis ad system control. Each \textsc{Event} is unique inside an \textsc{Experiment}, even in case of the identical triple set. Moreover, a \textsc{Result Event} is associated with one and only one \textsc{Event}. It contains the results to the engine queries w.r.t the current window and the measurements set gathered during the execution. The measurement set is extendible to fulfil requirement [R.7]
+The \textsc{Experiment} entity contains all the metadata of the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$, which semantic is explained above. "Timestamp Start" and "Timestamp End" are relevant metrics for further analysis and system control. 
+The \textsc{Event} is unique inside an \textsc{Experiment}, it is possible to send two events with the same timestamp and identical tripleset. The \textsc{Result}  is associated with one and only one \textsc{Event}. It contains the results to the engine queries w.r.t the active window and the set of the measure gathered during the execution. The \textsc{Measurement Set} table represent the relation between the \textsc{Result} and a number of measure that may variate  to fulfil requirement [R.7] (extendible measurement set). We include the concept of the \textsc{Triple} in order to model the content of \textsc{Event and Result}. \textsc{Input Triple} and \textsc{Output Triple} are the tables which represent the relation between \textsc{Triple} and respectively \textsc{Event} and \textsc{Result}
 %a file, which contains a tuple with the sensor data and metadata for each event passed during the experiment execution; a set of TriG files that represents the window materialisation at each cycle, even in case of incremental reasoning. (It is also possible to save the non-materialised window, in order to verify the Completeness and Soundness of the reasoning procedure for the baselines).
-In practice the Test Stand outputs results in time series format and  the Analyser toolset has to handle this kind of information. 
+%In practice the Test Stand outputs results in time series format and  the Analyser toolset has to handle this kind of information. 
 
 \noindent The \textsc{Test Stand} orchestrates the communication between the upstanding models, forcing the \textsc{Streamer} to push events to the RSP Engine and the \textsc{Result Collector} to listen the output and collect the results.  To explain its workflow we split the process at the points when the modules exchange events. Indeed, each message represents a different logic step in the experiment execution cycle and we have distinguished six different ones.
 
@@ -98,9 +98,6 @@ Early works on SR \cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge
 \item[2.] An extensions of SPARQL to manage continuos data
 \item[3.] reasoning algorithms
 \end{enumerate}
-These there elements are summarised into RSP Engines, systems that can apply reasoning techniques upon rapidly changing information (Section \ref{sec:rspengine}). The approach above allow to develop an RSP Engine focusing only on link two existing technologies and develop the communication between them. But, how this design model fulfil the requirements poses in Section \ref{sec:requirements}?
-
-Baselines \textit{Elementarity} is easy to be granted. The architecture above demands to choose a  DSMS which is a reliable solution in the CEP context  and the a general purpose rule engine which can be consider in the same way. We can consider this goal as reached when the couple elements are simple and valid terms of comparison w.r.t the state of the art.  Baselines \textit{Relevance} means to cover all the most important theoretical variants that the "pipeline approach" conveys. In terms of reasoning we can choose between to possible approaches and with reference to the data stream processing we have again two choice. Four baseline implementations cover these two main design decisions about the RDF Stream Model and the Reasoning procedures. 
 
 \begin{figure}[tbh]
   \centering
@@ -108,6 +105,9 @@ Baselines \textit{Elementarity} is easy to be granted. The architecture above de
 	\caption{A: the architecture of the Naive baselines. B: the one of  the Incremental ones.} 
   	\label{fig:baselines}
 \end{figure}
+These there elements are summarised into RSP Engines, systems that can apply reasoning techniques upon rapidly changing information (Section \ref{sec:rspengine}). The approach above allow to develop an RSP Engine focusing only on link two existing technologies and develop the communication between them. But, how this design model fulfil the requirements poses in Section \ref{sec:requirements}?
+
+Baselines \textit{Elementarity} is easy to be granted. The architecture above demands to choose a  DSMS which is a reliable solution in the CEP context  and the a general purpose rule engine which can be consider in the same way. We can consider this goal as reached when the couple elements are simple and valid terms of comparison w.r.t the state of the art.  Baselines \textit{Relevance} means to cover all the most important theoretical variants that the "pipeline approach" conveys. In terms of reasoning we can choose between to possible approaches and with reference to the data stream processing we have again two choice. Four baseline implementations cover these two main design decisions about the RDF Stream Model and the Reasoning procedures. 
 
 The RDF Stream model describes how the input RDF Stream is processed, different systems accept data in different models, which depends on how RDF Stream is considered in terms of events contemporaneity. The two most relevant ones are:
 
@@ -125,11 +125,11 @@ The Reasoning Architecture, the techniques to make inference, depends on the way
 
 Baseline \textsc{Eligibility} requires to check out all the performance measurements involved by the RSP Engine in use. We already stated that the choice of the DSMS and the reasoned may affect baseline \textsc{Elementarily}, but they also influence the performance of the engine. As reported in Section \ref{sec:teststand}, we take as initial measure set: Latency, Memory and of the query results Completeness and Soundness. The baselines must be at least comparable with commercial solutions in terms of degree of magnitude, in order to be Eligible for Latency and Memory. More consideration on this metrics are presented in Chapter of \ref{chap:evaluation}, which deeply answers the question with experimental results. On correctness of RDF stream processing \cite{DBLP:conf/semweb/DellAglioCBCV13} previous works explain the importance of external control on time to assure that the RSP Engine always outputs the correct answers (even when overloaded). The proposed baselines should take advantage of the ability of some DSMS to be temporally controlled by an external agent by sending time-keeping events to synchronise the internal time flow. %One time-keeping event is sent before injecting the triples in a \textsc{TCEvent} and another one after all triples in \textsc{TCEvent}  were sent. In this way all the triples in the TCEvent are consider contemporary by the 
 
-Finally, baselines \textsc{Simplicity} comes from those parameters that directly design the RSP Engine: dataset $\mathcal{D}, ontology \mathcal{T} and query\mathcal{Q},$. $\mathcal{Q}$ should  eligible in terms of reasoning, which means having an high materialisation effort of the implicit information entailed by the content of the window, given the ontology chosen by the user. The dataset $\mathcal{D} and the ontology \mathcal{T}$ are eligible when their entailment regime is a minimal RDF-S fragment which reduce complexity but preserves the normative semantics and the core functionalities. Moreover, what we state above about externally time control clarify the system workflow, so it is demanded to sustain baselines \textsc{Simplicity} too.
+Finally, baselines \textsc{Simplicity} comes from those parameters that directly influence the RSP Engine: the query $\mathcal{Q},$ and the entailment regime. $\mathcal{Q}$ should be eligible in terms of reasoning which means having an high materialisation effort of the implicit information entailed by the content of the window, given the ontology chosen by the user. The entailment regime should be a fragment of a language, maybe RDF-S,  which reduce complexity but preserves the normative semantics and the core functionalities. Moreover, what we state above about externally time control clarify the system workflow, so it is demanded to sustain baselines \textsc{Simplicity} too.
 
 \section{Analyser}\label{sec:analyser}
 
-The Analyser is conceptually a set of tools that allows visualisation and statistical investigation of the data . As reported in Section \ref{sec:teststand}, the Test Stand executes \textsc{experiments} and produces times series, whose study is a very wide matter. To this extent, it is hard to think the Analyser in a general way. Another motivation regards the relation between the hypothesis and    tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the datas, which are related to the experiment. 
+The Analyser is conceptually a set of tools that allows visualisation and statistical investigation of the result data . As reported in Section \ref{sec:teststand}, the Test Stand executes \textsc{experiments} and produces times series, whose study is a very wide matter. To this extent, it is hard to think the Analyser in a general way. Another motivation regards the relation between the hypothesis and    tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the data, which are related to the experiment. 
 
 However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider many investigation methods, in particular the Systematic Comparative Approach presented in Chapter \ref{chap:problem-setting}), which demands to identify characteristics upon which is possible to build comparison. 
 
@@ -140,13 +140,13 @@ However, it is possible to identify some common characteristics that have a gene
   	\label{fig:steady-state}
 \end{figure}
 
-First of all, the Analyser tool-set must include an automatic procedure to repeat the experiment execution and average the data. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the Byzantine errors, multiple runs of the same experiment must be mediated obtaining the average measures. 
+First of all, the Analyser tool-set must include an automatic procedure average the data of multiple execution of the same experiment. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures. 
 
 Once we have reliable data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions.
 
 Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
 
-The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to complete the task. Figure \ref{fig:steady-state} shows a typical behaviour for a system in the time domain and also evidences the point when the the serie reaches the Steady State condition. Visualise the point of normalisation is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
+The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to complete the task. Figure \ref{fig:steady-state} shows a typical behaviour for a system in the time domain and also evidences the point when the the serie reaches the Steady State condition. Visualise the point of when Steady State is reached is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
 
 \begin{figure}[tbh]
   \centering
@@ -166,7 +166,7 @@ Independently from the Steady State condition, variables relation can be evidenc
 \end{figure}
 
 \begin{enumerate}
-\item[A] Figure \ref{fig:comp-intra} shows an example of intra-experiment investigation, multi-plotting them on the same domain; 
+\item[A] Figure \ref{fig:comp-intra} shows an example of intra-experiment investigation, multi-plotting them on the time domain or frequency domain; 
 \item[B] Figure \ref{fig:comp-inter} shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon a certain fixed characteristic.  
 \item[C] Figure \ref{fig:patterns}  shows an example of pattern recognition: inter-experiment on the same variable or intra-experiment on the relation between variable;
 \end{enumerate}

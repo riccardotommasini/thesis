@@ -1,127 +1,23 @@
 \documentclass[12pt,a4paper,twoside,openright]{report}
-\usepackage{algpseudocode}		% ambienti per la scrittura di algoritmi
-\usepackage{algorithm}			% 
 
-\usepackage{epsfig}						% figure eps
-\usepackage{graphicx}					% figure qualsiasi
-\usepackage{amsmath,amsfonts,amsthm}		% package di scrittura matematica
-\usepackage{amssymb}
-\usepackage{psfrag}
-\usepackage{fancyhdr}
-\usepackage{u
-
-\end\documentclass{beamer}
-
-% \usepackage{beamerthemesplit} // Activate for custom appearance
-
-\title{Example Presentation Created with the Beamer Package}
-\author{Till Tantau}
-\date{\today}
-
-\begin{document}
-
-\frame{\titlepage}
-
-\section[Outline]{}
-\frame{\tableofcontents}
-
-\section{Introduction}
-\subsection{Overview of the Beamer Class}
-\frame
-{
-  \frametitle{Features of the Beamer Class}
-
-  \begin{itemize}
-  \item<1-> Normal LaTeX class.
-  \item<2-> Easy overlays.
-  \item<3-> No external programs needed.      
-  \end{itemize}
-}2
-\end{document}
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=2in]{example.jpg} 
-   \caption{example caption}
-   \label{fig:example}
-\end{figure}\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
-%\geometry{landscape}                		% Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
-\usepackage{amssymb}
-
-\title{Brief Article}
-\author{The Author}
-%\date{}							% Activate to display a given date or no date
-
-\begin{document}
-\maketitle
-%\section{}
-%\subsection{}
-
-
-
-\end{document}  % XeLaTeX can use any Mac OS X font. See the setromanfont command below.
-% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
-
-% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
-
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-
-\documentclass[12pt]{article}
-\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
-%\geometry{landscape}                % Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}
-\usepackage{amssymb}
-
-% Will Robertson's fontspec.sty can be used to simplify font choices.
-% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
-% and change "Hoefler Text" to any of these choices.
-
-\usepackage{fontspec,xltxtra,xunicode}
-\defaultfontfeatures{Mapping=tex-text}
-\setromanfont[Mapping=tex-text]{Hoefler Text}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
-\setmonofont[Scale=MatchLowercase]{Andale Mono}
-
-\title{Brief Article}
-\author{The Author}
-%\date{}                                           % Activate to display a given date or no date
-
-\begin{document}
-\maketitle
-
-% For many users, the previous commands will be enough.
-% If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
-% using the International Panel in System Preferences.
-% Unicode must be typeset using a font containing the appropriate characters.
-% Remove the comment signs below for examples.
-
-% \newfontfamily{\A}{Geeza Pro}
-% \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
-% \newfontfamily{\J}[Scale=0.85]{Osaka}
-
-% Here are some multilingual Unicode fonts: this is Arabic text: {\A ?????? ?????}, this is Hebrew: {\H ????}, 
-% and here's some Japanese: {\J ???}.
-
-
-
-\end{document}  
-
-\endrl}
-\usepackage{array}
-\usepackage{subfigure}
-\usepackage{lscape}
-\usepackage{colortbl}
-\usepackage{alltt}
+\usepackage{algpseudocode,algorithm}			% alghoritms and pseudocode
+\usepackage{listings}						% code snippets
+\usepackage{pifont}							% post scriptn symbol and fonts
+\usepackage{epsfig}							% eps images
+\usepackage{amsmath,amsfonts,amsthm,amssymb}	% math stuff
+\usepackage{psfrag}							% post script utilities
+\usepackage{fancyhdr}						% control page header and footer
+\usepackage{url}								% verbatim for url
+\usepackage{array}							% tabular and array utils
+\usepackage{lscape}							% for landscape placement
+\usepackage[english]{babel}					% language support
+\usepackage[nottoc]{tocbibind}		
 \usepackage{tabularx}
-\usepackage[english]{babel}
-\usepackage[nottoc]{tocbibind}
+\usepackage{subfigure}
+
+
+
+		% bibliography to toc
 \sloppy
 \raggedbottom
 
@@ -133,7 +29,7 @@
 \hbox{}
 \vspace*{\fill}
 \begin{center}
-%This page intentionally contains only this sentence.
+	% this page intentionally contains only this sentence.
 \end{center}
 \vspace{\fill}
 \thispagestyle{empty}
@@ -141,26 +37,19 @@
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \makeatother
 
-%\newcites{wb}{Web References}
-
 %------------------------------------------------------
-% Impostazioni per il controllo sillabazione vedove/orfane ect..
-%
-% \looseness=1 o \looseness=-1 prima di un paragrafo per
-% allungarlo o accorciarlo di una riga
+% hyphenation settings
 %------------------------------------------------------
-
 \lefthyphenmin=4
 \righthyphenmin=4
 \tolerance=1000
 \hyphenpenalty=100
-\emergencystretch=1 cm
-
+\emergencystretch=1cm
 \widowpenalty=5000
 \clubpenalty=2500
 
 %--------------------------------------------------------
-% impostazioni per la dimensione delle pagine
+% pages size setup
 %--------------------------------------------------------
 \renewcommand{\headrulewidth}{0.5pt}
 \hoffset=-15mm
@@ -176,42 +65,36 @@
 \oddsidemargin=25mm
 %\marginparwidth=0mm
 
-\renewcommand{\abovecaptionskip}{0pt}
-\renewcommand{\belowcaptionskip}{0pt}
-
 %--------------------------------------------------------------
-%impostazione headers
+% page headers setup
 %--------------------------------------------------------------
 \pagestyle{fancy}
-%\addtolength{\headwidth}{\marginparsep}
-%\addtolength{\headwidth}{\marginparwidth}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhf{}
 \fancyfoot[LE,RO]{\bfseries\thepage}
 \fancyhead[RO]{\bfseries\rightmark}
 \fancyhead[LE]{\bfseries\leftmark}
-\fancypagestyle{plain}{%
-\fancyhead{} % get rid of headers
+\fancypagestyle{plain}{
+\fancyhead{}
 \fancyfoot{}
-\renewcommand{\headrulewidth}{0pt} % and the line
+\renewcommand{\headrulewidth}{0pt}
 }
 
-\newenvironment{myverse}
-{\small}
-{}
+%--------------------------------------------------------------------------------
+% custom commands %--------------------------------------------------------------------------------
+\newcommand{\newparagraph}{\noindent\\}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\cmark}{\ding{51}}
 
-\newenvironment{myabstract}{%
-  \begin{center}%
-    \null\vfil
-    \bfseries \abstractname
-  \end{center}}%
-{\par\vfil\null}
 
 %------------------------------------
 \newcommand{\name}{$\mathcal{H}$eaven } 
 \newcommand{\namens}{$\mathcal{H}$eaven} 
-%------------------------------------
+
+%--------------------------------------------------------------------------------
+% document start
+%--------------------------------------------------------------------------------
 \begin{document}
 
 \pagenumbering{roman}
@@ -219,9 +102,20 @@
 \pagestyle{empty}
 
 %--------------------------------------------------------------------------------
+% listings configiuration
+%--------------------------------------------------------------------------------
+\lstset{
+	frame=tb,
+	captionpos=b,
+	basicstyle=\footnotesize,
+	numbers=left,
+	aboveskip=1em
+}
+
+%--------------------------------------------------------------------------------
 % include title page
 %--------------------------------------------------------------------------------
-\include{content/title}
+\include{title}
 
 \pagestyle{fancy}
 \renewcommand{\contentsname}{Table of Contents}%
@@ -243,11 +137,14 @@
 %--------------------------------------------------------------------------------
 \tableofcontents
 \cleardoublepage
+\listoffigures
+\listoftables
+%\listofalgorithms
+%\lstlistoflistings
 
 \pagenumbering{arabic}
 
 \setcounter{page}{1}
-
 
 %--------------------------------------------------------------------------------
 % introduction
@@ -276,6 +173,15 @@
 \input{content/heaven}
 
 %--------------------------------------------------------------------------------
+% heaven
+%--------------------------------------------------------------------------------
+
+\chapter{Evaluation}
+\label{chap:evaluation}
+\input{content/evaluation}
+
+
+%--------------------------------------------------------------------------------
 % conclusions and future works
 %--------------------------------------------------------------------------------
 \chapter{Conclusions and Future Works}
@@ -285,16 +191,24 @@
 %--------------------------------------------------------------------------------
 % appendices
 %--------------------------------------------------------------------------------
-\part*{Appendices\label{part:app}\addcontentsline{toc}{part}{Appendices}}
-\appendix
-\chapter{\dots}
-\label{app:one}
-\input{content/app_one}
+%\part*{Appendices\label{part:app}\addcontentsline{toc}{part}{Appendices}}
+%\appendix
+%\chapter{Configuring Kundera extensions}
+%\label{app:kconfig}
+%\input{content/kundera-configuration}
+%
+%\chapter{Configuring CPIM migration}
+%\label{app:migration}
+%\input{content/cpim-migration}
+%
+%\chapter{Run YCSB tests}
+%\label{app:ycsb}
+%\input{content/ycsb-tests}
 
-\chapter{\dots}
-\label{app:two}
-\input{content/app_two}
-
+%--------------------------------------------------------------------------------
+% bibliography
+%--------------------------------------------------------------------------------
 \bibliographystyle{plain}
-\bibliography{tesi.bib}
+\bibliography{thesis.bib}
+
 \end{document}
