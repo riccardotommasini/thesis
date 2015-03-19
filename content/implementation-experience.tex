@@ -43,7 +43,7 @@ Chapter \ref{chap:problem-settings} poses the requirements of an Event-based arc
 
 The \textit{CTEvent} and the \textit{OutCTEvent} contain RDF triples in NT-Triple\footnote{http://www.w3.org/2001/sw/RDFCore/ntriples/}, which is the easiest RDF serialisation to parse. This serialisation was chosen to fulfil requirement [R.12], which demands an \textit{Easy-to-Parse RDF Serialisation for the events presented to the RSP Engine in exam}. Figure \ref{fig:uml_events} shows also that the RDF Triples are stored in the events into the \textit{TripleContainer} wrapper: we redefine the triple hashcode and equals method guaranteeing their uniqueness of within an \textit{CTEvent} or \textit{OutCTEvent}.
 
-\section{Modules}
+\section{Modules}\label{sec:modules-impl}
 
 In Section \ref{sec:impl-intro} we define a module a an \textit{Event Processor} which can be positioned everywhere in the the \textsc{Test Stand} pipeline. Moreover, we introduce the FSM schema which describe a module lifecycle in \ref{fig:module-fsm}. We state that each module must be initialized to reach the READY state where the processing is allowed. 
 
@@ -227,7 +227,7 @@ Moreover, Figure \ref{fig:uml_resultcollector_events}, shows how different event
 The two saving procedure exploits service classes, the \textit{SQLLIsteService} and the \textit{FileService} in Figure \ref{fig:uml_resultcollector_events}, which exposes static methods to interact with the file-system. The goal is  reducing system complexity offering a single point to interact with the file-system, which usually is a slow operation, to avoid parallel interactions that may influence the experiment. 
 
 
-\subsection{Test Stand Supporting Structure}\label{sec:teststand}
+\subsection{Test Stand Supporting Structure}\label{sec:teststand-impl}
 
 
 \begin{figure}[tbh]
@@ -238,7 +238,7 @@ The two saving procedure exploits service classes, the \textit{SQLLIsteService} 
 \end{figure}
 
 
-\name \textsc{Test Stand} was defined as set of modules which interact exchanging events during the execution. However, Chapter \ref{chap:havean} describes at the design level the presence of an external structure which orchestrates the communication between the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{ResultCollector}. This external structure also exposes the APIs for users interaction. Figure \ref{fig:uml_teststand} shows both these classes called \textit{TestStand} and its current implementation is the \textit{TestStandImpl}.
+\name \textsc{Test Stand} was defined as set of modules which interact exchanging events during the execution. However, Chapter \ref{chap:heaven} describes at the design level the presence of an external structure which orchestrates the communication between the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{ResultCollector}. This external structure also exposes the APIs for users interaction. Figure \ref{fig:uml_teststand} shows both these classes called \textit{TestStand} and its current implementation is the \textit{TestStandImpl}.
 
 
 Figure \ref{fig:uml_teststand} shows that the \textit{TestStand} structure is and \textit{EventProcessor} as other modules. The relation between the \textit{TestStand} and other modules is presented in Figure \ref{fig:uml_teststand_modules}. The \textit{TSStreamer}, the \textit{RSPEngine} and the \textit{TSResulCollector} are linked to the \textit{TestStandImpl} trough an initialisation class which receives the configuration file, and sets these modules up according with the requirements [R.1] for data independence  [R.2] and [R.3] for engine independence and query independence. Once the set-up phase is complete the \textit{TestStandImpl} is initialized1 and it consequently initialises all the upstanding modules. The \textit{Experiment} is created externally and passed to the \textit{TestStandImpl} to start the execution. 
@@ -259,8 +259,8 @@ During the execution \textit{TestStandImpl} intercepts the \textit{CTEvents} for
 
 \section{Baselines}\label{sec:baselines-impl}
 
-\name Baselines are four elementary implementation of an RSP Engine which follow the design proposal presented in Section \ref{sec:baselines}, covering [R.13]. They pipeline Esper\footnote{$http://www.espertech.com/esper/$}, a mature commercial DSMS, with the Jena general purpose rule engine\footnote{http://jena.apache.org/documentation/inference/\#rules
-}, a flexible reasoning engine. The motivations behind the choice of Esper and Jena regards the intention to fulfil requirement [R.14], baselines Eligibility, coupling this two good solution for reasoning and CEP, to obtain a fair solution the SR context. 
+\name Baselines are four elementary implementations of an RSP Engine which follow the design proposal presented in Section \ref{sec:baselines}, covering [R.13]. They pipeline Esper\footnote{$http://www.espertech.com/esper/$}, a mature commercial DSMS, with the Jena general purpose rule engine\footnote{http://jena.apache.org/documentation/inference/\#rules
+}, a flexible reasoning engine. The aim of the choice of Esper and Jena is fulfilling requirement [R.14], baselines Eligibility, coupling this two good solutions for stream processing and reasoning, to obtain a fair solution in the SR context. 
 
 \begin{figure}[tbh]
   \centering
@@ -269,7 +269,13 @@ During the execution \textit{TestStandImpl} intercepts the \textit{CTEvents} for
   	\label{fig:uml_baselines_general}
 \end{figure}
 
-Figure \ref{fig:uml_baselines_general} shows the general implementation of the baselines: they  exploit the \textit{RSPEngine} interface, a proxy for an \textit{EventProcessor}, implementing the interface into the \textit{RSPEsperEngine} abstract class that includes the esper runtime.  The proposed baselines take advantage of the ability of esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. One time-keeping event is sent before injecting the triples within a \textsc{CTEvent} and another one after all triples in \textsc{CTEvent} were sent. In this way all the triples in the \textsc{CTEvent} are consider contemporary by the baselines. To enable external time control the RSPEngine interface exposes the moveTime() method, whose implementation depends on the particular RSP Engine in use. The next attributes, represents the general \textit{EventProcessor} which follows the RSPEngine in the \textsc{Test Stand} pipeline, it can be any modules which processes \textit{CTEvent}.
+In Figure \ref{fig:uml_baselines_general} is presented how the baselines are implemented. The general structure exploits the \textit{RSPEngine} interface, a proxy for the \textit{EventProcessor} and the \textit{Startable}  interfaces described in Section \ref{sec:impl-intro} and in Section \ref{sec:modules-impl}. 
+
+All the proposed baselines take advantage of the ability of Esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. The \textit{RSPEsperEngine} abstract class implements the \textit{RSPEngine} interface in order to share the Esper runtime definition for all the baselines. 
+
+To enable external time control the \textit{RSPEngine} interface exposes the \textit{moveTime()} method, whose implementation depends on the particular RSP Engine in use; in this case of the method is implemented by the \textit{RSPEsperEngine} encapsulating the logic to send a time-keeping event into Esper: one time-keeping event is sent before injecting the triples within a \textsc{CTEvent} and another one after all triples in \textsc{CTEvent} were sent. In this way all the triples in the \textsc{CTEvent} are consider contemporary by the baselines. 
+
+The \textit{RSPEsperEngine} contains also the reference to an \textit{EventProcessor}, called \textit{next}, which represents the module which follows the RSP Engine in the \textsc{Test Stand} pipeline. The next \textit{module} can be any modules which processes \textit{CTEvent}. In the current implementation the \textit{Test Stand External Structure } follows the RSP Engine, to intercept the outcoming \textit{OUTCTEvents}.
 
 \begin{figure}[tbh]
   \centering
@@ -278,20 +284,19 @@ Figure \ref{fig:uml_baselines_general} shows the general implementation of the b
   	\label{fig:uml_baselines_listener}
 \end{figure}
 
-In Figure \ref{fig:uml_baselines_general} is visible also the interaction between  the RSP Engine, represented by \textit{JenaEngine} abstract class, with the incoming \textit{CTEvent}. The engine is referencing the \textit{RSPListener} responsible to pipeline the Jena rule engine to the DSMS. 
+The \textit{JenaEngine} abstract class in Figure \ref{fig:uml_baselines_general} represents the general implementation of a baseline. It allows to design the processing delegating the engine specification to  the \textit{RSPListener} class, which as  Figure \ref{fig:uml_baselines_listener} shows, is responsible to pipeline the Jena rule engine to the DSMS. Moreover, the figure includes the different implementation the listener, which variates the reasoning approaches, Naive or Incremental, as demanded by [R.15] (baseline relevance) and according to the baseline design presented in Section \ref{sec:baselines}. Neither the \textit{JenaNaiveListener} or the \textit{JenaIncrementalListener} specify the entailment regime, which must be defined with specific implementations as it is visible again in the Figure \ref{fig:uml_baselines_listener}.
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=0.5\linewidth]{images/uml_baselines_events}
+	\includegraphics[width=0.8\linewidth]{images/uml_baselines_events}
 	\caption{Esper-level events UML Schema} 
   	\label{fig:uml_baselines_events}
 \end{figure}
 
-Figure \ref{fig:uml_baselines_listener} shows the different implementations of the \textit{RSPListener}, which specify the reasoning approaches, Naive or Incremental as demanded by [R.15] (baseline relevance), according with the baseline design presented in Section \ref{sec:baselines}. Neither the \textit{JenaNaiveListener} or the \textit{JenaIncrementalListener} specify the entailment regime, which must be defined with specific implementations as it is visible in the Figure.\\
+The baselines relevance demanded by [R.15] comes also from the different implementation of the RDFStream model, Graph Based or Triple Based, which for Esper-based RSP engine depends on which events are registered to Esper runtime. Figure \ref{fig:uml_baselines_events} shows that all events exposed the same methods to interact with the RDF model, provided by the \textit{JenaEsperEvent} interface. 
 
-\pagebreak
+Notice that when a \textit{CTEvents} comes to the RSP Engine it will be transformed into the events handled by the DSMS, contained in Figure \ref{fig:uml_baselines_events}. This translation process influences the latency calculus, because the time spent by the engine to translate events from the RDFStream into its internal mechanism may be relevant. Once the processing is complete, the output of the RSP Engine is injected into an \textit{OUTCTEvent} and passed to the next \textit{EventProcessor} in the pipeline, which is the \textsc{Test Stand}, also the translation time for producing the output is part of the engine response time.
 
-When a \textit{CTEvents} comes to the RSP Engine it will be transformed into the events handled by the DSMS, \ref{fig:uml_baselines_events}, this translation process influence the latency calculus. Once the processing is complete, the output of the RSP Engine is injected into an \textit{OUTCTEvent} and passed to the next \textit{EventProcessor} in the pipeline, which is the \textsc{Test Stand}. \textit{JenaEsperEvent} interface, as reported in Figure \ref{fig:uml_baselines_events} exposes methods to interact with the RDF model, independently from the event implementation. The figure shows the current two implementation, Graph Based or Triple Based, which cover again [R.15] about baseline Relevance. Moreover, Figure \ref{fig:uml_baselines_rel_listener_event} shows how the \textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handles the events which come form the DSMS trough the \textit{JenaEsperEvent} interface, for the case of Graph-based event representation (see Section \ref{sec:baselines} for event details). 
 
 \begin{figure}[tbh]
   \centering
@@ -300,7 +305,11 @@ When a \textit{CTEvents} comes to the RSP Engine it will be transformed into the
   	\label{fig:uml_baselines_rel_listener_event}
 \end{figure}
 
-This design allow the baselines to have a common design, sharing the majority of the code by splitting the different architectural elements. In this way we fulfil [R.16] which demands baseline Simplicity.
+\textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handle the events which come form the DSMS trough the \textit{JenaEsperEvent} interface, Figure \ref{fig:uml_baselines_rel_listener_event} report  the structure for the case of Graph-based event representation (see Section \ref{sec:baselines} for event details). 
+
+This levelled stricture of  baselines code allow to share the majority of the code by splitting the different architectural elements. In this way we fulfil [R.16] which demands baseline Simplicity.
+
+
 
 
 \section{Analyser}\label{sec:analyser-impl}

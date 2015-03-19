@@ -1,6 +1,116 @@
 \section{Semantic Web}
-\section{Stream Processing}
-\section{Stream Reasoning}
+
+The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across application, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards, which is collaborative effort led by W3C with participation from a large number of researchers and industrial partners. 
+
+"The Web can reach its full potential if it becomes a place where data can be processed by automated tools as well as people". [W3C, 2001]
+
+In vision the Semantic Web, in the Web 3.0 the information can be processed and manipulated by machines. SW can give to the information a well defined meaning by adding a new layer of meta-data to the existing documents and data. The semantic definition of data and documents enable to understand and respond to complex human needs. The outcome of this vision is the evolution to a new where intelligent agents can browse data on behalf of the user and make knowledge easier to be reached.
+
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/semantic_web_stack}
+	\caption{Semantic Web Stack} 
+  	\label{fig:semantic-web-stack}
+\end{figure}
+ 
+
+Semantic Web world involved several technologies. Due to the complexity of the concept, the W3C proposed a layered  approach, in which each level contains a set of standards for semantic technologies:
+
+Figure \ref{fig:semantic-web-stack} shows this structure.
+
+At the  On the top of them, the basic syntax level is provided by the eXtensible Markup Language (XML), a wide-spread standard for data exchange in the Web. The XML parsers support the lower-level syntax checking of the Semantic Web documents. However, the XML standard alone is not enough for the data exchange in the semantic web, because it is suited to recognize syntax, but not equivalent models.
+
+The first two level of the Semantic Web stack in Figure \ref{fig:semantic-web-stack} includes some standard of World Wide Web:
+\begin{itemize}
+\item  The Uniform Resource Identifier (URI)  and Internationalized Resource Identifier(IRI), which guarantee the interoperability between heterogeneous systems. They stay at the lowest level
+\item  The Unicode standard is a character encoding standard to represent and manipulate text in many languages.
+\item  The eXtensible Markup Language (XML) is a wide-spread standard for data exchange in the Web that states the basic syntax level. In the SW stack it is build on top of URI and Unicode. 
+\end{itemize}
+
+Even if the XML parsers support the lower-level syntax checking  documents, the XML standard alone is not enough for the data exchange. Three middle layers ensures the semantic interoperability:
+
+\begin{itemize}
+\item The Resource Description Framework (RDF) is a language for expressing data models, which are usually encoded in XML
+\item RDF Schema (RDFS) defines a vocabulary for describing classes and properties of RDF resources.
+\item The Web Ontology Language (OWL) extends the RDF Schema by adding by adding advanced concepts in order to facilitate a more realistic representation of knowledge based on the RDF resources.
+\end{itemize} 
+
+Technologies at the top layers are not yet standardized or implemented:
+\begin{itemize}
+\item the Rule Interchange Format (RIF) or SWRL allow inferring knowledge from existing data.
+\item Cryptography is important to verify that semantic web statements are coming from trusted source.
+\item Trust involves the trustworthiness and reliability of the data.
+\item User interface is the final layer that will enable humans to use Semantic
+\end{itemize} 
+
+Another important standard covering multiple layers is the official Semantic Web Query Language: SPARQL. SPARQL is the official query language for the  and a W3C Recommendation since January 2008. 
+
+In the following subsections, we will present some basic concepts of the Semantic Web: Linked Data in Subsection \ref{sec:ldata}, RDF in Subsection \ref{sec:rdf},  OWL in Subsection \ref{sec:owl} and SPARQL language \ref{sec:sparql}
+
+\subsection{Resource Description Framework}\label{sec:rdf}
+
+The Resource Description Framework (RDF) is the W3C standard for data interchange on the Semantic Web. Through RDF we can describe a conceptual model of information in any given domain of knowledge. Information is represented in the statements form subject-predicate-object. In general a statement is composed by three resources a different resources, indeed statements are also called triples and set of triples is called a graph. Following the formal definition of RDF triples and RDF graphs [P ́erez et al., 2006]:
+
+\textbf{Definition I}: Let $I$, $B$ and $L$ be three pairwise disjoint sets, defined as IRIs, Blank Nodes and Literals, respectively. A triple \[ (s, p, o) \in (I \cup B) × I × (I \cup B \cup L) \] is  an \textit{RDF triple}, while a set of \textit{RDF triples} is called an R\textit{DF grap}h.
+
+Notice that:
+\begin{itemize}
+\item IRIs are Internationalized Resource Identifiers, an extension of Uniform Resource Identifiers (URIs) that extends the  character set from ASCII to Unicode.  IRIs  extend the linking structure of the Web and allow a globally connection between any different \textit{RDF graphs}
+\item Literals are constant values, represented by character strings, which can be associated to a XML Schema datatype. 
+\item Blank nodes represent anonymous resources, usually resources that group a number of other resources and which are never directly referenced.
+\end{itemize}
+
+The Resource Description Framework has several possible rap presentations.
+
+
+
+The most natural representation for triples is the N3 notation, which consists in explicit each triple in the form:
+ \[<subjectIRI> <predicateIRI> <objectIRI>/objectLiteral\]
+ 
+The official syntax for RDF models is RDF/XML, which is an XML dialect for describing RDF. Many application exploit the XML Language in the Web, indeed this representation enables the reuse of the several existing XML parsers for validation of the basic syntax of RDF/XML documents by using the RDF/XML standard schema. 
+
+\pagebreak
+
+\begin{lstlisting}[language=XML, caption=An example of a simple RDF/XML document:, label=code:rdf]
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ 		 xmlsn:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ 		 xmlns:foaf="http://XMLns.com/foaf/0.1/">
+  <rdf:Description rdf:ID="marvin">
+    <foaf:name>Marvin</foaf:name>
+     <rdf:type>
+        <rdfs:Class rdf:about="#ManicDepressiveRobot"/>
+     </rdf:type>
+  </rdf:Description>
+</rdf:RDF>
+\end{lstlisting}
+
+The Code Snippet \ref{code:rdf} contains an example of a simple RDF/XML document. Each RDF/XML document starts with an unique rdf:RDF element and the definition of the useful namespaces (lines 1-3). The rdf:Description tag (lines 4-9) represents an RDF Statement and it includes the subject of the statement, in our case Marvin. Inside the rdf:Description element we define two predicates: foaf:name (line 5) which contains an object literal, a string with the name of the resource; rdf:type (lines 6-8), a special predicate, which relates the individual resource to its class. In this case Marvin is an individual of the class ManicDepressiveRobot (line 7).
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/rdf-graph}
+	\caption{Semantic Web Stack} 
+  	\label{fig:rdf-graph}
+\end{figure}
+
+A graphical representation of an RDF model is an RDF graph, where subjects and objects are nodes, while proprieties are represented as edges connecting a subject to an object, as can be seen in Figure \ref{fig:rdf-graph}
+
+
+	
+
+
+
+\subsection{Web Ontology Language}\label{sec:owl}
+\subsection{Linked Data}\label{sec:ldata}
+\subsection{SPARQL}\label{sec:sparql}
+
+
+\section{Stream Processing}\label{sec:ifp}
+\subsection*{Data Stream Management System}\label{sec:dsms}
+\subsection{Complex Event Processor}\label{sec:cep}
+\section{Stream Reasoning}\label{sec:sfp}
+\subsection{RDF Stream Processing Engine}\label{sec:rspengine}
 \section{Empirical Research}\label{sec:empirical-research}
 
 The problem of understating the nature of the Computer Science (CS) research has one stronghold in Tichy's work of 1995 \cite{Tichy:1995:EEC:209090.209093}. He and his collaborator evaluated 400 articles published in 1993 randomly selected papers form ACM (50) and from a few journals in Systems and Software Engineering. The aim of Tichy's research was classify and define Computer Scientist research habits, proposing the following taxonomy, quoting from \cite{Tichy:1995:EEC:209090.209093}:
@@ -76,20 +186,20 @@ Gray: Introduction 3
 
 \subsection{Reasoning Benchmark}\label{sec:lubm}
 
-The number of different reasoners available is increasing and many of them are already commercial solutions. Usually reasoner are able to process very expressive ontology languages, which can represent rather complete knowledge, however there is an high demand of  less expressive ontology languages, which are less expensive in term of reasoning or other computational tasks. Commercial reasoner tries to solve the issue called \textit{computational cliff}, they face the trade-off between \textit{complexity and expressiveness} versus \textit{scalability}. Benchmarking tools are useful to evaluate reasoning system w.r.t. ontology languages.
-\cite{bock2008benchmarking} The most important Benchmark suite is the Lehigh University Benchmark  (LUBM) \cite{Guo2005}. This work proposes a  method for benchmarking Semantic Web knowledge base systems and provide an example of such a benchmarks.
+The number of different reasoners available is increasing and many of them are already commercial solutions. Usually reasoner are able to process very expressive ontology languages, which can represent rather complete knowledge, however there is an high demand of  less expressive ontology languages, which are less expensive in term of reasoning or other computational tasks. Commercial reasoner tries to solve the issue called \textit{computational cliff}, they face the trade-off between \textit{complexity and expressiveness} versus \textit{scalability}. Benchmarking tools are useful to evaluate reasoning system w.r.t. ontology languages 
+\cite{bock2008benchmarking}. The most important Benchmark suite is the Lehigh University Benchmark  (LUBM) \cite{Guo2005}. This work proposes a  method for benchmarking Semantic Web knowledge base systems and provide an example of such a benchmarks.
 
 Reasoning benchmarking environment requires:
 \begin{itemize}
 \item Ontology: LUBM exploits a synthetic ontology named Univ-Bench\footnote{http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl} ,which describes universities, departments and the activities that occur at them. However, the popularity of OWL is high and that
 many more ontologies are now available, and recent automated benchmarking tools allow testing performance with such ontologies\cite{gardiner2006automated}.
 
-\item Workload:LUBM provides an random data generator, called UBA (Univ-Bench Artificial data generator), which creates extensional data over the Univ-Bench ontology. \cite{Guo2005}
+\item Workload: LUBM provides an random data generator, called UBA (Univ-Bench Artificial data generator), which creates extensional data over the Univ-Bench ontology \cite{Guo2005}.
 
 \item Queries: LUBM comes with fourteen test queries to test the reasoning capabilities over the workload. LUBM method contains criteria for query definition which consider for example \textit{Input size} or \textit{Complexity} to stress the reasoner and evaluate performances.
 \end{itemize}
 
-Finally, Reasoning benchmarking require to understand which metrics evaluate such a system\cite{Guo2005}. LUBM contains three metrics which are commonly used in other database benchmarks.\begin{itemize}
+Finally, Reasoning benchmarking require to understand which metrics evaluate such a system \cite{Guo2005}. LUBM contains three metrics which are commonly used in other database benchmarks.\begin{itemize}
 \item \textit{Load Time,the stand alone elapsed time for storing the specified dataset to the system};
 \item \textit{Repository Size, the resulting size of the repository after loading the specified benchmark data into the system};
 \item \textit{Query Response Time}, as in databases benchmarking, for each test query the evaluation consist in:
@@ -125,7 +235,7 @@ Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most 
 
 
 
-\subsection{Semantic Flow Processing (SFP) Benchmark}
+\subsection{Semantic Flow Processing (SFP) Benchmark}\label{sec:sr-benchmarking}
 
 Section \ref{sec:empirical-research} shows how the empirical evaluation of system is increasing its relevance in the computer science context. SFP systems are complex and heterogeneous and this enforce the need of such empirical evaluation. However,  despite the increasing number of SFP engines, the works about SFP system evaluation are still limited and do not address proper definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
 
