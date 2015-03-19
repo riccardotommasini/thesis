@@ -3,13 +3,30 @@
 \section{Stream Reasoning}
 \section{Empirical Research}\label{sec:empirical-research}
 
-Tichy and collaborators [15] evaluated 400 articles published in 1993, 50 of them randomly selected papers published by ACM in 1993 and the rest systematically selected from a few journals in Systems and Software Engineering, and classified the research re- ported in the paper in five categories (quoting [15] definitions): \begin{itemize}
-\item Formal theory: articles whose main contributions are formally tractable propositions, e.g., lemmata and theorems and their proofs.
-\item Design and modelling: systems, techniques, or models, whose claimed properties cannot be proven formally. Examples include software tools, performance prediction models, and complex hardware and software systems of all kinds. The papers in this class were further classified in the categories 0\%, 0–10\%, 10– 20\%, 20–50\, and +50\%, according to the proportion of the paper that was dedicated to the evaluation of the new system, technique, or model.
-\item Empirical work: articles that collect, analyse, and interpret observations about known designs, systems, or models, or about abstract theories or subjects (as this paper does). The emphasis is on evaluation, not on new designs or models.
-\item Hypothesis testing: articles that define hypotheses and describe experiments to test them.
-\item Others: articles that do not fit any of the four categories above, e.g., surveys.
+The problem of understating the nature of the Computer Science (CS) research has one stronghold in Tichy's work of 1995 \cite{Tichy:1995:EEC:209090.209093}. He and his collaborator evaluated 400 articles published in 1993 randomly selected papers form ACM (50) and from a few journals in Systems and Software Engineering. The aim of Tichy's research was classify and define Computer Scientist research habits, proposing the following taxonomy, quoting from \cite{Tichy:1995:EEC:209090.209093}:
+\begin{itemize}
+\item \textit{Formal theory}: articles whose main contributions are formally tractable propositions, e.g., lemmata and theorems and their proofs.
+\item \textit{Design and modelling}: systems, techniques, or models, whose claimed properties cannot be proven formally. Examples include software tools, performance prediction models, and complex hardware and software systems of all kinds. The papers in this class were further classified in the categories 0\%, 0–10\%, 10– 20\%, 20–50\, and +50\%, according to the proportion of the paper that was dedicated to the evaluation of the new system, technique, or model.
+\item \textit{Empirical work}: articles that collect, analyse, and interpret observations about known designs, systems, or models, or about abstract theories or subjects (as this paper does). The emphasis is on evaluation, not on new designs or models.
+\item \textit{Hypothesis testing}: articles that define hypotheses and describe experiments to test them.
+\item \textit{Others}: articles that do not fit any of the four categories above, e.g., surveys.
 \end{itemize}
+
+Practically, an empirical study is just a test that compares what we believe to what we observe. The Testing activity, when properly designed and executed can be used to support the scientific method and rather plays a fundamental role in modern science. Empirical study helps us understand how and why things work, and allow us to use this understanding to materially alter our world.
+
+Tichy's evaluation of paper from 1993 shows that despite the Engineering epistemology of the majority of the evaluated paper, there was a lack in empirical evaluation of the proposed research. More recent works \cite{Wainer:2009:EEC:1518331.1518552} observed confirmed Tichy's observations about the Computer Science engineering epistemology, the amount of evaluation reported in the papers is low.
+
+The main reason for this is that software engineering (SE), and Computer Science, research has failed to produce the models and analytical tools that are common in other sciences \cite{Perry:2000:ESS:336512.336586}. CS research lacks the knowledge about the mechanisms which drive the costs and benefits of software tools and methods, making hard to understand whether analysis are  based on faulty assumptions or the new evaluation methods are properly.
+
+Finally,  it is important to remember that empirical studies can be used not only retrospectively to validate systems or idea after they have been implemented, but also proactively to direct our research. Formal experiments, case studies and prototyping exercises are all adequate empirical studies. Independently from their form, they are a key way to fill the lack and sustains our research with credible observations. Indeed empirical studies allow to learn something useful by comparing theory to reality trough the following steps \cite{Perry:2000:ESS:336512.336586}:
+\begin{itemize}
+\item  formulating an hypothesis or question to test
+\item  observing a situation
+\item  abstracting observations into data
+\item  analysing the data
+\item  drawing conclusions with respect to the tested hypothesis
+\end{itemize}
+
 
 \section{Software Testing}
 Software Testing (ST) techniques Starts with the intent of finding software bugs and ends with methods to evaluate system behaviour under testing conditions. In general software testing is an investigation over software products to evaluate the software quality. According to IEEE Standards  \cite{IEEEStd610.12-1990:glossary} there are two basic classes of software testing, black box testing and white box testing: 
@@ -112,7 +129,7 @@ Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most 
 
 Section \ref{sec:empirical-research} shows how the empirical evaluation of system is increasing its relevance in the computer science context. SFP systems are complex and heterogeneous and this enforce the need of such empirical evaluation. However,  despite the increasing number of SFP engines, the works about SFP system evaluation are still limited and do not address proper definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
 
-The problem of SFP benchmarking was faced firstly by defining Seven commandments to follow on the benchmarking design \cite{DBLP:conf/esws/ScharrenbachUMVB13}
+For this reason is worth to note the work on SFP benchmarking which was faced firstly the Challenges in this context (see Section \ref{sec:sfp}) by posing Seven commandments to follow on the benchmarking design \cite{DBLP:conf/esws/ScharrenbachUMVB13}:
 
 Semantic Flow Processing engines must implement good \textit{Load Balancing} [S.1] strategies, because they usually consider several input information streams with possible bursts. It is possible to stress the system under various conditions by repeatedly applying a set of changes to the input and provide the empirical evaluation.
 
@@ -141,24 +158,26 @@ Moreover, \cite{Zhang2012} provides some relevant metrics to evaluate the perfor
 
 SR Bench provides also a query set composed by seventeen queries, which are designed based on a real use case in LSD. In order test many properties of the RDF stream engines the queries vary involving single or multiple input streams, queries over stream-only data sources or over mixed stream and static data source, etc. They cover the most important SPARQL operators and the common streaming SPARQL extensions and several queries require RDFS reasoning.
 
-SRBench was criticised w.r.t. proposed commandments above\cite{DBLP:conf/esws/ScharrenbachUMVB13}. It only cover S.3, but the queries are fixed  and thus do not allow an exhaustive assessment of join performance, and S.6, thus testing variations of the expressive power is possible in SR but it was not done yet. Moreover, S.2 and S.4 are partially satisfied. The SRBench provides data and use-cases for sequential joins but it does not implement stress tests for temporal joins[S.2]. About S.4, SRBench  tests aggregates  by only implementing single queries. The other commandments are not cover yes, even if some of was marked as potential extensions of SRBench in \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1.
+SRBench was criticised w.r.t. proposed commandments above \cite{DBLP:conf/esws/ScharrenbachUMVB13}. It only cover S.3, but the queries are fixed  and thus do not allow an exhaustive assessment of join performance, and S.6, thus testing variations of the expressive power is possible in SR but it was not done yet. Moreover, S.2 and S.4 are partially satisfied. The SRBench provides data and use-cases for sequential joins but it does not implement stress tests for temporal joins[S.2]. About S.4, SRBench  tests aggregates  by only implementing single queries. The other commandments are not cover yes, even if some of was marked as potential extensions of SRBench in \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1.
 
 
 \subsubsection{LSBench}\label{sec:lsbench}
 
+LS Bench was developed to propose methods and a framework to enable  meaningful comparisons of SFP processing engines. The framework provides several customizable tools for simulating realistic data, running engines, and analysing the output. 
+
+The LSBench proposed methods includes three tests to evaluate the SFP stream engines \cite{DBLP:conf/semweb/DellAglioCBCV13}. \begin{itemize}
+\item A functional test to verify the operators and the functionalities supported
+by the engines, similar to SR Bench \ref{sec:srbench}
+\item A correctness test is to verify if the tested SFP engine produces the correct output. Actually the test assumes that the contents of the output are correct, and it analyses only the number of produced answers.
+\item A maximum input throughput test, whose aim is evaluating the maximum throughput of the SFP engine, by increasing the data streak rate and checking the number of the answers
+\end{itemize}
+
 %\subsubsection{LSBench} S2 partially, S3 partially, S4 partially 
-LSBench \cite{LePhuoc2012c} proposes three tests to evaluate the RDF stream engines. The
-first one is a functional test to verify the operators and the functionalities supported
-by the engines: it is a test similar to the one proposed by SRBench. The
-second test is a correctness test: its goal is to verify if the tested RDF stream
-engine produces the correct output. Actually this analyses only the number of
-produced answers, assuming that the contents of the output are correct. Finally,
-the third test is a maximum input throughput test: it has the goal evaluate the
-maximum throughput of the RDF stream engines. This test is done increasing
-the rate of data in the stream and verifying the number of the answers. For each
-test a set of 12 queries is provided; similarly to SRBench, the queries vary to
-take into account different features of the engines (single and multiple streams,
-presence of static data, etc)
+
+The data generator, S2Gen, creates data set for benchmarking according to the \textit{Social Network Data Stream Logic Schema} presented in \cite{LePhuoc2012c} Figure 1. S2Gen allow to tune three parameters which influence the data generation task: 1) \textit{Generating period}, the period in which the social activities are generated; 2) Maximum number of posts/comments/photos for each user per week 3) the \textit{Correlation probabilities}: there are various parameters for the data correlations which can be customized to specify how data is related according to each data attribute.
+
+Finally, LSBench \cite{LePhuoc2012c} provides for each test a set of 12 fixed queries. The queries in the set vary to address different features of the engines. In relation with the Seven commandments for SFP benchmarking, not all of the are covered by LS Bench \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1. LSBench cover S3, like SRBench fixed queries do not allow to stress the system properly with the aim of evaluate join performances. S2 is only partially supported, because, like SRBench, LS Bench does not support stress testing for temporal joins but only for sequential. S4 is again only partially fulfilled: LS Bench test aggregates only implementing single queries  \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
+
 
 %\subsubsection{Correttezza}
 %\subsubsection{Seven Commandaments}
