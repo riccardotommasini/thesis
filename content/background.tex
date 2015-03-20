@@ -94,15 +94,59 @@ The Code Snippet \ref{code:rdf} contains an example of a simple RDF/XML document
   	\label{fig:rdf-graph}
 \end{figure}
 
-A graphical representation of an RDF model is an RDF graph, where subjects and objects are nodes, while proprieties are represented as edges connecting a subject to an object, as can be seen in Figure \ref{fig:rdf-graph}
-
-
-	
-
-
+Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representation of an RDF model is an RDF graph:  subjects and objects are the graph nodes and proprieties are represented as edges connecting a subject to an object. 
 
 \subsection{Web Ontology Language}\label{sec:owl}
+
+The Web Ontology Language (OWL) is the W3C standard for describing rich and complex knowledge about resource, groups of resource, and relations between resource, or more formally an \textit{Ontology}. The Tom Gruber define an ontology as \textit{a specification of a conceptualization}\footnote{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}. Practically it can be a set of Description Logic axioms which tries to represent a fragment of reality. 
+
+OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usege of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialect, presented in order of increasing level of complexity
+\begin{itemize}
+\item OWL Lite - used to classify hierarchies and to model simple constraints. Being an equivalent of the SHIF description logic, it has the lower formal complexity in the group.
+\item OWL DL - provides the user with maximum possible expressiveness, while retaining the computational completeness. This last quality is enforced by the equivalence with the SROIQ[Dn] Description Logic.
+\item OWL Full - the user has the complete syntactic freedom with RDF, but there is no computational guarantee about the termination of the inferring procedure.
+\end{itemize}
+
+OWL can be serialized in the RDF/XML syntax. In the Code Snippet \ref{code:owl}, we use OWL DL to describe the Class of ManicDepressiveRobot, which are a SubClass of Robot that has for at least two Moods.
+
+\begin{lstlisting}[language=XML, caption=An example of a simple OWL DL RDF/XML document:, label=code:owl]
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlsn:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:foaf="http://XMLns.com/foaf/0.1/">
+  <owl:Class rdf:ID="ManicDepressiveRobot">
+    <rdfs:subClassOf rdf:resource="#Robot"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasMood"/>
+        <owl:minCardinality>2</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+\end{lstlisting}
+
+The owl:Class tag (lines 4-12) is a shortcut to represent an RDF Statement about a resource with a rdf:type of owl:Class. The subject of the statement is the resource ManicDepressiveRobot, which represents the class of individual Manic Depressive Robots. This statement has two predicates, both of the type rdfs:subClassOf. The first predicate (line 5) relates the OWL class ManicDepressiveRobot to its super-class, the resource Robot. The second predicate (lines 6-11) states that ManicDepressiveRobot is a subclass of the OWL restriction class, which contains all the individuals that are in relationship hasMood (line 8) with at least 2 resources (line 9).
+
+
 \subsection{Linked Data}\label{sec:ldata}
+
+
+The Linked Data concept indicate a set of best practices in publishing and connecting Semantic Web data. Bizer, the Linked Data creator, defines the term as follow:
+
+\begin{quote}
+Linked Data refers to data published on the Web in such a way that it is machine-readable, its meaning is explicitly defined, it is linked to other external readable, defined, data sets, and can in turn be linked to from external data sets.[Bizer et al., 2009]
+\end{quote} 
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/lod}
+	\caption{Linked Data Cloud August 2014 From lod-cloud.net} 
+  	\label{fig:lod}
+\end{figure}
+
+Datasets that are published according to the Linked Data principles can be navigated using Semantic Web browsers. Figure \ref{fig:lod} presents  Linked Data Cloud, the connected graph which comprises all the dataset published according to the LD principles, in August 2014. Each node of the graph represent a dataset, each edge represents the connections between datasets.
+
+The number dataset which follow the  Linked Data  paradigm is increasing every day, and among the most important of them we can cite DBpedia, which wraps Wikipedia articles into a Semantic Web compliant form. Moreover, several governments, like the UK government\footnote{http://data.gov.uk/}, decide to publish their public data and connect them to the Linked Data cloud. 
+
 \subsection{SPARQL}\label{sec:sparql}
 
 
