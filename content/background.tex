@@ -533,5 +533,6 @@ Further work on correctness of the RSP Engine operational semantics, showed how 
 
 One common limitation of the Stream Reasoning benchmarks presented above is that they do not check the correctness of output produced by the benchmarked RDF engine. SRBench verifies the query language supported by the engines defines only trough functional tests. On the other hand, LSBench does not check the answers correctness, but limits the analysis of correctness to the number of outputs. 
 SR Bench and LS Bench make two assumptions on the tested systems: (i) they work correctly; (ii) They all have the same operational semantics. However, these assumptions do not always hold for all RDF stream engines, and hence these benchmarks may supply misleading information about them.
+
  
 An extension of the SR Bench for correctness checking, CSRBench, was proposed in \cite{DBLP:conf/semweb/DellAglioCBCV13}. It takes into account the issues that affect query results in RDF streaming query processing in their three main dimensions: system, query and input stream data.It includes in the benchmark three new types of parametrised queries, with the aim of stressing the S2R operators. Moreover, it contains an oracle that generates and compares results of RDF stream processors and check their correctness.
