@@ -1,27 +1,24 @@
 \documentclass[12pt,a4paper,twoside,openright]{report}
-\usepackage{algpseudocode}		% ambienti per la scrittura di algoritmi
-\usepackage{algorithm}			% 
 
-\usepackage{epsfig}						% figure eps
-\usepackage{graphicx}					% figure qualsiasi
-\usepackage{amsmath,amsfonts,amsthm}		% package di scrittura matematica
-\usepackage{amssymb}
-\usepackage{psfrag}
-\usepackage{fancyhdr}
-\usepackage{url}
-\usepackage{array}
-\usepackage{subfigure}
-\usepackage{lscape}
-\usepackage{colortbl}
-\usepackage{alltt}
+\usepackage{algpseudocode,algorithm}			% alghoritms and pseudocode
+\usepackage{listings}						% code snippets
+\usepackage{pifont}							% post scriptn symbol and fonts
+\usepackage{epsfig}							% eps images
+\usepackage{amsmath,amsfonts,amsthm,amssymb}	% math stuff
+\usepackage{psfrag}							% post script utilities
+\usepackage{fancyhdr}						% control page header and footer
+\usepackage{url}								% verbatim for url
+\usepackage{array}							% tabular and array utils
+\usepackage{lscape}							% for landscape placement
+\usepackage[english]{babel}					% language support
+\usepackage[nottoc]{tocbibind}		
 \usepackage{tabularx}
-\usepackage[english]{babel}
-\usepackage[nottoc]{tocbibind}
-\usepackage{multirow}
+\usepackage{subfigure}
 \usepackage{tikz}
 \usepackage{pgfplots,pgfplotstable}
 \usepackage{subfigure}
 
+		% bibliography to toc
 \sloppy
 \raggedbottom
 
@@ -33,7 +30,7 @@
 \hbox{}
 \vspace*{\fill}
 \begin{center}
-%This page intentionally contains only this sentence.
+	% this page intentionally contains only this sentence.
 \end{center}
 \vspace{\fill}
 \thispagestyle{empty}
@@ -41,26 +38,19 @@
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \makeatother
 
-%\newcites{wb}{Web References}
-
 %------------------------------------------------------
-% Impostazioni per il controllo sillabazione vedove/orfane ect..
-%
-% \looseness=1 o \looseness=-1 prima di un paragrafo per
-% allungarlo o accorciarlo di una riga
+% hyphenation settings
 %------------------------------------------------------
-
 \lefthyphenmin=4
 \righthyphenmin=4
 \tolerance=1000
 \hyphenpenalty=100
-\emergencystretch=1 cm
-
+\emergencystretch=1cm
 \widowpenalty=5000
 \clubpenalty=2500
 
 %--------------------------------------------------------
-% impostazioni per la dimensione delle pagine
+% pages size setup
 %--------------------------------------------------------
 \renewcommand{\headrulewidth}{0.5pt}
 \hoffset=-15mm
@@ -76,42 +66,36 @@
 \oddsidemargin=25mm
 %\marginparwidth=0mm
 
-\renewcommand{\abovecaptionskip}{0pt}
-\renewcommand{\belowcaptionskip}{0pt}
-
 %--------------------------------------------------------------
-%impostazione headers
+% page headers setup
 %--------------------------------------------------------------
 \pagestyle{fancy}
-%\addtolength{\headwidth}{\marginparsep}
-%\addtolength{\headwidth}{\marginparwidth}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhf{}
 \fancyfoot[LE,RO]{\bfseries\thepage}
 \fancyhead[RO]{\bfseries\rightmark}
 \fancyhead[LE]{\bfseries\leftmark}
-\fancypagestyle{plain}{%
-\fancyhead{} % get rid of headers
+\fancypagestyle{plain}{
+\fancyhead{}
 \fancyfoot{}
-\renewcommand{\headrulewidth}{0pt} % and the line
+\renewcommand{\headrulewidth}{0pt}
 }
 
-\newenvironment{myverse}
-{\small}
-{}
+%--------------------------------------------------------------------------------
+% custom commands %--------------------------------------------------------------------------------
+\newcommand{\newparagraph}{\noindent\\}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\cmark}{\ding{51}}
 
-\newenvironment{myabstract}{%
-  \begin{center}%
-    \null\vfil
-    \bfseries \abstractname
-  \end{center}}%
-{\par\vfil\null}
 
 %------------------------------------
 \newcommand{\name}{$\mathcal{H}$eaven } 
 \newcommand{\namens}{$\mathcal{H}$eaven} 
-%------------------------------------
+
+%--------------------------------------------------------------------------------
+% document start
+%--------------------------------------------------------------------------------
 \begin{document}
 
 \pagenumbering{roman}
@@ -119,28 +103,125 @@
 \pagestyle{empty}
 
 %--------------------------------------------------------------------------------
+% listings configiuration
+%--------------------------------------------------------------------------------
+\lstset{
+	frame=tb,
+	captionpos=b,
+	basicstyle=\footnotesize,
+	numbers=left,
+	aboveskip=1em
+}
+
+%--------------------------------------------------------------------------------
 % include title page
 %--------------------------------------------------------------------------------
-
+\include{title}
 
 \pagestyle{fancy}
 \renewcommand{\contentsname}{Table of Contents}%
 
 %--------------------------------------------------------------------------------
-% problem settings
+% include the abstract in italian
 %--------------------------------------------------------------------------------
-%\chapter{Problem Setting}
-%\label{chap:problem-setting}
-%\input{content/problem-setting}
+\chapter*{Estratto}
+\input{content/estratto}
 
-%\chapter{Heaven}
+%--------------------------------------------------------------------------------
+% include the abstract in english
+%--------------------------------------------------------------------------------
+\chapter*{Abstract}
+\input{content/abstract}
+
+%--------------------------------------------------------------------------------
+% talbe of contents
+%--------------------------------------------------------------------------------
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\listoftables
+%\listofalgorithms
+%\lstlistoflistings
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%--------------------------------------------------------------------------------
+% introduction
+%--------------------------------------------------------------------------------
+%\chapter{Introduction}
+%\label{chap:introduction}
+%\input{content/introduction}
+
+%--------------------------------------------------------------------------------
+% Background
+%--------------------------------------------------------------------------------
+
+\chapter{Background}
+\label{chap:background}
+\input{content/background}
+
+%%--------------------------------------------------------------------------------
+%% problem settings
+%%--------------------------------------------------------------------------------
+%\chapter{Problem Settings}
+%\label{chap:problem-settings}
+%\input{content/problem-settings}
+%
+%%--------------------------------------------------------------------------------
+%% heaven
+%%--------------------------------------------------------------------------------
+%
+%\chapter{Heaven - Design}
 %\label{chap:heaven}
 %\input{content/heaven}
+%
+%%--------------------------------------------------------------------------------
+%% implementation
+%%--------------------------------------------------------------------------------
+%
+%\chapter{Heaven - Implementation Experience}
+%\label{chap:implementation-experience}
+%\input{content/implementation-experience}
+%
+%
+%%--------------------------------------------------------------------------------
+%% Evaluation
+%%--------------------------------------------------------------------------------
+%
+%\chapter{Evaluation}
+%\label{chap:evaluation}
+%\input{content/evaluation}
+%
+%
+%%--------------------------------------------------------------------------------
+%% conclusions and future works
+%%--------------------------------------------------------------------------------
+%\chapter{Conclusions and Future Works}
+%\label{chap:conclusions}
+%\input{content/conclusions}
 
-\chapter{Heaven - Implementation Experience}
-\label{chap:implementation-experience}
-\input{content/implementation-experience}
+%--------------------------------------------------------------------------------
+% appendices
+%--------------------------------------------------------------------------------
+%\part*{Appendices\label{part:app}\addcontentsline{toc}{part}{Appendices}}
+%\appendix
+%\chapter{Configuring Kundera extensions}
+%\label{app:kconfig}
+%\input{content/kundera-configuration}
+%
+%\chapter{Configuring CPIM migration}
+%\label{app:migration}
+%\input{content/cpim-migration}
+%
+%\chapter{Run YCSB tests}
+%\label{app:ycsb}
+%\input{content/ycsb-tests}
 
-
+%--------------------------------------------------------------------------------
+% bibliography
+%--------------------------------------------------------------------------------
+\bibliographystyle{plain}
+\bibliography{thesis.bib}
 
 \end{document}

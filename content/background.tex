@@ -238,7 +238,7 @@ In Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:20
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=0.75\linewidth]{images/cql}
+	\includegraphics[width=\linewidth]{images/cql}
 	\caption{CLQ DSMS Model proposed in  \cite{Arasu2006} } 
   	\label{fig:cql}
 \end{figure}
@@ -377,8 +377,7 @@ Finally,  it is important to remember that empirical studies can be used not onl
 \item  drawing conclusions with respect to the tested hypothesis
 \end{itemize}
 
-
-\section{Software Testing}
+\section{Software Testing}\label{sec:software-testing}
 Software Testing (ST) techniques Starts with the intent of finding software bugs and ends with methods to evaluate system behaviour under testing conditions. In general software testing is an investigation over software products to evaluate the software quality. According to IEEE Standards  \cite{IEEEStd610.12-1990:glossary} there are two basic classes of software testing, black box testing and white box testing: 
 
 \begin{itemize}
@@ -422,7 +421,6 @@ Gray: Introduction 3
 \item Scalable: The benchmark should apply to small and large computer systems. It should be possible to scale the benchmark up to larger systems, and to parallel computer systems as computer performance and architecture evolve.
 \item Simple: The benchmark must be understandable, otherwise it will lack credibility.
 \end{itemize} 
-
 
 \subsection{Reasoning Benchmark}\label{sec:lubm}
 
@@ -472,8 +470,6 @@ Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt} try to id
 BiCEP project also presents an first schema model for a benchmarking system, reported in Figure \ref{fig:bicep-schema}. The BiCEP benchmarking system will produce all the input trough the Event Generator Module, and consume the result output from the BiCEP CEP engine, with the Answer Validation Module. The Figure above also show how the CEP engine in interfaced with BiCEP modules, in order to ensure that any buffering, event cleaning or event transformation phase that happens at the CEP engine is part of the overall performance measure. Synthetic benchmarks offers many benefits like data availability, experimental control, and scalability. However, it is is hard to develop a synthetic benchmark that is representative of such a wide range of CEP applications and at the same time. BiCEP development is oriented towards a set of small domain specific synthetic benchmarks with different data sets and different queries \cite{bizarro:DSP:2007:1143}.
 
 Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation is mandatory, because CEP system rarely face stable input streams that allow the CEP engine to reach a steady state condition.
-
-
 
 \subsection{Semantic Flow Processing (SFP) Benchmark}\label{sec:sr-benchmarking}
 
@@ -527,12 +523,11 @@ The data generator, S2Gen, creates data set for benchmarking according to the \t
 
 Finally, LSBench \cite{LePhuoc2012c} provides for each test a set of 12 fixed queries. The queries in the set vary to address different features of the engines. In relation with the Seven commandments for SFP benchmarking, not all of the are covered by LS Bench \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1. LSBench cover S3, like SRBench fixed queries do not allow to stress the system properly with the aim of evaluate join performances. S2 is only partially supported, because, like SRBench, LS Bench does not support stress testing for temporal joins but only for sequential. S4 is again only partially fulfilled: LS Bench test aggregates only implementing single queries  \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
 
-\subsection{Benchmarking Query Result Correctness: CSRBench}
+\subsubsection{Benchmarking Query Result Correctness: CSRBench}
 
 Further work on correctness of the RSP Engine operational semantics, showed how this may variate on different implementations and influence the query results correctness. \cite{DBLP:conf/semweb/DellAglioCBCV13}
 
 One common limitation of the Stream Reasoning benchmarks presented above is that they do not check the correctness of output produced by the benchmarked RDF engine. SRBench verifies the query language supported by the engines defines only trough functional tests. On the other hand, LSBench does not check the answers correctness, but limits the analysis of correctness to the number of outputs. 
 SR Bench and LS Bench make two assumptions on the tested systems: (i) they work correctly; (ii) They all have the same operational semantics. However, these assumptions do not always hold for all RDF stream engines, and hence these benchmarks may supply misleading information about them.
-
  
 An extension of the SR Bench for correctness checking, CSRBench, was proposed in \cite{DBLP:conf/semweb/DellAglioCBCV13}. It takes into account the issues that affect query results in RDF streaming query processing in their three main dimensions: system, query and input stream data.It includes in the benchmark three new types of parametrised queries, with the aim of stressing the S2R operators. Moreover, it contains an oracle that generates and compares results of RDF stream processors and check their correctness.

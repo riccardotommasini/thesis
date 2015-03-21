@@ -129,9 +129,24 @@ Finally, baselines \textsc{Simplicity} comes from those parameters that directly
 
 \section{Analyser}\label{sec:analyser}
 
-The Analyser is conceptually a set of tools that allows visualisation and statistical investigation of the result data . As reported in Section \ref{sec:teststand}, the Test Stand executes \textsc{experiments} and produces times series, whose study is a very wide matter. To this extent, it is hard to think the Analyser in a general way. Another motivation regards the relation between the hypothesis and    tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the data, which are related to the experiment. 
+The \textsc{Analyser} consists, from an engineering point of view, in one or more automated procedures which process the experiment results transforming raw data into an human-readable form. Actually, not all the analysing procedures can be completely automated and data analysis can not be always generalised. 
 
-However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider many investigation methods, in particular the Systematic Comparative Approach presented in Chapter \ref{chap:problem-settings}), which demands to identify characteristics upon which is possible to build comparison. 
+From a research point of view instead, the \textsc{Analyser} consists in a set of methods for data processing and analysing, which allow to refute or confirm hypothesis and improve existing models trough empirical findings.
+
+In this Section we focus on the definition of the methods that compose the analysis, while in Section \ref{sec:analyser-impl} we detail much more which tools sustain the investigation at different levels, allowing data visualisation and deeper statistical investigations. \\
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/analyser-block-schema}
+	\caption{From raw data processing to Theoretical results} 
+  	\label{fig:analyser-block-schema}
+\end{figure}
+
+Figure \ref{fig:analyser-block-schema} shows the different phases of the data processing. The methods that compose the \textsc{Analyser} can be divided into three main steps, each one with different supporting tools and different goals.
+
+\textsc{Analyser} takes as input the raw data produced by the \textsc{Test Stand} executing experiment, and the variable on which the analysis will be based on. In Section \ref{sec:teststand} we have described the \textsc{Test Stand} workflow. It outputs in times series form the data it gathers during the execution of an experiment. Which data the \textsc{Test Stand} gathers, the variable of the analysis, depend on the sensors it contains. To this extent the \textsc{Analyser} must parametric from the variable analysis. 
+
+The First step in Figure \ref{fig:analyser-block-schema} is the \textit{Steady State Identification}, which can be seen as a pre-processing of the raw data.
 
 \begin{figure}[tbh]
   \centering
@@ -140,83 +155,63 @@ However, it is possible to identify some common characteristics that have a gene
   	\label{fig:steady-state}
 \end{figure}
 
-First of all, the Analyser tool-set must include an automatic procedure average the data of multiple execution of the same experiment. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures. 
+The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to complete the task. Figure \ref{fig:steady-state} shows the typical behaviour in the time domain for a certain variable and also evidences the point when the the serie reaches the Steady State condition. Dynamic systems usually have an initial warm-up phase which negatively influences results and inhibit generalisation and comparisons. To properly contrasts results between $n$ different RSP Engines data must be standardized. In the \textit{Steady State Identification} step data are processed according to the variable definition, identifying which variable has reached a steady state condition. The Steady state identification process allow to understand the degree of reliability of the data, how we can assume a certain observation is confirmed and generalizable. 
 
-Once we have reliable data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions.
 
-Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
+Once the Steady State is identified is possible to proceed with data processing, which is summarised in Figure \ref{fig:analyser-block-schema} by the Analysis step. The analysis process all the data, but we distinguish the analysis w.r.t. the results form Steady State Identification step, because the analysis of the warm-up phase is a crucial part of the system comprehension and thus of the Hypothesis confirmation, as we will see in Chapter \ref{chap:evaluation}.
 
-The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The identification of this condition is a common passage in almost any research on dynamic system and visual analysis can be exploited as the simplest tool to complete the task. Figure \ref{fig:steady-state} shows a typical behaviour for a system in the time domain and also evidences the point when the the serie reaches the Steady State condition. Visualise the point of when Steady State is reached is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
 
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=0.80\linewidth]{images/comp-intra}
-	\caption{Intra Experiment Comparison} 
-  	\label{fig:comp-intra}
-\end{figure}
+The last step in the high level Analyser process is consist in the formalisation of theoretical results. The aim of this step is obviously confirm or refute hypothesis formulated at experiment design level. However, \name has the aim of sustaining the empirical research which allow a new kind of observation that may improve existing theoretical model, changing the meaning of old hypothesis.
 
-Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main investigation options, the following images show a some examples of them:
-% A) Intra-Experiment Comparison ; B) Inter-Experiment Comparison; C) Pattern Recognition. T
+\subsection{Analysis Step}
 
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=0.80\linewidth]{images/comp-inter}
-	\caption{Inter Experiment Comparison} 
-  	\label{fig:comp-inter}
-\end{figure}
-
-\begin{enumerate}
-\item[A] Figure \ref{fig:comp-intra} shows an example of intra-experiment investigation, multi-plotting them on the time domain or frequency domain; 
-\item[B] Figure \ref{fig:comp-inter} shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon a certain fixed characteristic.  
-\item[C] Figure \ref{fig:patterns}  shows an example of pattern recognition: inter-experiment on the same variable or intra-experiment on the relation between variable;
-\end{enumerate}
-
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=0.85\linewidth]{images/patterns}
-	\caption{Pattern recognition example} 
-  	\label{fig:patterns}
-\end{figure}
+The Analysis step we introduced above represents the concrete processing of the experiment result data. In this Section we detail this step. We decompose the analysis in four levels of different analysis details. We  introduce different analysis methods that each level involves. Figure \ref{fig:analysis-method} is a graphical representation of the Analysis stack, where the detail level grows from the top to the bottom. Further levels may be introduced at any point in the stack, since this design comes from the formalisation of our research work onver the Baselines presented in Chapter \ref{chap:evaluation}.
 
 \pagebreak
 
-The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. 
-The options of intra-experiment and inter-experiment comparisons are still meaningful, and now we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, because it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
+Before presenting the stack level one by one, we introduce two concept about the experiment analysis:
+\begin{itemize}
+\item \textit{Intra Experiment Comparison} -  it means comparing results of different solutions (RSP Engine) within a single experiment, fixing only $\mathcal{D}, \mathcal{T} $ and $\mathcal{Q}$ or comparing different variables of the same solution  in a certain experiment.
+\item \textit{Inter Experiment Comparison} -  it means comparing the same solution (RSP Engine) in different experiments or comparing how different solutions changes their behaviour in different experiments
+\end{itemize}
 
-\begin{table}[htb]
-\scriptsize
-	\centering
-	\subtable[Symbolic Comparison of variables A vs B on Experiment 1]{%
-		\begin{tabular}{c | cccc} % creating eight columns
-	  	\hline
-		A vs B & \multicolumn{4}{c}{Experiment 1 Condition A}  \\
-		 Comparison  & &&&\\
-		\hline
-		   	        & $\simeq$\\
-		 Experiment 1 & A     & 	$\simeq$  & A & B\\
-		 Condition  & A     & 	$\simeq$  & $\simeq$ & B\\
-		 B          & A     & 	$\simeq$  & B & A\\
-		\hline % inserts single-line
-	 \end{tabular}
-	}\qquad\qquad
-	\subtable[Symbolic Comparison of variables A vs B on Experiment 1]{%
-		\begin{tabular}{c | cccc} % creating eight columns
-	  	\hline
-		A vs B & \multicolumn{4}{c}{Experiment 1 Condition A}  \\
-		 Comparison  & &&&\\
-		\hline
-		   	        & $\simeq$\\
-		 Experiment 1 & 10\%     & 	$\simeq$  & 42\% & 33\%\\
-		 Condition  & 23\%     & 	$\simeq$  & $\simeq$ & 12\%\\
-		 B          & 20\%    & 	$\simeq$  & 22\% & 22\%\\
-		\hline % inserts single-line
-	 \end{tabular}
-	}
-	\caption{(a) intra experiment-comparison over two variables - (b) inter-experiment comparison over a common variable }
-	\label{tab:comp-tables}
-\end{table}
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/analysis-method}
+	\caption{Analysis method stack. The level of analysis grows from the top to the bottom} 
+  	\label{fig:analysis-method}
+\end{figure}
 
-Last but not least, since data mining procedures are very system-dependent we decide to include examples of possible analysis in Chapter \ref{chap:evaluation} about the experimental evaluation of the Baselines. The purpose of Chapter \ref{chap:evaluation} is both to demonstrate the value of \name and to provide some guidelines for further evaluations.
+
+\textsc{Level 0 - Dashboards}\\
+
+Dashboards are the highest level of analysis offered by \namens. The Mean data value are presented in a n-dimension radar plot, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solution and identify which one is the best, if any. Dashboard allow both inter-experiment comparison and intra-experiment comparison. 
+
+The idea of a single visualisation method which allow to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depends on the system complexity and no only on the complexity of the method itself. Usually this level of analysis can not represent the entire system complexity. Moreover, if the Steady State condition is not reached by all the variable involved, the generalisation of any insight may be difficult. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
+
+\textsc{Level 1 - Mean Value Comparison}\\
+
+This Analysis level focuses on a single variable a time, exploiting both \textit{Intra-Experiment} and \textit{Inter-Experiment} comparison. Usually hypothesis verification requires the definition of multiple experiment, which variates for on or more parameters. This kind of analysis split  the dashboard representation, presenting one variable at time, comparing the results of different solutions.
+
+Usually this comparison involves multiple experiment, presented in a easy-to-ready form, which evidence the differences between experiments.
+
+\name makes possible two approach of this kind of analysis:
+\begin{itemize}
+\item \textit{Numeric} -  The comparison results are present in percentage form, quantifying how much a solution is better than another one, fixing some elements in the experiment.  With Numeric Mean variable comparison is possible to see how much, for a certain variable, the improvement of a given solution changes between experiment w.r.t. another one.
+
+\item \textit{Symbolic} - it is a simplification of the Numeric Solution. Sometimes we only need no understand which solution is better, without focusing on numerical value. Symbolic solution required the definition of a tolerance threshold, for example 5\%, to distinguish when a solution is better, worst or equal to another one.
+
+\end{itemize}
+\textsc{Level 2 - Multi-Visual Experiment}\\
+
+
+\textsc{Level 3 - Visual Comparison}\\
+\begin{itemize}
+\item \textit{Variable Comparison}
+\item \textit{Experiment Comparison}
+\end{itemize}
+
+
 
 
 

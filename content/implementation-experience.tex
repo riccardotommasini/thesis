@@ -310,11 +310,92 @@ Notice that when a \textit{CTEvents} comes to the RSP Engine it will be transfor
 This levelled stricture of  baselines code allow to share the majority of the code by splitting the different architectural elements. In this way we fulfil [R.16] which demands baseline Simplicity.
 
 
-
-
 \section{Analyser}\label{sec:analyser-impl}
 
-%R.9 allow qualitative analysis trough tools for result visualization
 
 
 
+
+Another motivation regards the relation between the hypothesis and tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the data, which are related to the experiment. 
+
+However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider many investigation methods, in particular the Systematic Comparative Approach presented in Chapter \ref{chap:problem-settings}), which demands to identify characteristics upon which is possible to build comparison. 
+
+
+
+First of all, the Analyser tool-set must include an automatic procedure average the data of multiple execution of the same experiment. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures. 
+
+Once we have reliable data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions.
+
+Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
+
+%Automatic procedures to identify the State State condition exist, but requires dedicated studies which will be faced as future works. At this moment Steady State identification exploit data visualisation and is done by the researchers.  
+
+ Visualise the point of when Steady State is reached is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=0.80\linewidth]{images/comp-intra}
+	\caption{Intra Experiment Comparison} 
+  	\label{fig:comp-intra}
+\end{figure}
+
+Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main investigation options, the following images show a some examples of them:
+% A) Intra-Experiment Comparison ; B) Inter-Experiment Comparison; C) Pattern Recognition. T
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=0.80\linewidth]{images/comp-inter}
+	\caption{Inter Experiment Comparison} 
+  	\label{fig:comp-inter}
+\end{figure}
+
+\begin{enumerate}
+\item[A] Figure \ref{fig:comp-intra} shows an example of intra-experiment investigation, multi-plotting them on the time domain or frequency domain; 
+\item[B] Figure \ref{fig:comp-inter} shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon a certain fixed characteristic.  
+\item[C] Figure \ref{fig:patterns}  shows an example of pattern recognition: inter-experiment on the same variable or intra-experiment on the relation between variable;
+\end{enumerate}
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=0.85\linewidth]{images/patterns}
+	\caption{Pattern recognition example} 
+  	\label{fig:patterns}
+\end{figure}
+
+The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. 
+The options of intra-experiment and inter-experiment comparisons are still meaningful, and now we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, because it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
+
+\begin{table}[htb]
+\scriptsize
+	\centering
+	\subtable[Symbolic Comparison of variables A vs B on Experiment 1]{%
+		\begin{tabular}{c | cccc} % creating eight columns
+	  	\hline
+		A vs B & \multicolumn{4}{c}{Experiment 1 Condition A}  \\
+		 Comparison  & &&&\\
+		\hline
+		   	        & $\simeq$\\
+		 Experiment 1 & A     & 	$\simeq$  & A & B\\
+		 Condition  & A     & 	$\simeq$  & $\simeq$ & B\\
+		 B          & A     & 	$\simeq$  & B & A\\
+		\hline % inserts single-line
+	 \end{tabular}
+	}\qquad\qquad
+	\subtable[Symbolic Comparison of variables A vs B on Experiment 1]{%
+		\begin{tabular}{c | cccc} % creating eight columns
+	  	\hline
+		A vs B & \multicolumn{4}{c}{Experiment 1 Condition A}  \\
+		 Comparison  & &&&\\
+		\hline
+		   	        & $\simeq$\\
+		 Experiment 1 & 10\%     & 	$\simeq$  & 42\% & 33\%\\
+		 Condition  & 23\%     & 	$\simeq$  & $\simeq$ & 12\%\\
+		 B          & 20\%    & 	$\simeq$  & 22\% & 22\%\\
+		\hline % inserts single-line
+	 \end{tabular}
+	}
+	\caption{(a) intra experiment-comparison over two variables - (b) inter-experiment comparison over a common variable }
+	\label{tab:comp-tables}
+\end{table}
+
+Last but not least, since data mining procedures are very system-dependent we decide to include examples of possible analysis in Chapter \ref{chap:evaluation} about the experimental evaluation of the Baselines. The purpose of Chapter \ref{chap:evaluation} is both to demonstrate the value of \name and to provide some guidelines for further evaluations.
