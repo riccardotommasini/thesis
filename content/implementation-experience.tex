@@ -312,58 +312,42 @@ This levelled stricture of  baselines code allow to share the majority of the co
 
 \section{Analyser}\label{sec:analyser-impl}
 
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/analyser-block-schema-impl}
+	\caption{Analyser Blocking Schema: Implementation Detail Level} 
+  	\label{fig:analyser-block-schema-impl}
+\end{figure}
+
+In Section \ref{sec:analyser} we introduce the \textsc{Analyser} as set of methods for data processing and analysing, which allow to refute or confirm hypothesis and improve existing models trough empirical findings. Moreover, we draw in Figure \ref{fig:analyser-block-schema} the block schema of the \textsc{Analyser}, reported in Figure \ref{fig:analyser-block-schema-impl} detailing the each level of the analysis block.
+
+In this section we describe how the different block are implemented, which analysis are possible and which tools sustain each level of analysis.
+Notice that the relation between the hypothesis and tools to apply the analysis is deep and hard it is hard to generalise the investigation. The first one depends on the the research question, while the second one requires to study the data, which are related to the experiment.  However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider the tools to sustain the investigation methods. Indeed, they apply the Systematic Comparative Approach presented in Chapter \ref{chap:problem-settings}), which demands to identify characteristics upon which is possible to build comparison. 
+
+First of all, the \textsc{Analyser} receives two input: the raw data form the experiments and the variables to build the analysis, \ref{fig:analyser-block-schema-impl}. Both the Steady State Identification block and Analysis Block require an automatic procedure,named pre-processing, which averages the data of multiple executions of the same experiment. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures. 
 
 
+Once we have reliable data, the Steady State Identification Block can process them and evidence, w.r.t the evaluated variable, it a solution has reached the Steady State condition for a certain variable. Automatic procedures to identify the State State condition exist, but they require dedicated studies which will be faced as future works. At this moment Steady State Identification exploit data visualisation and is it no automated. Visualise the point of when Steady State is reached is necessary to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, we know that the graphical method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
 
 
-Another motivation regards the relation between the hypothesis and tools to apply the analysis. The first one depends on the the research question, while the second one requires to study the data, which are related to the experiment. 
+In the Analysis Block we can decline the comparative research approach either to the visual analysis or statistical investigation, trough the different levels presented in \ref{sec:analyser}. The graphical analysis method is more qualitative then the second one, but reading the information presented in graphical way can be preferred in those case where numerical data are not clear. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions with simpler answers. Following we present for all the Analysis level the method involved in the current implementation.
 
-However, it is possible to identify some common characteristics that have a general meaning. Independently from the hypothesis and  experiment we can consider many investigation methods, in particular the Systematic Comparative Approach presented in Chapter \ref{chap:problem-settings}), which demands to identify characteristics upon which is possible to build comparison. 
+\pagebreak
 
 
-
-First of all, the Analyser tool-set must include an automatic procedure average the data of multiple execution of the same experiment. Even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Strange results may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures. 
-
-Once we have reliable data, we can decline the comparative research approach either to the visual analysis or statistical investigation. The first method is more qualitative then the second one, but read the information presented in graphical way can be preferred in the primary steps of a study. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions.
-
-Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
-
-%Automatic procedures to identify the State State condition exist, but requires dedicated studies which will be faced as future works. At this moment Steady State identification exploit data visualisation and is done by the researchers.  
-
- Visualise the point of when Steady State is reached is useful to exclude the initial warm-up period form the data and properly verify hypothesis. Anyhow, this method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
+\textsc{Level 0 - Dashboards}
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=0.80\linewidth]{images/comp-intra}
-	\caption{Intra Experiment Comparison} 
-  	\label{fig:comp-intra}
+	\includegraphics[width=0.45\linewidth]{images/dashboard-example}
+	\caption{Example of Dashboard Representation} 
+  	\label{fig:dashboard-example}
 \end{figure}
 
-Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main investigation options, the following images show a some examples of them:
-% A) Intra-Experiment Comparison ; B) Inter-Experiment Comparison; C) Pattern Recognition. T
 
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=0.80\linewidth]{images/comp-inter}
-	\caption{Inter Experiment Comparison} 
-  	\label{fig:comp-inter}
-\end{figure}
+Figure \ref{fig:dashboard-example} contains an example of the possible Dashboard representation. The aim of dashboard like the one in Figure \ref{fig:dashboard-example} is to represent the multiple solution in a n-variable space. This kind of representation allow to define the solution dominance w.r.t the involved variable, stating which solution, if any, is better then another one within an experiment or which experimental setting dominates the other for a given RSP Engine.\\
 
-\begin{enumerate}
-\item[A] Figure \ref{fig:comp-intra} shows an example of intra-experiment investigation, multi-plotting them on the time domain or frequency domain; 
-\item[B] Figure \ref{fig:comp-inter} shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon a certain fixed characteristic.  
-\item[C] Figure \ref{fig:patterns}  shows an example of pattern recognition: inter-experiment on the same variable or intra-experiment on the relation between variable;
-\end{enumerate}
-
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=0.85\linewidth]{images/patterns}
-	\caption{Pattern recognition example} 
-  	\label{fig:patterns}
-\end{figure}
-
-The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. 
-The options of intra-experiment and inter-experiment comparisons are still meaningful, and now we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, because it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
+\textsc{Level 1 -  Statistical Values Comparison}\\
 
 \begin{table}[htb]
 \scriptsize
@@ -394,8 +378,63 @@ The options of intra-experiment and inter-experiment comparisons are still meani
 		\hline % inserts single-line
 	 \end{tabular}
 	}
-	\caption{(a) intra experiment-comparison over two variables - (b) inter-experiment comparison over a common variable }
+	\caption{(a) symbolic-comparison over two variables - (b) numeric-comparison over a common variable }
 	\label{tab:comp-tables}
 \end{table}
 
-Last but not least, since data mining procedures are very system-dependent we decide to include examples of possible analysis in Chapter \ref{chap:evaluation} about the experimental evaluation of the Baselines. The purpose of Chapter \ref{chap:evaluation} is both to demonstrate the value of \name and to provide some guidelines for further evaluations.
+Time series describe how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical values, which always consider the the Steady State to allow the generalisation of the insights. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. 
+Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis at different detail levels. Table \ref{tab:comp-tables}.a contains the symbolic comparison of two solution over a given variable.  Table \ref{tab:comp-tables}.b offers a deeper details level, showing how much a solution is better than the other. How to choose the proper level depends on the needs of the research. 
+
+Moreover, trough this disposition of experiment result is possible to move in tables cell, changing the experimental setting. It is easy to understand how different experiment influence the behaviour of an RSP Engine: moving on the horizontal axis of Table \ref{tab:comp-tables}.a we can variate the Condition A appreciating the differences. Actually this kind of analysis is generated into a CSV report, which contains all the meaningful statistical values for the experiments. The report can be further manipulated to obtain the table visualisation. \\
+
+\textsc{Level 2 - Patter Identification}\\
+
+\begin{figure}[tbh]
+  \centering
+  \subfigure[Pattern Recognition Example: Memory in Frequency Domain]{
+  	\includegraphics[width=0.45\linewidth]{images/pattern-example-density}
+  	
+  }
+  \subfigure[Pattern Recognition Example: Memory in Time Domain]{
+  	\includegraphics[width=0.45\linewidth]{images/pattern-example-memory}
+  }
+	
+	\caption{Two Examples of Pattern Recognition} 
+  	\label{fig:pattern-examples}
+\end{figure}
+
+Figure \ref{fig:pattern-examples} (a) and (b) exploit the same experiment representation used in Table \ref{tab:comp-tables} of Level 2. Trough this disposition is possible to identify graphical pattern. This level comparisons allow to appreciate together multiple experiments results, for a given variable (memory in this case). 
+
+Moving up and down in Figure \ref{fig:pattern-examples}.a for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Figure \ref{fig:pattern-examples} provides a new a global view over multiple experiments.\\
+
+\textsc{Level 3 - Visual Comparison}\\
+
+\begin{figure}[tbh]
+  \centering
+  \subfigure[Multi-Experiment Comparison]{
+  			\includegraphics[width=0.80\linewidth]{images/comp-inter}
+  			}
+  \subfigure[Multi-Variables Comparison]{
+  \includegraphics[width=0.80\linewidth]{images/comp-intra}
+  }
+  \caption{Visual Comparison} 
+  \label{fig:visual-comp}
+\end{figure}
+
+Finally, the lowest level of analysis focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two possible analysis. Plotting multiple variables over the same chart allow to better understand the relation, for example if one reaches the Steady State before the other as happens for Latency w.r.t Memory in Figure \ref{fig:visual-comp}.b. Comparing different experiment over the same variable allow similar observation too, focusing on the relation between the experimental settings. In summary:
+
+\begin{enumerate}
+\item[A] Figure \ref{fig:visual-comp}.a shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon different experiments. 
+\item[B] Figure \ref{fig:visual-comp}.b shows an example of intra-experiment investigation, multi-plotting the different variables within the same experiment; 
+
+\end{enumerate}
+
+
+%Time series studies usually start with data visualisation analysis. The most common plotting tools represent the series in temporal form. Moreover, it is relevant to visualise their behaviour in the frequency domain. 
+%Independently from the Steady State condition, variables relation can be evidenced in a comparative form and the Analyser must support this kind of studies. We distinguish three main investigation options, the following images show a some examples of them:
+%% A) Intra-Experiment Comparison ; B) Inter-Experiment Comparison; C) Pattern Recognition. T
+%
+%The Analyser has to supports also hypothesis on system behaviour changes: a time serie describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical operations,which always consider the the Steady State to obtain general answers to our questions. The most common metrics are average and standard deviation and maximum or minimum for a certain variable. Upon this calculated data is possible to compare experiments or variable in a global manner, drawing a solution space. 
+%The options of intra-experiment and inter-experiment comparisons are still meaningful, and now we can chose to look at numeric values or to provide only an analysis of the system trend. Pattern identification is quite harder than in the visual analysis approach, because it depends on the data representation. Tables \ref{tab:comp-tables} (a) and (b) show two example of statistical analysis with different detail levels. How to choose the proper level depends on the needs of the research:
+%
+Data mining procedures are very system-dependent. For this reason we include in Chapter \ref{chap:evaluation} about the \name Evaluation, concrete analysis examples, by testing the Baselines. The aim of Chapter \ref{chap:evaluation} is to demonstrate the value of \namens, but also we want to provide some guidelines for further evaluations.

@@ -187,28 +187,35 @@ Before presenting the stack level one by one, we introduce two concept about the
 
 Dashboards are the highest level of analysis offered by \namens. The Mean data value are presented in a n-dimension radar plot, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solution and identify which one is the best, if any. Dashboard allow both inter-experiment comparison and intra-experiment comparison. 
 
-The idea of a single visualisation method which allow to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depends on the system complexity and no only on the complexity of the method itself. Usually this level of analysis can not represent the entire system complexity. Moreover, if the Steady State condition is not reached by all the variable involved, the generalisation of any insight may be difficult. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
+The idea of a single visualisation method which allow to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depends on the system complexity and no only on the complexity of the method itself. Usually this level of analysis can not represent the entire system complexity. Moreover, if the Steady State condition is not reached by all the variable involved, the generalisation of any insight may be difficult. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.\\
 
-\textsc{Level 1 - Mean Value Comparison}\\
+\textsc{Level 1 -  Statistical Values Comparison}\\
 
-This Analysis level focuses on a single variable a time, exploiting both \textit{Intra-Experiment} and \textit{Inter-Experiment} comparison. Usually hypothesis verification requires the definition of multiple experiment, which variates for on or more parameters. This kind of analysis split  the dashboard representation, presenting one variable at time, comparing the results of different solutions.
+This Analysis level focuses on a single variable a time (Latency, Memory ecc.), in a certain statistical condition (Maximum, Minimum, Mean Value ecc.) exploiting both the \textit{Intra-Experiment} and \textit{Inter-Experiment} comparison. Usually hypothesis verification requires the definition of multiple experiments, which variates for few parameters, to allow generalisation of the results. This kind of analysis splits the dashboard representation, presenting one variable at time, comparing the results of one solution w.r.t. to another one. 
+The aim of Level 1 is identifying which parameter, if any, determines the raking of the analysed solutions. Thus, the comparison must be presented in a easy-to-ready form, which evidences the differences between experiments and allows to visualise all the results together.
 
-Usually this comparison involves multiple experiment, presented in a easy-to-ready form, which evidence the differences between experiments.
-
-\name makes possible two approach of this kind of analysis:
+\name makes possible two analysis approaches:
 \begin{itemize}
-\item \textit{Numeric} -  The comparison results are present in percentage form, quantifying how much a solution is better than another one, fixing some elements in the experiment.  With Numeric Mean variable comparison is possible to see how much, for a certain variable, the improvement of a given solution changes between experiment w.r.t. another one.
-
-\item \textit{Symbolic} - it is a simplification of the Numeric Solution. Sometimes we only need no understand which solution is better, without focusing on numerical value. Symbolic solution required the definition of a tolerance threshold, for example 5\%, to distinguish when a solution is better, worst or equal to another one.
+\item \textit{Numeric} -  The comparison results are present in percentage form, quantifying how much a solution is better than another one under some conditions. 
+\item \textit{Symbolic} - it is a simplification of the Numeric approach. Sometimes we only need no understand which solution is better, without focusing on numeric values. The Symbolic approach requires the definition of a tolerance threshold, for example 5\%, to distinguish when a solution is better, worst or equal to another one.\\
 
 \end{itemize}
-\textsc{Level 2 - Multi-Visual Experiment}\\
+\textsc{Level 2 - Patter Identification}\\
 
+Experimental analysis has the goals to allow the comparison of complex system. Sometimes Level 0 is not sufficient to confirm hypothesis and  Level 1 only allows to understand which of the involved variables, if any, invalidates the observation but not why, For such complex system, like RSP Engine, the comparison of a single statistical value is sufficient to explicit their behaviour.
 
+Deeper levels of analysis, starting from Level 2, introduce visual analysis to compare the entire experiment result data, presenting the system behaviour over all the experiment execution. Level 2 extends the idea of Level 1, exploiting the same easy-to-ready representations, thus an \textit{Inter-Experiment} comparison. It allows to compare the graphical representation of a single variable between many experiments.
+
+The aim of this level is evidencing if, a certain variable for a given solution follows a some patterns changine the experimental contexts. How to choose the correct graphical representation depends on the variable nature and requires specific analysis. However, the most common ones for time-series are  Time domain or Frequency domain representations.
+
+This analysis method allow to visualise how the system behaviour changes between different experiment, understanding what is changing in a deeper level.
+Even comparing a single variable new observations are possible, reaching intrinsic system parameters that are not visible analysing the model\\
 \textsc{Level 3 - Visual Comparison}\\
+
+The bottom level of the Analysis stack focuses on a single solution at time, comparing different variables or different experiments. The aim of Level 3 is to understand the relation between the subjects of the analysis. Visual comparison may be set up as both \textit{Intra-Experiment} or \textit{Inter-Experiment} comparison. In summary the two possible analysis are:
 \begin{itemize}
-\item \textit{Variable Comparison}
-\item \textit{Experiment Comparison}
+\item \textit{Multi-Variables Comparison} -  it means comparing different variables of the same solution within the same experiment, this kind of comparison is classified as \textit{Intra-Experiment}
+\item \textit{Multi-Experiment Comparison} -  it means comparing the same variable for the same solution within different experiments, as we did for Level 2, but for evidencing the relation trough different representation techniques. this kind of comparison is classified as \textit{Inter-Experiment}
 \end{itemize}
 
 
