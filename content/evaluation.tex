@@ -103,6 +103,7 @@ SOAK Experiment are 30000 CTEvent long, each one of a fixed size, which depend o
 
 \begin{table}[htb]
 \centering
+\normalsize
  \begin{tabular}{l| ccccc}
 	  	\hline
 		\textsc{CTEvent}  &\multicolumn{5}{c}{Number of Slot}  \\
@@ -121,9 +122,9 @@ SOAK Experiment are 30000 CTEvent long, each one of a fixed size, which depend o
 	\label{tab:soaktests}
 \end{table}
 
-
 \begin{table}[htb]
 	\centering
+	\normalsize
 	\begin{tabular}{l | ccccc} % creating eight columns
 	  	\hline
 		Triple in & \multicolumn{5}{c}{Number of Slots}  \\
@@ -140,10 +141,9 @@ SOAK Experiment are 30000 CTEvent long, each one of a fixed size, which depend o
 	\label{tab:soaktests-alt}
 \end{table}
 
+Table \ref{tab:soaktests} presents the fifteen SOAK tests we run for each baseline presented in Table \ref{tab:baselines-names}. The columns of the table are the different window sizes measured in terms of the values assumed by $N$ (see Section \ref{sec:query}).  Being $\beta=$ 100 ms., they correspond to a window that spans 100 ms., 1 sec., 10 sec. and 100 sec.. The rows are the different number of triples in each \textit{CTEvent} sent by the \textsc{RDF2RDFStream} to $\mathcal{E}$.% Notably, for all of them, we checked that $\mathcal{E}$ is responsive for the whole duration of the experiment. 
 
-Table \ref{tab:soaktests} presents the fifteen SOAK tests we run for each baseline presented in Table \ref{tab:baselines-names}. The columns of the table are the different window sizes measured in terms of the values assumed by $N$ (see Section \ref{sec:query}).  Being $\beta=$ 100 ms., they correspond to a window that spans 100 ms., 1 sec., 10 sec. and 100 sec.. The rows are the different number of triples in each \textit{CTEvent} sent by the \textsc{RDF2RDFStream} to $\mathcal{E}$. Notably, for all of them, we checked that $\mathcal{E}$ is responsive for the whole duration of the experiment. 
-
-Table \ref{tab:soaktests-alt} is an alternative layout. The columns of the table are still contain the different window sizes measured in terms of the values assumed by the number of slots $N$, while the rows are the different number of triples in the active window. 
+Table \ref{tab:soaktests-alt} is an alternative layout. The columns of the table are still contain the different window sizes measured in terms of the values assumed by the number of slots $N$, while the rows are the different number of triples in the active window. \\
 
 Following the traditional research method, we formulate two naive hypothesis based on the knowledge we have of the model. The hypothesis to verify with SOAK experiments are:
 \begin{itemize}
@@ -155,9 +155,9 @@ Notice that the goal of our research is to show how \name helps RSP Engine analy
 
 \subsection{Step Response Tests}\label{sec:step-es}
 
-Step Response testing allow to see how the system reacts to a sudden changing in the input condition. They usually follow SOAK testing, which may show an initial warm-up phase for the systems. With this set of experiments we can study how the system response changes if we move form an input condition to another one from a stable running condition instead of starting from scratch.
+Step Response testing allow to see how the system reacts to a sudden changing in the input condition (see Section \ref{sec:software-testing}). They are related to SOAK test, because they allow to study deeply the initial warm-up phase of the system. This set of experiments evidence the different responses of an RSP Engine if we move form an input condition to another instead of starting from scratch.
 
-We design the step experiments concatenating two of the SOAK table ones, obtaining a total length of 400000 events, which means hours of execution for the system. For this reason we investigate only few configuration, all with 10  window slot size for all the four baselines. Table \ref{tab:steptests} summarises the step experiment set-up, where the step is positioned at the half of the execution, 20000 events.
+We design the step experiments concatenating two with total length of 400000 events, which means hours of execution for the system. For this reason we investigate only few configuration, all with 10  window slot size for all the four baselines. Table \ref{tab:steptests} summarises the step experiment set-up, where the step is positioned at the half of the execution, 20000 events.
 \begin{table}[htb]
 \centering
  \begin{tabular}{c|c|c}
@@ -175,7 +175,6 @@ We design the step experiments concatenating two of the SOAK table ones, obtaini
 		% 10 & 1000 & 10000\\
 		\hline 
  \end{tabular}
-	\vspace{10pt}
  \caption{}
 \label{tab:steptests}
 \end{table}
@@ -184,27 +183,84 @@ We do not formulate hypothesis for Step experiments. The purpose of this test se
 
 \subsection{Execution Environment}\label{sec:execution-environment}
 
-All experiment are executed exploiting a dedicated machine, an iMac mid-2011 with 12GB RAM and 3.6 Ghz of a Intel i5 64 Bit, which run OS X 10.10.2 Yosemite,. Since \name is developed with Java 7\footnote{http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html}, we use the versione 1.7.0.71 of the JVM.
+Before presenting experiment result a brief description of the execution environment is required. All experiment are executed exploiting a dedicated machine, an iMac mid-2011 with 12GB RAM and 3.6 Ghz of a Intel i5 64 Bit, which run OS X 10.10.2 Yosemite,. Since \name is developed with Java 7\footnote{http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html}, we use the versione 1.7.0.71 of the JVM.
 The execution happens in a controlled environment, which tries to reduce the number of disturbing elements like network, graphical interface and other running processes.
 
 \section{SOAK Test Evaluation Results}\label{sec:soakres}
 
 In this Section we present the Experiment results of the SOAK Test, trough the different levels of analysis introduced in Chapter \ref{chap:heaven} and detailed in Chapter \ref{chap:implementation-experience}. We face the hypothesis formulated in Section \ref{sec:soak-es} and provides many findings exploiting the analysis tools which support each level.
 
-Notice that the Experiments with the configuration K=1 and EW=10000 do not terminate correctly due to an execution issues. The reader please ignore the results of this experiment, which are not actually part of our evaluation.
+Notice that the Experiments with the CT Event Size  10000 a Single Slot do not terminate correctly due to an execution error. The reader please ignore the results of this experiment, which are not actually part of our evaluation.
 
 \subsection{Level 0 - Dashboards}
 
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=\linewidth]{images/dashboard-legend}	
+	\caption{Dashboard Legend} 
+	\label{fig:dashboard-legend}
+\end{figure}
+
 The SOAK test results analysis starts with the high level dashboard view. Each dashboard presented is composed by two chart which shows in different form the relation between the different four baselines. Dashboard legend is fixed for all the following charts and reported in Figure \ref{fig:dashboard-legend}.
 
-Figures \ref{fig:result_dashboard_k} (a) and (b) show how changes the baselines behaviour if we fix the CTEvent size to 1 triple, and variate the number of slots that compose the active window. This analysis means moving from the left to the right on the first row of Table \ref{tab:soaktests}, increasing the total number of triple in the active window. While the window size (in terms of triple) grows, all the baselines have a worsening in terms of Latency. Moreover,  \ref{fig:result_dashboard_k}.b clearly shows also the baselines memory usage is growing too: \textit{Bigger problem requires in general more resources}. Notice that the green point, it is not part of the chart for very small problems (1 Triple tumbling window).
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_ka}	
+	\caption{Dashboard K=1 Split} 
+	\label{fig:result_dashboard_ka}
+\end{figure}
 
-Figures \ref{fig:result_dashboard_ew} (a) and (b) show the baselines behaviour if we fix the number of slot in the active window to 10, while we variate the number of slot the active window contains. This analysis means moving form the top to the bottom of the second column of Table \ref{tab:soaktests}. Two important observation are possible on this dashboard: (1) Latency worsening is still clearly visible in  Figure \ref{fig:result_dashboard_ew}.a, while the Memory ones requires Figure \ref{fig:result_dashboard_ew}.b (2) While de window size in terms of triple is growing, the baselines behaviour is almost the same. 
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_kb}	
+	\caption{Dashboard K=1 Multiplot} 
+	\label{fig:result_dashboard_kb}
+\end{figure}
 
-The Third dashboard we included is the one in Figures \ref{fig:result_dashboard_prob} (a) and (b). These dashboards show how changes the baselines behaviour if we fix the window size in terms of triple, maintaining the product CTEvent size (K) and Slot Number (EW) constant to 10000 triples.
-This analysis means moving on the last diagonal of Table \ref{tab:soaktests}, excluding the cell in the lowest left corner which is part of the erroneous experiments. Both the dashboard reports how the baselines performances seems depends only on the dimension of the active windows, indeed they are almost the same for all the compared experiments.
+\textbf{Dashboard One - Fixed Size \textsc{CTEvent} = 1} - How baselines behaviour changes if we fix the size of the \textsc{CTEvent} while we analyse the variation of the number of slot in the active window? Figures \ref{fig:result_dashboard_ka} and \ref{fig:result_dashboard_kb} shows this situation within a dashboard view. 
 
-What Level 0 allows to state is there is no strong dominance of a Baseline w.r.t. the other ones in the provided analysis. Moreover, a week dominance can be observed in term for Latency in Figures \ref{fig:result_dashboard_k} (a) and (b) and in Figures s\ref{fig:result_dashboard_ew} (a) and (b) for medium size problems with Baseline B4. This observation refutes explicitly HP.2 formulated in Section \ref{sec:soak-es}. HP.1 was not completely confirmed since there are experiment where the naive approach of reasoning seems perform better than the incremental one in term of Latency. Further analysis at deeper levels will motivate these unexpected findings.
+To better understand this analysis we refer to the experiment layouts of Table \ref{tab:soaktests-alt}. Fixing the \textsc{CTEvent} size while the Number of slot is changing means moving on the table diagonals, if \textsc{CTEvent} size = 1 indicates the latest one.
+Observing Figure \ref{fig:result_dashboard_ka} we can appreciate that while the number of slots grows and thus the window size (in terms of triple) increases, all the baselines have a worsening in terms of Latency. Observing Figure \ref{fig:result_dashboard_kb} we can also individuate the worsening for the memory consumption, which is growing too. A first obvious insight may be that \textit{Bigger problem requires in general more resources}. Notice that the green point (Bx), it is not part of the chart for very small problems (1 Triple tumbling window).
+
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_ewa}	
+	\caption{Dashboard EW=10 Split} 
+	\label{fig:result_dashboard_ewa}
+\end{figure}
+
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_ewb}	
+	
+	\caption{Dashboard EW=10 Multiplot}
+	\label{fig:result_dashboard_ewb}
+\end{figure}
+
+\textbf{Dashboard Three - Fixed Number of Slot = 10} - How baselines behaviour changes if we fix number of slot in the active window while the size of the \textsc{CTEvent} changes? Figures \ref{fig:result_dashboard_ewa} and \ref{fig:result_dashboard_ewb} show this situation. This analysis means, w.r.t Table \ref{tab:soaktests-alt} layout, moving form the top to the bottom of the second column.
+
+Observing the two Figures emerge two finding: (1) Latency worsening is still clearly visible in Figure \ref{fig:result_dashboard_ewa}, while the Memory ones requires Figure \ref{fig:result_dashboard_ewb} (2) The behaviour of the baselines becomes indistinguishable when the window size in terms of triple is grown too much. 
+
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_proba}	
+	\caption{Dashboard $EW*K=10000$ Split} 
+	\label{fig:result_dashboard_proba}
+\end{figure}
+
+\begin{figure}[tbh]
+	\centering
+	%\includegraphics[width=\linewidth]{images/result_dashboard_probb}	
+	\caption{Dashboard $EW*K=10000$ Multiplot}
+	\label{fig:result_dashboard_probb}
+\end{figure}
+
+\textbf{Dashboard Two - Fixed Windows Size (Triples) = 10000 } - How baselines behaviour changes if we fix number triples within the active window? The analysis is summarized in the Figures \ref{fig:result_dashboard_proba} and \ref{fig:result_dashboard_probb}. Fixing the window size in terms of triple to 10000 means moving form the left to the right on the lowest row of Table \ref{tab:soaktests-alt}. Formally, it consist into maintain the product CTEvent size (K) and Slot Number (EW) constant to 10000 triples. Both the Figures report how the baselines performances seems depends only on the dimension of the active windows, indeed they are almost the same for all the compared experiments.
+
+What Level 0 allows to state is there is no strong dominance of a Baseline w.r.t. the other ones in the provided analysis. Moreover, a week dominance can be observed in different steps both in term for Latency  and memory. The most clear example is in Figures \ref{fig:result_dashboard_ka} and \ref{fig:result_dashboard_kb} and in Figures \ref{fig:result_dashboard_ewa} and \ref{fig:result_dashboard_ewb} for medium size problems with Baseline B4. 
+However the dominance is not absolute and changing experiment configuration may changes the result hierarchy. This observation refutes explicitly HP.2 formulated in Section \ref{sec:soak-es}, while HP.1 was not completely confirmed. There are experiments where the naive  reasoning  approach seems performing better than the incremental one, at least in term of Latency. 
+
+The research over RSP Engines requires further analysis at deeper levels to  motivate these unexpected findings and \name makes this possible.
 
 \subsection{Level 1 -  Statistical Values Comparison}
 
@@ -342,9 +398,11 @@ What Level 0 allows to state is there is no strong dominance of a Baseline w.r.t
 	\label{tab:soak_memory_comparisons}	
 \end{table}
 
-For Level 0 investigation we present Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons}, which resumes in all the experiment which Baselines i better, fixing a certain property (Latency or Memory). Both the Tables follows the layout of Table \ref{tab:soaktests-alt}. Here we include the symbolic resuming table, but \name allow visualisation also of the numerical result, for a direct analysis as shows in Section \ref{sec:analyser-impl}.
+The Analysis Level 1 exploits statistical investigation trough an easy to ready result layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1)
 
-The results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d when N=1, i.e., the window contains only one \textit{CTEvent},  allow to state for large events that the Naive approach is faster than the Incremental one. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster. This is not intuitive, because from theory we know that the incremental maintenance is more computationally expensive then materialisation for large changes \cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13}.
+The current evaluation operates over the mean values of Latency and Memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} constains in all the experiment results respectively for Latency and Memory.  Both the Tables dispose the result according with the layout of Table \ref{tab:soaktests-alt}. We decide to present only symbolic result representation, but \name allow also more detailed analysis with numerical comparisons as shows in Section \ref{sec:analyser-impl}.
+
+The results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d when N=1, i.e., the window contains only one \textit{CTEvent}, allow to state for large events that the Naive approach is faster than the Incremental one. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster. This is not intuitive, because from theory we know that the incremental maintenance is more computationally expensive then materialisation for large changes \cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13}.
 
 When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{tab:soak_latency_comparisons}.c allow to say that using a Triple-base RDF stream is faster than Graph-based one. This is because the graph data structure may speed up reasoning when it contains multiple triple, but it does so introducing an overhead that may hinder performances when it contains few triples \cite{DBLP:conf/semweb/BalduiniVDTPC13}. In particular, for the case $N$=1000 when the window contains 1000 triples (i.e., each \textsc{CTEvent} contains only one triple),  the Naive Triple-based approach is about 10\% faster  than the Naive Graph-based one while the Incremental Graph-based is even about 20\% faster.
 
@@ -352,8 +410,9 @@ Finally, the results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:
 
 While is possible to state meaningful observation over latency data, the same is not possible for memory ones. \name shows that the study of the memory can not be faced with the same methods to study latency (comparison of the mean values under a clearly identified the Steady State condition). 
 
-Table \ref{tab:soak_memory_comparisons} reports the  results for the memory usage during the experiments. Results does not confirm the what we observed in Table \ref{tab:soak_latency_comparisons} and sometimes it even refutes. It is clear that memory usage does not follow the same behaviour of Latency.
-Further statistical analysis a surely meaningful. Maxmimum and minimum comparison within the same layout may detail much more the the system memory usage. However, trough \name is possible to lead the analysis to another level, observing the directly the memory usage in the time domain or in the frequency domain over all the experiment execution. 
+Table \ref{tab:soak_memory_comparisons} reports the results for the memory usage during the experiments. Table entries do not confirm the what we observed in Table \ref{tab:soak_latency_comparisons} and sometimes it even refutes our findings. It is clear that memory usage does not follow the same behaviour of Latency.
+
+Further statistical analysis a surely meaningful. Maximum and minimum comparison within the same layout may detail much more the the system memory usage. However, trough \name is possible to lead the analysis to another level, observing the directly the memory usage in the time domain or in the frequency domain over all the experiment execution. 
 
 \subsection{Level 2 - Patter Identification}
 
