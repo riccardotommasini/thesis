@@ -5,9 +5,21 @@ In this Chapter we present an evaluation of \name Baselines (See Chapter \ref{se
 
 The aim of SOAK tests is showing the problem dimension of traditional top-down analysis over complex software system like RSP Engine, even for simple hypothesis, and consequently demonstrate that we need \namens. Instead, the Step-Response tests are designed to show \name potential, and provide a simple case of analysis inspired by the Systematic Comparative Research Approach.
 
-\section{Experimental Setting}
-\label{sec:experimental-setting}
-The experimental setting is the set of rules, assumption and conventions the researchers specify before starting with the evaluation, i.e. the execution of experiment and the interpretation of the results. It consists, for our evaluation consists into the definition of different tests to cover the most important variations on the tuple: $<\mathcal{D}, \mathcal{T},\mathcal{E}, \mathcal{Q}>$  (see Chapter \ref{chap:heaven}), where briefly:
+\section{Experiment Design}\label{sec:experiment-design}
+
+Experiment design (ED) means project our experiment in order to prove or refute one or more hypothesis, evidencing the behaviour of the system in the context that those hypothesis involves. ED starts with some assumptions, which compose the  Experimental Setting. Researchers formulate hypothesis on the base of these assumptions, Figure \ref{fig:experiment-design} summarises the collocation of ED within the Top-down approach.
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/experiment-design}
+	\caption{Traditional Experiment design workflow} 
+  	\label{fig:experiment-design}
+\end{figure}
+
+
+From a theoretical point of view we decide to study RSP Engine facing their nature of linear dynamic system.(see Section \ref{sec:sfp}). Experiment design requires to point out which variable are observed. We simplify the study analysing their behaviour in term of Latency and Memory, which is the minimal meaningful measurement set for an RSP Engine (Chapter \ref{chap:heaven}).
+
+In Chapter \ref{chap:heaven} we describe the experiment tuple: $<\mathcal{D}, \mathcal{T},\mathcal{E}, \mathcal{Q}>$ , where briefly:
 \begin{itemize}
 \item $\mathcal{E}$ is the RSP Engine
 \item $\mathcal{D}$ is the Dataset 
@@ -15,11 +27,14 @@ The experimental setting is the set of rules, assumption and conventions the res
 \item $\mathcal{Q}$ is the Query that $\mathcal{E}$ continuously answers.
 \end{itemize}
 
+In this Section we present our choices about the four elements that compose an experiment, upon which the evaluation is built
+
 \subsection{Engine $\mathcal{E}$}
 
-Top-Down investigations are commonly hard, and they become even harder for commercial solutions. The e architecture complexity of mature RSP Engines like the C-SPARQL Engine or CQELS is high, and can not be easily faced in order formulate hypothesis of comparison. In order to simplify the research survey we develop (Section \ref{sec:baselines} and implement (Section \ref{sec:baselines-impl}) the Baselines as the RSP Engines $\mathcal{E}$ subject of our experiments. 
+%. Top-Down investigations are commonly hard, and they become even harder for commercial solutions.
+The architecture complexity of mature RSP Engines like the C-SPARQL Engine or CQELS is high, and can not be easily faced in order formulate hypothesis of comparison. However, the purpose of this evaluation is showing how \name can improve the research over RSP Engine. Thus, we can simplify the research survey evaluating less complex systems. To this extent we design and implement the Baselines (Section \ref{sec:baselines}) and we evaluate them as the RSP Engines $\mathcal{E}$ subject of our experiments. 
 
-In Chapter \ref{chap:problem-settings} we describe which requirements guarantee that an RSP Engine is a baselines: Simplicity, Elementarily, Relevance and Eligibility (SERE properties) helps in baselines evaluation. Thus, they can be as a simple term of comparison for further research on Stream Reasoning systems and this investigation can be followed as guidelines.
+In Chapter \ref{chap:problem-settings} we describe which requirements guarantee that an RSP Engine is a baselines: Simplicity, Elementarily, Relevance and Eligibility (SERE properties) legitimate the evaluation. Thus, they can be considered as a simple term of comparison for further research on Stream Reasoning systems and this investigation can be followed as guideline.
  
 The four baselines differ for two characteristics: RDF Stream Model and Reasoning architecture. The Table \ref{tab:baselines-names} summarises these few but well determined differences, naming the four baselines for the evaluation:\begin{table}[htb]
 \scriptsize
@@ -32,60 +47,59 @@ The four baselines differ for two characteristics: RDF Stream Model and Reasonin
 	Statment   &  B3   & B4\\
 	\hline % inserts single-
 \end{tabular}
-\caption{Configuration of the four baselines, further details in Section \ref{sec:baselines}}
+\caption{Naming convention of the four baselines, further details in Section \ref{sec:baselines}}
 \label{tab:baselines-names}
 \end{table}
 
-\noindent Among these four configurations we can formulate simple hypothesis, stating which approach is better then an other one within an experiment. Notice that we have a complete model of the baseline systems and we also know many implementation details that can help during the analysis. We can exploit the know-how about their internal mechanisms, described in Section \ref{sec:baselines-impl}, to lead our analysis from hypothesis formulation towards empirical results. 
+\noindent Among these four configurations we can formulate simple hypothesis, stating which approach is better then an other one within an experiment. Notice that we have a complete model of the baseline systems and we also know many implementation details that can help during the analysis . We can exploit the know-how about their internal mechanisms, described in Section \ref{sec:baselines-impl}, to lead our analysis from hypothesis formulation towards empirical results. 
 
 \subsection{Dataset $\mathcal{D}$ and Ontology $\mathcal{T}$}\label{sec:dataset}
 
-\noindent The Dataset  $\mathcal{D}$ and the Ontology $\mathcal{T}$ must be chose to ensure baselines Simplicity, as stated in Section \ref{sec:baselines}. We take $\rho$DF  \cite{DBLP:conf/esws/MunozPG07} as their entailment regime, because several works in the field \cite{DBLP:conf/semweb/UrbaniMJHB13} choose this as the minimal meaningful task for a Stream Reasoner. In particular, $\rho$DF is the RDF-S fragment that reduce complexity while preserving the normative semantics and core functionalities.
+\noindent The Dataset  $\mathcal{D}$ and the Ontology $\mathcal{T}$ must be chose to ensure baselines Simplicity, as stated in Section \ref{sec:baselines}. 
 
-The RDF Streams (details in Section \ref{sec:rdfstream}) $\mathcal{D}$ used in the experiments are obtained streaming in different ways the data generated with LUBM  \cite{Guo2005} and the ontology $\mathcal{T}$ is the LUBM one\footnote{http://swat.cse.lehigh.edu/onto/univ-bench.owl}. We assume that the ontology does not change over time, therefore the materialisation of $\mathcal{T}$ is computed before starting the experiment and the RSP engine does not have to perform this task. It is worth to discuss the choice of using data from LUBM (Section \ref{sec:lubm}) over SRbench (Section \ref{sec:srbench}) and LSbench(Section \ref{sec:lsbench}). The first one has data, which are not adequate for the experiments, since they do not require any reasoning. The SRbench data, on the contrary, requires reasoning, but, being real-data, do not have the possibility to be scaled up and down. This choice is in line with previous works on Stream Reasoning \cite{DBLP:conf/semweb/UrbaniMJHB13}. 
+Ontology choice depends also on the entailment regime of the RSP Engines. We take $\rho$DF  \cite{DBLP:conf/esws/MunozPG07} as their entailment regime, because several works in the field \cite{DBLP:conf/semweb/UrbaniMJHB13} choose this as the minimal meaningful task for a Stream Reasoner. In particular, $\rho$DF is the RDF-S fragment that reduce complexity while preserving the normative semantics and core functionalities.
 
-The data generator system, responsible to build $\mathcal{D}$ w.r.t. $\mathcal{T}$, is able to scale both in terms of dimension of the dataset and the reasoning effort. Being LUBM static data, we exploit the \textit{RDF2RDFStream} component of the test stand that takes care to adapt the data generate by LUBM to a streaming scenario. The component can be set up to obtain an RDFStream where the number of triples with the same timestamps follows a given discrete function, Section \ref{sec:streamer-impl} contains all the details about the implementation and the usage of this particular \textsc{Streamer}. %e' veramente il timestamp quello?
+The RDF Streams (details in Section \ref{sec:rdfstream}) $\mathcal{D}$ used in the experiments are obtained streaming in different ways the data generated with LUBM  \cite{Guo2005}. Consequently we chose LUBM ontology\footnote{http://swat.cse.lehigh.edu/onto/univ-bench.owl} as $\mathcal{T}$ for all the experiment. We assume that the ontology does not change over time, therefore the materialisation of $\mathcal{T}$ is computed before starting the experiment and the RSP engine does not have to perform this task. 
 
-We designed two kind of experiments based on the \textit{RDF2RDFStream} capabilities to control the triple distribution in the RDFStream. In order to evidence system dynamics over a particular input the first experiment typology belongs to the category of SOAK Test. The aim of the experiments in this Section is also to show what kind of testing is possible trough \namens, the second kind of experiment belongs to the category of Stress Test (Section \ref{sec:software-testing} describes the different kinds of software testing). In summary:
+It is worth to discuss the choice of using data from LUBM (Section \ref{sec:lubm}) over SRbench (Section \ref{sec:srbench}) and LSbench (Section \ref{sec:lsbench}). The first one has data, which are not adequate for the experiments, since they do not require any reasoning. The SRbench data, on the contrary, requires reasoning, but, being real-data, do not have the possibility to be scaled up and down. Moreover, this choice is in line with previous works on Stream Reasoning \cite{DBLP:conf/semweb/UrbaniMJHB13}. 
+
+Being LUBM static data, we exploit the \textit{RDF2RDFStream} component of the \textsc{Test Stand} that takes care to adapt the data generate by LUBM to a streaming scenario (see Section \ref{sec:streamer-impl}). \textit{RDF2RDFStream} is responsible to build $\mathcal{D}$ w.r.t. $\mathcal{T}$. As detailed in the relative section it is able to scale both in terms of dimension of the dataset and the reasoning effort. The component can be set up to obtain an RDFStream where the number of triples with the same timestamps follows a given discrete function. %Section \ref{sec:streamer-impl} contains all the details about the implementation and the usage of this particular \textsc{Streamer}. %e' veramente il timestamp quello?
+
+\subsection{Query $\mathcal{Q}$}\label{sec:query}
+ 
+The the query $\mathcal{Q}$ used in our experiment depends on the reasoning approach of the RSP Engine in use. Actually, all  experiments uses variants of the same two basic identity queries that continuously asks for the materialisation of the current sliding window:
+
+\begin{enumerate}
+\item[Q.1] Naive
+\item[Q.2] Incremental
+\end{enumerate}
+ 		 
+The Baseline B1 and B3 implement the Naive Reasoning approach and thus exploit Q.1, which outputs the snapshot of the entire window at each slide of the window; The Baselines B2 and B4 implement the Incremental Reasoning approach and thus exploits Q.2, which outputs the ir-streams at each window slide.
+
+%We describe in details the content of the SOAK (Section \ref{sec:soak-es}) and the Step Response tests (Section \ref{sec:step-es}), providing a lecture key for the experiment results.
+\pagebreak
+\section{Experiment Set-Up}
+
+The \textit{RDF2RDFStream} allow us to design many kinds of experiments controlling the triple distribution in the RDFStream. First of all we evaluate each baseline in a set of SOAK Test, which can evidence system dynamics as explained in Section \ref{sec:software-testing}. Then we design a small set of Stress Test in order to show \name potential. In summary:
 
 \begin{itemize}
 \item \textbf{SOAK}: the number of contemporary triple in the RDFStream does not change during the experiment.
 \item \textbf{Step Response} the number of contemporary triple suddenly changes during the experiment, usually increasing of a degree of magnitude.
 \end{itemize}
 
-\subsection{Query $\mathcal{Q}$}\label{sec:query}
- 
-The last parameter in the experiment tuple is the query $\mathcal{Q}$. Out  experiments uses variants of the same two basic identity queries that continuously asks for the materialisation of the current window:
-\begin{enumerate}
-\item[Q.1] Naive
-\item[Q.2] Incremental
-\end{enumerate}
- 		 
-Q.1 outputs the snapshot of the entire window and it is used for the Naive reasoning approach; Q.2 outputs the ir-streams and it is used for the Incremental reasoning approach. The queries differ for the size $\omega$ of the sliding window. In particular, we use windows in which $\omega$ is an integer multiple of the slide parameter $\beta$ of the window, i.e., it holds that $\omega = \beta * N$. In other words, $N$ is the number of \textsc{CTEvents} that the window contain. 
+We execute the experiment on each \name Baseline, so we design experiment basing which query is registered to them. Experiment queries differ for the size $\omega$ of the sliding window. In particular, we use windows in which $\omega$ is an integer multiple of the slide parameter $\beta$ of the window, i.e., it holds that $\omega = \beta * N$. In other words, $N$ is the number of \textsc{CTEvents} that the window contain. 
 
 Moreover, Section \ref{sec:baselines-impl} shows how the proposed baselines take advantage of the ability of Esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. All the triples in the \textit{CTEvent} are consider contemporary by the baselines and each \textit{CTEvent} can be seen as a proxy for the timing event. Together with the \textit{RDF2RDFStream} is possible to estimate the content of the current window in terms of number of RDF Triples in any moment of the experiment.
 
-We describe in details the content of the SOAK (Section \ref{sec:soak-es}) and the Step Response tests (Section \ref{sec:step-es}), providing a lecture key for the experiment results.
+All experiment are execute 10 times oto reduce the presence of the outlier.
 
-\section{Experiment Design}\label{sec:experiment-design}
-
-Experiment design (ED) means project our experiment in order to prove or refute one or more hypothesis, evidencing the behaviour of the system in the context that those hypothesis involves. ED starts with some assumptions, we formulate ours in Section \ref{sec:experimental-setting} under Experimental Setting definition. In Section above we explain, for example, the reasons why we chose $\rho$DF as entailment regime for our experiments. Researchers formulate hypothesis on the base of these assumption, Figure \ref{fig:experiment-design} summarises the collocation of ED within the Top-down approach.
-
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=\linewidth]{images/experiment-design}
-	\caption{Traditional Experiment design workflow} 
-  	\label{fig:experiment-design}
-\end{figure}
-
-
-From a theoretical point of view we decide to study RSP Engine facing their nature of linear dynamic system.(see Section \ref{sec:sfp}). Experiment design requires to point out which variable are observed. We simplify the study analysing their behaviour in term of Latency and Memory, which is the minimal meaningful measurement set for an RSP Engine (Chapter \ref{chap:heaven}). Finally we compare the results of the four baselines (see Table \ref{tab:baselines-names}) between many experiments.
+Further details about the two test sets in the following Sections \ref{sec:soak-es} for SOAK Test and \ref{sec:step-es} for Step Response tests.
 
 \subsection{SOAK: Tests and Hypothesis}\label{sec:soak-es}
 
-Soak testing show the system dynamics, injecting to the subject a constant and continuous input flow.  Indeed, we control the number of contemporary triples in the RDF Stream, to maintain it constant trough the \textit{RDF2RDFStream} module. Moreover, Section \ref{sec:query} describe how we variates the query between experiments.
+Soak testing show the system dynamics, injecting to the subject a constant and continuous input flow (see Section \ref{sec:software-testing}.  We control the number of contemporary triples in the RDF Stream trough the \textit{RDF2RDFStream} module. %Moreover, Section \ref{sec:query} describe how we variates the query between experiments.
 
-10 executions of the experiment reduce the presence of the outlier. All execution includes 20000 CTEvent of fixed size, which depend on the specific experiment. Unlikely, is not possible to foretell how many events are required in to reach the Steady State condition for each variable involved, especially memory. Multiple attempts and empirical evaluation are the only way to set up the correct longness.
+SOAK Experiment are 30000 CTEvent long, each one of a fixed size, which depend on the specific experiment. Unlikely, it is not possible to foretell how many events are required in to reach the Steady State condition for each variable involved, especially memory. The Experiment Results show this in detail in Section \ref{sec:soakres}. Multiple attempts and empirical evaluation are the only way to set up the correct longness.
 
 \begin{table}[htb]
 \centering
