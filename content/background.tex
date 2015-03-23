@@ -1,3 +1,7 @@
+In this Chapter we include an overview of the main research areas related to this thesis. The Stream Reasoning research context, to which this thesis belongs, is introduced in Section \ref{sec:sfp}. It has the aim of unifying the Semantic Web research area, we briefly present in Section \ref{sec:sw} and The Information Flow Processing (IFP) research one, described in Section \ref{sec:ifp}. 
+
+This thesis proposes \namens, an open source framework for the Systematic Comparative Research Approach. Section \ref{sec:empirical-research} contains the state of the are of the Empirical Research in the Computer Science. It worth to note that Software Testing and Benchmarking are the two most relevant approach to empirically evaluate software systems. For this reason we include in this Chapter an introduction about Software Testing in Section \ref{sec:software-testing} and one about Benchmarking in Section \ref{sec:benchmarking}.
+
 \section{Semantic Web}\label{sec:sw}
 
 The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across application, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards, which is collaborative effort led by W3C with participation from a large number of researchers and industrial partners. 
@@ -184,7 +188,7 @@ The code snippet \ref{code:sparql} contains a simple example of SPARQL Select qu
 \item Solution modifiers: this clause use different keywords like ORDER BY, LIMIT,. . . in order to modify the result of the query.
 \end{itemize}
 
-\subsection{Reasoning}\label{sec:reasoning}
+%\subsection{Reasoning}\label{sec:reasoning}
 
 \section{Information Flow Processing}\label{sec:ifp}
 
@@ -400,7 +404,7 @@ ST tries to offer an objective, independent view of the software, usually with S
 \item \textit{ Soak testing} - it is performed to determine if the system can sustain the continuous expected load. It essentially involves applying a significant load to a system for an significant period of time. The goal is to discover how the system behaves under sustained use or identify steady state conditions. During soak tests, memory utilization is monitored to detect potential leaks. Also important, but often overlooked is performance degradation, i.e. to ensure that the throughput and/or response times after some long period of sustained activity are as good as or better than at the beginning of the test. 
 \end{itemize} 
 
-\section{Benchmarks}
+\section{Benchmarks}\label{sec:benchmarking}
 A benchmark is a procedure, problem, or test that can be used to compare systems or components to each other or to a standard \cite{IEEEStd610.12-1990:glossary}. Benchmarking is the primary method for measuring the performance of a systems, hardware or an application[7]. Benchmark results are used to evaluate the performance of a given system on a well-defined workload \cite{Menasce:2001:CPW:560806}.
 
 Many benchmark tests exists to evaluate a wide variety system or applications under under different types of workloads. The user groups like the Transaction Processing Performance Council (TPC) \footnote{http://www.tpc.org/information},  a non-profit corporation founded to define transaction processing and database benchmarks, or analogues corporations are useful resources of be informed about updated types of benchmarks. 
