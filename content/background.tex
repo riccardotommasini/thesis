@@ -279,7 +279,7 @@ A CEP Engine, Figure \ref{fig:cep}, is responsible for processing such events as
 
 \section{Stream Reasoning}\label{sec:sfp}
 
-Answering such queries like \textit{What are the top 10 emerging topics under discussion on Twitter, and who is driving the discussions?} requires systems that can manage rapidly changing worlds at the semantic level. \textbf{Stream Reasoning} is a novel research trend focused on combining DSMS , which can analyse data on the fly (see Section \ref{sec:dsms}) and reasoners, which can perform such complex reasoning tasks (see Section \ref{sec:sw}), in order to make possible reasoning on rapidly changing information.
+Answering such queries like \textit{What are the top 10 emerging topics under discussion on Twitter, and who is driving the discussions?} requires systems that can manage rapidly changing worlds at the semantic level. \textbf{Stream Reasoning} is a novel research trend focused on combining DSMSs, which can analyse data on the fly (see Section \ref{sec:dsms}) and reasoners, which can perform such complex reasoning tasks (see Section \ref{sec:sw}), in order to make possible reasoning on rapidly changing information.
 
 A first step toward stream reasoning \cite{DBLP:conf/fis/ValleCBBC08} tries to combine the power of existing data stream management systems and the Semantic Web. In the context LarKC European Research Project\footnote{http://www.larkc.eu} \cite{4597242, 4120457} was proposed a pluggable algorithmic framework for a such a system, which includes the following steps:
 \begin{itemize}
@@ -294,11 +294,8 @@ A first step toward stream reasoning \cite{DBLP:conf/fis/ValleCBBC08} tries to c
 \subsection{RDF Stream}\label{sec:rdfstream}
 
 Either for doing the abstraction step (1), or immediately after the abstraction, data streams are consolidated as \textit{RDF streams}, which are data streams where the data items are modelled through RDF~\footnote{Cf. \url{http://www.w3.org/TR/2004/REC-rdf-primer-20040210/}.} (one or more RDF statements). For example, let's consider the following stream: at time 1, an event $e_1$ states that an article \textit{:paper$_1$} is written by \textit{:alice}, while at time 5, a data item $e_2$ states that \textit{:paper$_2$} is written by \textit{:bob}. The stream $((e_1,1),(e_2,5))$ can be represented by the following RDF stream:
-
-\vspace{5pt}
-\noindent\textit{(:paper$_1$ ub:publicationAuthor :alice), 1}\\
-\textit{(:paper$_2$ ub:publicationAuthor :bob), 5}
-\vspace{5pt}
+\[\textit{(:paper$_1$ ub:publicationAuthor :alice), 1}\]
+\[\textit{(:paper$_2$ ub:publicationAuthor :bob), 5}\]
 
 Initial works on RDF Stream formalization proposed two alternative formats \cite{DBLP:conf/fis/ValleCBBC08}:
 \begin{itemize}
@@ -323,17 +320,17 @@ There are many extension of SPARQL, which extends the SPARQL 1.1 (see Section \r
 
 Continuous SPARQL (C-SPARQL)  is a language for continuous queries over streams of RDF data that extends SPARQL 1.1 \cite{Barbieri:2010:QRS:1860702.1860705}.
 
-Another example is CQELS-QL \cite{Le-Phuoc:2011:NAA:2063016.2063041} – a declarative query language built from SPARQL 1.1 gram- mar. As C-SPARQL, it extends SPARQL with operators to query streams. The main difference between C-SPARQL and CQELS-QL is in the R2S operator supported: CQELS-QL supports only Istream, whereas C-SPARQL supports only Rstream. 
+Another example is CQELS-QL \cite{Le-Phuoc:2011:NAA:2063016.2063041} – a declarative query language built from SPARQL 1.1 grammar. As C-SPARQL, it extends SPARQL with operators to query streams. The main difference between C-SPARQL and CQELS-QL is in the R2S operator supported: CQELS-QL supports only Istream, whereas C-SPARQL supports only Rstream. 
 
-Last but not least, SPARQLstream \cite{Calbimonte:2010:EOA:1940281.1940289} is another extension of SPARQL that supports operators over RDF streams such as time windows. Unlike CQELS and the C-SPARQL Engine, SPARQLstream supports all the streaming operators presented in Section 2.3.4. The language is adopted in morph-streams: it is an RDF stream query processor that uses Ontology-Based Data Access techniques [15] for the continuous execution of SPARQLstream queries against virtual RDF streams that logically represent re- lational data streams.
+Last but not least, SPARQLstream \cite{Calbimonte:2010:EOA:1940281.1940289} is another extension of SPARQL that supports operators over RDF streams such as time windows. Unlike CQELS and the C-SPARQL Engine, SPARQLstream supports all the streaming operators presented in Section 2.3.4. The language is adopted in morph-streams: it is an RDF stream query processor that uses Ontology-Based Data Access techniques [15] for the continuous execution of SPARQLstream queries against virtual RDF streams that logically represent relational data streams.
 
 \subsection{RDF Stream Processing Engine}\label{sec:rspengine}
 
-Sections above report that RDF Stream Processing has three basic building blocks: 1) RDF streams, we introduced in Section \ref{sec:rdfstream} 2) continuos extensions of SPARQL, a brief description in Section \ref{sec:continuous-sparql}, and 3) reasoning algorithms able to cope with rapidly changing information.
+Sections above report that RDF Stream Processing has three basic building blocks: 1) RDF streams, we introduced in Section \ref{sec:rdfstream} 2) continuos extensions of SPARQL, like the ones we briefly described in Section \ref{sec:continuous-sparql}, and 3) reasoning algorithms able to cope with rapidly changing information.
 
-Collectively engines that process RDF streams using those SPARQL extensions and reasoning algorithm are known as \textbf{RDF Stream Processing} (RSP) \textbf{Engines}.
+Collectively, IFP engines that process RDF streams using those SPARQL extensions and reasoning algorithm are known as \textbf{RDF Stream Processing} (RSP) \textbf{Engines}.
 
-Among RSP Engines, we target window-based RSP engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{Calbimonte2012}  are examples of window-based RSP engines.  The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. For instance, the following  following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
+Among RSP Engines, we target window-based RSP engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{Calbimonte2012}  are examples of window-based RSP engines.  The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. For instance, the following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
 
 \vspace{5pt}
 \noindent\textit{SELECT ?person}\\
