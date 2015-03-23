@@ -398,9 +398,10 @@ The ST sub-field which tries to offer an objective and independent view of the s
 \end{itemize} 
 
 \section{Benchmarks}\label{sec:benchmarking}
-A benchmark is a procedure, problem, or test that can be used to compare systems or components to each other or to a standard \cite{IEEEStd610.12-1990:glossary}. Benchmarking is the primary method for measuring the performance of a systems, hardware or an application[7]. Benchmark results are used to evaluate the performance of a given system on a well-defined workload \cite{Menasce:2001:CPW:560806}.
 
-Many benchmark tests exists to evaluate a wide variety system or applications under under different types of workloads. The user groups like the Transaction Processing Performance Council (TPC) \footnote{http://www.tpc.org/information},  a non-profit corporation founded to define transaction processing and database benchmarks, or analogues corporations are useful resources of be informed about updated types of benchmarks. 
+Benchmarking is the primary method for measuring the performance of a systems, hardware or an application [7]. Indeed a benchmark is a procedure, problem, or test that can be used to compare systems or components to each other or to a standard \cite{IEEEStd610.12-1990:glossary}. Thus, benchmark results are used to evaluate the performance of a given system on a well-defined workload \cite{Menasce:2001:CPW:560806}.
+
+Many benchmark tests exists to evaluate a wide variety system or applications under different types of workloads. The user groups like the Transaction Processing Performance Council (TPC) \footnote{http://www.tpc.org/information},  a non-profit corporation founded to define transaction processing and database benchmarks, or analogues corporations are useful resources of be informed about updated types of benchmarks. 
 
 Generic benchmarks allows the quantitative comparison of system performances or price/cost. In database context performance is typically a throughput metric (work/second) and price is typically a five-year cost-of-ownership metric. The quantitative comparison requires the benchmark to be run on several different systems and to record each system is measurements.  The estimation evaluated from results is usually the relative system performance, because the cost of implementing and measuring a specific application on many different systems is almost always prohibitive.
 
@@ -410,35 +411,33 @@ A single metric can not measure the performance relative to all application of a
 
 It is worth to note the work of Jim Gray about Domain-specific benchmarks, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterizing typical applications in that problem domain. 
 
-In order to distinguish among several solution and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful\cite{DBLP:books/mk/Gray93}. It must be:
+In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful \cite{DBLP:books/mk/Gray93}. It must be:
 \begin{itemize}
 \item Relevant: It must measure the peak performance and price/performance of systems when performing typical operations within that problem domain.
 \item Portable: It should be easy to implement the benchmark on many different systems and architectures.
-Gray: Introduction 3
 \item Scalable: The benchmark should apply to small and large computer systems. It should be possible to scale the benchmark up to larger systems, and to parallel computer systems as computer performance and architecture evolve.
 \item Simple: The benchmark must be understandable, otherwise it will lack credibility.
 \end{itemize} 
 
 \subsection{Reasoning Benchmark}\label{sec:lubm}
 
-The number of different reasoners available is increasing and many of them are already commercial solutions. Usually reasoner are able to process very expressive ontology languages, which can represent rather complete knowledge, however there is an high demand of  less expressive ontology languages, which are less expensive in term of reasoning or other computational tasks. Commercial reasoner tries to solve the issue called \textit{computational cliff}, they face the trade-off between \textit{complexity and expressiveness} versus \textit{scalability}. Benchmarking tools are useful to evaluate reasoning system w.r.t. ontology languages 
-\cite{bock2008benchmarking}. The most important Benchmark suite is the Lehigh University Benchmark  (LUBM) \cite{Guo2005}. This work proposes a  method for benchmarking Semantic Web knowledge base systems and provide an example of such a benchmarks.
+The number of different reasoners available is increasing and many of them are already commercial solutions. Usually, reasoners are able to process very expressive ontology languages, which can represent rather complete knowledge. However there is an high demand of less expressive ontology languages, which are less expensive in term of reasoning or other computational tasks. Commercial reasoners try to solve the issue called \textit{computational cliff}. They face the trade-off between \textit{complexity and expressiveness} versus \textit{scalability}. Benchmarking tools are useful to evaluate reasoning system w.r.t. ontology languages \cite{bock2008benchmarking}, and the most important one is the Lehigh University Benchmark  (LUBM) \cite{Guo2005}. This work proposes a  method for benchmarking Semantic Web knowledge base systems and provides an example of such a benchmarks.
 
 Reasoning benchmarking environment requires:
 \begin{itemize}
-\item Ontology: LUBM exploits a synthetic ontology named Univ-Bench\footnote{http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl} ,which describes universities, departments and the activities that occur at them. However, the popularity of OWL is high and that
-many more ontologies are now available, and recent automated benchmarking tools allow testing performance with such ontologies\cite{gardiner2006automated}.
+\item Ontology: LUBM exploits a synthetic ontology named Univ-Bench\footnote{http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl}, which describes universities, departments and the activities that occur at them. However, the popularity of OWL is high and that
+many more ontologies are now available, and recent automated benchmarking tools allow testing performance with such ontologies \cite{gardiner2006automated}.
 
 \item Workload: LUBM provides an random data generator, called UBA (Univ-Bench Artificial data generator), which creates extensional data over the Univ-Bench ontology \cite{Guo2005}.
 
-\item Queries: LUBM comes with fourteen test queries to test the reasoning capabilities over the workload. LUBM method contains criteria for query definition which consider for example \textit{Input size} or \textit{Complexity} to stress the reasoner and evaluate performances.
+\item Queries: LUBM comes with fourteen testing queries to stress the reasoning capabilities over the workload. LUBM method contains criteria for query definition which consider for example \textit{Input size} or \textit{Complexity} to stress the reasoner and evaluate performances.
 \end{itemize}
 
-Finally, Reasoning benchmarking require to understand which metrics evaluate such a system \cite{Guo2005}. LUBM contains three metrics which are commonly used in other database benchmarks.\begin{itemize}
-\item \textit{Load Time,the stand alone elapsed time for storing the specified dataset to the system};
-\item \textit{Repository Size, the resulting size of the repository after loading the specified benchmark data into the system};
-\item \textit{Query Response Time}, as in databases benchmarking, for each test query the evaluation consist in:
-  	1) Open the repository; 2) Execute the query for 10 times and compute the average response time. 3) Close the repository
+Finally, Reasoning benchmarking require to understand which metrics evaluate for such a system \cite{Guo2005}. LUBM contains three metrics which are commonly used in other database benchmarks.\begin{itemize}
+\item \textit{Load Time} - the stand alone elapsed time for storing the specified dataset to the system;
+\item \textit{Repository Size} -  the resulting size of the repository after loading the specified benchmark data into the system;
+\item \textit{Query Response Time} - it similar to databases benchmarking: for each test query the evaluation consist into
+  	1) Opening the repository; 2) Executing the query for 10 times and computing the average response time. 3) Closing the repository
 \end{itemize}
 
 LUBM contains also two specific reasoning metrics: \textit{Query Completeness and Soundness}: partial answering is possible in semantic web, indeed LUBM evaluate the \textit{degree of completeness of each query answer as the percentage of the entailed answers that are returned by the system is also evaluated}. Moreover, LUBM also provides a metric for measuring the combination of  query response time and answer completeness and soundness, to  appreciate the potential trade-off.
@@ -453,9 +452,9 @@ Initial work on Streaming data like Linear Road \cite{arasu2004linear} firstly p
 \item  \textit{Query Language Independence}: no standard query language for streaming systems exist, thus the query requirements must be language independent
 \end{itemize}
 
-Linear Road meets all the challenges above by design. The benchmark consist into a simulation of  an urban highways system where toll charges are dynamically determined. The Input data contains a stream of position reports, which specify the location of a vehicle every 30 seconds, and historical query requests, which may be issued by a vehicle with some fixed probability every time it emits a position report.
+Linear Road meets all the challenges above by design. The benchmark consist into a simulation of an urban highways system where toll charges are dynamically determined. The Input data contains: a stream of position reports, which specify the location of a vehicle every 30 seconds; an historical query requests, which may be issued by a vehicle with some fixed probability every time it emits a position report.
 
-Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt} try to identify some o requirements for CEP benchmarking and develop a synthetic benchmarking set to measure the event processing activity such systems. CEP Benchmarking are evaluated with Jim Gray criteria presented in Section \ref{sec:tcp}. 
+Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt}, try to identify some o requirements for CEP benchmarking and they develop a synthetic benchmarking set to measure the event processing activity such systems. CEP Benchmarking are evaluated with Jim Gray criteria presented in Section \ref{sec:tcp}. 
 
 \begin{figure}[tbh]
   \centering
@@ -464,9 +463,11 @@ Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt} try to id
   	\label{fig:bicep-schema}
 \end{figure}
 
-BiCEP project also presents an first schema model for a benchmarking system, reported in Figure \ref{fig:bicep-schema}. The BiCEP benchmarking system will produce all the input trough the Event Generator Module, and consume the result output from the BiCEP CEP engine, with the Answer Validation Module. The Figure above also show how the CEP engine in interfaced with BiCEP modules, in order to ensure that any buffering, event cleaning or event transformation phase that happens at the CEP engine is part of the overall performance measure. Synthetic benchmarks offers many benefits like data availability, experimental control, and scalability. However, it is is hard to develop a synthetic benchmark that is representative of such a wide range of CEP applications and at the same time. BiCEP development is oriented towards a set of small domain specific synthetic benchmarks with different data sets and different queries \cite{bizarro:DSP:2007:1143}.
+BiCEP project presents an first schema model for a benchmarking system, reported in Figure \ref{fig:bicep-schema}. This benchmarking system will produce all the input trough the Event Generator Module, and consume the result output from the BiCEP CEP engine with the Answer Validation Module. The Figure above also show how the CEP engine in interfaced with BiCEP modules, in order to ensure that any buffering, event cleaning or event transformation phase that happens at the CEP engine is part of the overall performance measure. 
 
-Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation is mandatory, because CEP system rarely face stable input streams that allow the CEP engine to reach a steady state condition.
+Synthetic benchmarks offers many benefits like data availability, experimental control, and scalability. However, it is hard to develop a synthetic benchmark that is representative of such a wide range of CEP applications at the same time. BiCEP development is oriented towards a set of small domain specific benchmarks with different data sets and different queries \cite{bizarro:DSP:2007:1143}.
+
+Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation. It is mandatory, because CEP system rarely face stable input streams that allow the CEP engine to reach a steady state condition.
 
 \subsection{Semantic Flow Processing (SFP) Benchmark}\label{sec:sr-benchmarking}
 
