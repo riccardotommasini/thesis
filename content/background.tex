@@ -265,7 +265,7 @@ Finally, the third operator, from last class, is the Relation-to-Stream (R2S). I
 
 \subsection{Complex Event Processor}\label{sec:cep}
 
-The complex event processing model finds its origins in the publish-subscribe domain \cite{Eugster:2003:MFP:857076.857078}. CEP approach comes from interpreting IFP items as notifications of events which arrive from  external world. Complex Event Processing (CEP) systems differ from the traditional publish-subscribes ones, which two separately each incoming event, filtering at topic level or at content level to decide event relevance fro subscribers. The aim of a Complex Event Processing systems is filter and combine the events to understand what is happening in terms of higher-level information. Thus, the focus of the CEP model is on detecting occurrences of particular event patterns that represent the higher-level information. For this reason, CEP system increase the expressive power of the subscription language to consider complex event patterns that involve the occurrence of multiple, related events \cite{Cugola:2012:PFI:2187671.2187677}.
+The Complex Event Processing (CEP)  finds its origins in the publish-subscribe domain \cite{Eugster:2003:MFP:857076.857078}. It comes from interpreting IFP items as notifications of events which arrive from  external world.  However, CEP systems differ from the traditional publish-subscribes ones, which handle separately each incoming event, filtering at topic level or at content level to decide if an event is relevant for subscribers. The aim of a Complex Event Processing systems is filtering and combining the events to understand what is happening in terms of higher-level information. Thus, the focus of the CEP model is on detecting occurrences of particular event patterns that represent the higher-level information. For this reason, CEP systems increase the expressive power of the subscription language to consider complex event patterns that involve the occurrence of multiple, related events \cite{Cugola:2012:PFI:2187671.2187677}.
 
 \begin{figure}[tbh]
   \centering
@@ -274,9 +274,7 @@ The complex event processing model finds its origins in the publish-subscribe do
   	\label{fig:cep}
 \end{figure}
 
-A CEP Engine, \ref{fig:cep}, is responsible for processing such events as explained above, in order understand what is happening in terms of higher-level information to be notified to sinks, which act as event consumers.
-
-%CEP systems are designed to face the main limitation of most DSMSs: the ability to detect complex patterns of incoming items, involving sequencing and ordering relationships. The CEP model relies on the ability to identify event patterns  that match incoming event notifications on the basis of their content and on some ordering relationships on them.
+A CEP Engine, Figure \ref{fig:cep}, is responsible for processing such events as explained above, in order understand what is happening in terms of higher-level information to be notified to sinks, which act as event consumers. CEP systems are designed to face the main limitation of most DSMSs: the ability to detect complex patterns of incoming items, involving sequencing and ordering relationships. The CEP model relies on the ability to identify event patterns that match incoming event notifications on the basis of their content and on some ordering relationships on them.
 
 
 \section{Stream Reasoning}\label{sec:sfp}
