@@ -1,14 +1,14 @@
 In this Chapter we include an overview of the main research areas related to this thesis. The Stream Reasoning research context, to which this thesis belongs, is introduced in Section \ref{sec:sfp}. It has the aim of unifying the Semantic Web research area, we briefly present in Section \ref{sec:sw} and The Information Flow Processing (IFP) research one, described in Section \ref{sec:ifp}. 
 
-This thesis proposes \namens, an open source framework for the Systematic Comparative Research Approach. Section \ref{sec:empirical-research} contains the state of the are of the Empirical Research in the Computer Science. It worth to note that Software Testing and Benchmarking are the two most relevant approach to empirically evaluate software systems. For this reason we include in this Chapter an introduction about Software Testing in Section \ref{sec:software-testing} and one about Benchmarking in Section \ref{sec:benchmarking}.
+This thesis proposes \namens, an open source framework for the Systematic Comparative Research Approach. Section \ref{sec:empirical-research} contains the state of the are of the Empirical Research in the Computer Science. It is worth to note that Software Testing and Benchmarking are the two most relevant approach to empirically evaluate software systems. For this reason we include in this Chapter an introduction about Software Testing in Section \ref{sec:software-testing} and one about Benchmarking in Section \ref{sec:benchmarking}.
 
 \section{Semantic Web}\label{sec:sw}
 
-The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across application, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards, which is collaborative effort led by W3C with participation from a large number of researchers and industrial partners. 
+The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across applications, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards. A large number of researchers and industrial partners collaborate, led by the W3C, for this survey.
 
 "The Web can reach its full potential if it becomes a place where data can be processed by automated tools as well as people". [W3C, 2001]
 
-In vision the Semantic Web, in the Web 3.0 the information can be processed and manipulated by machines. SW can give to the information a well defined meaning by adding a new layer of meta-data to the existing documents and data. The semantic definition of data and documents enable to understand and respond to complex human needs. The outcome of this vision is the evolution to a new where intelligent agents can browse data on behalf of the user and make knowledge easier to be reached.
+In the Semantic Web vision, i.e. the Web 3.0,  the information can be processed and manipulated by machines. SW can give to the information a well defined meaning. The way to reach this goal is adding a new layer of meta-data to the existing documents and data. The semantic definition of data and documents enables to understand and respond to complex human needs. The outcome of this vision is an evolution to a new Web, where intelligent agents can browse data on behalf of the user and make knowledge easier to be reached.
 
 
 \begin{figure}[tbh]
@@ -19,62 +19,53 @@ In vision the Semantic Web, in the Web 3.0 the information can be processed and 
 \end{figure}
  
 
-Semantic Web world involved several technologies. Due to the complexity of the concept, the W3C proposed a layered  approach, in which each level contains a set of standards for semantic technologies:
+Semantic Web world involves several technologies. Due to the complexity of the concept, the W3C proposed a layered approach, presented in Figure \ref{fig:semantic-web-stack}, in which each level contains a set of standards for semantic technologies:
 
-Figure \ref{fig:semantic-web-stack} shows this structure.
-
-At the  On the top of them, the basic syntax level is provided by the eXtensible Markup Language (XML), a wide-spread standard for data exchange in the Web. The XML parsers support the lower-level syntax checking of the Semantic Web documents. However, the XML standard alone is not enough for the data exchange in the semantic web, because it is suited to recognize syntax, but not equivalent models.
-
-The first two level of the Semantic Web stack in Figure \ref{fig:semantic-web-stack} includes some standard of World Wide Web:
+The first level of the Semantic Web stack includes  two standard of World Wide Web:
 \begin{itemize}
 \item  The Uniform Resource Identifier (URI)  and Internationalized Resource Identifier(IRI), which guarantee the interoperability between heterogeneous systems. They stay at the lowest level
 \item  The Unicode standard is a character encoding standard to represent and manipulate text in many languages.
-\item  The eXtensible Markup Language (XML) is a wide-spread standard for data exchange in the Web that states the basic syntax level. In the SW stack it is build on top of URI and Unicode. 
+%\item  The eXtensible Markup Language (XML) is a wide-spread standard for data exchange in the Web that states the basic syntax level. In the SW stack it is build on top of URI and Unicode. 
 \end{itemize}
 
-Even if the XML parsers support the lower-level syntax checking  documents, the XML standard alone is not enough for the data exchange. Three middle layers ensures the semantic interoperability:
-
+On the top of them, the basic syntax level is provided by the eXtensible Markup Language (XML), a wide-spread standard for data exchange in the Web. The XML parsers support the lower-level syntax checking of the Semantic Web documents. However, the XML standard is not enough for the data exchange in the semantic web, because it is suited to recognize syntax, but not equivalent models. For this reason, three middle layers are required to ensure the semantic interoperability:
 \begin{itemize}
 \item The Resource Description Framework (RDF) is a language for expressing data models, which are usually encoded in XML
 \item RDF Schema (RDFS) defines a vocabulary for describing classes and properties of RDF resources.
-\item The Web Ontology Language (OWL) extends the RDF Schema by adding by adding advanced concepts in order to facilitate a more realistic representation of knowledge based on the RDF resources.
+\item The Web Ontology Language (OWL) extends the RDF Schema by adding advanced concepts in order to facilitate a more realistic representation of knowledge based on the RDF resources.
 \end{itemize} 
 
-Technologies at the top layers are not yet standardized or implemented:
+Finally, technologies at the top layers are not yet standardized or implemented:
 \begin{itemize}
-\item the Rule Interchange Format (RIF) or SWRL allow inferring knowledge from existing data.
-\item Cryptography is important to verify that semantic web statements are coming from trusted source.
+\item The Rule Interchange Format (RIF) or SWRL allows knowledge inference from existing data.
+\item Cryptography is important to verify if semantic web statements are coming from trusted source.
 \item Trust involves the trustworthiness and reliability of the data.
 \item User interface is the final layer that will enable humans to use Semantic
 \end{itemize} 
 
-Another important standard covering multiple layers is the official Semantic Web Query Language: SPARQL. SPARQL is the official query language for the  and a W3C Recommendation since January 2008. 
+Last but not least, another important standard covering multiple layers is the official Semantic Web Query Language: SPARQL,  the official query language for the SW and a W3C Recommendation since January 2008. 
 
-In the following subsections, we will present some basic concepts of the Semantic Web: Linked Data in Subsection \ref{sec:ldata}, RDF in Subsection \ref{sec:rdf},  OWL in Subsection \ref{sec:owl} and SPARQL language \ref{sec:sparql}
+In the following subsections, we will present some basic concepts of the Semantic Web:  RDF in Subsection \ref{sec:rdf},  OWL in Subsection \ref{sec:owl}, Linked Data in Subsection \ref{sec:ldata} and SPARQL language \ref{sec:sparql}
 
 \subsection{Resource Description Framework}\label{sec:rdf}
 
-The Resource Description Framework (RDF) is the W3C standard for data interchange on the Semantic Web \cite{rdfconcepts}. Through RDF we can describe a conceptual model of information in any given domain of knowledge. Information is represented in the statements form subject-predicate-object. In general a statement is composed by three resources a different resources, indeed statements are also called triples and set of triples is called a graph. Following the formal definition of RDF triples and RDF graphs [P ́erez et al., 2006]:
+The Resource Description Framework (RDF) is the W3C standard for data interchange on the Semantic Web \cite{rdfconcepts}. Through RDF we can describe a conceptual model of information in any given domain of knowledge. Information is represented in the statements form subject-predicate-object. In general a statement is composed by three different resources, indeed statements are also called triples and set of triples is called a graph. More formally, we provide the definition of RDF triples and RDF graphs:
 
-\textbf{Definition I}: Let $I$, $B$ and $L$ be three pairwise disjoint sets, defined as IRIs, Blank Nodes and Literals, respectively. A triple \[ (s, p, o) \in (I \cup B) × I × (I \cup B \cup L) \] is  an \textit{RDF triple}, while a set of \textit{RDF triples} is called an R\textit{DF grap}h.
+\textbf{Definition}: Let $I$, $B$ and $L$ be three pairwise disjoint sets, defined as IRIs, Blank Nodes and Literals, respectively. A triple \[ (s, p, o) \in (I \cup B) × I × (I \cup B \cup L) \] is  an \textit{RDF triple}, while a set of \textit{RDF triples} is called an R\textit{DF grap}h.
 
 Notice that:
 \begin{itemize}
-\item IRIs are Internationalized Resource Identifiers, an extension of Uniform Resource Identifiers (URIs) that extends the  character set from ASCII to Unicode.  IRIs  extend the linking structure of the Web and allow a globally connection between any different \textit{RDF graphs}
+\item IRIs are Internationalized Resource Identifiers, an extension of Uniform Resource Identifiers (URIs) that enlarge the character set from ASCII to Unicode.  IRIs provide the linking structure of the Web and allow a globally connection between any different \textit{RDF graphs}
 \item Literals are constant values, represented by character strings, which can be associated to a XML Schema datatype. 
 \item Blank nodes represent anonymous resources, usually resources that group a number of other resources and which are never directly referenced.
 \end{itemize}
 
 The Resource Description Framework has several possible rap presentations.
 
-
-
 The most natural representation for triples is the N3 notation, which consists in explicit each triple in the form:
  \[<subjectIRI> <predicateIRI> <objectIRI>/objectLiteral\]
  
-The official syntax for RDF models is RDF/XML, which is an XML dialect for describing RDF. Many application exploit the XML Language in the Web, indeed this representation enables the reuse of the several existing XML parsers for validation of the basic syntax of RDF/XML documents by using the RDF/XML standard schema. 
-
-\pagebreak
+The official syntax for RDF models is RDF/XML, which is an XML dialect for describing RDF. Many applications exploit the XML Language in the Web, indeed the XML document validation of the basic syntax of RDF/XML is possible trough the RDF/XML standard schema. 
 
 \begin{lstlisting}[language=XML, caption=An example of a simple RDF/XML document:, label=code:rdf]
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -98,7 +89,7 @@ The Code Snippet \ref{code:rdf} contains an example of a simple RDF/XML document
   	\label{fig:rdf-graph}
 \end{figure}
 
-Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representation of an RDF model is an RDF graph:  subjects and objects are the graph nodes and proprieties are represented as edges connecting a subject to an object. 
+Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representation of an RDF model as RDF graph:  subjects and objects are the graph nodes and proprieties are represented as edges connecting a subject to an object. 
 
 %RHODF!!!
 
@@ -106,16 +97,14 @@ Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representatio
 
 \subsection{Web Ontology Language}\label{sec:owl}
 
-The Web Ontology Language (OWL) is the W3C standard for describing rich and complex knowledge about resource, groups of resource, and relations between resource, or more formally an \textit{Ontology}. The Tom Gruber define an ontology as \textit{a specification of a conceptualization}\footnote{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}. Practically it can be a set of Description Logic axioms which tries to represent a fragment of reality. 
+The Web Ontology Language (OWL) is the W3C standard for describing rich and complex knowledge about resources, groups of resources, and relations between resources, or more formally an \textit{Ontology}. Tom Gruber define an ontology as \textit{a specification of a conceptualization}\footnote{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}. Practically, it can be a set of Description Logic axioms which tries to represent a fragment of reality. 
 
-OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usege of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialect, presented in order of increasing level of complexity
+OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usege of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialects, presented in order of increasing level of complexity
 \begin{itemize}
 \item OWL Lite - used to classify hierarchies and to model simple constraints. Being an equivalent of the SHIF description logic, it has the lower formal complexity in the group.
 \item OWL DL - provides the user with maximum possible expressiveness, while retaining the computational completeness. This last quality is enforced by the equivalence with the SROIQ[Dn] Description Logic.
 \item OWL Full - the user has the complete syntactic freedom with RDF, but there is no computational guarantee about the termination of the inferring procedure.
 \end{itemize}
-
-OWL can be serialized in the RDF/XML syntax. In the Code Snippet \ref{code:owl}, we use OWL DL to describe the Class of ManicDepressiveRobot, which are a SubClass of Robot that has for at least two Moods.
 
 \begin{lstlisting}[language=XML, caption=An example of a simple OWL DL RDF/XML document:, label=code:owl]
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -132,12 +121,12 @@ OWL can be serialized in the RDF/XML syntax. In the Code Snippet \ref{code:owl},
   </owl:Class>
 \end{lstlisting}
 
-The owl:Class tag (lines 4-12) is a shortcut to represent an RDF Statement about a resource with a rdf:type of owl:Class. The subject of the statement is the resource ManicDepressiveRobot, which represents the class of individual Manic Depressive Robots. This statement has two predicates, both of the type rdfs:subClassOf. The first predicate (line 5) relates the OWL class ManicDepressiveRobot to its super-class, the resource Robot. The second predicate (lines 6-11) states that ManicDepressiveRobot is a subclass of the OWL restriction class, which contains all the individuals that are in relationship hasMood (line 8) with at least 2 resources (line 9).
+OWL can be serialized in the RDF/XML syntax. In the Code Snippet \ref{code:owl}, we use OWL DL to describe the Class of ManicDepressiveRobot, which are a SubClass of Robot that has for at least two Moods. The owl:Class tag (lines 4-12) is a shortcut to represent an RDF Statement about a resource with a rdf:type of owl:Class. The subject of the statement is the resource ManicDepressiveRobot, which represents the class of individual Manic Depressive Robots. This statement has two predicates, both of the type rdfs:subClassOf. The first predicate (line 5) relates the OWL class ManicDepressiveRobot to its super-class, the resource Robot. The second predicate (lines 6-11) states that ManicDepressiveRobot is a subclass of the OWL restriction class, which contains all the individuals that are in relationship hasMood (line 8) with at least 2 resources (line 9).
 
 
 \subsection{Linked Data}\label{sec:ldata}
 
-The Linked Data concept indicate a set of best practices in publishing and connecting Semantic Web data. Bizer, the Linked Data creator, defines the term as follow:
+The Linked Data concept indicates a set of best practices in publishing and connecting Semantic Web data. Bizer, the Linked Data creator, defines the term as follow:
 
 \begin{quote}
 Linked Data refers to data published on the Web in such a way that it is machine-readable, its meaning is explicitly defined, it is linked to other external readable, defined, data sets, and can in turn be linked to from external data sets.[Bizer et al., 2009]
@@ -150,16 +139,18 @@ Linked Data refers to data published on the Web in such a way that it is machine
   	\label{fig:lod}
 \end{figure}
 
-Datasets that are published according to the Linked Data principles can be navigated using Semantic Web browsers. Figure \ref{fig:lod} presents  Linked Data Cloud, the connected graph which comprises all the dataset published according to the LD principles, in August 2014. Each node of the graph represent a dataset, each edge represents the connections between datasets.
+Datasets that are published according to the Linked Data principles can be navigated using Semantic Web browsers. Figure \ref{fig:lod} presents  Linked Data Cloud updated to August 2014. It is the connected graph which comprises all the dataset published according to the LD principles. Each node of the graph represents a dataset, while each edge represents the connections between datasets.
 
-The number dataset which follow the  Linked Data  paradigm is increasing every day, and among the most important of them we can cite DBpedia, which wraps Wikipedia articles into a Semantic Web compliant form. Moreover, several governments, like the UK government\footnote{http://data.gov.uk/}, decide to publish their public data and connect them to the Linked Data cloud. 
+The number datasets that follow the Linked Data paradigm is increasing every day, and among the most important of them we can cite DBpedia, which wraps Wikipedia articles into a Semantic Web compliant form. Moreover, several governments, like the UK government\footnote{http://data.gov.uk/}, decide to publish their public data and connect them to the Linked Data cloud. 
 
 \subsection{SPARQL}\label{sec:sparql}
 
 
-The SPARQL Protocol and RDF Query Language (SPARQL) are, since January 2008, the W3C standard query language for retrieving data in RDF format \cite{prudhommeaux_sparql_2008}. It has been 
+The SPARQL Protocol and RDF Query Language (SPARQL) are, since January 2008, the W3C standard query language for retrieving data in RDF format \cite{prudhommeaux_sparql_2008}.
 
-The SPARQL query language was initially designed to meet the requirements identified in the RDF Data Access Use Cases and Requirements. Only successively it has been formalized through the definition of an official algebra, developed as an evolution of previous RDF query languages such as rdfDB, RDQL, and SeRQL.  Recently, a new W3C working draft describing the new version of SPARQL, has been released \footnote{http://www.w3.org/TR/sparql11-query/.}. SPARQL 1.1, this is the name of the new relase, is completely compatible with the SPARQL specification, but has some new additional features, like aggregates, subqueries, negation and project expressions, i.e. the possibility to use expressions in the SELECT clause. These features were already part of several implementation of SPARQL, for example in the ARQ query engine. Since RDF is a directed labelled graph data format, SPARQL is defined as a graph-matching query language. The SPARQL language specifies four different query variations for different purposes:
+The SPARQL query language was initially designed to meet the requirements identified in the RDF Data Access Use Cases and Requirements. Only successively it has been formalized through the definition of an official algebra, developed as an evolution of previous RDF query languages such as rdfDB, RDQL, and SeRQL.
+
+Recently, a W3C working draft describing the new version of SPARQL, has been released \footnote{http://www.w3.org/TR/sparql11-query/.}. SPARQL 1.1, this is the name of the new relase, is completely compatible with the SPARQL specification, but has some new additional features, like aggregates, subqueries, negation and project expressions, i.e. the possibility to use expressions in the SELECT clause. These features were already part of several implementations of SPARQL, for example in the ARQ query engine. Since RDF is a directed labelled graph data format, SPARQL is defined as a graph-matching query language. The SPARQL language specifies four different query variations for different purposes:
 \begin{itemize}
 \item SELECT query: used to extract a set of variables and their matching values, called set of mappings in the table format.
 \item CONSTRUCT query: used to provide an RDF graph created directly from the results of the query.
