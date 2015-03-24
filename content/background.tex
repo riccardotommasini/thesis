@@ -207,9 +207,7 @@ IFP processing is led by two central concepts:
 
 \end{itemize}
 
-
-
-\subsection*{Data Stream Management System}\label{sec:dsms}
+\subsection{Data Stream Management System}\label{sec:dsms}
 The DSMS research field  views this problem as an evolution of traditional data processing. The IFP problem is described as processing streams of data coming from different sources to produce new data streams as an output. A Data Stream Management Systems (DSMS) extends the traditional DBMSs, in particular for the following considerations:
 
 Moreover DSMS are different from DBSM because: 
@@ -297,7 +295,7 @@ Either for doing the abstraction step (1), or immediately after the abstraction,
 \[\textit{(:paper$_1$ ub:publicationAuthor :alice), 1}\]
 \[\textit{(:paper$_2$ ub:publicationAuthor :bob), 5}\]
 
-Initial works on RDF Stream formalization proposed two alternative formats \cite{DBLP:conf/fis/ValleCBBC08}:
+Initial works on RDF Stream formalisation proposed two alternative formats \cite{DBLP:conf/fis/ValleCBBC08}:
 \begin{itemize}
 \item RDF molecules stream - it is an unbounded bag of pairs $< \rho, \tau >$, where $\rho$ is a RDF molecule \cite{TrackingMolecules} and $\tau$ is the timestamp that denotes the logical arrival time of RDF molecule $\rho$ on the stream \cite{DBLP:conf/fis/ValleCBBC08};
 \item RDF statements stream, is a special case of RDF molecules stream in which $\rho$ is an RDF statement instead of an RDF molecule  .
@@ -408,7 +406,7 @@ Generic benchmarks allows the quantitative comparison of system performances or 
 
 A single metric can not measure the performance relative to all application of a computer systems \cite{DBLP:books/mk/Gray93}. Performances depend striclty on the application domain, because each system is designed for a few problem in a domain and may be inadequate to perform other tasks.
 
-It is worth to note the work of Jim Gray about Domain-specific benchmarks, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterizing typical applications in that problem domain. 
+It is worth to note the work of Jim Gray about Domain-specific benchmarks, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterising typical applications in that problem domain. 
 
 In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful \cite{DBLP:books/mk/Gray93}. It must be:
 \begin{itemize}
@@ -445,7 +443,7 @@ LUBM contains also two specific reasoning metrics: \textit{Query Completeness an
 
 Initial work on Streaming data like Linear Road \cite{arasu2004linear} firstly poses  several challenges to the design of a benchmark.  Moreover, the variety of CEP and DSMS domains and the lack of standards in query languages and data formats extends these benchmark design challenges. First of all DSMS Benchmarking must consider the challenges presented in the Linear Road work:
 \begin{itemize}
-\item  \textit{Semantically Valid Input} -  Input data can not be randomized but should have some semantic validity.
+\item  \textit{Semantically Valid Input} -  Input data can not be randomised but should have some semantic validity.
 \item  \textit{Continuous Query Performance Metrics} - Standard DBMS time to completion metrics is inadequate. Query Response Time and Supported Query Load 
 \item  \textit{Results Correctness} - benchmark implementations must be validated w.r.t the queries, which influence the results, to ensure that results are consistent with the benchmark specifications 
 \item  \textit{Query Language Independence}: no standard query language for streaming systems exist, thus the query requirements must be language independent
@@ -507,7 +505,7 @@ SRBench was criticised w.r.t. proposed commandments above \cite{DBLP:conf/esws/S
 
 \subsubsection{LSBench}\label{sec:lsbench}
 
-LS Bench was developed to propose methods and a framework that enable meaningful comparisons of SFP processing engines. The framework provides several customizable tools for simulating realistic data, running engines, and analysing the output. 
+LS Bench was developed to propose methods and a framework that enable meaningful comparisons of SFP processing engines. The framework provides several customisable tools for simulating realistic data, running engines, and analysing the output. 
 
 The methods proposed by LSBench include three tests to evaluate the SFP stream engines \cite{DBLP:conf/semweb/DellAglioCBCV13}:
 \begin{itemize}
