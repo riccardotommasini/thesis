@@ -1,23 +1,41 @@
-\section{Contributions}
-\subsection{Heaven}
-\subsection{RSPEngine inside DSMS}
-\subsection{Experiments}
+Stream Reasoning (SR) is a multidisciplinary research field that supports methods and tools which allow to answer complex queries like "What are the top five trend topics, under discussion on Twitter, and who is driving the discussions in Dayton?" or "How a certain event in Milan influences the user activity on Instagram?". The application domains of SR are not limited to social media analytics only. Semantic interpretation of sensor data, traffic monitoring and stream data integration are all possible use cases for SR \cite{DBLP:journals/expert/ValleCHF09}.
 
-\section{Structure of this Thesis}
+Stream Reasoning research has the aim to integrate data streams, the Semantic Web, and reasoning systems, to answer such a query. It has already posed theoretical formalisations that go beyond DSMS, CEP  \cite{DBLP:conf/debs/KomazecCF12, Lephuoc2011, 4618773} and it has defined good basis to semantically handle Data Stream encoded in RDF \cite{DBLP:conf/fis/ValleCBBC08, DBLP:journals/sigmod/BarbieriBCVG10}. Despite Stream Reasoning application domains are heterogeneous and wide, recent works has demonstrate that reasoning upon rapidly changing information is possible. Successful application of SR techniques were applied for sensor data stream integration \cite{DBLP:journals/ijswis/CalbimonteJCA12,DBLP:journals/ws/LecueTHTBST14}  and Social Media Analytics \cite{DBLP:journals/ws/BalduiniCDVHLKT12}
 
-Blablabla
+Thus, SR community\footnote{\url{http://www.w3.org/community/rsp/}} is working to the formalisation of SR methods and tools. The number of implemented solutions is rising and consequently the needs of method to empirically investigate the processing system and evaluation framework to compare the investigations.
 
-Esempio di figura
 
-\begin{figure}[ht]
-%\centerline{\epsfig{file=esempio.ps, width=12 true cm}}
-\caption{Didascalia esempio di figura.}
-\label{fig:esempio}
-\end{figure}
+\section{Related Works \& Motivations}\label{sec:motivations-intro}
 
-Esempio di equazione
+Stream Reasoning on RDF-Encoded information flows (formally, RDF Streams) finds its foundations on three points:(i) a data model for RDF stream; (ii) syntax and semantics of an extensions of SPARQL for continuous query answering under different entailment regimes; (iii) a protocol to interact with an RDF Stream Processing Engine (shortly, RSP Engine). At this moment, the community is focused on the formalization of those three points. 
 
-\begin{equation}
-\dot V_4= - k_v \lambda (z_1- \varepsilon \lambda z_3)^T(z_1-
-\varepsilon \lambda z_3).
-\end{equation}
+RDF Stream standardization was developed in early works \cite{DBLP:journals/expert/ValleCHF09, Lephuoc2011} and recently extended \cite{DBLP:conf/semweb/BalduiniVDTPC13}. Continuous extensions of SPARQL, like C-SPARQL, are mature and their development is proceeding \cite{Barbieri2010}. Last but not least, many works in the field  \cite{Zhang2012,LePhuoc2012c}  try to provide benchmarks and framework in order to evaluate the multiple RSP Engine implementation the community has proposed. 
+
+What it is still missing is a systematic comparison of RSP Engines under repeatable conditions. Computer Science lacks for methods and tool to empirically evaluated complex systems \cite{Perry:2000:ESS:336512.336586} and consequently the SR research suffer from the same lacuna. Comparative research is require for improving our research, which belong to an engineering epistemology as many works have pointed out \cite{Tichy:1995:EEC:209090.209093,Wainer:2009:EEC:1518331.1518552}
+
+RDF streams, continuous queries, and performance measurements for benchmarking RSP Engines were proposed \cite{LePhuoc2012c,Zhang2012}, criticised \cite{DBLP:conf/esws/ScharrenbachUMVB13}, and further developed \cite{DBLP:conf/semweb/DellAglioCBCV13}. However the community still lacks an infrastructure for rigorous comparative research, which allows for repeatability and reproducibility of experiments.
+
+%\section{ Limitations}\label{sec:related-works-intro}
+
+\section{Research Question}\label{sec:research-question-intro}
+
+In Section \ref{sec:motivations-intro} we identifies the SR lacuna on RSP Engine evaluation. The the number of the involved variables together their complex and multifaceted nature explain the difficulties of conducting realistic evaluations, but not motivate the lack. Typically, those research fields where the subjects complexity is too high to be investigated with observable models apply Systematic Comparative Research Approach (SCRA). Known examples are provided by psychology and other social sciences.
+
+Moreover, aerospace engineering enable experiments design, their systematic execution and automatic results comparison trough an \textit{Engine Test Stand}. The tool allow an engine to be evaluated not only by an architectural viewpoint, but during the execution.
+
+\textit{How Stream Reasoning community can support SRCA on RSP Engines}? Queries, dataset and methods partially cover the survey. Thus our research question is "\textit{Can an engine test stands, together with queries, datasets and methods, support SCRA for Stream Reasoning?}".
+
+\section{Heaven}\label{sec:heaven-intro}
+
+we ex
+This thesis work describes \name -- a proposal for an \textbf{engine test stand}\footnote{We borrow the term ``Engine Test Stand'' from aerospace engineering where it is used to denote a stationary platform or table, together with any testing apparatus attached thereto, for testing or proving engines} to simplify rigorous comparative research of RSP engines. \name is not an attempt to propose yet another RSP benchmark. It proposes a modular and extendable software environment for automated soak and stress testing \cite{dustin2009implementing} of RSP Engines. It asks its, who want to run an experiment, to provide RDF streams, continuous queries, ontologies, and types of performance measurement. \name also includes four \textbf{baseline} implementations of RSP Engine under the $\rho$DF \cite{DBLP:conf/esws/MunozPG07} entailment regime. Last but not least, a lightweight \textbf{analyser} is provided to visualise, analyse and compare experiments. 
+
+Even if \name does not depend on the data, query, performance indicators chosen by who uses it, in this paper we also want to provide some evidence that \name achieve its goals. For this reason  a second contribution of the paper is the illustration of how to run a set of experiments to compare the four baseline RSP Engines. The insight we gathered from those experiments are the last contribution of the paper.
+
+
+The entire \name (i.e., the test stand, the LUBM streamer, the four baselines, the software sensor to measure latency, memory load, soundness and completeness, and the analyser) are released open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} with the intention to foster comparative research on RSP Engines.
+
+
+\section{Structure of this Thesis}\label{sec:thesis-structure-intro}
+The remainder of the paper is organised as follows. Section \ref{sec:bg} provides readers with the minimum background knowledge required to understand the content of the paper. Section  \ref{sec:requirements} reports on the requirements for a test stand aiming at supporting comparative research on RSP Engines. Section \ref{sec:framework} presents \name elaborating on its components, the communication flow among them and the implementation choices that make \name satisfying the requirements presented in Section \ref{sec:requirements}. Section
+ \ref{sec:baselines} describes the four baseline RSP engine that \name proposes as terms of comparison. Section \ref{sec:tests} shows how the test stand can be used to compare the four baselines and discusses how the design decisions of the baselines impact on their latency and memory load\footnote{By design the four baselines always generate sound and complete results; in this way users of \name can use them as term of comparison in testing their RSP engines w.r.t. those two performance measures.}. Finally Section \ref{sec:concl} comes to conclusions and presents future works.
