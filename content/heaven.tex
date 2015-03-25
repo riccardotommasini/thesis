@@ -154,7 +154,7 @@ Finally, baselines \textsc{Simplicity} comes from those parameters that directly
 
 The \textsc{Analyser} consists, from an engineering point of view, in one or more automated procedures that process the experiment results transforming raw data into an human-readable form. Actually, not all the analysing procedures can be completely automated and data analysis can not be always generalised. For this reason we decide to design the \textsc{Analyser} from a research point of view. This it can bee seen as set of methods for data processing and analysing, which allow to refute or confirm hypothesis and improve existing models trough empirical findings.
 
-In this Section we focus on the definition of the methods that compose the analysis, while in Section \ref{sec:analyser-impl} we detail much more which tools sustain the investigation at different levels, allowing data visualisation and deeper statistical investigations. \\
+In this Section we focus on the definition of the methods that compose the analysis, while in Section \ref{sec:analyser-impl} we detail much more which tools sustain the investigation at different levels, allowing data visualisation and deeper statistical investigations.
 
 \begin{figure}[tbh]
   \centering
@@ -171,7 +171,7 @@ To properly compares results between $n$ different RSP Engines data must be stan
 
 The last step in the high level Analyser Block Schema consists in the formalisation of theoretical results. The aim of this step is obviously confirm or refute hypothesis formulated at experiment design level. However, \name has the aim of sustaining the empirical research over RSP Engine which allow a new kind of observation that may improve existing theoretical models of the Stream Reasoning area.
 
-
+In the next subsection we provided further details on the \textit{Steady State Identification} Block, Subsection \ref{sec:analyser-ss-block}, and about the \textit{Analysis} Block, Subsection \ref{sec:analyser-analysis-block}. The Theoretical Result Block it is not described because it depends on \name user and can not be formalised yet.
 
 \subsection{Steady State Identification Block}\label{sec:analyser-ss-block}
 
@@ -193,33 +193,25 @@ The investigation can be decomposed in four levels within the \textit{Analysis} 
 
 Before presenting the stack level one by one, we introduce few concepts about the experiment analysis:
 \begin{itemize}
-
 \item \textit{Intra Experiment Comparison} -  it means build comparisons between variables upon a single, well-determined experiment $,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$.
-
 \item \textit{Inter Experiment Comparison} -  it means build comparisons of different experiment 
 $,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$ and $,<\mathcal{E}',<\mathcal{D}',<\mathcal{T}',<\mathcal{Q}'>$ upon a single variable. Usually the compared experiment differ at most for one or two elements in the tuple. 
-
 \end{itemize}
 
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=\linewidth]{images/analysis-method}
-	\caption{Analysis method stack. The level of analysis grows from the top to the bottom} 
-  	\label{fig:analysis-method}
-\end{figure}
 
 \subsubsection{Level 0 - Dashboards}\label{sec:heaven-level0}
 
+Dashboards are the highest level of analysis offered by \name for \textit{Inter-Experiment} comparison. Some statistical values, usually mean data but also maximum or minimum, are presented in a n-dimension radar plot, as the one in Figure \ref{fig:radar}, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solution and identify which one is the best. The aim of dashboard is to compare, between experiment the relation that occurs among the involved variables.
+
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=\linewidth]{images/radar}
-	\caption{Dashboard Example - Radar Plot} 
-  	\label{fig:analysis-method}
+	\includegraphics[width=0.5\linewidth]{images/radar}
+	\caption{Dashboard Example - Radar Plot} 	
+  	\label{fig:radar}
 \end{figure}
 
-Dashboards are the highest level of analysis offered by \name for \textit{Inter-Experiment} comparison. Some statistical values, usually mean data but also maximum or minimum, are presented in a n-dimension radar plot, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solution and identify which one is the best. The aim of dashboard is to compare, between experiment the relation that occurs among the involved variables.
-
 The idea of a single visualisation method which allow to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depends on the system complexity and no only on the complexity of the method itself. Thus, this level of analysis may not be able to represent the entire system complexity. ,The Steady State condition represent another point of weakness. If it is not reached by all the variable involved, the analysis generalisation can not be granted and dashboard relevance becomes frail. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
+
 
 \subsubsection{Level 1 -  Statistical Values Comparison}\label{sec:heaven-level1}
 
@@ -246,7 +238,12 @@ The aim of this level is evidencing if, a certain variable for a given solution 
 The Level 3 is the bottom level of the investigation stack. It focuses on a single solution at time and may be declined to \textit{Inter-Experiment} comparison, with the aim to understand how different experiment execution are related or to  \textit{Intra-Experiment} comparison, with the aim of point out the relation between the variables over all the experiment. In the first case, Level 3 reproduce the Dashboard idea but over all the experiment execution. In the second case instead, it extend what done in Level 1 and 2, but focusing on a single visualisation at time.
 
 
-
+\begin{figure}[htb]
+  \centering
+	\includegraphics[width=\linewidth]{images/analysis-method}
+	\caption{Analysis method stack. The level of analysis grows from the top to the bottom} 
+  	\label{fig:analysis-method}
+\end{figure}
 
 
 

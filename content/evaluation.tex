@@ -57,8 +57,6 @@ The four baselines differ for two characteristics: RDF Stream Model and Reasonin
 
 \noindent The Dataset  $\mathcal{D}$ and the Ontology $\mathcal{T}$ must be chose to ensure baselines Simplicity, as stated in Section \ref{sec:baselines}. 
 
-Ontology choice depends also on the entailment regime of the RSP Engines. We take $\rho$DF  \cite{DBLP:conf/esws/MunozPG07} as their entailment regime, because several works in the field \cite{DBLP:conf/semweb/UrbaniMJHB13} choose this as the minimal meaningful task for a Stream Reasoner. In particular, $\rho$DF is the RDF-S fragment that reduce complexity while preserving the normative semantics and core functionalities.
-
 The RDF Streams (details in Section \ref{sec:rdfstream}) $\mathcal{D}$ used in the experiments are obtained streaming in different ways the data generated with LUBM  \cite{Guo2005}. Consequently we chose LUBM ontology\footnote{http://swat.cse.lehigh.edu/onto/univ-bench.owl} as $\mathcal{T}$ for all the experiment. We assume that the ontology does not change over time, therefore the materialisation of $\mathcal{T}$ is computed before starting the experiment and the RSP engine does not have to perform this task. 
 
 It is worth to discuss the choice of using data from LUBM (Section \ref{sec:lubm}) over SRbench (Section \ref{sec:srbench}) and LSbench (Section \ref{sec:lsbench}). The first one has data, which are not adequate for the experiments, since they do not require any reasoning. The SRbench data, on the contrary, requires reasoning, but, being real-data, do not have the possibility to be scaled up and down. Moreover, this choice is in line with previous works on Stream Reasoning \cite{DBLP:conf/semweb/UrbaniMJHB13}. 
@@ -67,20 +65,30 @@ Being LUBM static data, we exploit the \textit{RDF2RDFStream} component of the \
 
 \subsection{Query $\mathcal{Q}$}\label{sec:query}
  
-The the query $\mathcal{Q}$ used in our experiment depends on the reasoning approach of the RSP Engine in use. Actually, all  experiments uses variants of the same two basic identity queries that continuously asks for the materialisation of the current sliding window:
+The the query $\mathcal{Q}$ used in our experiment depends on the reasoning approach of the RSP Engine in use. Actually, all  experiments uses variants of the basic identity query that continuously asks for the materialisation of the current sliding window $\omega$, which differ from the sliding factor $\beta$.\\
 
-\begin{enumerate}
-\item[Q.1] Naive
-\item[Q.2] Incremental
-\end{enumerate}
- 		 
-The Baseline B1 and B3 implement the Naive Reasoning approach and thus exploit Q.1, which outputs the snapshot of the entire window at each slide of the window; The Baselines B2 and B4 implement the Incremental Reasoning approach and thus exploits Q.2, which outputs the ir-streams at each window slide.
+\begin{center}
+\raggedright
+REGISTER QUERY Q AS \\
+SELECT ?s ?p ?o \\
+FROM STREAM S [RANGE $\omega$ STEP $\beta$]\\
+WHERE {?s ?p ?o}\\
+UNDER $\rho$DF ENTAILMENT REGIME
+\label{code:query}
+
+\end{center}
+Query: \ref{code:query}: Query $\mathcal{Q}$ registered to the \name Baselines.\\
+
+
+The Baseline B1 and B3 exploit the Naive Reasoning approach and thus the query \ref{code:query} is implemented in order to output the snapshot of the entire window at each slide of the window. On the other hand, the Baselines B2 and B4 exploit the Incremental Reasoning approach and thus implement the query \ref{code:query} in order to output the ir-streams at each window slide.
+
+The entailment regime of the RSP Engines influence performances. For this reason we take $\rho$DF  \cite{DBLP:conf/esws/MunozPG07} as their entailment regime, because several works in the field \cite{DBLP:conf/semweb/UrbaniMJHB13} choose this as the minimal meaningful task for a Stream Reasoner. In particular, $\rho$DF is the RDF-S fragment that reduce complexity while preserving the normative semantics and core functionalities.
 
 %We describe in details the content of the SOAK (Section \ref{sec:soak-es}) and the Step Response tests (Section \ref{sec:step-es}), providing a lecture key for the experiment results.
-\pagebreak
+
 \section{Experiment Set-Up}
 
-The \textit{RDF2RDFStream} allow us to design many kinds of experiments controlling the triple distribution in the RDFStream. First of all we evaluate each baseline in a set of SOAK Test, which can evidence system dynamics as explained in Section \ref{sec:software-testing}. Then we design a small set of Stress Test in order to show \name potential. In summary:
+The \textit{RDF2RDFStream} allows to control the triple distribution in the RDFStream, thus it is possible to build experiment with different input RDF Stream. We design set of SOAK Tests to evaluate the Baselines, which can evidence how as baseline behaves over very long executions providing an image of the RSP Engine dynamics. Moreover, in order to show \name potential, we design a small set of Stress Test, which belongs to the Step Response subcategory. In summary:
 
 \begin{itemize}
 \item \textbf{SOAK}: the number of contemporary triple in the RDFStream does not change during the experiment.

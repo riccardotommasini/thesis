@@ -317,28 +317,41 @@ This levelled stricture of  baselines code allow to share the majority of the co
   	\label{fig:analyser-block-schema-impl}
 \end{figure}
 
-\noindent The \textsc{Analyser} definition of Section \ref{sec:analyser} states it is a\textit{ set of methods for data processing and analysing, which allow to refute or confirm hypothesis and improve existing models trough empirical findings}. Figure \ref{fig:analyser-block-schema-impl}, which extends the original one presented in Chapter \ref{chap:heaven} in Figure \ref{fig:analyser-block-schema}, contains the block diagram for describing how the data processing methods are organised. 
+\noindent In this section we introduce which analysis tools sustain the each level in the investigation stack described in Section \ref{sec:analyser} and how their realized in the current implementation of \name. Notice that the relation between the hypothesis and the tools that sustain the analysis is deep, thus it is hard to generalise the investigation toolset. Hypothesis depends on the the research question, while the tools are related to the nature of the data, which again concern the experiment.  However, there are some general meaningful characteristics, which are independent from both the hypothesis and experiment, that allow us to develop a basic toolset which sustains the entire investigation stack presented in Section \ref{sec:analyser}.
 
-In this Section we describe the block in the schema are implemented, which analysis they allows and which tools sustain each level of analysis. Notice that the relation between the hypothesis and the tools that sustain the analysis is deep, thus it is hard to generalise the investigation. Hypothesis depends on the the research question, while the tools are related to the nature of the data, which again concern the experiment.  However, there are some general meaningful characteristics, which are independent from both the hypothesis and experiment. 
+Figure \ref{fig:analyser-block-schema-impl}, shows the different phases of data processing. It refers to the original block schema of drawn in Chapter \ref{chap:heaven}, but Figure \ref{fig:analyser-block-schema-impl} goes beyond the design level, providing some implementation details. 
 
-The \textsc{Analyser} Design includes Five Analysis Levels (see Section \ref{sec:analyser}. Each of this level applies the Systematic Comparative Approach presented in Chapter \ref{chap:problem-settings}), build comparisons upon common and well-defined properties. 
-
-Before starting with level description, Figure \ref{fig:analyser-block-schema-impl} shows the \textsc{Analyser} receives two input:
+The Figure \ref{fig:analyser-block-schema-impl} shows the \textsc{Analyser} receives two input:
 \begin{itemize}
 \item the raw data form the experiments
 \item the variables to build the analysis
 \end{itemize}
 
-In the original block schema (See Figure \ref{fig:analyser-block-schema}) both inputs directly enter the Steady State Identification Block (SSIB) and the Analysis Block (AB). However is worth to note that even if the Test Stand is designed to be system independent, it is a dynamic system as the ones we want to study. Thus, strange behaviours may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures.Indeed, both the Steady State Identification Block and Analysis Block require an automatic procedure, named pre-processing in Figure \ref{fig:analyser-block-schema-impl}, which averages the data of multiple executions of the same experiment and calculate the statistically relevant data. Time series describe how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical values, which always consider the the Steady State to allow the generalisation of the insights. The most common metrics are average and standard deviation and maximum or minimum for a certain variable.
 
-The pre-processing block ensure data reliability extrapolating a unique dataset from multiple executions. Once we have reliable data, the Steady State Identification Block can process them and evidence, w.r.t the variables received as input. This process determines if a solution has reached the Steady State condition for a certain variable. Automatic procedures to identify the State State condition exist, but they require dedicated studies which will be faced as future works. Currently, the SSIB is it no automated. It exploits data visualisation techniques, to identify, if and when Steady State condition is reached is necessary and then it excludes the initial warm-up phase form the data. Anyhow, we know that the graphical method is limited, it must be applied for each system variable, because they may reach the equilibrium at different times.
+In the original block schema (See Figure \ref{fig:analyser-block-schema}) both inputs directly enter the \textit{Steady State Identification} Block (SSI) and the \textit{Analysis} Block (AB). In Figure \ref{fig:analyser-block-schema-impl}   instead, the first block in the process is the \textit{Pre-Processing Block}. Empirical analysis can not rely on a single execution of an experiment, because even if the \textit{Test Stand} is designed to be system independent, it remains a dynamic system. Thus, strange behaviours may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures The \textit{Pre-Processing} Block ensures data reliability extrapolating a unique dataset from multiple executions. Moreover, time series describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical values, which always consider the the Steady State to allow the generalisation of the insights. The \textit{Pre-Processing} Block calculates most common statistical metrics as average , standard deviation and maximum or minimum for a certain variable.
 
-Analysis Block hides the level where the comparative research approach is declined either to the visual analysis or statistical investigation. The graphical analysis method is more qualitative then the second one, but reading the information presented in graphical way can be preferred in those case where numerical data are not clear. On the other hand, the statistical investigation method demands more complex instruments to interpret the data, but allows to answer also elaborate questions with simpler answers. Following we present for all the Analysis level the method involved in the current implementation.
-\pagebreak
+%Indeed, both the Steady State Identification Block and Analysis Block require an automatic procedure, named pre-processing in Figure \ref{fig:analyser-block-schema-impl}, which averages the data of multiple executions of the same experiment and calculate the statistically relevant data. 
 
-\textsc{Level 0 - Dashboards}
+Once we have reliable data, the \textit{Steady State Identification} Block and the \textit{Analysis} Block receive them and start the analysis process. 
 
-\noindent Figure \ref{fig:dashboard-example} contains an example of the possible Dashboard representations. The aim of dashboard is representing the multiple solutions in a n-variable space. This kind of representation allow to define solution dominance, w.r.t the involved variable. It is easy to state with such a visual tool which solution, if any, is better then another one within an experiment or which experimental setting dominates the other fixing the studied RSP Engine.
+Finally, researches can read the analysis point out insight and theoretical results as the last block in the process describes.
+
+Data mining procedures are very system-dependent. For this reason we include in Chapter \ref{chap:evaluation} about the \name Evaluation, concrete analysis examples, by testing the Baselines. The aim of Chapter \ref{chap:evaluation} is to demonstrate the value of \namens, but also we want to provide some guidelines for further evaluations.
+
+The following subsections contains further details about the \textit{Steady State Identification} Block implementation, Subsection \ref{sec:analyser-impl-ss-block}, and about the \textit{Analyser} Block with the investigation stack, Subsection \ref{sec:analyser-impl-analysis-block}.
+
+\subsection{Steady State Identification Block}\label{sec:analyser-impl-ss-block}
+
+The Steady State Identification Block has the aim to  determines if a solution has reached the Steady State condition for a certain variable, as we describe in Section \ref{sec:analyser-analysis-block}. Automatic procedures to identify the State State condition exist, but they require dedicated studies which will be faced as future works. Currently, the SSI is not automated. It exploits data visualisation techniques, to identify, if and when Steady State condition is reached. Practically each variable in the system is plotted in the time domain over all the entire experiment and research can exclude  the initial warm-up phase form the data evaluation when that variables reaches a stable condition. 
+We know that the graphical method is limited, because it must be applied for each system variable, and human criteria can nit be reliable in this kind of analysis as automatic procedures which exploits tested algorithms. Moreover, different variables may reach the equilibrium at different times, so it is researcher responsibility to properly identify the different condition for each variable involved.
+
+\subsection{Analysis Block}\label{sec:analyser-impl-analysis-block}
+
+The \textsc{Analyser} Design includes Five Analysis Levels (see Section \ref{sec:analyser} with increasing degrees of detail. The \textit{Analysis} Block hides the level where the comparative research approach is declined either to the visual analysis or statistical investigation. The graphical analysis method is more qualitative then the second one, but reading the information presented in graphical way can be preferred in those case where numerical data are not clear. On the other hand, the statistical investigation method demands more complex instruments to obtain the data, but allows to answer also elaborate questions with simpler answers. Following we present for all the Analysis level the method involved in the current implementation.
+
+\subsubsection{Level 0 - Dashboards}\label{sec:impl-level0}
+
+\noindent Figure \ref{fig:dashboard-example} contains an example of the possible Dashboard representations. We implement the dashboard to represent data on a bi-dimensional Cartesian space where memory and latency are the axis of the graph. This kind of representation allows to define solution dominance, w.r.t the involved variable, trough inter-experiment comparisons. Thus, we can easily state which RSP Engine, if any, is better then another one looking to a dashboard.
 
 \begin{figure}[tbh]
   \centering
@@ -347,7 +360,8 @@ Analysis Block hides the level where the comparative research approach is declin
   	\label{fig:dashboard-example}
 \end{figure}
 
-\textsc{Level 1 -  Statistical Values Comparison}
+
+\subsubsection{Level 1 -  Statistical Values Comparison}\label{sec:impl-level1}
 
 \begin{table}[htb]
 \scriptsize
@@ -378,36 +392,37 @@ Analysis Block hides the level where the comparative research approach is declin
 		\hline % inserts single-line
 	 \end{tabular}
 	}
-	\caption{(a) symbolic-comparison over two variables - (b) numeric-comparison over a common variable }
+	\caption{(a) qualitative-comparison over two variables - (b) quantitative-comparison over a common variable }
 	\label{tab:comp-tables}
 \end{table}
 
-Tables \ref{tab:comp-tables} (a) and (b) show two examples of statistical investigation. Table \ref{tab:comp-tables}.a contains the symbolic comparison of two solution over a given variable, while  Table \ref{tab:comp-tables}.b offers a deeper details level, showing how much a solution is better than the other. How to choose the proper level depends on the needs of the research.
+Tables \ref{tab:comp-tables} (a) and (b) show two examples of statistical investigation. Table \ref{tab:comp-tables}.a contains the qualitative comparison of two solution over a given variable, while Table \ref{tab:comp-tables}.b offers a deeper details level, the quantitative comparison, showing how much a solution is better than the other. How to choose the proper level depends on the needs of the research.
 
-What is meaningful for Level 1 is also how the results are disposed within the tables. Tables axes represent the variation of two different experiment properties A and B.  Different experiments influence the behaviour of an RSP Engine in different ways. We can move on the horizontal axis of Table \ref{tab:comp-tables}.a, variation the Condition A to appreciate those differences. 
+Table layout is a key-point for Level 1 representations. Tables axes represent the variation of two different experiment properties A and B. Different experiments influence the behaviour of an RSP Engine in different ways, and Level 1 allows to point out this differences with  \textit{Inter-Experiment} comparisons. Thus, we can move on the horizontal axis of Table \ref{tab:comp-tables}.a, which means variate the Condition A, to appreciate those differences. 
 
-Actually this kind of analysis is possible thanks to a CSV report, which contains all the meaningful statistical values for the experiments. The report can be further manipulated to obtain the table visualisation. \\
+Actually this kind of analysis is possible thanks to a CSV report, which contains all the meaningful statistical values for the experiments. The report can be further manipulated to obtain the table visualisation.
 
-\textsc{Level 2 - Patter Identification}
+\subsubsection{Level 2 - Patter Identification}\label{sec:impl-level2}
 
 \begin{figure}[tbh]
   \centering
    \subfigure[Pattern Recognition Example: Memory in Time Domain]{
   	\includegraphics[width=0.45\linewidth]{images/pattern-example-memory}
   }
-  \subfigure[Pattern Recognition Example: Memory in Frequency Domain]{
+  \subfigure[Pattern Recognition Example: Memory Distribution]{
   	\includegraphics[width=0.45\linewidth]{images/pattern-example-density}
   	
   }
+   %\subfigure[Pattern Appear On the Wall..]{\includegraphics[width=0.45\linewidth]{images/pokepattern}}
 	\caption{Two Examples of Pattern Recognition} 
   	\label{fig:pattern-examples}
 \end{figure}
 
-\noindent Level 2 exploits the same experiment layout of Level 1, but it fills the tables cell with different charts for each experiment. Figure \ref{fig:pattern-examples} (a) and (b) are two examples. They report two possible memory analysis: in time domain (a) and frequency domain (b). The aim of this level is to identify patterns within the RSP Engine behaviour for a certain variable. For is reason it is necessary to appreciate together multiple experiments results. 
+\noindent Level 2 exploits the same experiment layout of Level 1, but it fills the tables cell with different charts for each experiment. Figure \ref{fig:pattern-examples} (a) and (b) are two examples. They report two possible memory analysis: representation in time domain (a) and representation of memory values distribution(b). The aim of this level is to identify patterns within the RSP Engine behaviour for a certain variable. For is reason it is necessary to appreciate together multiple experiments results, enabling \textit{Inter-Experiment} comparison.
 
-Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Figure \ref{fig:pattern-examples} allows a new a global observations.\\
+Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Figure \ref{fig:pattern-examples} allows a new a global observations.
 
-\textsc{Level 3 - Visual Comparison}
+\subsubsection{Level 3 - Visual Comparison}\label{sec:impl-level3}
 
 \begin{figure}[tbh]
   \centering
@@ -421,12 +436,6 @@ Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possibl
   \label{fig:visual-comp}
 \end{figure}
 
-\noindent Finally, the lowest level of analysis focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two possible analysis. Plotting multiple variables over the same chart allow to better understand their relation. For example we can state if one reaches the Steady State before the other as happens for Latency w.r.t Memory in Figure \ref{fig:visual-comp}.b. Comparing different experiment over the same variable allow similar observation too, focusing on the relation between the experimental settings. In summary:
+\noindent Finally, the lowest level of analysis focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two possible analysis enabled by Level 3. 
 
-\begin{enumerate}
-\item[A] Figure \ref{fig:visual-comp}.a shows an example of inter-experiment investigation: multi-plotting the same variable, arguing about the similarity or the difference upon different experiments. 
-\item[B] Figure \ref{fig:visual-comp}.b shows an example of intra-experiment investigation, multi-plotting the different variables within the same experiment; 
-
-\end{enumerate}
-
-Data mining procedures are very system-dependent. For this reason we include in Chapter \ref{chap:evaluation} about the \name Evaluation, concrete analysis examples, by testing the Baselines. The aim of Chapter \ref{chap:evaluation} is to demonstrate the value of \namens, but also we want to provide some guidelines for further evaluations.
+The aim of Figure \ref{fig:visual-comp}.a is identify the relation between the same variable over multiple experiment, thus  \textit{Inter-Experiment} comparison. \ref{fig:visual-comp}.b has the goal to understand what has in common memory and latency applying an \textit{Intra-Experiment} comparison.  For example we can state if one reaches the Steady State before the other as happens for Latency w.r.t Memory in this case.
