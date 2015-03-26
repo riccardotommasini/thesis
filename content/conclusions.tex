@@ -1,4 +1,24 @@
+This thesis work we presented \name -- an open source framework for empirical evaluation of RSP Engines. \name contains a Test Stand, four baselines, and an Analyser to enable the Systematic Comparative Approach in the Stream Reasoning research field
+
+In Chapter \ref{chap:problem-settings} we present the motivation behind this work. In Chapter \ref{chap:heaven} we describe \name design and in Chapter \ref{chap:implementation-experience} we details the implementation of the Test Stand, the baselines and the investigation methods which compose the Analyser.
+
+Finally, we provide an proof of \name potential, comparing the four baseline implementations of RSP engines with two experimental sets. The results presented in this section actually  go beyond the verification of simple hypothesis formulated on the knowledge of the RSP Engine model. We learn that, even when RSP engine is extremely simple (e.g., the baselines), it is hard to formulate  hypothesis about its behaviour and thus empirical evaluation are required. This emphasises the importance to be able to conduct comparative research based on controlled experimental conditions and, thus, the need for a open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} framework like \namens.
+
+The focus on the experimental infrastructure is the main difference between \name and previous work. While SRbench and LSbench focus on RDF streams and a suite of continuous SPARQL query, \name focus on the possibility to compare RSP engines based on any RDF stream, ontology, continuous query and entailment regime. It even enables to run experiments connecting to live data streams as those used in \cite{DBLP:conf/semweb/BalduiniVDTPC13}.
+
+
+
 \section{Research Question}
+
+Stream Processing research field is growing and the number of techniques to semantically handle data stream is increasing. RDF Stream Processing Engines, a.k.a. RSP Engines, are system able to answer continuous extensions of SPARQL queries over RDF Streams. Due to their complexity, a systematic comparison of such systems, under repeatable conditions, is hard. It is worth to note that the lacks of a Systematic Comparative Research Approach (SCRA) belongs to entire Computer Science community, despite the Engineering epistemology of the works it publishes. This approach is typical of those research areas which have to faces very complex systems, and have difficulty to simplifies the models. Architectural analysis are useful, but they are not sufficient to complete evaluate RSP Engine, because their behaviour must be studied during the execution. For this reason, the Stream Reasoning community has tried to define and develop solution to evaluate RSP Engines. Recent works supported the SCRA on RSP Engines with queries, dataset and methods. However the SR community still lacks an experimental infrastructure which enables the comparison of RSP Engines based on any RDF stream, ontology, continuous query and entailment regime.  For me aerospace engineering we borrow the idea of engine test stand: a facility to develop engine trough systematic testing under precise experimental conditions. Thus, we can formulate our research question as follows:
+
+”Can an engine test stand, together with queries, datasets and methods, support SCRA for Stream Reasoning?”
+
+
 \section{Results}
 \section{Limitations}
 \section{Future Works}
+
+Our future works can focus on the different parts of \name. Our main interest is benchmarking existing time-based sliding window RSP engines. To this end, we intend to extend the \textsc{Flow Rate Profiler} in order to generate: a random flow with a given distribution (e.g., gaussian and exponential), and a sine wave flow (to mimic the periodic changes in the flow rates observed on social media streams \cite{DBLP:conf/semweb/BalduiniVDTPC13}). We also intend to add the possibility to register one or more continuous queries into the baselines\footnote{In the current stage of development it is possible to configure the ontology and the entailment regime.}. Offering \name as a service is our long term goal. 
+
+We are imagining  this as a Web-based environment where all existing RSP engines are already available and those, who want to run experiments, have just to configure them picking up one or more RDF streams, ontologies, and queries. A visual facility to compare different experiments and the publication of result experiments as linked data would complete this environment.
