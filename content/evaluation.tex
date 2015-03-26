@@ -155,15 +155,23 @@ SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed nu
 
 Table \ref{tab:soaktests} presents the fifteen SOAK tests we run for. The columns of the table are the different window sizes measured in terms of the values assumed by the number of slots $N$ (see Section \ref{sec:query}).  Being $\beta=$ 100 ms., they correspond to a window that spans 100 ms., 1 sec., 10 sec. and 100 sec.. The rows are the different number of triples in each \textit{CTEvent} sent by the \textsc{RDF2RDFStream} to $\mathcal{E}$.% Notably, for all of them, we checked that $\mathcal{E}$ is responsive for the whole duration of the experiment. 
 
-Table \ref{tab:soaktests-alt} is an alternative layout where the columns of the table still contain the different window sizes measured in terms of the values assumed by the number of slots $N$, while the rows are the different number of triples in the active window. This layout allows to highlight the windows dimension, focusing on the element which actually influences the reasoning.
+Table \ref{tab:soaktests-alt} is an alternative layout where the columns of the table still contain the different window sizes measured in terms of the values assumed by the number of slots $N$, while the rows are the different number of triples in the active window. This layout allows to highlight the windows dimension, focusing on the element which actually influences the reasoning.\\
 
+\noindent Following the traditional research method, we formulate two naive hypothesis based on the knowledge we have of the easiest RSP Engine model (detailed in Section \ref{sec:baselines}). 
 
+From theory we know that the incremental maintenance of the materialisation is more convenient when the dimension of the changes is small w.r.t the entire window, otherwise  for large changes it is more computationally expensive then  naive materialisation \cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13}.
+This knowledge allow us to formulate a first hypothesis, which can state that the incremental reasoning approach is always better then the naive one, for small changes i.e. we consider small changes equal or less 20\% of the active window content.
 
-Following the traditional research method, we formulate two naive hypothesis based on the knowledge we have of the easiest RSP Engine Model (detailed in Section \ref{sec:baselines}) . The hypothesis to verify with SOAK experiments are:
+Form recent works like \cite{DBLP:conf/semweb/BalduiniVDTPC13} we know that the graph data structure may speed up reasoning when it contains multiple triples, but it does so introducing an overhead that may hinder performances when it contains few triples. Thus, we can formulate a second hypothesis, which affirms that the triple-based model for RDF Stream is always better then the graph-based one when the number of triples in the graphs is small, i.e 20\% of the active window.\\
+
+More formally the hypothesis to verify with SOAK experiments are:
 \begin{itemize}
-\item \textbf{HP.1} The Incremental reasoning approach is always better then the naive one.
-\item \textbf{HP.2} The Triple-based model for RDFStream is always better then the Graph-based one.
+\item \textbf{HP.1} The Incremental reasoning approach is always better then the naive one for small changes.
+\item \textbf{HP.2} The Triple-based model for RDFStream is always better then the Graph-based one if we consider few triples, to compose each graph.
 \end{itemize}
+
+ 
+
 
 %Notice that the goal of this evaluation is to show how \name helps RSP Engine analysis trough empirical research. Hypothesis verification and top-down analysis are the subject of our investigation, while our research question is:  "\textit{Can an engine test stands, together with queries, datasets and methods, support Systematic Comparative Research Approach for Stream Reasoning?}" %"Needs the Stream Reasoning research field a Test Stand like \name to investigate RSP Engines and sustain the research of such system with an Systematic Comparative Approach?"
 
@@ -201,15 +209,10 @@ The execution happens in a controlled environment, which tries to reduce the num
 In this section we analyse the results of the SOAK Test experiments, exploiting the investigation stack presented in Chapter \ref{chap:heaven}. The analysis goes through the four levels of the stack, with the aim of confirming or refusing the hypothesis presented above, in Section \ref{sec:soak-es}. 
 
 The content of this section is organised as follow: 
-
 Subsection \ref{sec:eval-ssib} presents the output of the \textit{Steady State Identification} Block. 
-
 Subsection \ref{sec:eval-level0} presents the results obtained at Level 0, the dashboard visualisation.  
-
 Subsection \ref{sec:eval-level1} provided a qualitative comparison for latency and memory, built at Level 1. 
-
 Subsection \ref{sec:eval-level2} contains example of pattern identification at Level 2. 
-
 Finally in Subsection \ref{sec:eval-level3} we include some examples of the Level 3 \textit{Intra Experiment }comparisons, while in Section \ref{sec:stressres} we include examples of \textit{Inter Experiment }ones w.r.t the Step Response tests.
 
 
@@ -346,20 +349,19 @@ The research over RSP Engines requires further analysis at deeper levels to moti
 
 The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1)
 
-The current evaluation operates over the average values of latency and memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} contains in all the experiment results respectively for latency and memory.  Both the Tables dispose the results according with the layout of Table \ref{tab:soaktests-alt}. We decide to use the qualitative result representation, but \name allows also more detailed analysis with quantitative comparisons as shows in Section \ref{sec:analyser-impl}.
+The current evaluation operates over the average values of latency and memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} contains in all the experiment results respectively for latency and memory.  Both the Tables dispose the results according with the layout of Table \ref{tab:soaktests-alt}. We decide to use the qualitative result representation, but \name allows also more detailed analysis with quantitative comparisons as shows in Section \ref{sec:analyser-impl}. To properly read the Tables note that they report that baseline is better than another one when the difference in term of latency or memory is bigger than 5\%, otherwise we consider the two terms of comparison as equal and we use the simble $\simeq$.
+Moreover, we indicate that the better solution has not reached the Steady State Condition with the underlined symbols \underline{G}, \underline{T}, \underline{N}, \underline{I}
 
-The results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d when N=1 (i.e., the window contains only one \textit{CTEvent}), allow to state for large events that the Naive approach is faster than the Incremental one. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster. This is in contrast with [Hp.1] and moreover it is not intuitive and, because from theory we know that the incremental maintenance is more computationally expensive then materialisation for large changes \cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13}. 
 
-When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{tab:soak_latency_comparisons}.c allow to say that using a Triple-base RDF stream is faster than Graph-based one. This is because the graph data structure may speed up reasoning when it contains multiple triples, but it does so introducing an overhead that may hinder performances when it contains few triples \cite{DBLP:conf/semweb/BalduiniVDTPC13}. In particular, for the case $N$=1000 when the window contains 1000 triples (i.e., each \textsc{CTEvent} contains only one triple),  the Naive Triple-based approach is about 10\% faster  than the Naive Graph-based one while the Incremental Graph-based is even about 20\% faster. This findings partially confirm [Hp.2].
+When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{tab:soak_latency_comparisons}.c allow to say that using a Triple-base RDF stream is faster than Graph-based one. In particular, for the case $N$=1000 when the window contains 1000 triples (i.e., each \textsc{CTEvent} contains only one triple),  the Naive Triple-based approach is about 10\% faster  than the Naive Graph-based one while the Incremental Graph-based is even about 20\% faster. This findings confirm [Hp.2], while the cases  when N=10 the does not confirm the hypothesis because the results can be consider as equal (result differences are smaller than 5\%). A possible explanation is that the dimension of the graph can not be considered small w.r.t the window when $N$=10.
 
-Finally, the results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:soak_latency_comparisons}.d support the idea that when the number of changing triples in $\Delta+ \Delta-$ (Section \ref{sec:baselines}) is a small fraction of those in the window an Incremental approach is faster than the Naive one as stated in\cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13} and required by [Hp.1]. The exception of case $N$=1, but it can be seen as a limit case, where the reasoner is asked to deduce all the implicit triples implied by the only explicit triple in the window.  
+When $N$=1 (i.e., the window contains only one \textit{CTEvent}) instead , the results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d shows that for large events that the Naive approach is faster than the Incremental one, as we stated when we formulate [Hp.1]. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach agi is faster and this is not intuitive, because to formulate [Hp.1] we consider the changes dimension in percentage.
+
+The results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:soak_latency_comparisons}.d support [Hp.1] by stating that when the number of changing triples in $\Delta+ \Delta-$ (Section \ref{sec:baselines}) is a small fraction of those in the window an Incremental approach is faster than the Naive one. The exception of case $N$=1, but it can be seen as a limit case, where the reasoner is asked to deduce all the implicit triples implied by the only explicit triple in the window.  
 
 While is possible to state meaningful observation over latency data, the same is not possible for memory ones. \name shows that the study of the memory can not be faced with the same methods to study latency (comparison of the average values under a clearly identified the Steady State condition). 
 
 Table \ref{tab:soak_memory_comparisons} reports the results for the memory usage during the experiments. Table entries do not confirm what we observed in Table \ref{tab:soak_latency_comparisons} and sometimes it even refutes our findings. It is clear that memory usage does not follow the same behaviour of latency, even if [Hp.1] and [Hp.2] are not totally refused by the results.
-
-Further statistical analysis a surely meaningful. Maximum and minimum comparison within the same layout may detail much more the the system memory usage. However, trough \name is possible to lead the analysis to another level, observing the directly the memory usage over all the experiment execution. 
-
 
 \begin{table}[htbp]
 	\centering
@@ -371,11 +373,11 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		in & \multicolumn{5}{c}{Number}  \\
 		Window  & 1 & 10 & 100 & 1000&10000\\
 		\hline
-		1	&G	\\			
-		10	&G	&G	\\		
-		100	&G	&G&	$\simeq$\\	
-		1000&	G	&G	&$\simeq$&$\simeq$\\
-		10000	&NA	&T	&S&	T	&T\\
+		1	   &G	\\			
+		10	   &G	&$\simeq$	\\		
+		100	   &G	&$\simeq$   &	$\simeq$\\	
+		1000   &	G	&$\simeq$	&$\simeq$&$\simeq$\\
+		10000  &NA	&T	&S&	T	&T\\
 		\hline % inserts single-line
 	 \end{tabular}
 	}
@@ -401,11 +403,11 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		in & \multicolumn{5}{c}{Number}  \\
 		Window  & 1 & 10 & 100 & 1000 &10000\\
 		\hline
-		1	&$\simeq$\\				
-		10	& 	$\simeq$&	G	\\		
-		100	&G	& 	$\simeq$&	T\\		
-		1000	&G	&G	&T	&T	\\
-		10000	&NA	& 	$\simeq$	& 	$\simeq$	&T	&T\\
+		1	 &$\simeq$\\				
+		10	 &$\simeq$&$\simeq$	\\		
+		100	 &G	      &$\simeq$&	T\\		
+		1000	 &G	      &$\simeq$	&T	&T	\\
+		10000&NA	      &$\simeq$	& 	$\simeq$	&T	&T\\
 		\hline % inserts single-line
 	 	\end{tabular}
 	}
@@ -426,13 +428,9 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 	}
 	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
 	\underline{G}, \underline{T}, \underline{N}, \underline{I}.
-	(a), (c) - latency results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models. }
+	(a), (c) - latency results comparison between Incremental and Naive approaches; (b), (d) - latency results comparison between Graph-based and Triple-based models. }
 	\label{tab:soak_latency_comparisons}	
 \end{table}
-
-				
-
-
 \begin{table}[htbp]
 	\centering
 	\scriptsize
@@ -499,9 +497,11 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 	}	
 	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
 	\underline{G}, \underline{T}, \underline{N}, \underline{I}. 
-	(a), (c) - memory results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models, When the symbol has a }
+	(a), (c) - memory results comparison between Incremental and Naive approaches; (b), (d) - memory results comparison between Graph-based and Triple-based models }
 	\label{tab:soak_memory_comparisons}	
 \end{table}
+
+Further statistical analysis are surely meaningful. Comparing Maximum or minimum as we did for the average values may detail much more the the system memory usage. Trough \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
 
 
 \subsection{Level 2 - Patter Identification}\label{sec:eval-level2}
@@ -629,16 +629,19 @@ Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 
 \section{StepResponse Test Evaluation Results}\label{sec:stressres}
 
-In Section \ref{sec:eval-level3} we have included an example of Level 3 Intra-Experiment comparison. Here we present the alternative method developed for Level 3: Inter Experiment comparison. We explained the design of Step Response Tests in Section \ref{sec:step-es}, stating that the aim of this experiment set is to show \name potential. 
+In Section \ref{sec:analyser} we stated that Level 3 allows two alternative comparison methods: \textit{Intra Experiment} comparison, an example of which is included in Section \ref{sec:eval-level3}, and \textit{Inter Experiment} comparison, we show in this section. We exploit the Step Response Tests set to build such analysis (design details about Step Response experimental set in Section \ref{sec:step-es}), with the aim to prove \name potential.
 
-Figures \ref{fig:level3-step} (a) and (b) show an example of \textit{Inter Experiment} comparison. In the figure we draw the latency and the memory series for three experiment:
+%Figures \ref{fig:level3-step} (a) and (b) show an example of \textit{Inter Experiment} comparison.
+In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment, all with a number of slot in the window of 10. In general, DSMSs do not allow to change the window dimension during the execution, thus experiment like Step Response ones, must be designed to control other variables, in this case the \textit{CTEvent} size. \\
+
+
+Thus, the involved experiments are:
+
 \begin{itemize}
 \item Step Response Test with \textsc{CTEvent} initial size fixed to 10 Triples and Final Size fixed to 100 triples
 \item SOAK Test Number 7, with \textsc{CTEvent} size fixed to 10 Triples
 \item SOAK Test Number 8, with \textsc{CTEvent} size fixed to 100 Triples
 \end{itemize}
-
-All these tests have a number of slot in the window of 10. In general, DSMSs do not allow to change the window dimension during the execution, thus experiment like Step Response ones, must be designed to control other variables, in this case the \textit{CTEvent} size.
 
 Notice that, Figure \ref{fig:level3-step}.a reports the latency time series for the Baseline TI, while \ref{fig:level3-step}.b presents the memory usage for the Baseline GI. We selected the two most expressive graphs, in order to show the following insight.
 
@@ -646,7 +649,7 @@ The Figures \ref{fig:level3-step} (a) and (b) answer two standard questions of S
 
 An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a : it is possible to see that after the step there is no transitory phase for the RSP Engine latency. A similar behaviour is observable for memory in Figure \ref{fig:level3-step}.b. 
 
-Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java has already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream,if the RSP Engine will reach the Steady State only depends on the experiment duration.
+Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java has already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
 
 
 \begin{figure}[tbh]
@@ -657,6 +660,6 @@ Answering Q.2 is easier for latency, where the Steady State is exactly the same 
 \subfigure[GI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
 	\includegraphics[width=\linewidth]{images/step_mema_incremental_graph_soak_init_7soak_final_8step_101}
 	}
-	\caption{Comparison of filling phenomena between latency and memory} 
+	\caption{Comparison between latency and memory filling phenomena} 
   	\label{fig:level3-step}
 \end{figure}
