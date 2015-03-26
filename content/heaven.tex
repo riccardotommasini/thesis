@@ -152,7 +152,7 @@ Finally, baselines \textsc{Simplicity} comes from those parameters that directly
 
 \section{Analyser}\label{sec:analyser}
 
-The \textsc{Analyser} consists, from an engineering point of view, in one or more automated procedures that process the experiment results transforming raw data into an human-readable form. Actually, not all the analysing procedures can be completely automated and data analysis can not be always generalised. For this reason we decide to design the \textsc{Analyser} from a research point of view. This it can bee seen as set of methods for data processing and analysing, which allow to refute or confirm hypothesis and improve existing models trough empirical findings.
+The \textsc{Analyser} consists, from an engineering point of view, in one or more automated procedures that process the experiment results transforming raw data into an human-readable form. Actually, not all the analysing procedures can be completely automated and data analysis can not be always generalised. For this reason we decide to design the \textsc{Analyser} from a research point of view. It can bee seen as set of methods for data processing and analysing, which allow to refute or confirm hypothesis and to improve existing models trough empirical findings.
 
 In this Section we focus on the definition of the methods that compose the analysis, while in Section \ref{sec:analyser-impl} we detail much more which tools sustain the investigation at different levels, allowing data visualisation and deeper statistical investigations.
 
@@ -165,9 +165,9 @@ In this Section we focus on the definition of the methods that compose the analy
 
 Figure \ref{fig:analyser-block-schema} shows the different phases of the data processing. The methods that compose the \textsc{Analyser} can be divided into three main block, each one with different supporting tools and different goals.
 
-\textsc{Analyser} takes as input the raw data produced by the \textsc{Test Stand} executing experiment, and the variables on which the analysis will be based on. The \textsc{Test Stand} raw outputs date are in times series format, but which data it outputs depend on the sensors it contains. To this extent the \textsc{Analyser} the variable analysis must be seen as an input, considering also that they can be mapped to the \textsc{Test Stand} sensors.
+\textsc{Analyser} takes as input the raw data produced by the \textsc{Test Stand} by executing the experiment, and the variables on which the analysis will be based on. The \textsc{Test Stand} outputs raw data are in times series format and which data it outputs depend on the users needs. The \textsc{Test Stand} measurement set may variate according to the requirement [R.7]. To this extent the \textsc{Analyser} should be extendible too, and the variables of the analysis must be seen as an input provided by \name user.
 
-To properly compares results between $n$ different RSP Engines data must be standardized. In the \textit{Steady State Identification} Block data are processed according to the variables, identifying which variable has reached a Steady State condition.
+To properly compare results between $n$ different RSP Engines data must be standardized. In the \textit{Steady State Identification} Block data are processed according to the variables, identifying which variable has reached a Steady State condition.
 
 The last step in the high level Analyser Block Schema consists in the formalisation of theoretical results. The aim of this step is obviously confirm or refute hypothesis formulated at experiment design level. However, \name has the aim of sustaining the empirical research over RSP Engine which allow a new kind of observation that may improve existing theoretical models of the Stream Reasoning area.
 
@@ -182,26 +182,26 @@ In the next subsection we provided further details on the \textit{Steady State I
   	\label{fig:steady-state}
 \end{figure}
 
-The \textit{Steady State Identification} (SSI) Block is First element in Figure \ref{fig:analyser-block-schema}. In general it applies a pre-analysis of the raw data. It outputs if a given variable of the tested RSP Engine has reach ore not the condition of Steady State, which is the moment when a dynamic system reaches the equilibrium for a certain variable. The SSI is a common passage in almost any research on dynamic system, because those systems usually have an initial warm-up phase which negatively influences results and inhibit generalisation and comparisons. Figure \ref{fig:steady-state} shows the typical behaviour in the time domain for a certain variable and also evidences the point when the the series reaches the Steady State condition. The \textit{Steady State Identification} Block allows to understand the degree of reliability of the data, how we can assume a certain observation is confirmed and generalizable. % 
+The \textit{Steady State Identification} (SSI) Block is first element in Figure \ref{fig:analyser-block-schema}. In general it applies a pre-analysis of the raw data. It outputs if a given variable of the tested RSP Engine has not reached the Steady State condition , which is the moment when a dynamic system reaches the equilibrium for a certain variable. The SSI is a common passage in almost any research on dynamic system, because those systems usually have an initial transitory phase which inhibits generalisation and comparisons. Figure \ref{fig:steady-state} shows the typical behaviour in the time domain for a certain variable and also evidences the point when the series reaches the Steady State condition. The \textit{Steady State Identification} Block allows to understand the degree of reliability of the data, how we can assume a certain observation is confirmed and generalizable. % 
 
 
 \subsection{Analysis Block}\label{sec:analyser-analysis-block}
 
-Once the Steady State is identified, it is possible to proceed with the central data analysis, which is summarised in Figure \ref{fig:analyser-block-schema} by the \textit{Analysis} Block. This Block exploits the \textit{Steady State Identification} output to study the initial the warm-up phase, which is a crucial part of the dynamic system comprehension and thus of the Hypothesis confirmation.
+Once the Steady State is identified, it is possible to proceed with the central data analysis, which is summarised in Figure \ref{fig:analyser-block-schema} by the \textit{Analysis} Block. This Block exploits the \textit{Steady State Identification} output to study the transitory phase, which is a crucial part of the dynamic system comprehension and thus of the Hypothesis confirmation.
 
 The investigation can be decomposed in four levels within the \textit{Analysis} Block, with increasing details degree and different goals.  Figure \ref{fig:analysis-method} is a graphical representation of the investigation stack implemented within the \textit{Analysis} Block, the detail level grows from the top to the bottom.
 
-Before presenting the stack level one by one, we introduce few concepts about the experiment analysis:
+Before presenting the stack level one by one, we introduce two concepts about the experiment analysis:
 \begin{itemize}
-\item \textit{Intra Experiment Comparison} -  it means build comparisons between variables upon a single, well-determined experiment $,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$.
-\item \textit{Inter Experiment Comparison} -  it means build comparisons of different experiment 
-$,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$ and $,<\mathcal{E}',<\mathcal{D}',<\mathcal{T}',<\mathcal{Q}'>$ upon a single variable. Usually the compared experiment differ at most for one or two elements in the tuple. 
+\item \textit{Intra Experiment Comparison} -  it means building comparisons between variables upon a single, well-determined experiment $,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$.
+\item \textit{Inter Experiment Comparison} -  it means building comparisons of different experiment 
+$,<\mathcal{E},<\mathcal{D},<\mathcal{T},<\mathcal{Q}>$ and $,<\mathcal{E}',<\mathcal{D}',<\mathcal{T}',<\mathcal{Q}'>$ upon a single variable. Usually, the compared experiment differs at most for one or two elements in the tuple. 
 \end{itemize}
 
 
 \subsubsection{Level 0 - Dashboards}\label{sec:heaven-level0}
 
-Dashboards are the highest level of analysis offered by \name for \textit{Inter-Experiment} comparison. Some statistical values, usually mean data but also maximum or minimum, are presented in a n-dimension radar plot, as the one in Figure \ref{fig:radar}, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solution and identify which one is the best. The aim of dashboard is to compare, between experiment the relation that occurs among the involved variables.
+Dashboards are the highest level of analysis offered by \name for \textit{Inter-Experiment} comparison. Some statistical values like average (or maximum, minimum, median ecc) are presented in a n-dimension radar plot, as the one in Figure \ref{fig:radar}, which involves all the variables selected during the experiment design phase. Visual comparison of the data trough dashboards is natural when few variable are involved. It is easy to compare many solutions and identify which one is the best. The aim of dashboard is to compare experiments and pointing out the relation that occurs among the involved variables.
 
 \begin{figure}[tbh]
   \centering
@@ -210,33 +210,30 @@ Dashboards are the highest level of analysis offered by \name for \textit{Inter-
   	\label{fig:radar}
 \end{figure}
 
-The idea of a single visualisation method which allow to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depends on the system complexity and no only on the complexity of the method itself. Thus, this level of analysis may not be able to represent the entire system complexity. ,The Steady State condition represent another point of weakness. If it is not reached by all the variable involved, the analysis generalisation can not be granted and dashboard relevance becomes frail. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
+The idea of a single visualisation method which allows to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depend on the system complexity and not only on the complexity of the method itself. Thus, this level of analysis may not be able to represent the entire system complexity. The Steady State condition represents another point of weakness. If it is not reached by all the variable involved, the analysis generalisation can not be granted and dashboard relevance becomes frail. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
 
 
 \subsubsection{Level 1 -  Statistical Values Comparison}\label{sec:heaven-level1}
 
-This Analysis level focuses on a single variable a time (Latency, Memory ecc.), in a certain statistical condition (Maximum, Minimum, Mean Value ecc.) exploiting both \textit{Inter-Experiment} comparison. 
+This Analysis level focuses on a single variable at time (Latency, Memory ecc.), in a certain statistical condition (Maximum, Minimum, Mean Value ecc.) exploiting \textit{Inter-Experiment} comparison. 
 
-To verify an hypothesis researches design and execute multiple examples, which variates for few parameters.  This kind of analysis is focused on the entries experiment set together, disposed following a proper layout which evidence the differences between experiments upon one or more well-defined characteristics. The analysis involves one variable at time, comparing the results over the experiment set. 
+To verify an hypothesis researches design and execute multiple experiments which variates for few parameters. This analysis is focused on the entries experiment set. The experiments must be arranged into an smart layout that highlights the differences between experiments upon one or more well-defined characteristics. The analysis involves one variable at time, comparing the results over the experiment set. 
 
 The aim of Level 1 is identifying which parameter, if any, determines behaviour of the solution w.r.t the observed variable. \name enables two possible analysis approaches within Level 1:
 \begin{itemize}
 \item \textit{Quantitative} -  The comparison results are present in percentage form, quantifying how much a solution is better than another one under some conditions. 
-\item \textit{Qualitative} - it is a simplification of the Numeric approach. Sometimes we only need no understand which solution is better, without focusing on numeric values. The Symbolic approach requires the definition of a tolerance threshold, for example 5\%, to distinguish when a solution is better, worst or equal to another one.
+\item \textit{Qualitative} - it is a simplification of the Quantitative approach. Sometimes we only need to understand which solution is the best, without focusing on numeric values. The Qualitative approach requires the definition of a tolerance threshold, for example 5\%, to distinguish when a solution is better, worse or equal to another one.
 \end{itemize}
 
 \subsubsection{Level 2 - Patter Identification}\label{sec:heaven-level2}
 
-%Experimental analysis has the goals to allow the comparison of complex system. Sometimes Level 0 is not sufficient to confirm hypothesis and  Level 1 only allows to understand which of the involved variables, if any, invalidates the observation but not why, For such complex system, like RSP Engine, 
+The comparison of a single statistical value over multiple variable (Level 0) or a single one (Level 1) may be not sufficient to explicit the RSP Engine behaviour. Starting from Level 2, visual analysis for \textit{Inter-Experiment} comparison is introduced. As in Level 1 the investigation involves a single variable over the entire experiment set, disposed into an easy-to-ready layout which points out experiment differences. Level 2 instead enables the comparison of the experiment set, presenting result data in a graphical way, which shows the system behaviour over all the experiment execution.
 
-The comparison of a single statistical value over multiple variable (Level 0) or a single one (Level 1) may be not sufficient to explicit the RSP Engine behaviour. Starting from Level 2, visual analysis for \textit{Inter-Experiment} comparison is introduced. As in Level 1 the investigation involves a single variable over the entire experiment set, disposed into an easy-to-ready layout which point out experiment differences. The difference with the previous Level is that this one allows to compare the entire experiment result data, presenting in a graphical representation the system behaviour over all the experiment execution.
-
-The aim of this level is evidencing if, a certain variable for a given solution follows a some patterns w.r.t changes in the observed experiments. How to choose the correct graphical representation depends on the variable nature and requires specific analysis. However, the most common ones for time-series are  time domain form, value distribution or frequency domain representations. In general Level 2 allows to visualise how the system behaviour. It enable new observations, reaching intrinsic system nature, which is not visible with a mere model investigation.
+The aim of this level is evidencing if a certain variable a some patterns among the experiment set. How to choose the correct graphical representation depends on the variable nature and requires specific analysis. However, the most common ones for time-series are time domain form, value distribution or frequency domain representations. In general Level 2 allows to visualise how the system behaves, which is not visible with a mere model investigation.
 
 \subsubsection{Level 3 - Visual Comparison}\label{sec:heaven-level3}
 
-The Level 3 is the bottom level of the investigation stack. It focuses on a single solution at time and may be declined to \textit{Inter-Experiment} comparison, with the aim to understand how different experiment execution are related or to  \textit{Intra-Experiment} comparison, with the aim of point out the relation between the variables over all the experiment. In the first case, Level 3 reproduce the Dashboard idea but over all the experiment execution. In the second case instead, it extend what done in Level 1 and 2, but focusing on a single visualisation at time.
-
+The Level 3 is the bottom level of the investigation stack. It focuses on a single solution at time and it exploits both \textit{Inter-Experiment} comparison, with the aim to understand how different experiment execution are related or to  \textit{Intra-Experiment} comparison, with the goal of pointing out the relation between the variables over all the experiment. In the first case, Level 3 reproduces the Dashboard idea but over all the experiment execution. In the second case instead, it extends what done in Level 1 and 2, but focusing on a single visualisation at time.
 
 \begin{figure}[htb]
   \centering
