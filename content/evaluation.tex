@@ -602,6 +602,33 @@ Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 
 
 \section{StepResponse Test Evaluation Results}\label{sec:stressres}
- Finally we show \name abilities presenting the results of Step Response tests in the Subsection \ref{sec:stressres}.
+
+In Section \ref{sec:eval-level3} we have included an example of Level 3 Intra-Experiment comparison. Here we present the alternative method developed for Level 3: Inter Experiment comparison. We explained the design of Step Response in Section \ref{sec:step-es}, stating that the aim of this experiment set is to show \name potential. 
+
+Figures \ref{fig:level3-step} (a) and (b) show an example of Inter-Experiment comparison. In the figure we draw the Latency and the Memory series for three experiment:
+\begin{itemize}
+\item Step Response Test with \textsc{CTEvent} initial size fixed to 10 Triples and Final Size fixed to 100 triples
+\item SOAK Test Number 7, with \textsc{CTEvent} size fixed to 10 Triples
+\item SOAK Test Number 8, with \textsc{CTEvent} size fixed to 100 Triples
+\end{itemize}
+
+All these tests have a Number of Slot in the window of 10. In general, DSMS does not allow to change the window dimension during the execution, thus experiment like Step Response ones, must be design to control other variables, in this case the \textit{CTEvent} size.
+
+Notice that, Figure \ref{fig:level3-step}.a reports the latency time series for the Baseline TI, while \ref{fig:level3-step}.b present the Memory Usage for the Baseline GI. We selected the two most expressive graphs, in order to show the following insight.
+
+The Figures \ref{fig:level3-step} (a) and (b) answer two standard questions of Step Response Test, which contextualised in SR context are (Q.1) There is a initial transitory phase also for a sudden changes in the RDF Stream dimension, an thus in the window dimension? (Q.2) Does the system reaches a Steady State condition after a sudden changes in the RDF Stream dimension, an thus in the window dimension?
+
+An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a where is possible to see that after the step, the there is no transitory phase for the RSP Engine latency. A similar behaviour is observable for memory in Figure \ref{fig:level3-step}.b. Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However we can state that Java has already started its optimisation policies, which have limited the memory oscillations to a small intervals before what happens for SOAK Testing. The experience we matured during the SOAK Test evaluation allows to say that once the JVM has stared the optimization over stable RDF Stream, it only depends on the experiment duration.
 
 
+\begin{figure}[tbh]
+  \centering
+  \subfigure[TI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
+	\includegraphics[width=\linewidth]{images/step_lat_incremental_triple_soak_init_7soak_final_8step_101}
+	}
+\subfigure[GI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
+	\includegraphics[width=\linewidth]{images/step_mema_incremental_graph_soak_init_7soak_final_8step_101}
+	}
+	\caption{Comparison of filling phenomena between latency and memory} 
+  	\label{fig:level3-step}
+\end{figure}
