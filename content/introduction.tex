@@ -1,8 +1,8 @@
-Stream Reasoning (SR) is a multidisciplinary research field that supports methods and tools which allow to answer complex queries like "What are the top five trend topics, under discussion on Twitter, and who is driving the discussions in Dayton?" or "How a certain event in Milan influences the user activity on Instagram?". The application domains of SR are not limited to social media analytics only. Semantic interpretation of sensor data, traffic monitoring and stream data integration are all possible use cases for SR \cite{DBLP:journals/expert/ValleCHF09}.
+Stream Reasoning (SR) is a multidisciplinary research field. It is focused on develop and support methods and tools to answer complex queries like "What are the top five trend topics, under discussion on Twitter, and who is driving the discussions in Dayton?" or "How a certain event in Milan influences the user activity on Instagram?". The application domains of SR are not limited to social media analytics only. Semantic interpretation of sensor data, traffic monitoring and stream data integration are all possible use cases for SR \cite{DBLP:journals/expert/ValleCHF09}.
 
-Stream Reasoning research has the aim to integrate data streams, the Semantic Web, and reasoning systems, to answer such a query. It has already posed theoretical formalisations that go beyond DSMS, CEP  \cite{DBLP:conf/debs/KomazecCF12, Lephuoc2011, 4618773} and it has defined good basis to semantically handle Data Stream encoded in RDF \cite{DBLP:conf/fis/ValleCBBC08, DBLP:journals/sigmod/BarbieriBCVG10}. Despite Stream Reasoning application domains are heterogeneous and wide, recent works has demonstrate that reasoning upon rapidly changing information is possible. Successful application of SR techniques were applied for sensor data stream integration \cite{DBLP:journals/ijswis/CalbimonteJCA12,DBLP:journals/ws/LecueTHTBST14}  and Social Media Analytics \cite{DBLP:journals/ws/BalduiniCDVHLKT12}
+Stream Reasoning research has the aim to integrate data streams, the Semantic Web and reasoning systems to answer such queries. It has already posed theoretical formalisations that go beyond DSMS, CEP  \cite{DBLP:conf/debs/KomazecCF12, Lephuoc2011, 4618773} and it has defined good basis to semantically handle Data Stream encoded in RDF \cite{DBLP:conf/fis/ValleCBBC08, DBLP:journals/sigmod/BarbieriBCVG10}. Despite Stream Reasoning application domains are heterogeneous and wide, recent works has demonstrate that reasoning upon rapidly changing information is possible. Successful application of SR techniques were applied for sensor data stream integration \cite{DBLP:journals/ijswis/CalbimonteJCA12,DBLP:journals/ws/LecueTHTBST14}  and Social Media Analytics \cite{DBLP:journals/ws/BalduiniCDVHLKT12}
 
-Thus, SR community\footnote{\url{http://www.w3.org/community/rsp/}} is working to the formalisation of SR methods and tools. The number of implemented solutions is rising and consequently the needs of method to empirically investigate the processing system and evaluation framework to compare the investigations.
+Thus, SR community\footnote{\url{http://www.w3.org/community/rsp/}} is working to the formalisation of those methods and tools. The number of implemented solutions is rising and consequently the needs of standards, but also of empirically investigations of the processing system and evaluation frameworks to compare the results.
 
 
 \section{Related Works \& Motivations}\label{sec:motivations-intro}
@@ -11,9 +11,9 @@ Stream Reasoning over RDF-Encoded information flows (formally, RDF Streams) has 
 
 RDF Stream standardization was developed in early works \cite{DBLP:journals/expert/ValleCHF09, Lephuoc2011} and recently extended \cite{DBLP:conf/semweb/BalduiniVDTPC13}. Continuous extensions of SPARQL, like C-SPARQL, are mature and their development is proceeding \cite{Barbieri2010}. Last but not least, many works in the field  \cite{Zhang2012,LePhuoc2012c}  try to provide benchmarks and frameworks in order to evaluate all the RSP Engine implementations proposed. 
 
-What it is still missing is a systematic comparison of RSP Engines under repeatable conditions. Computer Science lacks for methods and tool to empirically evaluated complex systems \cite{Perry:2000:ESS:336512.336586} and consequently the SR research suffers from the same lacuna. Comparative research is require for improving our research, which belong to an engineering epistemology as many works have pointed out \cite{Tichy:1995:EEC:209090.209093,Wainer:2009:EEC:1518331.1518552}
+What it is still missing is a systematic comparison of RSP Engines under repeatable conditions. Computer Science focused its research on model proposal and implementation, lacking for methods and tool to empirically evaluated such comple systems \cite{Perry:2000:ESS:336512.336586}. Consequently the SR research suffers from the same lacuna. A Comparative approach is required to improve our research, which belong to an engineering epistemology as many works have pointed out \cite{Tichy:1995:EEC:209090.209093,Wainer:2009:EEC:1518331.1518552}
 
-Actually RDF streams, continuous queries, and performance measurements for benchmarking RSP Engines were proposed \cite{LePhuoc2012c,Zhang2012}, criticised \cite{DBLP:conf/esws/ScharrenbachUMVB13}, and further developed \cite{DBLP:conf/semweb/DellAglioCBCV13}. However the community still lacks an infrastructure for rigorous comparative research, which provides repeatability and reproducibility of typical of experiments.
+Actually RDF streams, continuous queries, and performance measurements for benchmarking RSP Engines were proposed \cite{LePhuoc2012c,Zhang2012, DBLP:conf/semweb/DellAglioCBCV13}. However the community still lacks an infrastructure for rigorous comparative research, which provides repeatability and reproducibility of typical of experiments.
 
 %\section{ Limitations}\label{sec:related-works-intro}
 
@@ -21,13 +21,13 @@ Actually RDF streams, continuous queries, and performance measurements for bench
 
 In Section \ref{sec:motivations-intro} we identifies the SR lacuna on RSP Engine evaluation. The number of the involved variables, together with the complex and multifaceted nature of RSP Engines, motivates the difficulties of conducting realistic evaluations, but it does not legitimate the lack. Typically, those research fields, where the subjects complexity is too high to be investigated with observable models, apply a Systematic Comparative Research Approach (SCRA). Known examples are provided by psychology and other social sciences.
 
-Moreover, other engineering areas give a central point to empirical evaluation. The aerospace engineering for example, enables experiments design, their systematic execution and automatic results comparison trough the usage of \textit{Engine Test Stand}. The tool allows an engine to be evaluated not only by an architectural viewpoint, but during the execution.
+Other engineering areas give a central point to empirical evaluation. The aerospace engineering for example, enables experiments design, their systematic execution and automatic results comparison trough the usage of \textit{Engine Test Stand}. The tool allows an engine to be evaluated not only by an architectural viewpoint, but during the execution.
 
 Existing queries, dataset and methods partially answer the problem of SR community to support SRCA on RSP Engines. It is possible to evaluate RSP Engine, but it is hard to make it systematically. Thus, we can formulate our research question, pointing out the problem: "\textit{Can an engine test stand, together with queries, datasets and methods, support SCRA for Stream Reasoning?}".
 
 \section{Heaven}\label{sec:heaven-intro}
 
-This thesis work tries to answer the research question posed in Section \ref{sec:research-question-intro} describing the development of \name -- a proposal for an engine test stand,  whose aim is enabling rigorous comparative research of RSP engines. 
+This thesis work tries to answer the research question posed in Section \ref{sec:research-question-intro}, It contains the description of \name -- a proposal for an engine test stand,  whose aim is enabling rigorous comparative research of RSP engines. 
 
 \name is a modular and extendible software environment for automated testing of RSP Engines. 
 
@@ -39,7 +39,7 @@ Last but not least, \name also includes four \textbf{baseline} implementations o
 
 Finally, this thesis work contains an evidence of \name potential. We include the illustration of how to run a set of experiments to compare the four baseline we implemented. Moreover, we adapt LUBM data to a streaming scenario trough a specific implementation of the \textsc{Streamer}. The insights we gathered from those experiments demonstrate how \name can lead empirical evaluation of RSP Engines, enabling SCRA for the Stream Reasoning research field.
 
-The entire \name (i.e., the test stand, the LUBM streamer, the four baselines and the analyser) are released open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} with the intention to foster comparative research on RSP Engines.
+The entire \name (i.e., the test stand, the LUBM streamer, the four baselines and the analyser) are released open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} with the intention to foster comparative research of RSP Engines.
 
 \section{Outline of this Thesis}\label{sec:thesis-structure-intro}
 
@@ -48,7 +48,7 @@ This thesis is organized as follow:
 \begin{itemize}
 
 \item \textbf{Chapter \ref{chap:background}} contains an overview of the main research areas related to this thesis, like Semantic Web, Software Testing and Benchmarking. It also presents a background of the Stream Reasoning research field from the DSMS and CEP point view.
-\item \textbf{Chapter \ref{chap:problem-settings}} describes the motivations that inspired our work. It exposes our research question and the requirements \name must satisfy to successfully answer the question.
+\item \textbf{Chapter \ref{chap:problem-settings}} describes the motivations that inspired our work. It formulate our research question and the requirements \name must satisfy to successfully answer the question.
 \item \textbf{Chapter \ref{chap:heaven}} introduces \name design. It describes the \textit{Test Stand} and \textit{The Baselines} from an software engineering point of view, while the \textit{Analyser} description follows a methodological approach.
 \item \textbf{Chapter \ref{chap:implementation-experience}} contains the details of \name implementation. How we realised the Test Stand and its submodules and how the baselines where developed. Finally, the chapter describes which tools support the analysis methods of the Analyser and how.
 \item \textbf{Chapter \ref{chap:evaluation}} describes firstly the experiment design process we followed. Then it provides the evaluation of \name Baselines as a proof of the Test Stand potential.

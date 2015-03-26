@@ -424,7 +424,9 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		\hline % inserts single-line
 		\end{tabular}
 	}
-	\caption{(a), (c) - latency results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models}
+	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
+	\underline{G}, \underline{T}, \underline{N}, \underline{I}.
+	(a), (c) - latency results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models. }
 	\label{tab:soak_latency_comparisons}	
 \end{table}
 
@@ -441,10 +443,10 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		in & \multicolumn{5}{c}{Number}  \\
 			Window  & 1 & 10 & 100& 1000&10000\\
 		\hline
-		1  	 & T\\
-		10   & G     &  	T  \\
+		1  	  & T\\
+		10    & G     &  	T  \\
 		100   & G     & 	T  & G\\
-		1000& G     & 	\underline{G}  & G & T\\
+		1000  & \underline{G}     & 	\underline{G}  & \underline{G} & \underline{T} \\
 		10000 &NA     & G  & G & G&G\\
 		\hline % inserts single-line
 	 \end{tabular}
@@ -459,7 +461,7 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		1    & N\\
 		10   & I   & N \\
 		100   & N & N & I\\
-		1000 & N & I & I & I\\
+		1000 & \underline{N} & \underline{I} & \underline{I} & \underline{I}\\
 		10000 & NA & I & I & I & I\\
 		\hline % inserts single-line
 		\end{tabular}
@@ -472,11 +474,11 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		in & \multicolumn{5}{c}{Number}  \\
 			Window  & 1 & 10 & 100& 1000&10000\\
 		\hline
-		1  	 & G\\
-		10   & G&  	T \\
+		1  	  & G\\
+		10    & G  &  	T \\
 		100   & G  & 	G  & T\\
-		1000 & G& 	G & G & T\\
-		10000 &  NA    & 	G  & 	G & T&T\\
+		1000  & \underline{G}  & 	\underline{G}  & \underline{G} & \underline{T}\\
+		10000 & NA & 	G  & G & T &T\\
 		\hline % inserts single-line
 	 	\end{tabular}
 	}
@@ -487,15 +489,17 @@ Further statistical analysis a surely meaningful. Maximum and minimum comparison
 		in & \multicolumn{5}{c}{Number}  \\
 		Window  & 1 & 10 & 100& 1000&10000\\
 		\hline
-		1    & N\\
-		10   & N   & N \\
-		100& $\simeq$   & N & I \\
-		1000& $\simeq$  & I & I & I \\
-		100000  & NA & N & I & I & I \\
+		1       & N\\
+		10      & N        & N \\
+		100     & $\simeq$ & N & I \\
+		1000    & \underline{$\simeq$} & \underline{I} & \underline{I} & \underline{I} \\
+		100000  & NA       & N & I & I & I \\
 		\hline % inserts single-line
 		\end{tabular}
 	}	
-	\caption{(a), (c) - memory results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models}
+	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
+	\underline{G}, \underline{T}, \underline{N}, \underline{I}. 
+	(a), (c) - memory results comparison between Incremental and Naive approaches; (b), (d) - results comparison between Graph-based and Triple-based models, When the symbol has a }
 	\label{tab:soak_memory_comparisons}	
 \end{table}
 
