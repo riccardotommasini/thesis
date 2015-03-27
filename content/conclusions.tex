@@ -1,12 +1,10 @@
-This thesis work we presented \name -- an open source framework for empirical evaluation of RSP Engines. \name contains a Test Stand, four baselines, and an Analyser to enable the Systematic Comparative Approach in the Stream Reasoning research field
+This thesis work we presented \name -- an open source framework for empirical evaluation of RSP Engines. \name contains a \textsc{Test Stand}, four Baselines, and an \textsc{Analyser} to enable the Systematic Comparative Approach in the Stream Reasoning research field
 
-In Chapter \ref{chap:problem-settings} we present the motivation behind this work. In Chapter \ref{chap:heaven} we describe \name design and in Chapter \ref{chap:implementation-experience} we details the implementation of the Test Stand, the baselines and the investigation methods which compose the Analyser.
+In Chapter \ref{chap:problem-settings} we present the motivation behind this work. In Chapter \ref{chap:heaven} we describe \name design and in Chapter \ref{chap:implementation-experience} we details the implementation of the \textsc{Test Stand}, the baselines and the investigation methods which compose the \textsc{Analyser}.
 
 Finally, we provide an proof of \name potential, comparing the four baseline implementations of RSP engines with two experimental sets. The results presented in this section actually  go beyond the verification of simple hypothesis formulated on the knowledge of the RSP Engine model. We learn that, even when RSP engine is extremely simple (e.g., the baselines), it is hard to formulate  hypothesis about its behaviour and thus empirical evaluation are required. This emphasises the importance to be able to conduct comparative research based on controlled experimental conditions and, thus, the need for a open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} framework like \namens.
 
-The focus on the experimental infrastructure is the main difference between \name and previous work. While SRbench and LSbench focus on RDF streams and a suite of continuous SPARQL query, \name focus on the possibility to compare RSP engines based on any RDF stream, ontology, continuous query and entailment regime. It even enables to run experiments connecting to live data streams as those used in \cite{DBLP:conf/semweb/BalduiniVDTPC13}.
-
-
+The focus on the experimental infrastructure is the main difference between \name and previous work. While SRbench and LSbench focus on RDF streams and a suite of continuous SPARQL query, \name focus on the possibility to compare RSP engines based on any RDF stream, ontology, continuous query and entailment regime. It even enables to run experiments connecting to live data streams as those used in \cite{DBLP:conf/semweb/BalduiniVDTPC13}.	
 
 \section{Research Question}
 
@@ -14,11 +12,52 @@ Stream Processing research field is growing and the number of techniques to sema
 
 ”Can an engine test stand, together with queries, datasets and methods, support SCRA for Stream Reasoning?”
 
-
 \section{Results}
-\section{Limitations}
-\section{Future Works}
 
-Our future works can focus on the different parts of \name. Our main interest is benchmarking existing time-based sliding window RSP engines. To this end, we intend to extend the \textsc{Flow Rate Profiler} in order to generate: a random flow with a given distribution (e.g., gaussian and exponential), and a sine wave flow (to mimic the periodic changes in the flow rates observed on social media streams \cite{DBLP:conf/semweb/BalduiniVDTPC13}). We also intend to add the possibility to register one or more continuous queries into the baselines\footnote{In the current stage of development it is possible to configure the ontology and the entailment regime.}. Offering \name as a service is our long term goal. 
+\section{Limitations And Future Works}
 
-We are imagining  this as a Web-based environment where all existing RSP engines are already available and those, who want to run experiments, have just to configure them picking up one or more RDF streams, ontologies, and queries. A visual facility to compare different experiments and the publication of result experiments as linked data would complete this environment.
+During \name development we faced many issues related to the heterogeneous nature of RSP application domains. These concerns limit our work in different ways. They influence  \name development in term of both design and implementation. Moreover, our research of RSP Engines  is actually restricted to \name Baselines within an extremely controlled experimental setting.
+
+The limitations on \name design and its implementation must be faced improving its models and further developing the current implementation of the \textsc{Streamer}, \textsc{ResultCollector} and the \textsc{Test Stand External Structure}. The restrictions on the research of RSP Engine require to exploit \name \textsc{Test Stand} in order to pursue the analysis.
+
+Due to this necessities we can distinguish two kinds of possible extensions of \namens, thus our future works belong to:
+\begin{itemize}
+\item \textit{Research of RSP Engine} - it involves the empirical evaluation of RSP Engine and the comparison of benchmarking results, which are our main research interests. Thus, we plan to support our research trough \namens.
+\item Software Engineering and Development - it involves future works focuses on the different aspects of \name software, which is extendible by design.
+\end{itemize}
+
+\noindent We aim to extend the \textit{Research Work} creating a ready-to-use benchmarking suite built upon \namens, which allows to test any RSP Engine with a set of well defined experiments. Form preliminary studies we know that an essential set of experiment must at least cover the most important use cases trough the following test subsets:
+\begin{itemize}
+\item[1.] SOAK Test
+\item[2.] Stress Step Test
+\item[3.] Stress Sine Wave Test
+\item[4.] Random Distribution Test (e.g., gaussian and exponential)
+\end{itemize}
+All these options must include experiments  in the form $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$. The ready-to-use benchmarking suite should include \name Baselines as example of $\mathcal{E}$ and leaving to the user the possibility to execute those test on his own RSP Engine, and compare them with Baseline results.
+
+SOAK Test (1.) and Stress Step Test (2.) are already part of this thesis work in a restricted form, while the other ones are not implemented yet. 
+
+We develop (1.) and (2.) registering to our $\mathcal{E}$ as queries $\mathcal{Q}$ variations of the identity query, which a different sizes of window $\omega$, because in the current stage of development it is possible to configure only the ontology and the entailment regime of the Baselines. We intend to continue the development of the Baselines, adding the possibility to register one or more continuous queries into them and exploiting more complex entailment regime than $\rho$DF. 
+
+We have also to define which queries $\mathcal{Q}$ include in our experiment all experiment considering many works in the field \cite{DBLP:conf/esws/ScharrenbachUMVB13, Zhang2012, LePhuoc2012c, DBLP:conf/semweb/DellAglioCBCV13}
+
+The current experiment sets (1.) and (2.) exploit LUBM ontology as $\mathcal{T}$ and the RDF Stream $\mathcal{D}$ is generated trough a module, the \textsc{RDF2RDFStream}, which adapts LUBM data to a streaming scenario (See Chapter \ref{chap:implementation-experience}). In order to generate data for all the remaining tests set (3. and 4.) we have to extend the \textsc{RDF2RDFStream} to generate: a random flow with a given distribution (e.g., gaussian and exponential), and a sine wave flow (to mimic the periodic changes in the flow rates observed on social media streams \cite{DBLP:conf/semweb/BalduiniVDTPC13}).
+
+Independently from the experiment set, we indent to extend the metrics gathered by \name \textsc{Test Stand}. Quoting from \cite{DBLP:conf/esws/ScharrenbachUMVB13} the possible extensions are:
+\begin{itemize}
+\item Response time over all queries (Average/1thPercentile/Maximum).
+\item Maximum input throughput in terms of number of data element in the input stream consumed by the system per time unit.
+\item Minimum time to accuracy and the minimum time to completion for all queries.
+\end{itemize}
+
+Moreover, an evaluation on the number of inferred triples w.r.t the window content at time $t$ is meaningful. It allows to weight the engine performance results in relation to the input RDF Stream, helping to eliminate outliers.\\
+
+
+
+\noindent Future works on \textit{Software Engineering and Development} regard the \textsc{Analyser}, besides the developments required by   further works on \textit{Research of RSP Engines}.  We aim to develop a complete automated analysis procedure, which involves at least the current measurement set and allows to extend it trough simple APIs. 
+
+
+As a long term goal, we intend to standardise and publish the entire tool-set which supports analysis methods presented in Chapter \ref{chap:heaven}. We are imagining the \textsc{Analyser} as a Web-based environment where all existing RSP engines are already available and those, who want to run experiments, have just to configure them picking up one or more RDF streams, ontologies, and queries. A visual facility to compare different experiments and the publication of result experiments as linked data would complete this environment. \\
+
+
+\noindent Finally, by evaluating the Baselines to prove \name potential we identified an intrinsic scientific value of this analysis. We would like to provide an other contribution continuing the Baselines investigation after the development proposed above. In order to study the problem of responsiveness we have to add four alternative implementation of the Baselines, which do not exploit the external time control. The Baselines should be evaluated by (1. 2. 3. and 4.) but also over real data and a $\mathcal{T}$ different from LUBM, for example exploiting LS Bench queries and data to design an experiment set. 
