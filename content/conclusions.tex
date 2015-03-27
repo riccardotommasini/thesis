@@ -14,6 +14,23 @@ Stream Processing research field is growing and the number of techniques to sema
 
 \section{Results}
 
+%esperiment, reproducibility, repetability and comparability to enable the SRCA by a test stand
+%simple terms of comparison to support the comparative research: SERE properties
+%test stand design and implmentation fulfill the requirements posed
+%Analyser consist in the definition of an analysis stack which extend% the traditonal top-down investiagtion based on hypothesis formulated on the model, trough empirical findings ad different level of analysis.
+%We prove the value of the empirical resarch heaven test stand enables by evaluating the baselines
+%we see that even for simple system like the baselines, which model is known, upredictable results may rise
+%now it is possible to improve existing RSP engine model trough finding provide by the different analysi levels of the stack
+
+The test stand facility allows the user to design the engine evaluation, the experiment, and to collect the results of the experiment execution. In Chapter \ref{chap:problem-settings} we exploit the traditional experiment definition to grant the rigorous and systematic test of an RSP Engine. Moreover, experiment properties reproducibility, repeatability and comparability allow us to formulate the requirements a Test Stand for RSP Engine must fulfil in order to answer our research question. SCRA, due to is case-oriented nature, demands simple terms of comparison, namely baselines, to exploit for initial evaluation example.  Again in Chapter \ref{chap:problem-settings} we detail which properties a baselines must have and we formulate them as  requirements for our work.
+
+In Chapter \ref{chap:heaven} we describe \name design for the \textsc{Test Stand} and the Baselines, and how they should be designed to fulfil the requirements we posed. We introduce also the idea of the \textsc{Analyser} as an investigation stack, which extends the research of RSP Engine from the traditional hypothesis based approach to the empirical and comparative one. The higher levels of the investigation stack provide a statistical evaluation of experiment results, while the lower levels offer an overview of the engine behaviour over all the experiment execution (further details of \name implementation and \textsc{Analyser} investigation stack can be found in Chapter \ref{chap:implementation-experience}).
+
+Our research question ask to demonstrate if a \textsc{Test Stand} for RSP Engine can support the SCRA for Stream Reasoning. In Chapter \ref{chap:evaluation} we show how the traditional top-down analysis it is not enough for evaluating complex systems like RSP Engines, even in case of naive implementations. Our evaluation exploits an experimental set composed by SOAK Tests and Step Response Stress Tests, executed on four Baselines implementations we included in \name framework. The results of the analysis shows how the traditional hypothesis based research, which is based on the RSP Engine model knowledge, is still meaningful, but it can be improved trough an infrastructure like \name \textsc{Test Stand}. It is hard to demonstrate even naive hypothesis, because we required further knowledge of the RSP Engine dynamics, which can be obtained only trough SCRA.\\
+
+ \name allows to drill down the analysis over an investigation stacks which covers all the aspects of the dynamic system performance analysis. Previous works have defined how to evaluate RSP Engine systems \cite{DBLP:conf/esws/ScharrenbachUMVB13} and many attempts has been proposed \cite{Zhang2012, LePhuoc2012c, DBLP:conf/semweb/DellAglioCBCV13}. Thus, we can positively answer   our research question, stating that \name sustains SCRA and extends the traditional top-down analysis. It is possible trough \name to improve existing theoretical models trough empirical findings that were not easily available before.
+
+
 \section{Limitations And Future Works}
 
 During \name development we faced many issues related to the heterogeneous nature of RSP application domains. These concerns limit our work in different ways. They influence  \name development in term of both design and implementation. Moreover, our research of RSP Engines  is actually restricted to \name Baselines within an extremely controlled experimental setting.
