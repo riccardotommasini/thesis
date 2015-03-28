@@ -1,0 +1,137 @@
+\begin{table}[htbp]
+	\centering
+	\scriptsize
+	\subtable[Incremental]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+		Window  & 1 & 10 & 100 & 1000&10000\\
+		\hline
+		1	   &G	\\			
+		10	   &G	&$\simeq$	\\		
+		100	   &G	&$\simeq$   &	$\simeq$\\	
+		1000   &	G	&$\simeq$	&$\simeq$&$\simeq$\\
+		10000  &NA	&T	&S&	T	&T\\
+		\hline % inserts single-line
+	 \end{tabular}
+	}
+	\subtable[Triple]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+		Window  & 1 & 10 & 100 & 1000&10000\\
+		\hline
+		1	&I	\\			
+		10	&I	&I	\\		
+		100	&N	&I&	I	\\	
+		1000&	N&	I	&I	&I\\	
+		10000&	NA	&I	&I	&I	&I\\
+		\hline % inserts single-line
+		\end{tabular}
+	}	
+	\subtable[Naive]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+		Window  & 1 & 10 & 100 & 1000 &10000\\
+		\hline
+		1	 &$\simeq$\\				
+		10	 &$\simeq$&$\simeq$	\\		
+		100	 &G	      &$\simeq$&	T\\		
+		1000	 &G	      &$\simeq$	&T	&T	\\
+		10000&NA	      &$\simeq$	& 	$\simeq$	&T	&T\\
+		\hline % inserts single-line
+	 	\end{tabular}
+	}
+	\subtable[Graph]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+		Window  & 1 & 10 & 100 & 1000 &1000\\
+		\hline			
+		1	&I	\\			
+		10	&I	&I		\\	
+		100	& $\simeq$	&I	&I		\\
+		1000 &	N	&I	&I	&I	\\
+		10000&	NA	&I	&I	&I	&I\\
+		\hline % inserts single-line
+		\end{tabular}
+	}
+	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
+	\underline{G}, \underline{T}, \underline{N}, \underline{I}.
+	(a), (c) - latency results comparison between Incremental and Naive approaches; (b), (d) - latency results comparison between Graph-based and Triple-based models. }
+	\label{tab:soak_latency_comparisons}	
+\end{table}
+\begin{table}[htbp]
+	\centering
+	\scriptsize
+	\subtable[Incremental]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+			Window  & 1 & 10 & 100& 1000&10000\\
+		\hline
+		1  	  & T\\
+		10    & G     &  	T  \\
+		100   & G     & 	T  & G\\
+		1000  & \underline{G}     & 	\underline{G}  & \underline{G} & \underline{T} \\
+		10000 &NA     & G  & G & G&G\\
+		\hline % inserts single-line
+	 \end{tabular}
+	}
+	\subtable[Triple]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+			Window  & 1 & 10 & 100& 1000&10000\\
+		\hline
+		1    & N\\
+		10   & I   & N \\
+		100   & N & N & I\\
+		1000 & \underline{N} & \underline{I} & \underline{I} & \underline{I}\\
+		10000 & NA & I & I & I & I\\
+		\hline % inserts single-line
+		\end{tabular}
+	}	
+
+	\subtable[Naive]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+			Window  & 1 & 10 & 100& 1000&10000\\
+		\hline
+		1  	  & G\\
+		10    & G  &  	T \\
+		100   & G  & 	G  & T\\
+		1000  & \underline{G}  & 	\underline{G}  & \underline{G} & \underline{T}\\
+		10000 & NA & 	G  & G & T &T\\
+		\hline % inserts single-line
+	 	\end{tabular}
+	}
+	\subtable[Graph]{%
+		\begin{tabular}{l | ccccc} % creating eight columns
+	  	\hline
+		Triple  & \multicolumn{5}{c}{Slots}  \\
+		in & \multicolumn{5}{c}{Number}  \\
+		Window  & 1 & 10 & 100& 1000&10000\\
+		\hline
+		1       & N\\
+		10      & N        & N \\
+		100     & $\simeq$ & N & I \\
+		1000    & \underline{$\simeq$} & \underline{I} & \underline{I} & \underline{I} \\
+		100000  & NA       & N & I & I & I \\
+		\hline % inserts single-line
+		\end{tabular}
+	}	
+	\caption{The following convention indicates the baseline has not reached the Steady State Condition:
+	\underline{G}, \underline{T}, \underline{N}, \underline{I}. 
+	(a), (c) - memory results comparison between Incremental and Naive approaches; (b), (d) - memory results comparison between Graph-based and Triple-based models }
+	\label{tab:soak_memory_comparisons}	
+\end{table}
