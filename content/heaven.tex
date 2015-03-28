@@ -62,7 +62,7 @@ From an experimental point of view, which metrics we sample during the execution
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/er-db}
-	\caption{ER-Diagram For Experiment Output} 
+	\caption{ER-Diagram \name data} 
   	\label{fig:er}
 \end{figure}\\
 \noindent\textsc{Experiment}(\underline{ID}, Timestamp Start, Timestamp End, Engine, Ontology, Query, Dataset, Description)\\
@@ -120,10 +120,15 @@ Early works on SR \cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge
 \end{enumerate}
 
 \begin{figure}[tbh]
-  \centering
-	\includegraphics[width=\linewidth]{images/baselines-final}
-	\caption{A: the architecture of the Naive baselines. B: the one of  the Incremental ones.} 
-  	\label{fig:baselines}
+ \centering
+\subfigure[Baseline A: Naive]{
+	\includegraphics[width=\linewidth]{images/baseline-a}
+}
+\subfigure[Baseline B: Incremental]{
+	\includegraphics[width=\linewidth]{images/baseline-b}
+}
+	\caption{The Architecture of \name Baselines: Naive (A) and Incremental (B) Reasoning Approach}
+	\label{fig:baselines}
 \end{figure}
 
 \noindent RSP Engine are those systems that can apply reasoning techniques upon rapidly changing information encoded in RDF (RDF Stream) and allow to continuous querying on the data stream (Section \ref{sec:rspengine}). It possible to develop RSP Engine following the approach described above, which actually requires to develop the integration of two existing technologies, DSMS and reasoner, and to define how they can communicate. Following we describe how this design model fulfil the requirements we posed in Section \ref{sec:requirements}.
@@ -178,7 +183,7 @@ In the next subsection we provided further details on the \textit{Steady State I
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.5\linewidth]{images/steady-state}
-	\caption{Time Series temporal domain} 	
+	\caption{Time Series Behaviour Example in Temporal Domain} 	
   	\label{fig:steady-state}
 \end{figure}
 
@@ -205,7 +210,7 @@ Dashboards are the highest level of analysis offered by \name for \textit{Inter-
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=0.5\linewidth]{images/radar}
+	\includegraphics[width=0.5\linewidth]{images/radar-plot}
 	\caption{Dashboard Example - Radar Plot} 	
   	\label{fig:radar}
 \end{figure}
@@ -238,7 +243,7 @@ The Level 3 is the bottom level of the investigation stack. It focuses on a sing
 \begin{figure}[htb]
   \centering
 	\includegraphics[width=\linewidth]{images/analysis-method}
-	\caption{Analysis method stack. The level of analysis grows from the top to the bottom} 
+	\caption{\textsc{Analyser} Investigation Stack}
   	\label{fig:analysis-method}
 \end{figure}
 
