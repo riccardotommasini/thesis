@@ -13,12 +13,16 @@ Thus, a module is an \textit{Event Processor} which can be positioned everywhere
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/fsm-schema}
-	\caption{Module Finite State Machine Automata} 
+	\caption[\textit{EventProcessor} States Diagram]{The finite state machine diagram of the \textit{EventProcessor} interface module}
   	\label{fig:module-fsm}
 \end{figure}
 
 The requirement [R.4] states the \textsc{Test Stand} \textit{must not be running when the RSP Engine is under execution} (see Section \ref{sec:requirements}) conditioning \name workflow. To cover [R.4] we designed the status of each module  as a Finite State Machine (FSM), which can work only in those states that allow processing (READY). The schema in Figure \ref{fig:module-fsm} represents the FSM for each module of \name, even the Baselines, and also for the \textsc{Test Stand} external structure. 
-A modules moves from CLOSED state to READY with a standard initialisation method. We state that each module is an \textit{EventProcessor} and the \textit{ process (Event e)} brings the module into RUNNING state until the processing ends, and then back to READY. One and only one module can be in the RUNNING state in a certain moment during the execution. This behaviour is exploited by the \textsc{Test Stand} external structure to control execution fulfilling [R.4] by stopping its process while the RSPEngine is running (see Section \ref{sec:teststand}). ERROR State, which can be reached from any point of the execution, prevents the propagation of errors over result data: when a module fails the execution is stopped without saving the erroneous data (last event) and reporting the error to the user.
+
+
+The \textit{Startable} Interface standardize two methods, \textit{init()} and \textit{close() }which allow to control the behaviour of the Module at the start and the end of the execution. The interface allows to move from the CLOSED state to the READY trough the \textit{init()} method, it moves from the READY to the CLOSED trough the \textit{close()} method. 
+
+We state that each module is an \textit{EventProcessor}, which also implements the \textit{Startable} Interface. THe \textit{process (Event e)} brings the module into the RUNNING state until the processing ends, and then back to the READY one. One and only one module can be in the RUNNING state in a certain moment during the execution. This behaviour is exploited by the \textsc{Test Stand} external structure to control execution fulfilling [R.4] by stopping its process while the RSP Engine is running (see Section \ref{sec:teststand}). ERROR State, which can be reached from any point of the execution, prevents the propagation of errors over result data: when a module fails the execution is stopped without saving the erroneous data (last event) and reporting the error to the user.
 
 \section{Events and Data}\label{sec:data-impl}
 
@@ -27,156 +31,65 @@ Chapter \ref{chap:problem-settings} poses the requirements of an Event-based arc
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_events}
-	\caption{UML Schema for all the events involved in the system} 
-  	\label{fig:uml_events}
+	\caption[UML Schema: \name Execution Events]{The figure shows the event that \name \textsc{Test Stand} and its modules 	exchanges during the execution of an experiment. All of them implement the \textit{Event} interfaces that start the class 	hierarchy.} 
+	\label{fig:uml_events}
 \end{figure}
 
 \begin{itemize}
-\item \textit{Experiment} - it represents the tuple $<\mathcal{E}, \mathcal{D},\mathcal{T},\mathcal{Q}>$ and all the experiment metadata like start time or end time.
-\item \textit{CTEvent and OutCTEvent} - they contains a set of triples which has the same timestamp. The \textit{OutCTEvent} represents the event produced by the RSPEngine after processing the active window. Figure \ref{fig:uml_events} show the inheritance relation between \textit{CTEvent} and \textit{OutCTEvent}
-\item \textit{TSResult} - it wraps the \textit{OutCTEvent} adding the information about the minimal sensor data: memory and latency and complete and soundness if it evaluated at runtime (see Section \ref{sec:requirements})
+\item \textit{Experiment} - it represents the tuple $<\mathcal{E}, \mathcal{D},\mathcal{T},\mathcal{Q}>$, indicating which RSP Engine will be tested and with which queries, data and ontology will be used. It indicates if the current implementation of the engine exploit external timing. Finally the $type$ parameter indicates which kind of testing will be applied (SOAK o Stress for example) and it contains also the execution start time or end time.
+\item \textit{CTEvent} - it contains a set of contemporary triples, wrapped in the \textit{TripleContainer}, which allows us to redefined hashcode and equals as a relation of the subject, object and predicate of the RDF triple. The id identifies the event within the experiment.
+\item \textit{OutCTEvent} - it represents the event produced by the RSPEngine after processing the active window. Figure \ref{fig:uml_events} show the inheritance relation between \textit{CTEvent}:  \textit{OutCTEvent} extends the \textit{CTEvent} adding the outputTimestamp field.
+\item \textit{TSResult} - it wraps the \textit{OutCTEvent} adding the information about the minimal sensor data: memory, sampled ante e post processing, and latency. Two boolean fields allow complete and soundness result, if it is evaluated at runtime (see Section \ref{sec:requirements})
 \end{itemize}
 
-\name requires an initialization phase to prepare the \textit{Experiment} and provide it to the \textsc{Test Stand}. The current implementation exploits a property file with the Experiment parameters: ID and the tuple $<\mathcal{E}, \mathcal{D},\mathcal{T},\mathcal{Q}>$. 
+\name requires an initialization phase to prepare and input the \textit{Experiment} into the \textsc{Test Stand}. The current implementation exploits a property file with the Experiment parameters: ID and the tuple $<\mathcal{E}, \mathcal{D},\mathcal{T},\mathcal{Q}>$. 
 
 The \textit{CTEvent} and the \textit{OutCTEvent} contain RDF triples in NT-Triple\footnote{http://www.w3.org/2001/sw/RDFCore/ntriples/}, which is the easiest RDF serialisation to parse. This serialisation was chosen to fulfil requirement [R.12], which demands an \textit{Easy-to-Parse RDF Serialisation for the events presented to the RSP Engine in exam}. Figure \ref{fig:uml_events} shows also that the RDF Triples are stored in the events into the \textit{TripleContainer} wrapper: we redefine the triple hashcode and equals method guaranteeing their uniqueness of within an \textit{CTEvent} or \textit{OutCTEvent}.
 
 \section{Modules}\label{sec:modules-impl}
 
-In Section \ref{sec:impl-intro} we define a module a an \textit{Event Processor} which can be positioned everywhere in the the \textsc{Test Stand} pipeline. Moreover, we introduce the FSM schema which describe a module lifecycle in \ref{fig:module-fsm}. We state that each module must be initialized to reach the READY state where the processing is allowed. 
+In this section we present the three modules which compose \name: the \textsc{Streamer},  the \textsc{ResultCollector} and the  \textsc{Test Stand Supporting Structure}. They all extend the \textit{EventProcessor} and the \textit{Startable} interfaces.
 
-The \textit{Startable} Interface standardize two methods, init() and close() which allow to control the behaviour of the Module at the start and the end of the execution. Notice that the ERROR state translate an exceptional behaviour which has to be handled exceptionally by each module, according with its internal mechanisms. 
-
-In this section we present the three modules which compose \name: the \textsc{Streamer},  the \textsc{ResultCollector} and the  \textsc{Test Stand Supporting Structure}. They all extend the \textit{EventProcessor} concept and the \textit{Startable} interface, offering three standard method to interact with them: \textit{process(Event e)} from \textit{EventProcessor} and \textit{init()} and \textit{close()} from the \textit{Startable} Interface.
+In Section \ref{sec:impl-intro} we define a module a an \textit{Event Processor} which can be positioned everywhere in the the \textsc{Test Stand} pipeline. We state that a module must implements the \textit{Startable} interface, which completes the FSM schema in Figure \ref{fig:module-fsm} with the \textit{init()} and \textit{close()} methods.
+Thus, each modules in this section offers three standard methods to interact with them: \textit{process(Event e)} from \textit{EventProcessor} and \textit{init()} and \textit{close()} from the \textit{Startable} Interface.
 
 \subsection{Streamer}	\label{sec:streamer-impl}
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_tstreamer}
-	\caption{Streamer UML Schema with TSStreamer and Implementation example} 
+	\caption[UML Schema: \textit{RDF2RDFStream \textsc{Streamer} Implementation}]{Current implementation of the \textsc{Streamer} module. \textit{RDF2RDFStream} extends the \textit{TSStreamer} abstract class, which defines the module as an \textit{EventProcessor} of \textit{Experiment}s} 
   	\label{fig:uml_tstreamer}
 \end{figure}
 
-The head-module in the \textsc{Test Stand} pipeline is the on \textit{TSStreamer}, see Figure \ref{fig:uml_tstreamer}, which is the most general implementation of the \textsc{Streamer}. The \textit{TSStreamer} processes an \textit{Experiment}, received by an external initialisation class. It and communicates, once initialized, with one referenced \textit{EventProcessor}, called \textit{next}, which process \textit{CTEvent} and follows in the pipeline. The nature of the communication between the\textit{TSStreamer} and the following \textit{EventProcessor} can follow the user needs, and passing different events. Notice that also the \textit{next} must be initialised before starting the communication, otherwise the ERROR state will be reached when the event is received by the \textit{next}, because the processing is not allowed.
+\noindent Figure \ref{fig:uml_tstreamer} shows the current implementation of the \textit{Streamer} interface, which starts the \textsc{Test Stand} pipeline. Actually, the \textit{Streamer} is implemented as the \textit{TSStreamer} abstract class, which specialises the event processing to the class \textit{Experiment}. 
 
-Figure \ref{fig:uml_tstreamer} shows also the actual implementation, the \textit{RDF2RDFStream}, while in Figure \ref{fig:uml_flowrateprofiler} is presented its internal mechanism. 
-The \textit{RDF2RDFStream} was developed to conduct experiments as they are presented in Chapter \ref{chap:evaluation}.  It is worth to note that we use LUBM Benchmarks to generate the data for the experiments. LUBM generated data are static, thus the \textit{RDF2RDFStream} builds an RDFStream attaching to the static data produced by LUBM a timestamp. The file is generated using  LUBM(1000,0), which means 1000 different universities with the random generation seed 0. 
+The \textit{Experiment}s eveant that the \textit{TSStreamer} receives are instantiated externally. The module can start the processing only once it is initialised, then it communicates with one referenced \textit{EventProcessor}, called \textit{next}, which is represented in Figure \ref{fig:uml_tstreamer} by the labelled arrow. The \textit{next} process \textit{CTEvent}s. The nature of the communication between the\textit{TSStreamer} and the following \textit{EventProcessor} depends on the user needs. Notice that also the \textit{next} must be initialised before starting the communication, otherwise the ERROR state will be reached when the event is received by the \textit{next}, because the processing is not allowed.
+
+Figure \ref{fig:uml_tstreamer} contains also the \textit{RDF2RDFStream} implementation, whose internal structure can be seen in Figure \ref{fig:uml_flowrateprofiler}. The \textit{RDF2RDFStream} was developed to conduct experiments as they are presented in Chapter \ref{chap:evaluation}.  It is worth to note that we use LUBM Benchmarks to generate the data for the experiments. LUBM generated data are static, thus the \textit{RDF2RDFStream} builds an RDFStream attaching a timestamp to the static data produced by LUBM. %The file is generated using  LUBM(1000,0), which means 1000 different universities with the random generation seed 0. 
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/uml_flowrateprofiler}
-	\caption{RDF2RDFStream internal UML Schema} 
+	\caption[UML Schema: Internal Components of \textit{RDF2RDFStream}]{The components inside the \textit{RDF2RDFStream}, the \textit{Parser} allows to ready in memory RDF Triples while the \textit{FlowRateProfile} attaches to RDF triple a timestemp and it builds \textit{CTEvent}s according to a function $f=f(x)$} 
   	\label{fig:uml_flowrateprofiler}
 \end{figure}
 
 
-The \textit{Parser} component, in Figure \ref{fig:uml_flowrateprofiler} can be accessed statically by \name modules. It reads in memory one by one the triples in the file guaranteeing data independence [R.1] and it does not influence the memory footprint [R.5] by allocating only the memory necessary to parse a triple. 
+The \textit{Parser} component, in Figure \ref{fig:uml_flowrateprofiler} can be accessed statically. It reads in memory one by one the triples in the file guaranteeing data independence [R.1] and it does not influence the memory footprint [R.5] by allocating only the memory necessary to parse a triple. 
 
-Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and builds such an event. In this way, \textit{RDF2RDFStream} can generate different RDF streams $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
+Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and it builds such an event. In this way, \textit{RDF2RDFStream} can generate different RDF streams $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
 
-\begin{figure}[tbh]
-\centering
-\subfigure[Exponential Growing Size: $y=2^x$]{
-\begin{tikzpicture}
-  \begin{axis}[ 
-  width=0.4\linewidth,
-      height=0.4\textwidth,
-    xlabel=$CTEvent$,
-    ylabel={$CTEvent Size$},
-    xmin=0.00, xmax=40,
-	ymin=0, ymax=1048576
-  ] 
-    \addplot [
-    line width=0.75pt]
-    coordinates {
-    		(0.00, 1.00)
-		(1.00, 2.00)
-		(2.00, 4.00)
-		(3.00, 8.00)
-		(4.00, 16.00)
-		(5.00, 32.00)
-		(6.00, 64.00)
-		(7.00, 128.00)
-		(8.00, 256.00)
-		(9.00, 512.00)
-		(10.00, 1024.00)
-		(11.00, 2048.00)
-		(12.00, 4096.00)
-		(13.00, 8192.00)
-		(14.00, 16384.00)
-		(15.00, 32768.00)
-		(16.00, 65536.00)
-		(17.00, 131072.00)
-		(18.00, 262144.00)
-		(19.00, 524288.00)
-		(20.00, 1048576.00)
-		};	
-		
-	\end{axis}
-\normalsize
+\input{content/images/flow-rate-examples}
 
-\end{tikzpicture}
-}
-\subfigure[Step Growing Size with K1=100 and K2=1000 after 9 CTEvents]{
-\begin{tikzpicture}
-  \begin{axis}[ 
-  width=0.4\linewidth,
-      height=0.4\textwidth,
-    xlabel=$CTEvent$,
-    ylabel={$CTEvent Size$},
-    xmin=0.00, xmax=20,
-	ymin=0, ymax=1200
-  ] 
-    \addplot [
-    line width=0.75pt]
-    coordinates {
-    		(0.00, 100.00)
-		(1.00, 100.00)
-		(2.00, 100.00)
-		(3.00, 100.00)
-		(4.00, 100.00)
-		(5.00, 100.00)
-		(6.00, 100.00)
-		(7.00, 100.00)
-		(8.00, 100.00)
-		(9.00, 100.00)
-		(9.00, 1000.00)
-		(10.00, 1000.00)
-		(11.00, 1000.00)
-		(12.00, 1000.00)
-		(13.00, 1000.00)
-		(14.00, 1000.00)
-		(15.00, 1000.00)
-		(16.00, 1000.00)
-		(17.00, 1000.00)
-		(18.00, 1000.00)
-		(19.00, 1000.00)
-		(20.00, 1000.00)
-		};	
-		
-	\end{axis}
-\normalsize
+The \textit{FlowRateProfiler} creates CTEvent according to a function $y=f(x)$, in which $x$ is the number of the \textit{CTEvent} and it results that $y$ is the number of triple this \textit{CTEvent} will contain. For example if we decide to increase linearly the number of triples inside a \textit{CTEvent} the function $f$ will be: \[y=x, \text{ where } x,y \in N\]
+The first event (E0) will contain zero triple, E1 will contain only one triple following E4 will contain four triples and so forth. Another possibility is to increase exponentially the number of triples inside a \textit{CTEvent} : \[y=2^x, \text{ where } x,y \in N\]The first event (E0) will contain one triple, E1 will contain two triple following E3 will contain eight triples and so forth, Figure \ref{fig:frp-examples}.a shows the resulting behaviour plotting the triple number on y-axis and \textit{CTEvent} number on x-axis.
 
-\end{tikzpicture}
-}
-\caption{Example of CTEvent size growing by the FlowRateProfiler}
-\label{fig:frp-examples}
-\end{figure}
-
-
-The \textit{FlowRateProfiler} builds the triple according to a function $y=f(x)$, in which $x$ is the number of the \textit{CTEvent} and it results that $y$ is the number of triple this \textit{CTEvent} will contain. 
-
-Practically $f$ can be any function from N to N. For example if we decide to increase linearly the number of triples inside a \textit{CTEvent} the function $f$ will be: \[y=x, \text{ where } x,y \in N\]
-
-The first event (E0) will contain zero triple, E1 will contain only one triple following E4 will contain four triples and so forth. Another possibility is to increase exponentially the number of triples inside a \textit{CTEvent} : \[y=2^x, \text{ where } x,y \in N\] 
-The first event (E0) will contain one triple, E1 will contain two triple following E3 will contain eight triples and so forth, Figure \ref{fig:frp-examples}.a shows the resulting behaviour plotting the triple number on y-axis and \textit{CTEvent} number on x-axis
-
-We develop two \textit{FlowRateProfiler} for our experiment: 
+In the current stage of development we include four implementations of the \textit{FlowRateProfiler}, two of them are related to our experiments: 
 \begin{itemize}
-\item \textit{ConstantFlowRateProfiler}, which maintains the same number of triples for each events over all the experiment: \\
+\item \textit{ConstantFlowRateProfiler} - it maintains the same number of triples for each events over all the experiment: \\
 \[y=K, \text{ where } K \in N \]
 
-\item \textit{StepFlowRateProfiler}  which maintain a constant number of triple $K1$ inside a \textit{CTEvents} for $x$ events, specified in the set-up phase. When $x$ are created,  suddenly changes the number of triple $y$ form $K1$ to $K2$ where $K2 >> K1$. Figure \ref{fig:frp-examples}.b contains the resulting plot of implemented function which follows:
+\item \textit{StepFlowRateProfiler} - it maintains a constant number of triple $K1$ inside a \textit{CTEvents} for $x$ occurrences, then it suddenly changes the number of triple $y$ form $K1$ to $K2$ where $K2 >> K1$. The number of  \textit{CTEvents} $x$ is specified in the set-up phase of the component.  Figure \ref{fig:frp-examples}.b contains the resulting plot of implemented function which follows:
 
 \[
 y=
@@ -188,41 +101,42 @@ K2, &\text{if $x >= M$} $ where $ K2 >> K1, K2 \in N
 
 
 \end{itemize}
-Other implementations are available in \name right now, but are not used in the experiments:
+
+The remaining two  \textit{FlowRateProfiler} implementations in \name that are not related to our evaluation are:
 \begin{itemize}
-\item \textit{LinearStepFlowRateProfile}, which stream $x$ CTEvents of dimension $y$, in terms of triples, then linearly increase the number of a quantity $M$: \[y=x*M, \text{ where } x,y,M \in N\]
-\item \textit{ConstantRandomFlowRateProfiler}, which changes $y$ and $x$ according with two random generators directed by two seeds. \[y=random(seed), \text{ where } random(seed),y \in N\]
+\item \textit{LinearStepFlowRateProfile} - it streams $x$ \textsc{CTEvents} of dimension $y$, in terms of triples, then linearly increase the number of a quantity $M$: \[y=x*M, \text{ where } x,y,M \in N\]
+\item \textit{ConstantRandomFlowRateProfiler} - it changes $y$ and $x$ according with two random generators directed by two seeds. \[y=random(seed), \text{ where } random(seed),y \in N\]
 \end{itemize}
 
 
 \subsection{Result Collector} 
 
-\noindent The \textsc{ResultCollector} is the acquisition system that collects the query results and the measurements data gathered by the \textsc{Test Stand} during the execution of an experiment.
+\noindent The \textsc{ResultCollector} is the data acquisition system that receives and persist the query results and the measurements data gathered by the \textsc{Test Stand} during the execution of an experiment.
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=\linewidth]{images/uml_resultcollector}
-	\caption{ResultCollector UML Schema with events Experiment, TSResult and OutCTEvent} 
+	\includegraphics[width=0.5\linewidth]{images/uml_resultcollector}
+	\caption[UML Schema: \textsc{ResultCollector} Current Implementation]{The current implementation of the \textsc{ResultCollector} interface is the \textit{TSResultCollector} which processes events that implements the \textit{EventResult Interface}. \textit{ResultEvent} interface hides the saving procedure, delegating the implementation to the event provider trough    the \textit{save()} method. \textit{TSResultCollector} exposes also the method process(Event e, String where), which allows the caller to specify the destination. } 
   	\label{fig:uml_resultcollector}
 \end{figure}
 
-The UML Schema in Figure \ref{fig:uml_resultcollector} shows the implementation of the \textit{ResultCollector} interface, named \textit{TSResultCollector}, which is again an \textit{EventProcessor}. The \textit{TSResultCollector} stays at the end position in the pipeline which composes the \textsc{Test Stand}. It is responsible of saving data in a way that is independent from which data format, since requirement [R.7] demands to \textit{enable users extensions with new software sensors and specific measurements collection}.  The general saving procedure exploits the \textit{EventResult} interface, which exposes methods to delegate the implementation of such a procedure to the provider of the event, according to his needs. Figure \ref{fig:uml_resultcollector} shows the relation between the \textit{EventResult} interface and the \textit{TSResultCollector}, which calls the exposed methods \textit{save(location)} over all the events passed to it during the execution. 
+The UML Schema in Figure \ref{fig:uml_resultcollector} shows firstly that the \textit{ResultCollector} interface is again an extension of the \textit{EventProcessor} and the \textit{Startable} ones. The current implementation is the \textit{TSResultCollector}, which stays at the end position in the \textsc{Test Stand} pipeline. The \textit{ResultCollector} is responsible of saving data in a way that is independent from which data format, since requirement [R.7] demands to \textit{enable users extensions with new software sensors and specific measurements collection}. The \textit{TSResultCollector} applies a general saving procedure exploiting the \textit{EventResult} interface, which exposes the \textit{save(String where)} method to delegate the implementation of such a procedure to the provider of the event. Figure \ref{fig:uml_resultcollector} shows the relation between the \textit{EventResult} interface and the \textit{TSResultCollector}, which specialises the processing method to \textit{process(EventResult} and it known the general destination of the data, but it also exposes a secondary one \textit{process(EventResult, String where)}, which allows the caller to specify the saving path.
 
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_resultcollector_events}
-	\caption{ResultCollector events  UML Schema: Experiment, TSResult and OutCTEvent} 
+	\caption[UML Schema: \textsc{ResultCollector} Events]{ All the \textit{Experiment}, the \textit{TSResult} and the \textit{OutCTEvent} implements the \textit{EventResult} interface in order to hides specific saving procedure behind the \textit{save(String where)} method. The saving procedures exploits two service classes the \textit{FileService} and the \textit{SQLLIsteService}, which avoid concurrent access to the saving procedure with static methods.} 
   	\label{fig:uml_resultcollector_events}
 \end{figure}
 
-Moreover, Figure \ref{fig:uml_resultcollector_events}, shows how different events in the system exploit the \textit{EventResult} interface. In the current implementation the \textit{TSResultCollector} handles two kinds of event:
+Figure \ref{fig:uml_resultcollector_events}, shows how different events in the system exploit the \textit{EventResult} interface. In the current implementation the \textit{TSResultCollector} handles two kinds of event:
 \begin{itemize}
-\item \textit{TSResult} - it saves the data of the query results into a TriG\footnote{http://www.w3.org/TR/trig/} file where the graph name is the event id inside the experiment, while it save the sensor data with event id into a CSV\footnote{$http://en.wikipedia.org/wiki/Comma-separated_values$} file. 
-\item \textit{Experiment}. It saves the experiment metadata and the tuple \\ $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ collapsed into a generic description field into SQLite\footnote{https://sqlite.org/} database.
+\item \textit{TSResult} - it saves the data of the query results into a TriG\footnote{http://www.w3.org/TR/trig/} file where the graph name is the event id inside the experiment, while it saves the measurements data into a CSV\footnote{$http://en.wikipedia.org/wiki/Comma-separated_values$} file that represent the time series w.r.t events id. 
+\item \textit{Experiment} - it saves the experiment metadata and the tuple \\ $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ collapsed into a generic description field into SQLite\footnote{https://sqlite.org/} database.
 \end{itemize} 
 
-The two saving procedure exploits service classes, the \textit{SQLLIsteService} and the \textit{FileService} in Figure \ref{fig:uml_resultcollector_events}, which exposes static methods to interact with the file-system. The goal is  reducing system complexity offering a single point to interact with the file-system, which usually is a slow operation, to avoid parallel interactions that may influence the experiment. 
+Both the saving procedure exploit a service class, respectively the \textit{FileService} and the \textit{SQLLIsteService}. In Figure \ref{fig:uml_resultcollector_events} are describe those services, which exposes static methods to interact with the file-system. The goal is reducing system complexity offering a single point of interaction with the file-system. In this way is possible  to avoid parallel interactions that may influence the experiment. 
 
 
 \subsection{Test Stand Supporting Structure}\label{sec:teststand-impl}
@@ -230,25 +144,24 @@ The two saving procedure exploits service classes, the \textit{SQLLIsteService} 
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=\linewidth]{images/uml_teststand}
-	\caption{UML Schema the TestStand} 
+	\includegraphics[width=0.5\linewidth]{images/uml_teststand}
+	\caption[UML Schema: \name \textsc{TestStand}]{The \textsc{TestStand} abstract class implements both the \textit{EventProcessor} and the \textit{Startable} interfaces, but defines only the methods \textit{init()} and \textit{close()}  and it adds the \textit{run(Experiment e)} method, which encapsulate the execution logic. The \textit{process(CTEvent e)} method is implemented by \textit{TestStandImpl} which represents the \textit{Test Stand External Structure}. It orchestrates the communication between other modules and gather the data.}
   	\label{fig:uml_teststand}
 \end{figure}
 
 
-\name \textsc{Test Stand} was defined as set of modules which interact exchanging events during the execution. However, Chapter \ref{chap:heaven} describes at the design level the presence of an external structure which orchestrates the communication between the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{ResultCollector}. This external structure also exposes the APIs for users interaction. Figure \ref{fig:uml_teststand} shows both these classes called \textit{TestStand} and its current implementation is the \textit{TestStandImpl}.
+\noindent \name \textsc{Test Stand} was defined as set of modules which interact exchanging events during the execution. However, Chapter \ref{chap:heaven} describes at the design level the presence of an external structure which orchestrates the communication between the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{ResultCollector}. This external structure also exposes the APIs for users interaction. Figure \ref{fig:uml_teststand} represent this idea into an UML schema where the abstract class \textit{TestStand} implements both the \textit{Startable} interface  defining the \textit{init()} and \textit{close()} methods and also the \textit{EventProcessor} interface, but it leaves the implementation of the \textit{process(CTEvent e)} method to the current implementation: the \textit{TestStandImpl}. 
 
-
-Figure \ref{fig:uml_teststand} shows that the \textit{TestStand} structure is and \textit{EventProcessor} as other modules. The relation between the \textit{TestStand} and other modules is presented in Figure \ref{fig:uml_teststand_modules}. The \textit{TSStreamer}, the \textit{RSPEngine} and the \textit{TSResulCollector} are linked to the \textit{TestStandImpl} trough an initialisation class which receives the configuration file, and sets these modules up according with the requirements [R.1] for data independence  [R.2] and [R.3] for engine independence and query independence. Once the set-up phase is complete the \textit{TestStandImpl} is initialized1 and it consequently initialises all the upstanding modules. The \textit{Experiment} is created externally and passed to the \textit{TestStandImpl} to start the execution. 
+The relation between the \textit{TestStand} and other modules is presented in Figure \ref{fig:uml_teststand_modules}. The \textit{TSStreamer}, the \textit{RSPEngine} and the \textit{TSResulCollector} are linked to the \textit{TestStandImpl} trough an initialisation class which receives the configuration file, and sets up these modules according with the requirements [R.1]  [R.2] and [R.3] (respectively data independence, engine independence and query independence). Once the set-up phase is completed the \textit{TestStandImpl} is initialized and it consequently initialises all the upstanding modules. The \textit{Experiment} is created externally and  the \textit{TestStandImpl} receives it to start the execution. 
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.90\linewidth]{images/uml_teststand_modules}
-	\caption{UML Schema the TestStand with the upstanding modules: TSStreamer, RSPEngine, TSResultCollector} 
+	\caption[UML Schema: \name \textsc{TestStand} and modules] { The \textit{TestStand} contains a reference to the modules which compose the various phases of the execution: the \textit{TSStreamer}, the engine behind the \textit{RSPEngine} interface and the \textit{TSResultCollector}. Both the \textit{TSStreamer}, and current \textit{RSPEngine} are linked to the next element in the pipeline trough the \textit{TestStand} class. Two arrows labelled with "next"  point to the  \textit{TestStand} to indicate that it is receives the events from all the other modules and orchestrates the communication. Notice that the arrow which start from the \textit{RSPEngine} is coloured in gray since is it can not be seen at this level of detail, because \textit{RSPEngine} is an interface.  the \textit{ResultCollector} receives the result to save at the end of each cycle, it does need to be linked to other modules since the process ends when it return the call.} 
   	\label{fig:uml_teststand_modules}
 \end{figure}
 
-During the execution \textit{TestStandImpl} intercepts the \textit{CTEvents} form the \textit{TSStreamer} and sends them to the \textit{RSPEngine} as described in Section \ref{sec:arch-workflow}. According with the \textit{Experiment} specification the \textit{TestStandImpl} turns off or on its sensors. It calculates latency starting a timer when the \textit{CTEvent} arrives and stops the timer when it \textit{RSPEngine} outputs the results. It retrieves the memory usage asking the JVM in both the point above [R.6]. To fulfil requirements [R.7] any new measurement can take place  when the \textit{RSPEngine} is not running yet or when it has finished the computation. Once the \textit{OutCTEvents} comes form the \textit{RSPEngine}, the \textit{TestStandImpl} receives it and wraps it within a \textit{TSResult}, then it sends the query results data together with the measures to the \textit{TSResultCollector} fulfilling [R.8] and supporting [R.9] for further analysis with the Analyser.
+During the execution \textit{TestStandImpl} gets the \textit{CTEvents} form the \textit{TSStreamer} and sends them to the \textit{RSPEngine} as described in Section \ref{sec:test-stand-workflow}. The \textit{TestStandImpl} gather the measurements data according with the \textit{Experiment} specification. It calculates latency starting a timer when the \textit{CTEvent} arrives and stops the timer when it \textit{RSPEngine} outputs the results as \textit{OutCTEvent}. It retrieves the memory usage asking the JVM in both the point above [R.6]. To fulfil requirements [R.7] any new measurement can take place only when the \textit{RSPEngine} is not running or when it has finished the computation. Once the \textit{OutCTEvents} comes form the \textit{RSPEngine}, the \textit{TestStandImpl} receives and immediately wraps the event into a \textit{TSResult}, which is sent to the \textit{TSResultCollector} to collect the query results data and the measurement ones fulfilling [R.8] and supporting [R.9] for further analysis with the \textsc{Analyser}.
 %
 %R.6 include basic set of performance measurements [?].
 %R.7 enable users extensions with new software sensors and specific measure-
