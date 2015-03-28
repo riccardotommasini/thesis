@@ -95,18 +95,25 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
 }  
 
 @article{Arasu2006,
-  author = {Arasu, Arvind and Babu, Shivnath and Widom, Jennifer},
-  title = {{The CQL continuous query language : semantic foundations}},
-  journal = {The VLDB Journal},
-  year = {2006},
-  volume = {15},
-  pages = {121--142},
-  number = {2},
-  doi = {10.1007/s00778-004-0147-z},
-  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/CQL.pdf:pdf},
-  keywords = {continuous queries,cql,data streams,query language,query processing},
-  mendeley-tags = {cql}
+ author = {Arasu, Arvind and Babu, Shivnath and Widom, Jennifer},
+ title = {The CQL Continuous Query Language: Semantic Foundations and Query Execution},
+ journal = {The VLDB Journal},
+ issue_date = {June 2006},
+ volume = {15},
+ number = {2},
+ month = jun,
+ year = {2006},
+ issn = {1066-8888},
+ pages = {121--142},
+ numpages = {22},
+ url = {http://dx.doi.org/10.1007/s00778-004-0147-z},
+ doi = {10.1007/s00778-004-0147-z},
+ acmid = {1146463},
+ publisher = {Springer-Verlag New York, Inc.},
+ address = {Secaucus, NJ, USA},
+ keywords = {Continuous queries, Data streams, Query language, Query processing},
 }
+
 
 @ARTICLE{Barbieri2010,
   author = {Davide Francesco Barbieri and Daniele Braga and Stefano Ceri and
@@ -145,22 +152,15 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/secret.pdf:pdf},
   }
 
-
-@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
- author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
- title = {Enabling Ontology-based Access to Streaming Data Sources},
- booktitle = {Proceedings of the 9th International Semantic Web Conference on The Semantic Web - Volume Part I},
- series = {ISWC'10},
- year = {2010},
- isbn = {3-642-17745-X, 978-3-642-17745-3},
- location = {Shanghai, China},
- pages = {96--111},
- numpages = {16},
- url = {http://dl.acm.org/citation.cfm?id=1940281.1940289},
- acmid = {1940289},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
-	} 
+@CONFERENCE{Calbimonte2010,
+  author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
+  title = {{Enabling ontology-based access to streaming data sources}},
+  booktitle = ISWC2010,
+  year = {2010},
+  pages = {96--111},
+  file = {:http\://oa.upm.es/5121/1/Enabling_Ontology-based_Access_to_Streaming_Data_Sources.pdf:PDF;:/media/Add/ref/rdfstreams/Calbimonte2010.pdf:PDF},
+  isbn = {364217745X}
+}
 
 @article{DBLP:journals/ijswis/CalbimonteJCA12,
   author    = {Jean{-}Paul Calbimonte and
@@ -513,12 +513,14 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
 }
 
 @book{Gray:1992:BHD:530588,
- author = {Gray, Jim},
- title = {Benchmark Handbook: For Database and Transaction Processing Systems},
- year = {1992},
- isbn = {1558601597},
- publisher = {Morgan Kaufmann Publishers Inc.},
- address = {San Francisco, CA, USA},
+  editor    = {Jim Gray},
+  title     = {The Benchmark Handbook for Database and Transaction Systems (2nd Edition)},
+  publisher = {Morgan Kaufmann},
+  year      = {1993},
+  isbn      = {1-55860-292-5},
+  timestamp = {Thu, 03 Jan 2002 11:51:33 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/books/mk/Gray93},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @article{Botan:2010:SMA:1920841.1920874,
@@ -706,24 +708,22 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  keywords = {Complex event processing, publish-subscribe, stream processing},
 }
 
+
 @article{Babu:2001:CQO:603867.603884,
- author = {Babu, Shivnath and Widom, Jennifer},
- title = {Continuous Queries over Data Streams},
- journal = {SIGMOD Rec.},
- issue_date = {September 2001},
- volume = {30},
- number = {3},
- month = sep,
- year = {2001},
- issn = {0163-5808},
- pages = {109--120},
- numpages = {12},
- url = {http://doi.acm.org/10.1145/603867.603884},
- doi = {10.1145/603867.603884},
- acmid = {603884},
- publisher = {ACM},
- address = {New York, NY, USA},
+          volume = {30 },
+          number = {3},
+           month = {September},
+          author = {Shivnath Babu and Jennifer Widom},
+       booktitle = {International Conference on Management of Data (SIGMOD 2001)},
+           title = {Continuous Queries over Data Streams},
+         journal = {SIGMOD Record},
+            year = {2001},
+        keywords = {Data Streams, Continuous Queries},
+             url = {http://ilpubs.stanford.edu:8090/527/},
+        abstract = {In many modern applications, data may take the form of infinite "data streams", rather than finite stored data sets.  Several aspects of data management need to be reconsidered in the presence of data streams, offering a new research direction for the database community. In this paper we focus primarily on the problem of query processing, specifically on how to define and evaluate "continuous queries" over data streams.  We address semantic issues as well as efficiency concerns.  Our main contributions are threefold.  First, we specify a general and flexible architecture for query processing in the presence of data streams.  Second, we use our basic architecture as a tool to clarify alternative semantics and processing techniques for continuous queries.  The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views.  Finally, we map out research topics in the area of query processing over data streams, showing where previous work is relevant and describing problems yet to be addressed. Please note that this paper was prepared as a ``vision'' contribution.  Its main goal is to identify in detail what we believe to be an interesting new research direction, which also happens to have near-term practical relevance.}
 }
+
+
 
 @book{Luckham:2001:PEI:515781,
  author = {Luckham, David C.},
@@ -892,7 +892,21 @@ doi={10.1109/ICSC.2008.41},}
 }
 
 
-
+@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
+ author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
+ title = {Enabling Ontology-based Access to Streaming Data Sources},
+ booktitle = {Proceedings of the 9th International Semantic Web Conference on The Semantic Web - Volume Part I},
+ series = {ISWC'10},
+ year = {2010},
+ isbn = {3-642-17745-X, 978-3-642-17745-3},
+ location = {Shanghai, China},
+ pages = {96--111},
+ numpages = {16},
+ url = {http://dl.acm.org/citation.cfm?id=1940281.1940289},
+ acmid = {1940289},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+} 
 
 
 @article{DBLP:journals/ws/LecueTHTBST14,
