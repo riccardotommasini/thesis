@@ -70,19 +70,21 @@ Figure \ref{fig:uml_tstreamer} contains also the \textit{RDF2RDFStream} implemen
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/uml_flowrateprofiler}
-	\caption[UML Schema: Internal Components of \textit{RDF2RDFStream}]{The components inside the \textit{RDF2RDFStream}, the \textit{Parser} allows to ready in memory RDF Triples while the \textit{FlowRateProfile} attaches to RDF triple a timestemp and it builds \textit{CTEvent}s according to a function $f=f(x)$} 
+	\caption[UML Schema: Internal Components of \textit{RDF2RDFStream}]{The \textit{RDF2RDFStream} exploits two subcomponents to build an RDF Stream: the \textit{Parser}, which allows to ready in memory RDF Triples, and the \textit{FlowRateProfiler}, which attaches to RDF triple a timestemp and it builds \textit{CTEvent}s according to a function $f=f(x)$. The \textit{FlowRateProfileImpl} provides implementation of the \textit{append(TripleContainer tc}) method and of the two utility methods \textit{isReady()} and \textit{getEvent()}. Specific implementations of the \textit{FlowRateProfiler} control the function $f$ trough the \textit{updateSize()} method.} 
   	\label{fig:uml_flowrateprofiler}
 \end{figure}
 
 
 The \textit{Parser} component, in Figure \ref{fig:uml_flowrateprofiler} can be accessed statically. It reads in memory one by one the triples in the file guaranteeing data independence [R.1] and it does not influence the memory footprint [R.5] by allocating only the memory necessary to parse a triple. 
 
-Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and it builds such an event. In this way, \textit{RDF2RDFStream} can generate different RDF streams $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
+Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and it builds such an event. The In this way, \textit{RDF2RDFStream} can generate different RDF streams $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
 
 \input{content/images/flow-rate-examples}
 
-The \textit{FlowRateProfiler} creates CTEvent according to a function $y=f(x)$, in which $x$ is the number of the \textit{CTEvent} and it results that $y$ is the number of triple this \textit{CTEvent} will contain. For example if we decide to increase linearly the number of triples inside a \textit{CTEvent} the function $f$ will be: \[y=x, \text{ where } x,y \in N\]
+The \textit{FlowRateProfilerImpl} implements \textit{FlowRateProfiler} interface. It provides a common implementation for the method \textit{append(TripleContainer tc)}, which adds to the current \textit{CTEvent} an RDF triple,  and of the two utility methods \textit{isReady()} and \textit{getEvent()}. What variates between different implementations of this component, is the \textit{updateSize()} method. The \textit{FlowRateProfiler} creates \textit{CTEvent} according to a function $y=f(x)$, in which $x$ is the number of the \textit{CTEvent} and it results that $y$ is the number of triple this \textit{CTEvent} will contain. The update logic given by $f$ is implemented within the \textit{updateSize()} method. For example if we decide to increase linearly the number of triples inside a \textit{CTEvent} the function $f$ will be: \[y=x, \text{ where } x,y \in N\]
 The first event (E0) will contain zero triple, E1 will contain only one triple following E4 will contain four triples and so forth. Another possibility is to increase exponentially the number of triples inside a \textit{CTEvent} : \[y=2^x, \text{ where } x,y \in N\]The first event (E0) will contain one triple, E1 will contain two triple following E3 will contain eight triples and so forth, Figure \ref{fig:frp-examples}.a shows the resulting behaviour plotting the triple number on y-axis and \textit{CTEvent} number on x-axis.
+
+
 
 In the current stage of development we include four implementations of the \textit{FlowRateProfiler}, two of them are related to our experiments: 
 \begin{itemize}
@@ -170,55 +172,56 @@ During the execution \textit{TestStandImpl} gets the \textit{CTEvents} form the 
 
 \section{Baselines}\label{sec:baselines-impl}
 
-\name Baselines are four elementary implementations of an RSP Engine which follow the design proposal presented in Section \ref{sec:baselines}, covering [R.13]. They pipeline Esper\footnote{$http://www.espertech.com/esper/$}, a mature commercial DSMS, with the Jena general purpose rule engine\footnote{http://jena.apache.org/documentation/inference/\#rules
-}, a flexible reasoning engine. The aim of the choice of Esper and Jena is fulfilling requirement [R.14], baselines Eligibility by coupling two mature solutions for stream processing and reasoning to obtain a fair solution in the SR context. 
+\name Baselines are four elementary implementations of an RSP Engine, which  cover the requirements form [R.13] to [R.16] and implement the pipeline of a DSMS with a reasoner following the proposal presented in Section \ref{sec:baselines}. 
+The RSP Engine pipeline is composed by Esper\footnote{$http://www.espertech.com/esper/$}, a mature commercial DSMS, with the Jena general purpose rule engine\footnote{http://jena.apache.org/documentation/inference/\#rules}, a flexible reasoning engine.  The aim of the choice of Esper and Jena is fulfilling requirement [R.14], baselines Eligibility by coupling two mature solutions for stream processing and reasoning to obtain a fair solution in the SR context.
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_baselines_general}
-	\caption{RSPEsper Engine General UML Schema} 
+	\caption[UML Schema: \textit{RSPEngine} Implementation Trough Esper and Jena]{The \textit{RSPEngine} interface extends both the \textit{EventProcessor} and the \textit{Startable} ones. The \textit{RSPEsperEngine} class in picture implements the interface adding the Esper runtime to handle its internal events. The \textit{JenaEngine} together with the \textit{RSPListener} integrate the Jena reasoning system into the engine.}
   	\label{fig:uml_baselines_general}
 \end{figure}
 
-In Figure \ref{fig:uml_baselines_general} presents how the baselines are implemented. The general structure exploits the \textit{RSPEngine} interface, a proxy for the \textit{EventProcessor} and the \textit{Startable}  interfaces described in Section \ref{sec:impl-intro} and in Section \ref{sec:modules-impl}. 
+\noindent Figure \ref{fig:uml_baselines_general} presents how the baselines are implemented. The general structure exploits the \textit{RSPEngine} interface, a proxy for both the \textit{EventProcessor} and the \textit{Startable} interfaces described in Section \ref{sec:impl-intro} and in Section \ref{sec:modules-impl}. 
 
-All the proposed baselines take advantage of the ability of Esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}} by sending time-keeping events to synchronise the internal time flow. The \textit{RSPEsperEngine} abstract class implements the \textit{RSPEngine} interface in order to share the Esper runtime definition for all the baselines. 
+\name Baselines integrate Esper as the DSMS which compose the first half to the RSP Engine pipeline.  The \textit{RSPEsperEngine} abstract class implements the \textit{RSPEngine} interface in order to share the Esper runtime definition for all the Baselines.  They exploit the ability of Esper to be temporally controlled by an external agent\footnote{\url{http://esper.sourceforge.net/esper-0.7.5/doc/reference/en/html_single/index.html#api-controlling-time}}. Thus, the internal time flow can be synchronised by sending time-keeping events. In this way it possible to ensure the complete and soundness of query results, even in case of high traffic load. To enable external time control the \textit{RSPEngine} interface exposes the \textit{moveTime()} method.  The \textit{RSPEsperEngine} implements \textit{moveTime()} encapsulating the logic to send a time-keeping event into Esper: one time-keeping event is sent before injecting the triples within a \textsc{CTEvent} and the next one after all triples in \textsc{CTEvent} were sent. In this way all the triples in the \textsc{CTEvent} are consider contemporary by the Baselines. 
 
-To enable external time control the \textit{RSPEngine} interface exposes the \textit{moveTime()} method, whose implementation depends on the particular RSP Engine in use; for the Baselines, the \textit{RSPEsperEngine} implements \textit{moveTime()} encapsulating the logic to send a time-keeping event into Esper: one time-keeping event is sent before injecting the triples within a \textsc{CTEvent} and the next one after all triples in \textsc{CTEvent} were sent. In this way all the triples in the \textsc{CTEvent} are consider contemporary by the baselines. 
-
-The arrow that links the \textit{RSPEsperEngine} to the EventProcessor in Figure \ref{fig:uml_baselines_general} represents the reference to an \textit{EventProcessor}, called \textit{next}, which is the following module in the \textsc{Test Stand} pipeline. The next \textit{module} can be any modules which processes \textit{CTEvent}. In the current implementation the \textit{Test Stand External Structure } follows the RSP Engine, to intercept the outcoming \textit{OUTCTEvents}.
+The RSP Engine is in the middle of the \textsc{Test Stand} pipeline, thus is has to communicate with the module below. The \textit{RSPEsperEngine} has a reference to a general \textit{EventProcessor}, represented in Figure \ref{fig:uml_baselines_general}  by the arrow labeled as "next", which can be any modules which processes \textit{CTEvent}. In the current implementation the \textsc{Test Stand External Structure}, implemented as the \textit{TestStandImpl} class, follows \textit{RSP Engine}, to intercept the outcoming\textit{OUTCTEvents}.
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_baselines_listener}
-	\caption{RSPListener UML Schema} 
+	\caption[UML Schema: \textit{RSPListener} Implementations]{The \textit{RSPListener} is actually a proxy for the native Esper \textit{UpdateListener}. We implement the interface following two possible reasoning approaches, Naive and Incremental, respectively into the  \textit{JenaNaiveListener} and the \textit{JenaIncrementalListener}. Further implementations like the \textit{JenaNaive$\rho$DFListener} allows to specify the entailment regime and the TBox to the listeners.} 
   	\label{fig:uml_baselines_listener}
 \end{figure}
 
-The \textit{JenaEngine} abstract class in Figure \ref{fig:uml_baselines_general} represents the general implementation of a baseline. It allows to design the processing delegating the engine specification to  the \textit{RSPListener} class, which as  Figure \ref{fig:uml_baselines_listener} shows, is responsible to pipeline the Jena rule engine to the DSMS. Moreover, the figure includes the different implementations of the listener, which variate the reasoning approaches, Naive or Incremental, as demanded by [R.15] (baseline relevance) and according to the baseline design presented in Section \ref{sec:baselines}. Neither the \textit{JenaNaiveListener} or the \textit{JenaIncrementalListener} specify the entailment regime, which must be defined with specific implementations as it is visible again in the Figure \ref{fig:uml_baselines_listener}.
+We draw in Figure \ref{fig:uml_baselines_general} the UML schema of the Baseline implementation. The \textit{JenaEngine} abstract link the DSMS to the reasoner, an thus it requires a further component, the RSPListener, to complete the RSP Engine pipeline and realise the system we describe in Section \ref{sec:baselines}
+ 
+The reasoner stage is realised as shown in Figure \ref{fig:uml_baselines_listener}. Different implementations of the listener, which all belongs to the the \textit{RSPListener} interface, variate the reasoning approaches between Naive or Incremental. The \textit{JenaNaiveListener} or the \textit{JenaIncrementalListener} partially fulfil requirement [R.15] (baseline relevance) in terms of reasoning. None of the two specify the entailment regime and the TBox, which must be defined with specific implementations like the \textit{JenaRHODFNaiveListener}, as it is visible again in the Figure \ref{fig:uml_baselines_listener}.
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=0.8\linewidth]{images/uml_baselines_events}
-	\caption{Esper-level events UML Schema} 
+	\includegraphics[width=0.7\linewidth]{images/uml_baselines_events}
+	\caption[UML Schema: Esper-level Graph based and Triple based]{ All the event registered to Esper belong to the \textit{JenaEsperEvent} interface, which exposes methods to handle the reasoning independently from the RDF Stream implementation:  \textit{GraphEvent} or \textit{TripleEvent}. The triples received by the \textit{RSPEngine} can be pushed into Esper as complete graph or as a set statements. To handle the active window graph independently from the event implementation, the interface exposes the method \textit{addTo(Graph g)} and \textit{removeFrom(Graph g)}, while the \textit{serialise()} methods unroll the current event into a set of statement, in order to build an outgoing \textit{OutCTEvent}}
   	\label{fig:uml_baselines_events}
 \end{figure}
 
-The baselines relevance demanded by [R.15] comes also from the different implementation of the RDFStream model, Graph Based or Triple Based, which for Esper-based RSP engine depends on which events are registered to Esper runtime. Figure \ref{fig:uml_baselines_events} shows that all events exposed the same methods to interact with the RDF model, provided by the \textit{JenaEsperEvent} interface. 
+The Baselines relevance demanded by [R.15] it is only partially fulfilled by the alternative reasoning approaches. It comes also from the different implementation of the RDFStream model, graph based or triple based. Esper runtime demands to registers the events that it has to handle. Figure \ref{fig:uml_baselines_events} shows how events are implemented: they belongs to the e \textit{JenaEsperEvent} interface, which exposes three methods used by the \textit{RSPListener} to manage the active window independently from event implementation. The methods \textit{addTo(Graph g)} and \textit{removeFrom(Graph g)} adelegates to the event the operations of insert and deletion to the event, in a transparent way for the \textit{RSPListener}; the method \textit{serialise()} unrolls the event into a set of statements, in this way the RSP Engine can output an \textit{OutCTEvent} independently from the RDF Stream implementation: \textit{GraphEvent} or \textit{TripleEvent}
 
-Notice that when a \textit{CTEvents} comes to the RSP Engine it will be transformed into the events handled by the DSMS, contained in Figure \ref{fig:uml_baselines_events}. This translation process influences the latency calculus, because the time spent by the engine to translate events from the RDFStream into its internal mechanism may be relevant. Once the processing is complete, the output of the RSP Engine is injected into an \textit{OUTCTEvent} and passed to the next \textit{EventProcessor} in the pipeline, which is the \textsc{Test Stand}, also the translation time for producing the output is part of the engine response time.
+Notice that when a \textit{CTEvents} comes to the RSP Engine it will be transformed into the events handled by the DSMS, contained in Figure \ref{fig:uml_baselines_events}. This translation process influences the latency calculus, because the time spent by the engine to translate events from the RDFStream into its internal mechanism may be relevant. Once the processing is complete, the output of the RSP Engine is translated again into an \textit{OutCTEvent} and passed to the next \textit{EventProcessor}, again spending time that influence the latency.
+
+The current implementation of the Baselines allows to share the majority of the code by splitting the different architectural elements. In this way we fulfil [R.16] which demands baseline Simplicity, delegating to each element a specific task.
+
+%\begin{figure}[tbh]
+%  \centering
+%	\includegraphics[width=\linewidth]{images/uml_baselines_rel_listener_event}
+%	\caption[UML Schema: The Relation between \textit{RSPListener} and \textit{JenaEsperEvent} ]{The listener and the event implementation are fully decoupled but logically related. In picture is detailed this relation for different implementation of the \textit{RSPListener}}
+%  	\label{fig:uml_baselines_rel_listener_event}
+%\end{figure}
+%
+%\textit{\textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handle the events which come form the DSMS trough the \textit{JenaEsperEvent} interface, Figure \ref{fig:uml_baselines_rel_listener_event} report  the structure for the case of Graph-based event representation (see Section \ref{sec:baselines} for event details). }
 
 
-\begin{figure}[tbh]
-  \centering
-	\includegraphics[width=\linewidth]{images/uml_baselines_rel_listener_event}
-	\caption{RSPListener and events UML Schema} 
-  	\label{fig:uml_baselines_rel_listener_event}
-\end{figure}
-
-\textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handle the events which come form the DSMS trough the \textit{JenaEsperEvent} interface, Figure \ref{fig:uml_baselines_rel_listener_event} report  the structure for the case of Graph-based event representation (see Section \ref{sec:baselines} for event details). 
-
-This design of Baselines logic, composed by different subcomponents that involves Esper and Integrates Jena, allows to share the majority of the code by splitting the different architectural elements. In this way we fulfil [R.16] which demands baseline Simplicity.
 
 
 \section{Analyser}\label{sec:analyser-impl}
@@ -226,7 +229,7 @@ This design of Baselines logic, composed by different subcomponents that involve
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/analyser-block-schema-impl}
-	\caption{Analyser Blocking Schema: Implementation Detail Level} 
+	\caption[\textsc{Analyser} Block Schema: Implementation Detail Level]{\textsc{Analyser} Block Schema: Implementation Detail Level}
   	\label{fig:analyser-block-schema-impl}
 \end{figure}
 
@@ -269,7 +272,7 @@ The \textsc{Analyser} Design includes Five Analysis Levels (see Section \ref{sec
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.45\linewidth]{images/dashboard-example}
-	\caption{Example of Dashboard Representation} 
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 -  Dashboard Representation Examples]{\textsc{Analyser} Investigation Stack - Level 0 -  Dashboard Representation Examples}
   	\label{fig:dashboard-example}
 \end{figure}
 
@@ -305,7 +308,7 @@ The \textsc{Analyser} Design includes Five Analysis Levels (see Section \ref{sec
 		\hline % inserts single-line
 	 \end{tabular}
 	}
-	\caption{(a) qualitative-comparison over two variables - (b) quantitative-comparison over a common variable }
+	\caption[\textsc{Analyser} Investigation Stack - Level 1 - Qualitative and Quantitative Comparison Examples]{(a) qualitative-comparison over two variables - (b) quantitative-comparison over a common variable }
 	\label{tab:comp-tables}
 \end{table}
 
@@ -327,7 +330,7 @@ Actually this kind of analysis is possible thanks to a CSV report, which contain
   	
   }
    %\subfigure[Pattern Appear On the Wall..]{\includegraphics[width=0.45\linewidth]{images/pokepattern}}
-	\caption{Two Examples of Pattern Recognition} 
+	\caption[\textsc{Analyser} Investigation Stack - Level 2 - Pattern Recognition Examples]{Two examples of pattern recognition. Level 2 exploits  easy-to-read layouts which highlights the experiment difference to enable \textit{Inter Experiment} comparisons} 
   	\label{fig:pattern-examples}
 \end{figure}
 
@@ -345,7 +348,7 @@ Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possibl
   \subfigure[Multi-Variables Comparison]{
   \includegraphics[width=0.80\linewidth]{images/comp-intra}
   }
-  \caption{Visual Comparison} 
+\caption[  \textsc{Analyser} Investigation Stack - Level 3 -  Visual Comparison Examples]{\textsc{Analyser} Investigation Stack - Level 3 -   Visual Comparison Exampless}
   \label{fig:visual-comp}
 \end{figure}
 
