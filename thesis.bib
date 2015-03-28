@@ -145,27 +145,39 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/secret.pdf:pdf},
   }
 
-@CONFERENCE{Calbimonte2010,
-  author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
-  title = {{Enabling ontology-based access to streaming data sources}},
-  booktitle = ISWC2010,
-  year = {2010},
-  pages = {96--111},
-  file = {:http\://oa.upm.es/5121/1/Enabling_Ontology-based_Access_to_Streaming_Data_Sources.pdf:PDF;:/media/Add/ref/rdfstreams/Calbimonte2010.pdf:PDF},
-  isbn = {364217745X}
-}
 
-@ARTICLE{Calbimonte2012,
-  author = {Jean-Paul Calbimonte and Hoyoung Jeung and Oscar Corcho and Karl
-	Aberer},
-  title = {{Enabling Query Technologies for the Semantic Sensor Web}},
-  journal = {IJSWIS},
-  year = {2012},
-  volume = {8},
-  pages = {43--63},
-  number = {1},
-  owner = {jpc},
-  timestamp = {2012.05.30}
+@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
+ author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
+ title = {Enabling Ontology-based Access to Streaming Data Sources},
+ booktitle = {Proceedings of the 9th International Semantic Web Conference on The Semantic Web - Volume Part I},
+ series = {ISWC'10},
+ year = {2010},
+ isbn = {3-642-17745-X, 978-3-642-17745-3},
+ location = {Shanghai, China},
+ pages = {96--111},
+ numpages = {16},
+ url = {http://dl.acm.org/citation.cfm?id=1940281.1940289},
+ acmid = {1940289},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+	} 
+
+@article{DBLP:journals/ijswis/CalbimonteJCA12,
+  author    = {Jean{-}Paul Calbimonte and
+               Hoyoung Jeung and
+               {\'{O}}scar Corcho and
+               Karl Aberer},
+  title     = {Enabling Query Technologies for the Semantic Sensor Web},
+  journal   = {Int. J. Semantic Web Inf. Syst.},
+  volume    = {8},
+  number    = {1},
+  pages     = {43--63},
+  year      = {2012},
+  url       = {http://dx.doi.org/10.4018/jswis.2012010103},
+  doi       = {10.4018/jswis.2012010103},
+  timestamp = {Fri, 21 Dec 2012 14:15:28 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ijswis/CalbimonteJCA12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @INPROCEEDINGS{DellAglio2013,
@@ -231,16 +243,6 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   year = {2012},
   pages = {300-312},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-}
-
-@INPROCEEDINGS{Lephuoc2011,
-  author = {Le-Phuoc, D. and Dao-Tran, M. and Xavier Parreira, J. and Hauswirth,
-	M.},
-  title = {A native and adaptive approach for unified processing of linked streams
-	and linked data},
-  booktitle = ISWC2011,
-  year = {2011},
-  pages = {370--388}
 }
 
 @INPROCEEDINGS{Srivastava2004,
@@ -721,7 +723,7 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  acmid = {603884},
  publisher = {ACM},
  address = {New York, NY, USA},
-} 
+}
 
 @book{Luckham:2001:PEI:515781,
  author = {Luckham, David C.},
@@ -730,7 +732,7 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  isbn = {0201727897},
  publisher = {Addison-Wesley Longman Publishing Co., Inc.},
  address = {Boston, MA, USA},
-} 
+}
 
 
 @article{Eugster:2003:MFP:857076.857078,
@@ -751,7 +753,7 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  publisher = {ACM},
  address = {New York, NY, USA},
  keywords = {Distribution, interaction, publish/subscribe},
-} 
+}
 
 
 @inproceedings{Babcock:2002:MID:543613.543615,
@@ -769,7 +771,7 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  acmid = {543615},
  publisher = {ACM},
  address = {New York, NY, USA},
-} 
+}
 
 @misc{rdfconcepts,
   abstract = {The Resource Description Framework (RDF) is a
@@ -847,6 +849,9 @@ doi={10.1109/ICSC.2008.41},}
   timestamp = {2009-02-19T13:31:11.000+0100},
   title = {{SPARQL} Query Language for {RDF,} {W3C} Recommendation},
   url = {http://www.w3.org/TR/rdf-sparql-query/},
+  author={Prud’Hommeaux, Eric and Seaborne, Andy and others},
+  journal={W3C recommendation},
+  volume={15},
   year = 2008
 }
 
@@ -869,7 +874,7 @@ doi={10.1109/ICSC.2008.41},}
  address = {New York, NY, USA},
 }
 
-@inproceedings{Le-Phuoc:2011:NAA:2063016.2063041,
+@inproceedings{Lephuoc2011,
  author = {Le-Phuoc, Danh and Dao-Tran, Minh and Parreira, Josiane Xavier and Hauswirth, Manfred},
  title = {A Native and Adaptive Approach for Unified Processing of Linked Streams and Linked Data},
  booktitle = {Proceedings of the 10th International Conference on The Semantic Web - Volume Part I},
@@ -886,21 +891,8 @@ doi={10.1109/ICSC.2008.41},}
  keywords = {RDF streams, dynamic query planning, linked data, linked streams, query optimisation, stream processing},
 }
 
-@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
- author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
- title = {Enabling Ontology-based Access to Streaming Data Sources},
- booktitle = {Proceedings of the 9th International Semantic Web Conference on The Semantic Web - Volume Part I},
- series = {ISWC'10},
- year = {2010},
- isbn = {3-642-17745-X, 978-3-642-17745-3},
- location = {Shanghai, China},
- pages = {96--111},
- numpages = {16},
- url = {http://dl.acm.org/citation.cfm?id=1940281.1940289},
- acmid = {1940289},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
-} 
+
+
 
 
 @article{DBLP:journals/ws/LecueTHTBST14,
@@ -973,23 +965,6 @@ doi={10.1109/ICSC.2008.41},}
 }
 
 
-@article{DBLP:journals/ijswis/CalbimonteJCA12,
-  author    = {Jean{-}Paul Calbimonte and
-               Hoyoung Jeung and
-               {\'{O}}scar Corcho and
-               Karl Aberer},
-  title     = {Enabling Query Technologies for the Semantic Sensor Web},
-  journal   = {Int. J. Semantic Web Inf. Syst.},
-  volume    = {8},
-  number    = {1},
-  pages     = {43--63},
-  year      = {2012},
-  url       = {http://dx.doi.org/10.4018/jswis.2012010103},
-  doi       = {10.4018/jswis.2012010103},
-  timestamp = {Fri, 21 Dec 2012 14:15:28 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ijswis/CalbimonteJCA12},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
 
 @INPROCEEDINGS{4618773, 
 author={Groppe, S. and Groppe, J. and Kukulenz, D. and Linnemann, V.}, 
