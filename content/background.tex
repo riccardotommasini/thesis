@@ -4,11 +4,9 @@ This thesis proposes \namens, an open source framework for the Systematic Compar
 
 \section{Semantic Web}\label{sec:sw}
 
-The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across applications, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards. A large number of researchers and industrial partners collaborate, led by the W3C, for this survey.
+The Semantic Web (SW) is the World Wide Web extension  that  provides a common framework to share and reuse data across applications, enterprise, and community boundaries. Tim Berners-Lee, the inventor of the World Wide Web and director of the World Wide Web Consortium (W3C), supervises the development of proposed Semantic Web standards. Nowadays, a large number of researchers and industrial partners collaborate with the W3C to the Semantic Web research.\\
 
-"The Web can reach its full potential if it becomes a place where data can be processed by automated tools as well as people". [W3C, 2001]
-
-In the Semantic Web vision, i.e. the Web 3.0,  the information can be processed and manipulated by machines. SW can give to the information a well defined meaning. The way to reach this goal is adding a new layer of meta-data to the existing documents and data. The semantic definition of data and documents enables to understand and respond to complex human needs. The outcome of this vision is an evolution to a new Web, where intelligent agents can browse data on behalf of the user and make knowledge easier to be reached.
+"The Web can reach its full potential if it becomes a place where data can be processed by automated tools as well as people". [W3C, 2001]. \\ The Tim's definition above highlights the Semantic Web vision of the new era, the Web 3.0,  where the information can be processed and manipulated by machines. SW can give to the information a well defined meaning. The way to reach this goal is adding a new layer of meta-data to the existing documents and data. The semantic definition of data and documents enables to understand and respond to complex human needs. The outcome of this vision is an evolution to a new Web, where intelligent agents can browse data on behalf of the user and make knowledge easier to be reached.
 
 
 \begin{figure}[tbh]
@@ -23,17 +21,22 @@ Semantic Web world involves several technologies. Due to the complexity of the c
 
 The first level of the Semantic Web stack includes  two standard of World Wide Web:
 \begin{itemize}
-\item  The Uniform Resource Identifier (URI)  and Internationalised Resource Identifier(IRI), which guarantee the interoperability between heterogeneous systems. They stay at the lowest level
+\item  The Uniform Resource Identifier (URI)  and Internationalised Resource Identifier(IRI), which guarantee the interoperability between heterogeneous systems. They stay at the lowest level.
 \item  The Unicode standard is a character encoding standard to represent and manipulate text in many languages.
 %\item  The eXtensible Markup Language (XML) is a wide-spread standard for data exchange in the Web that states the basic syntax level. In the SW stack it is build on top of URI and Unicode. 
+\item The Resource Description Framework (RDF) is a language for expressing data models, which are usually encoded in XML.
 \end{itemize}
 
 On the top of them, the basic syntax level is provided by the eXtensible Markup Language (XML), a wide-spread standard for data exchange in the Web. The XML parsers support the lower-level syntax checking of the Semantic Web documents. However, the XML standard is not enough for the data exchange in the semantic web, because it is suited to recognize syntax, but not equivalent models. For this reason, three middle layers are required to ensure the semantic interoperability:
 \begin{itemize}
-\item The Resource Description Framework (RDF) is a language for expressing data models, which are usually encoded in XML
+
 \item RDF Schema (RDFS) defines a vocabulary for describing classes and properties of RDF resources.
 \item The Web Ontology Language (OWL) extends the RDF Schema by adding advanced concepts in order to facilitate a more realistic representation of knowledge based on the RDF resources.
 \end{itemize} 
+
+Last but not least, another important standard covering multiple layers is the official Semantic Web Query Language: SPARQL,  the official query language for the SW and a W3C Recommendation since January 2008. 
+
+In the following subsections, we will present some basic concepts of the Semantic Web:  RDF in Subsection \ref{sec:rdf},  OWL in Subsection \ref{sec:owl}, Linked Data in Subsection \ref{sec:ldata} and SPARQL language \ref{sec:sparql}
 
 Finally, technologies at the top layers are not yet standardized or implemented:
 \begin{itemize}
@@ -43,13 +46,9 @@ Finally, technologies at the top layers are not yet standardized or implemented:
 \item User interface is the final layer that will enable humans to use Semantic
 \end{itemize} 
 
-Last but not least, another important standard covering multiple layers is the official Semantic Web Query Language: SPARQL,  the official query language for the SW and a W3C Recommendation since January 2008. 
-
-In the following subsections, we will present some basic concepts of the Semantic Web:  RDF in Subsection \ref{sec:rdf},  OWL in Subsection \ref{sec:owl}, Linked Data in Subsection \ref{sec:ldata} and SPARQL language \ref{sec:sparql}
-
 \subsection{Resource Description Framework}\label{sec:rdf}
 
-The Resource Description Framework (RDF) is the W3C standard for data interchange on the Semantic Web \cite{rdfconcepts}. Through RDF we can describe a conceptual model of information in any given domain of knowledge. Information is represented in the statements form subject-predicate-object. In general a statement is composed by three different resources, indeed statements are also called triples and set of triples is called a graph. More formally, we provide the definition of RDF triples and RDF graphs:
+The Resource Description Framework (RDF) is the W3C standard for data interchange on the Semantic Web \cite{rdfconcepts}. Through RDF we can describe a conceptual model of information in any given domain of knowledge. Information is represented in the statement form subject-predicate-object. In general a statement is composed by three different resources, indeed statements are also called triples and set of triples is called a graph. More formally, we provide the definition of RDF triples and RDF graphs:
 
 \textbf{Definition}: Let $I$, $B$ and $L$ be three pairwise disjoint sets, defined as IRIs, Blank Nodes and Literals, respectively. A triple \[ (s, p, o) \in (I \cup B) × I × (I \cup B \cup L) \] is  an \textit{RDF triple}, while a set of \textit{RDF triples} is called an R\textit{DF grap}h.
 
@@ -60,7 +59,7 @@ Notice that:
 \item Blank nodes represent anonymous resources, usually resources that group a number of other resources and which are never directly referenced.
 \end{itemize}
 
-The Resource Description Framework has several possible rap presentations.
+The Resource Description Framework has several possible representations.
 
 The most natural representation for triples is the N3 notation, which consists in explicit each triple in the form:
  \[<subjectIRI> <predicateIRI> <objectIRI>/objectLiteral\]
@@ -145,12 +144,11 @@ The number datasets that follow the Linked Data paradigm is increasing every day
 
 \subsection{SPARQL}\label{sec:sparql}
 
-
 The SPARQL Protocol and RDF Query Language (SPARQL) are, since January 2008, the W3C standard query language for retrieving data in RDF format \cite{prudhommeaux_sparql_2008}.
 
 The SPARQL query language was initially designed to meet the requirements identified in the RDF Data Access Use Cases and Requirements. Only successively it has been formalized through the definition of an official algebra, developed as an evolution of previous RDF query languages such as rdfDB, RDQL, and SeRQL.
 
-Recently, a W3C working draft describing the new version of SPARQL, has been released \footnote{http://www.w3.org/TR/sparql11-query/.}. SPARQL 1.1, this is the name of the new relase, is completely compatible with the SPARQL specification, but has some new additional features, like aggregates, subqueries, negation and project expressions, i.e. the possibility to use expressions in the SELECT clause. These features were already part of several implementations of SPARQL, for example in the ARQ query engine. 
+Recently, W3C released a working draft describing the new version of SPARQL\footnote{http://www.w3.org/TR/sparql11-query/.}. SPARQL 1.1, this is the name of the new relase, is completely compatible with the SPARQL specification, but has some new additional features, like aggregates, subqueries, negation and project expressions, i.e. the possibility to use expressions in the SELECT clause. These features were already part of several implementations of SPARQL, for example in the ARQ query engine. 
 
 RDF is a directed labelled graph data format, thus SPARQL is defined as a graph-matching query language. The SPARQL language specifies four different query variations for different purposes:
 \begin{itemize}
@@ -185,7 +183,7 @@ The code snippet \ref{code:sparql} contains a simple example of SPARQL Select qu
 
 \section{Information Flow Processing}\label{sec:ifp}
 
-The Information Flow Processing (IFP) domain includes all the application which face the users need to collect information  flows produced by multiple, distributed sources. IFP applications extract new knowledge from the information flow as soon as it is collected, processing the information in a timely way.
+The Information Flow Processing (IFP) domain includes all the applications which face the users need to collect information  flows produced by multiple, distributed sources. IFP applications extract new knowledge from the information flow as soon as it is collected, processing the information in a timely way.
 
 \begin{figure}[tbh]
   \centering
@@ -194,9 +192,9 @@ The Information Flow Processing (IFP) domain includes all the application which 
   	\label{fig:ifp}
 \end{figure}
 
-We call IFP engine \textit{a tool capable of timely processing large amount of information, which flows from the peripheral to the center of the system} \cite{Cugola:2012:PFI:2187671.2187677}. Years of research on IFP have developed two main models: the Data Stream Processing Model (DSMS) \cite{Babcock:2002:MID:543613.543615} and the Complex Event Processing (CEP) Model \cite{Luckham:2001:PEI:515781}. We details this two models of IFP respectively for DSMS in Subsection \ref{sec:dsms} and for CEP in Subsection \ref{sec:cep}
+We call IFP Engine \textit{a tool capable of timely processing large amount of information, which flows from the peripheral to the center of the system} \cite{Cugola:2012:PFI:2187671.2187677}. Years of research on IFP have developed two main models: the Data Stream Processing Model (DSMS) \cite{Babcock:2002:MID:543613.543615} and the Complex Event Processing (CEP) Model \cite{Luckham:2001:PEI:515781}. We detail these two models of IFP respectively for DSMS in Subsection \ref{sec:dsms} and for CEP in Subsection \ref{sec:cep}
 
-Figure \ref{fig:ifp} shows the general IFP Engine model proposed in \cite{Cugola:2012:PFI:2187671.2187677}. As the figure shows, the IFP engine receives as input information flow and it processes the flow item as soon as they are available. A set of processing rules define the processing, by specifying how to filter, combine, and aggregate different flows of information. Item by item the IFP generates a new flow, which represents the output of the engine.
+Figure \ref{fig:ifp} shows the general IFP Engine model proposed in \cite{Cugola:2012:PFI:2187671.2187677}. As the figure shows, the IFP Engine receives as input information flows and it processes the flow items as soon as they are available. A set of processing rules define the processing, by specifying how to filter, combine, and aggregate different flows of information. Item by item the IFP generates a new flow, which represents the output of the engine.
 
 IFP processing is led by two central concepts:
 \begin{itemize}
@@ -217,7 +215,7 @@ Moreover DSMS are different from DBSM because:
 \item size and time constraints make hard, probable impossible, storing and processing data stream; one-time processing is the typical mechanism used to deal with streams
 \end{itemize} 
 
-Practically, DSMSs present many differences from traditional DBSM: first of all, DBMSs are designed to work on persistent data, while DSMSs are focused into transient data management, because data are continuously updated. The second main difference regards queries: DBMSs queries are run once and then return a complete answer. DSMSs queries instead are execute standing queries, which continuously answer as new data arrives. 
+Practically, DSMSs present many differences from traditional DBSM: first of all, DBMSs are designed to work on persistent data, while DSMSs are focused into transient data management, because data are continuously updated. The second main difference regards queries: DBMSs queries are run once and then return a complete answer. DSMSs queries instead are continuous queries, which continuously answer as new data arrives. 
 
 \begin{figure}[tbh]
   \centering
@@ -226,7 +224,7 @@ Practically, DSMSs present many differences from traditional DBSM: first of all,
   	\label{fig:dsms}
 \end{figure}
 
-In Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:2001:CQO:603867.603884}. The aim the model is to explicit several architectural choices and their consequences. A DSMS is modelled as a set of standing queries $Q$ and one or more input streams, the DSMS can produce four outputs \cite{Cugola:2012:PFI:2187671.2187677}:
+Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:2001:CQO:603867.603884}. The aim the model is to explicit several architectural choices and their consequences. A DSMS is modelled as a set of standing queries $Q$ and one or more input streams, the DSMS can produce four outputs \cite{Cugola:2012:PFI:2187671.2187677}:
 
 \begin{itemize}
 \item The \textit{Stream} - it is formed by all the elements of the answer that are produced once and never changed;
@@ -246,19 +244,19 @@ In Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:20
 
 Moreover, the DB group of the Stanford University proposed the CQL stream processing model, which defines a generic DSMS through three classes of operators \cite{Arasu2006}.
 
-Figure \ref{fig:cql} present the composed system, the DSMS:  
+A DSMS system is is composed by operators that are able to manage the information stream in different phases. Figure \ref{fig:cql} gives a representation of the general model. Tree modules compose the system in figure, which belong to three classes of operators:  
 
-The Stream-to-Relation (S2R) operator is from the first class of operators that manage data streams.  A stream is a potentially unbounded, thus the S2R operators extracts finite bags of timestamped data items, transforming streams in relations. There are several operators of this class and the sliding window is one of the most studied. 
+The Stream-to-Relation (S2R) is the first class of operators that manage data streams.  A stream is a potentially unbounded, thus the S2R operators extract finite bags of timestamped data items, transforming streams in relations. There are several operators of this class and the sliding window is one of the most studied. 
 
-The next operator belong to the second class. It is the Relation-to-Relation (R2R). The relation may be transformed in another relation through relational algebraic expressions, which are a well-known cases of this class of operators. 
+The next operator belongs to the second class: the Relation-to-Relation (R2R). The relation may be transformed in another relation through relational algebraic expressions, which are a well-known cases of this class of operators. 
 
-Finally, the third operator, from last class, is the Relation-to-Stream (R2S). It is necessary when the output of the query processor should be a stream. The transformed relation has to be set as output trough this an additional operator, the R2R, which appends the set of mappings to the output stream. Every time the continuous query is evaluated, the set of solution mappings is processed by the R2S operator, which determines the data items it has to stream out. There are usually three R2S operators:
+Finally, the third class of operators is the Relation-to-Stream (R2S). This kind of operators are necessary when the output of the query processor should be a stream. The transformed relation has to be set as output trough this an additional operator, the R2R, which appends results to the output stream. Every time the continuous query is evaluated, the results are processed by the R2S operator, which determines the data items it has to stream out. There are usually three R2S operators:
 
-\textbf{Rstream}, which streams out the computed timestamped set of mappings at each step. Rstream answers can be verbose as the same solution mapping can be computed at different evaluation times, and consequently streamed out. It is suitable when it is important to have the whole SPARQL query answer at each step, e.g. discover museum attractions that are popular in a social network in the recent time period.
+\textbf{Rstream}, which streams out the computed timestamped results at each step. Rstream answers can be verbose as the same results can be computed at different evaluation times, and consequently streamed out. It is suitable when it is important to have the whole query answered at each step, e.g. discover museum attractions that are popular in a social network in the recent time period.
 
-\textbf{Istream} streams out the difference between the timestamped set of mappings computed at the last step and the one computed at the previous step. Answers are usually short (they contain only the differences) and consequently this operator is used when data exchange is expensive. Istream is useful when the focus in on the new mappings that are computed by the system, e.g. discover emerging museum attractions in a social network.
+\textbf{Istream} streams out the difference between the timestamped results computed at the last step and the one computed at the previous step. Answers are usually short (they contain only the differences) and consequently this operator is used when data exchange is expensive. Istream is useful when the focus in on the results that are computed by the system, e.g. discover emerging museum attractions in a social network.
 
-\textbf{Dstream} does the opposite of Istream: it streams out the difference between the computed timestamped set of mappings at the previous step and at the last step. Dstream is normally considered less relevant than Rstream and Istream, but it can be useful, e.g. to retrieve attractions that are no more popular.
+\textbf{Dstream} does the opposite of Istream: it streams out the difference between the computed timestamped results at the previous step and at the last step. Dstream is normally considered less relevant than Rstream and Istream, but it can be useful, e.g. to retrieve attractions that are no more popular.
 
 
 \subsection{Complex Event Processor}\label{sec:cep}
@@ -277,7 +275,7 @@ A CEP Engine, Figure \ref{fig:cep}, is responsible for processing such events as
 
 \section{Stream Reasoning}\label{sec:sfp}
 
-Answering such queries like \textit{What are the top 10 emerging topics under discussion on Twitter, and who is driving the discussions?} requires systems that can manage rapidly changing worlds at the semantic level. \textbf{Stream Reasoning} is a novel research trend focused on combining DSMSs, which can analyse data on the fly (see Section \ref{sec:dsms}) and reasoners, which can perform such complex reasoning tasks (see Section \ref{sec:sw}), in order to make possible reasoning on rapidly changing information.
+Answering such queries like \textit{What are the top 10 emerging topics under discussion on Twitter, Facebook and Goolge+ and who is driving the discussions?} requires systems that can manage rapidly changing worlds at the semantic level. \textbf{Stream Reasoning} is a novel research trend focused on combining DSMSs, which can analyse data on the fly (see Section \ref{sec:dsms}) and reasoners, which can perform such complex reasoning tasks (see Section \ref{sec:sw}), in order to make possible reasoning on rapidly changing information.
 
 A first step toward stream reasoning \cite{DBLP:conf/fis/ValleCBBC08} tries to combine the power of existing data stream management systems and the Semantic Web. In the context LarKC European Research Project\footnote{http://www.larkc.eu} \cite{4597242, 4120457} was proposed a pluggable algorithmic framework for a such a system, which includes the following steps:
 \begin{itemize}
@@ -325,9 +323,9 @@ Last but not least, SPARQLstream \cite{Calbimonte:2010:EOA:1940281.1940289} is a
 
 Sections above report that RDF Stream Processing has three basic building blocks: 1) RDF streams, we introduced in Section \ref{sec:rdfstream} 2) continuos extensions of SPARQL, like the ones we briefly described in Section \ref{sec:continuous-sparql}, and 3) reasoning algorithms able to cope with rapidly changing information.
 
-Collectively, IFP engines that process RDF streams using those SPARQL extensions and reasoning algorithm are known as \textbf{RDF Stream Processing} (RSP) \textbf{Engines}.
+Collectively, IFP Engines that process RDF streams using those SPARQL extensions and reasoning algorithm are known as \textbf{RDF Stream Processing} (RSP) \textbf{Engines}.
 
-Among RSP Engines, we target window-based RSP engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{DBLP:journals/ijswis/CalbimonteJCA12}  are examples of window-based RSP engines.  The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. For instance, the following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
+Among RSP Engines, we target window-based RSP Engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{DBLP:journals/ijswis/CalbimonteJCA12}  are examples of window-based RSP Engines.  The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. For instance, the following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
 
 \vspace{5pt}
 \noindent\textit{SELECT ?person}\\
@@ -398,17 +396,17 @@ The ST sub-field which tries to offer an objective and independent view of the s
 
 Benchmarking is the primary method for measuring the performance of a systems, hardware or an application [7]. Indeed a benchmark is a procedure, problem, or test that can be used to compare systems or components to each other or to a standard \cite{IEEEStd610.12-1990:glossary}. Thus, benchmark results are used to evaluate the performance of a given system on a well-defined workload \cite{Menasce:2001:CPW:560806}.
 
-Many benchmark tests exists to evaluate a wide variety system or applications under different types of workloads. The user groups like the Transaction Processing Performance Council (TPC) \footnote{http://www.tpc.org/information},  a non-profit corporation founded to define transaction processing and database benchmarks, or analogues corporations are useful resources of be informed about updated types of benchmarks. 
+Many benchmark tests exist to evaluate a wide variety system or applications under different types of workloads. The user groups like the Transaction Processing Performance Council (TPC) \footnote{http://www.tpc.org/information},  a non-profit corporation founded to define transaction processing and database benchmarks, or analogues corporations are useful resources of be informed about updated types of benchmarks. 
 
-Generic benchmarks allows the quantitative comparison of system performances or price/cost. In database context performance is typically a throughput metric (work/second) and price is typically a five-year cost-of-ownership metric. The quantitative comparison requires the benchmark to be run on several different systems and to record each system is measurements.  The estimation evaluated from results is usually the relative system performance, because the cost of implementing and measuring a specific application on many different systems is almost always prohibitive.
+Generic benchmarks allows the quantitative comparison of system performances or price/cost. In database context performance is typically a throughput metric (work/second) and price is typically a five-year cost-of-ownership metric \cite{DBLP:books/mk/Gray93}. The quantitative comparison requires the benchmark to be run on several different systems and to record each system is measurements.  The estimation evaluated from results is usually the relative system performance, because the cost of implementing and measuring a specific application on many different systems is almost always prohibitive.
 
 \subsection{Domain Specifc Benchmarks}  \label{sec:tcp}
 
-A single metric can not measure the performance relative to all application of a computer systems \cite{DBLP:books/mk/Gray93}. Performances depend striclty on the application domain, because each system is designed for a few problem in a domain and may be inadequate to perform other tasks.
+A single metric can not measure the performance relative to all applications of a computer systems \cite{DBLP:books/mk/Gray93}. Performances depend strictly on the application domain, because each system is designed for a few problem in a domain and may be inadequate to perform other tasks.
 
-It is worth to note the work of Jim Gray about Domain-specific benchmarks, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterising typical applications in that problem domain. 
+It is worth to note the work of Jim Gray about Domain-specific benchmarks \cite{DBLP:books/mk/Gray93}, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterising typical applications in that problem domain. 
 
-In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful \cite{DBLP:books/mk/Gray93}. It must be:
+In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful. It must be:
 \begin{itemize}
 \item Relevant: It must measure the peak performance and price/performance of systems when performing typical operations within that problem domain.
 \item Portable: It should be easy to implement the benchmark on many different systems and architectures.
@@ -460,59 +458,59 @@ Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt}, try to i
   	\label{fig:bicep-schema}
 \end{figure}
 
-BiCEP project presents an first schema model for a benchmarking system, reported in Figure \ref{fig:bicep-schema}. This benchmarking system will produce all the input trough the Event Generator Module, and consume the result output from the BiCEP CEP engine with the Answer Validation Module. The Figure above also show how the CEP engine in interfaced with BiCEP modules, in order to ensure that any buffering, event cleaning or event transformation phase that happens at the CEP engine is part of the overall performance measure. 
+BiCEP project presents an first schema model for a benchmarking system, reported in Figure \ref{fig:bicep-schema}. This benchmarking system will produce all the input trough the Event Generator Module, and consume the result output from the BiCEP CEP Engine with the Answer Validation Module. The Figure above also show how the CEP Engine in interfaced with BiCEP modules, in order to ensure that any buffering, event cleaning or event transformation phase that happens at the CEP Engine is part of the overall performance measure. 
 
 Synthetic benchmarks offers many benefits like data availability, experimental control, and scalability. However, it is hard to develop a synthetic benchmark that is representative of such a wide range of CEP applications at the same time. BiCEP development is oriented towards a set of small domain specific benchmarks with different data sets and different queries \cite{bizarro:DSP:2007:1143}.
 
-Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation. It is mandatory, because CEP system rarely face stable input streams that allow the CEP engine to reach a steady state condition.
+Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation. It is mandatory, because CEP system rarely face stable input streams that allow the CEP Engine to reach a steady state condition.
 
-\subsection{Semantic Flow Processing (SFP) Benchmark}\label{sec:sr-benchmarking}
+\subsection{RDF Stream Processing (RSP) Benchmark}\label{sec:sr-benchmarking}
 
-The increasing number of heterogeneous complex system demands Computer Science to focus on the empirical evaluation of such system, as we state in Section \ref{sec:empirical-research}. Semantic Flow Processing engines represent are clearly an example of complex system, which face heterogeneous domains of application. This should be enough to follow the Tichy's suggestion and start their empirical evaluation. However, despite the number of SFP engines is increasing, the works about their evaluation are still limited and do not address properly the definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
+The increasing number of heterogeneous complex system demands Computer Science to focus on the empirical evaluation of such system, as we state in Section \ref{sec:empirical-research}. Semantic Flow Processing Engines represent are clearly an example of complex system, which face heterogeneous domains of application. This should be enough to follow the Tichy's suggestion and start their empirical evaluation. However, despite the number of RSP Engines is increasing, the works about their evaluation are still limited and do not address properly the definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
 
-Recent works on SFP benchmarking try to follow the Linear Road example, firstly posing the main challenges for the SR benchmarking  and then developing them one by one. The result are known as Seven Commandments to follow on the benchmarking design for SFP \cite{DBLP:conf/esws/ScharrenbachUMVB13}. Following we report the commandments then we describe in section below how existing benchmarking solution may be evaluate w.r.t \cite{DBLP:conf/esws/ScharrenbachUMVB13}:
+Recent works on RSP benchmarking try to follow the Linear Road example, firstly posing the main challenges for the SR benchmarking  and then developing them one by one. The result are known as Seven Commandments to follow on the benchmarking design for RSP \cite{DBLP:conf/esws/ScharrenbachUMVB13}. Following we report the commandments then we describe in section below how existing benchmarking solution may be evaluate w.r.t \cite{DBLP:conf/esws/ScharrenbachUMVB13}:
  
-Semantic Flow Processing engines must implement good strategies for \textit{Load Balancing} [S.1], because they usually consider several input information streams with possible bursts. It is possible to stress the system under various conditions by repeatedly applying a set of changes to the input.
+Semantic Flow Processing Engines must implement good strategies for \textit{Load Balancing} [S.1], because they usually consider several input information streams with possible bursts. It is possible to stress the system under various conditions by repeatedly applying a set of changes to the input.
 
 A stress test is required to measure the performance of \textit{Flow Data Joins And Inference} [S.2]. It has to consider increasingly complex cascades of joins in order to design the stress test for Simple joins, which put no further constraints on the join but on the join-equality. The benchmark has to add further constraints on the joins, and subsequently to the data. In this way is possible: to enable Sequential joins testing, which add a sequential constrains;  to allow Temporal joins testing, which extend sequential joins by enabling advanced temporal constraints. On the other and, \textit{joining stream and background data} [S.3] always results in simple joins. A stress-test must consider single joins and increasingly complex cascades.
 
 The benchmark must test \textit{Aggregates} [S.4], which enable counts, averages and any other arithmetic operation on groups of entities or literals. Moreover, it must take count of properly groups scaling: group number, group complexity or tuning the data to provide a big number of candidate but a small number of selected groups.
 
-In distributed settings, an SFP benchmark must ensure the correctness of query answers, handling \textit{Unexpected Data} [S.5] like out-of-order arrival of information and data loss. A benchmark should be able to measure this ability evaluating precision and recall of the amount of missing data with two tests, (i) by increasing the number of out-of-order events or (ii) by testing how long and how many data can be handled until some nosily data observation will be no longer considered for processing.
+In distributed settings, an RSP benchmark must ensure the correctness of query answers, handling \textit{Unexpected Data} [S.5] like out-of-order arrival of information and data loss. A benchmark should be able to measure this ability evaluating precision and recall of the amount of missing data with two tests, (i) by increasing the number of out-of-order events or (ii) by testing how long and how many data can be handled until some nosily data observation will be no longer considered for processing.
 
-A benchmark has two possibility for stressing the system trough \textit{Schema} [S.6] variations: (a) Evaluating the system ability to handle an increasing number of axioms in system ontology, notice that these new axioms could not have been deduced from existing ones. (b) Changing statements that generate a more complex reasoning. It is important to know that increase the expressive power of the schema not only for the background data but also of the data flow may stress an SFP system significantly.
+A benchmark has two possibility for stressing the system trough \textit{Schema} [S.6] variations: (a) Evaluating the system ability to handle an increasing number of axioms in system ontology, notice that these new axioms could not have been deduced from existing ones. (b) Changing statements that generate a more complex reasoning. It is important to know that increase the expressive power of the schema not only for the background data but also of the data flow may stress an RSP system significantly.
 
-Finally, a benchmark should evaluate an SFP engine trough \textit{Changes in Background-Data} [S.7]. Any stress test on background data changes should variate the update frequency and the entire amount of data involved in the update, forcing the system to access background-data from disk as much as possible.
+Finally, a benchmark should evaluate an RSP Engine trough \textit{Changes in Background-Data} [S.7]. Any stress test on background data changes should variate the update frequency and the entire amount of data involved in the update, forcing the system to access background-data from disk as much as possible.
 
-Implemented proposals for SFP benchmarking has been published, but none of them impact the community as the Linear Road did for DSMSs. More careful analysis of those solutions, presented in the following section, evidence some lacks w.r.t the commandments proposed in \cite{DBLP:conf/esws/ScharrenbachUMVB13} 
+Implemented proposals for RSP benchmarking has been published, but none of them impact the community as the Linear Road did for DSMSs. More careful analysis of those solutions, presented in the following section, evidence some lacks w.r.t the commandments proposed in \cite{DBLP:conf/esws/ScharrenbachUMVB13} 
 
 \subsubsection{SRBench}\label{sec:srbench}
 
-SRBench is presented as \textit{a general-purpose benchmark primarily designed for streaming RDF/SPARQL engines and based on real-world data sets}\cite{Zhang2012}. The SRBench dataset is composed by: the LinkedSensorData  which  is a real-world data set containing the US weather data published by Kno.e.sis\footnote{ http://knoesis.wright.edu};  GeoNames and DBpedia data sets, which allow to demonstrate the ability of the benchmarked system to deal with interlinked data.
+SRBench is presented as \textit{a general-purpose benchmark primarily designed for streaming RDF/SPARQL Engines and based on real-world data sets}\cite{Zhang2012}. The SRBench dataset is composed by: the LinkedSensorData  which  is a real-world data set containing the US weather data published by Kno.e.sis\footnote{ http://knoesis.wright.edu};  GeoNames and DBpedia data sets, which allow to demonstrate the ability of the benchmarked system to deal with interlinked data.
 
 Moreover, \cite{Zhang2012} provides some relevant metrics to evaluate the performance of the system: 
 \begin{itemize}
 \item \textit{Correctness of the query results} - it must be validated and the validation results should be expressed in terms of precision and recall
-\item \textit{Throughput} - it is defined as limit number of incoming data an SFP system is able to process per time unit.
+\item \textit{Throughput} - it is defined as limit number of incoming data an RSP system is able to process per time unit.
 \item \textit{Scalability} - it means evaluating how the system reacts to an increasing number of incoming streams and variation on number of registered continuous queries.
-\item \textit{Response time} - it is the amount of time between a data item enters the system and the SFP engine outputs the query results.
+\item \textit{Response time} - it is the amount of time between a data item enters the system and the RSP Engine outputs the query results.
 \end{itemize}
 
-SR Bench provides also a query set composed by seventeen queries, which are designed based on a real use case in LSD. In order test many properties of the RDF stream engines the queries vary involving single or multiple input streams, queries over stream-only data sources or over mixed stream and static data source, etc. They cover the most important SPARQL operators and the common streaming SPARQL extensions and several queries require RDFS reasoning.
+SR Bench provides also a query set composed by seventeen queries, which are designed based on a real use case in LSD. In order test many properties of the RDF stream Engines the queries vary involving single or multiple input streams, queries over stream-only data sources or over mixed stream and static data source, etc. They cover the most important SPARQL operators and the common streaming SPARQL extensions and several queries require RDFS reasoning.
 
 SRBench was criticised w.r.t. proposed commandments above \cite{DBLP:conf/esws/ScharrenbachUMVB13}. It only cover [S.3] and [S.6] but with some limitations: the queries are fixed and thus do not allow an exhaustive assessment of join performance required by [S.3]. Testing variations of the expressive power is possible in SR but it was not done yet as demanded by [S.6]. The commandments [S.2] and [S.
 4 are partially satisfied. The SRBench provides data and use-cases for sequential joins but it does not implement stress tests for temporal joins [S.2]. About [S.4], SRBench tests the aggregates only trough single queries. The other commandments are not cover yes, even if some of was marked as potential extensions of SRBench in \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1.
 
 \subsubsection{LSBench}\label{sec:lsbench}
 
-LS Bench was developed to propose methods and a framework that enable meaningful comparisons of SFP processing engines. The framework provides several customisable tools for simulating realistic data, running engines, and analysing the output. 
+LS Bench was developed to propose methods and a framework that enable meaningful comparisons of RSP processing Engines. The framework provides several customisable tools for simulating realistic data, running engines, and analysing the output. 
 
-The methods proposed by LSBench include three tests to evaluate the SFP stream engines \cite{DBLP:conf/semweb/DellAglioCBCV13}:
+The methods proposed by LSBench include three tests to evaluate the RSP stream Engines \cite{DBLP:conf/semweb/DellAglioCBCV13}:
 \begin{itemize}
 \item A functional test to verify the operators and the functionalities supported
 by the engines, similar to SR Bench \ref{sec:srbench}
-\item A correctness test is to verify if the tested SFP engine produces the correct output. Actually the test assumes that the contents of the output are correct, and it analyses only the number of produced answers.
-\item A maximum input throughput test, whose aim is evaluating the maximum throughput of the SFP engine, by increasing the data streak rate and checking the number of the answers
+\item A correctness test is to verify if the tested RSP Engine produces the correct output. Actually the test assumes that the contents of the output are correct, and it analyses only the number of produced answers.
+\item A maximum input throughput test, whose aim is evaluating the maximum throughput of the RSP Engine, by increasing the data streak rate and checking the number of the answers
 \end{itemize}
 
 %\subsubsection{LSBench} S2 partially, S3 partially, S4 partially 
@@ -521,13 +519,13 @@ The data generator, S2Gen, creates data set for benchmarking according to the \t
 
 Finally, LSBench \cite{LePhuoc2012c} provides for each test a set of 12 fixed queries. The queries in the set vary to address different features of the engines. 
 
-The Seven commandments for SFP benchmarking are not completely covered by LS Bench (see \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1). LSBench cover [S.3], but ,as for SRBench, fixed queries do not allow to stress the system properly with the aim of evaluate join performances. [S.2] is only partially supported, because, LS Bench does not support stress testing for temporal joins but only for sequential. [S.4] is again only partially fulfilled: LS Bench tests aggregates only implementing single queries \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
+The Seven commandments for RSP benchmarking are not completely covered by LS Bench (see \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1). LSBench cover [S.3], but ,as for SRBench, fixed queries do not allow to stress the system properly with the aim of evaluate join performances. [S.2] is only partially supported, because, LS Bench does not support stress testing for temporal joins but only for sequential. [S.4] is again only partially fulfilled: LS Bench tests aggregates only implementing single queries \cite{DBLP:conf/esws/ScharrenbachUMVB13}.
 
 \subsubsection{Benchmarking Query Result Correctness: CSRBench}
 
 Further work on correctness of the RSP Engine operational semantics, showed how this variates on different implementations and influence the query results correctness. \cite{DBLP:conf/semweb/DellAglioCBCV13}
 
-One common limitation of the Stream Reasoning benchmarks presented above is that they do not check the correctness of output produced by the benchmarked RDF engine. SRBench verifies only trough functional tests the query language supported by the engines. On the other hand, LSBench does not check the answers correctness, but limits the analysis to the number of outputs. 
-SR Bench and LS Bench make two assumptions on the tested systems which may consider erroneous: (i) they work correctly; (ii) They all have the same operational semantics. However, these assumptions do not always hold for all RDF stream engines, and hence these benchmarks may supply misleading information about them.
+One common limitation of the Stream Reasoning benchmarks presented above is that they do not check the correctness of output produced by the benchmarked RDF Engine. SRBench verifies only trough functional tests the query language supported by the engines. On the other hand, LSBench does not check the answers correctness, but limits the analysis to the number of outputs. 
+SR Bench and LS Bench make two assumptions on the tested systems which may consider erroneous: (i) they work correctly; (ii) They all have the same operational semantics. However, these assumptions do not always hold for all RDF stream Engines, and hence these benchmarks may supply misleading information about them.
  
 An extension of the SR Bench for correctness checking, CSRBench, was proposed in \cite{DBLP:conf/semweb/DellAglioCBCV13}. It takes into account the issues that affect query results in RDF streaming query processing in their three main dimensions: system, query and input stream data. Moreoever, it includes in the benchmark three new types of parametrised queries, with the aim of stressing the S2R operators. Finally, it provides an oracle that generates and compares results of RDF stream processors and check their correctness.

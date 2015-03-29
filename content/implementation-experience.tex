@@ -31,7 +31,7 @@ Chapter \ref{chap:problem-settings} poses the requirements of an Event-based arc
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_events}
-	\caption[UML Schema: \name Execution Events]{The figure shows the event that \name \textsc{Test Stand} and its modules 	exchanges during the execution of an experiment. All of them implement the \textit{Event} interfaces that start the class 	hierarchy.} 
+	\caption[\name Execution Events - UML Schema]{The figure shows the event that \name \textsc{Test Stand} and its modules 	exchanges during the execution of an experiment. All of them implement the \textit{Event} interfaces that start the class 	hierarchy.} 
 	\label{fig:uml_events}
 \end{figure}
 
@@ -57,7 +57,7 @@ Thus, each modules in this section offers three standard methods to interact wit
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_tstreamer}
-	\caption[UML Schema: \textit{RDF2RDFStream \textsc{Streamer} Implementation}]{Current implementation of the \textsc{Streamer} module. \textit{RDF2RDFStream} extends the \textit{TSStreamer} abstract class, which defines the module as an \textit{EventProcessor} of \textit{Experiment}s} 
+	\caption[\textit{RDF2RDFStream \textsc{Streamer} Implementation} - UML Schema]{Current implementation of the \textsc{Streamer} module. \textit{RDF2RDFStream} extends the \textit{TSStreamer} abstract class, which defines the module as an \textit{EventProcessor} of \textit{Experiment}s} 
   	\label{fig:uml_tstreamer}
 \end{figure}
 
@@ -70,7 +70,7 @@ Figure \ref{fig:uml_tstreamer} contains also the \textit{RDF2RDFStream} implemen
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/uml_flowrateprofiler}
-	\caption[UML Schema: Internal Components of \textit{RDF2RDFStream}]{The \textit{RDF2RDFStream} exploits two subcomponents to build an RDF Stream: the \textit{Parser}, which allows to ready in memory RDF Triples, and the \textit{FlowRateProfiler}, which attaches to RDF triple a timestemp and it builds \textit{CTEvent}s according to a function $f=f(x)$. The \textit{FlowRateProfileImpl} provides implementation of the \textit{append(TripleContainer tc}) method and of the two utility methods \textit{isReady()} and \textit{getEvent()}. Specific implementations of the \textit{FlowRateProfiler} control the function $f$ trough the \textit{updateSize()} method.} 
+	\caption[Internal Components of \textit{RDF2RDFStream} - UML Schema]{The \textit{RDF2RDFStream} exploits two subcomponents to build an RDF Stream: the \textit{Parser}, which allows to ready in memory RDF Triples, and the \textit{FlowRateProfiler}, which attaches to RDF triple a timestemp and it builds \textit{CTEvent}s according to a function $f=f(x)$. The \textit{FlowRateProfileImpl} provides implementation of the \textit{append(TripleContainer tc}) method and of the two utility methods \textit{isReady()} and \textit{getEvent()}. Specific implementations of the \textit{FlowRateProfiler} control the function $f$ trough the \textit{updateSize()} method.} 
   	\label{fig:uml_flowrateprofiler}
 \end{figure}
 
@@ -118,7 +118,7 @@ The remaining two  \textit{FlowRateProfiler} implementations in \name that are n
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.5\linewidth]{images/uml_resultcollector}
-	\caption[UML Schema: \textsc{ResultCollector} Current Implementation]{The current implementation of the \textsc{ResultCollector} interface is the \textit{TSResultCollector} which processes events that implements the \textit{EventResult Interface}. \textit{ResultEvent} interface hides the saving procedure, delegating the implementation to the event provider trough    the \textit{save()} method. \textit{TSResultCollector} exposes also the method process(Event e, String where), which allows the caller to specify the destination. } 
+	\caption[\textsc{ResultCollector} Current Implementation - UML Schema]{The current implementation of the \textsc{ResultCollector} interface is the \textit{TSResultCollector} which processes events that implements the \textit{EventResult Interface}. \textit{ResultEvent} interface hides the saving procedure, delegating the implementation to the event provider trough    the \textit{save()} method. \textit{TSResultCollector} exposes also the method process(Event e, String where), which allows the caller to specify the destination. } 
   	\label{fig:uml_resultcollector}
 \end{figure}
 
@@ -128,7 +128,7 @@ The UML Schema in Figure \ref{fig:uml_resultcollector} shows firstly that the \t
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_resultcollector_events}
-	\caption[UML Schema: \textsc{ResultCollector} Events]{ All the \textit{Experiment}, the \textit{TSResult} and the \textit{OutCTEvent} implements the \textit{EventResult} interface in order to hides specific saving procedure behind the \textit{save(String where)} method. The saving procedures exploits two service classes the \textit{FileService} and the \textit{SQLLIsteService}, which avoid concurrent access to the saving procedure with static methods.} 
+	\caption[\textsc{ResultCollector} Events - UML Schema]{ All the \textit{Experiment}, the \textit{TSResult} and the \textit{OutCTEvent} implements the \textit{EventResult} interface in order to hides specific saving procedure behind the \textit{save(String where)} method. The saving procedures exploits two service classes the \textit{FileService} and the \textit{SQLLIsteService}, which avoid concurrent access to the saving procedure with static methods.} 
   	\label{fig:uml_resultcollector_events}
 \end{figure}
 
@@ -147,7 +147,7 @@ Both the saving procedure exploit a service class, respectively the \textit{File
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.5\linewidth]{images/uml_teststand}
-	\caption[UML Schema: \name \textsc{TestStand}]{The \textsc{TestStand} abstract class implements both the \textit{EventProcessor} and the \textit{Startable} interfaces, but defines only the methods \textit{init()} and \textit{close()}  and it adds the \textit{run(Experiment e)} method, which encapsulate the execution logic. The \textit{process(CTEvent e)} method is implemented by \textit{TestStandImpl} which represents the \textit{Test Stand External Structure}. It orchestrates the communication between other modules and gather the data.}
+	\caption[\name \textsc{TestStand} - UML Schema]{The \textsc{TestStand} abstract class implements both the \textit{EventProcessor} and the \textit{Startable} interfaces, but defines only the methods \textit{init()} and \textit{close()}  and it adds the \textit{run(Experiment e)} method, which encapsulate the execution logic. The \textit{process(CTEvent e)} method is implemented by \textit{TestStandImpl} which represents the \textit{Test Stand External Structure}. It orchestrates the communication between other modules and gather the data.}
   	\label{fig:uml_teststand}
 \end{figure}
 
@@ -159,7 +159,7 @@ The relation between the \textit{TestStand} and other modules is presented in Fi
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.90\linewidth]{images/uml_teststand_modules}
-	\caption[UML Schema: \name \textsc{TestStand} and modules] { The \textit{TestStand} contains a reference to the modules which compose the various phases of the execution: the \textit{TSStreamer}, the engine behind the \textit{RSPEngine} interface and the \textit{TSResultCollector}. Both the \textit{TSStreamer}, and current \textit{RSPEngine} are linked to the next element in the pipeline trough the \textit{TestStand} class. Two arrows labelled with "next"  point to the  \textit{TestStand} to indicate that it is receives the events from all the other modules and orchestrates the communication. Notice that the arrow which start from the \textit{RSPEngine} is coloured in gray since is it can not be seen at this level of detail, because \textit{RSPEngine} is an interface.  the \textit{ResultCollector} receives the result to save at the end of each cycle, it does need to be linked to other modules since the process ends when it return the call.} 
+	\caption[\name \textsc{TestStand} and Modules  - UML Schema] { The \textit{TestStand} contains a reference to the modules which compose the various phases of the execution: the \textit{TSStreamer}, the engine behind the \textit{RSPEngine} interface and the \textit{TSResultCollector}. Both the \textit{TSStreamer}, and current \textit{RSPEngine} are linked to the next element in the pipeline trough the \textit{TestStand} class. Two arrows labelled with "next"  point to the  \textit{TestStand} to indicate that it is receives the events from all the other modules and orchestrates the communication. Notice that the arrow which start from the \textit{RSPEngine} is coloured in gray since is it can not be seen at this level of detail, because \textit{RSPEngine} is an interface.  the \textit{ResultCollector} receives the result to save at the end of each cycle, it does need to be linked to other modules since the process ends when it return the call.} 
   	\label{fig:uml_teststand_modules}
 \end{figure}
 
@@ -178,7 +178,7 @@ The RSP Engine pipeline is composed by Esper\footnote{$http://www.espertech.com/
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_baselines_general}
-	\caption[UML Schema: \textit{RSPEngine} Implementation Trough Esper and Jena]{The \textit{RSPEngine} interface extends both the \textit{EventProcessor} and the \textit{Startable} ones. The \textit{RSPEsperEngine} class in picture implements the interface adding the Esper runtime to handle its internal events. The \textit{JenaEngine} together with the \textit{RSPListener} integrate the Jena reasoning system into the engine.}
+	\caption[\textit{RSPEngine} Implementation Trough Esper and Jena - UML Schema]{The \textit{RSPEngine} interface extends both the \textit{EventProcessor} and the \textit{Startable} ones. The \textit{RSPEsperEngine} class in picture implements the interface adding the Esper runtime to handle its internal events. The \textit{JenaEngine} together with the \textit{RSPListener} integrate the Jena reasoning system into the engine.}
   	\label{fig:uml_baselines_general}
 \end{figure}
 
@@ -191,7 +191,7 @@ The RSP Engine is in the middle of the \textsc{Test Stand} pipeline, thus is has
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_baselines_listener}
-	\caption[UML Schema: \textit{RSPListener} Implementations]{The \textit{RSPListener} is actually a proxy for the native Esper \textit{UpdateListener}. We implement the interface following two possible reasoning approaches, Naive and Incremental, respectively into the  \textit{JenaNaiveListener} and the \textit{JenaIncrementalListener}. Further implementations like the \textit{JenaNaive$\rho$DFListener} allows to specify the entailment regime and the TBox to the listeners.} 
+	\caption[\textit{RSPListener} Implementations - UML Schema]{The \textit{RSPListener} is actually a proxy for the native Esper \textit{UpdateListener}. We implement the interface following two possible reasoning approaches, Naive and Incremental, respectively into the  \textit{JenaNaiveListener} and the \textit{JenaIncrementalListener}. Further implementations like the \textit{JenaNaive$\rho$DFListener} allows to specify the entailment regime and the TBox to the listeners.} 
   	\label{fig:uml_baselines_listener}
 \end{figure}
 
@@ -202,7 +202,7 @@ The reasoner stage is realised as shown in Figure \ref{fig:uml_baselines_listene
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.7\linewidth]{images/uml_baselines_events}
-	\caption[UML Schema: Esper-level Graph based and Triple based]{ All the event registered to Esper belong to the \textit{JenaEsperEvent} interface, which exposes methods to handle the reasoning independently from the RDF Stream implementation:  \textit{GraphEvent} or \textit{TripleEvent}. The triples received by the \textit{RSPEngine} can be pushed into Esper as complete graph or as a set statements. To handle the active window graph independently from the event implementation, the interface exposes the method \textit{addTo(Graph g)} and \textit{removeFrom(Graph g)}, while the \textit{serialise()} methods unroll the current event into a set of statement, in order to build an outgoing \textit{OutCTEvent}}
+	\caption[Esper-level Graph based and Triple based - UML Schema]{ All the event registered to Esper belong to the \textit{JenaEsperEvent} interface, which exposes methods to handle the reasoning independently from the RDF Stream implementation:  \textit{GraphEvent} or \textit{TripleEvent}. The triples received by the \textit{RSPEngine} can be pushed into Esper as complete graph or as a set statements. To handle the active window graph independently from the event implementation, the interface exposes the method \textit{addTo(Graph g)} and \textit{removeFrom(Graph g)}, while the \textit{serialise()} methods unroll the current event into a set of statement, in order to build an outgoing \textit{OutCTEvent}}
   	\label{fig:uml_baselines_events}
 \end{figure}
 
@@ -215,7 +215,7 @@ The current implementation of the Baselines allows to share the majority of the 
 %\begin{figure}[tbh]
 %  \centering
 %	\includegraphics[width=\linewidth]{images/uml_baselines_rel_listener_event}
-%	\caption[UML Schema: The Relation between \textit{RSPListener} and \textit{JenaEsperEvent} ]{The listener and the event implementation are fully decoupled but logically related. In picture is detailed this relation for different implementation of the \textit{RSPListener}}
+%	\caption[The Relation between \textit{RSPListener} and \textit{JenaEsperEvent} - UML Schema]{The listener and the event implementation are fully decoupled but logically related. In picture is detailed this relation for different implementation of the \textit{RSPListener}}
 %  	\label{fig:uml_baselines_rel_listener_event}
 %\end{figure}
 %
