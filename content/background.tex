@@ -128,15 +128,15 @@ $\rho$DF is a fragment of RDFS that conserves the original semantic and covers o
 \item rdf:type 
 \end{itemize}
 
-Notice that w.r.t RDF(S) (see Section \ref{sec:rdfs}) it does not inclued the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
+Notice that w.r.t RDF(S) (see Section \ref{sec:rdfs}) it does not include the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
 
-\cite{DBLP:conf/esws/MunozPG07} provides the evidences that $\rhod$DF reserves the normative semantics and core functionalities of RDFS. Moreover,  $\rho$DF can be considered relevant from  the Stream Reasoning research point of view, because several works in the field  has already successfully chosen it as entailment regime\cite{DBLP:conf/semweb/UrbaniMJHB13, Liu:2014:ERS:2567948.2577323}.
+\cite{DBLP:conf/esws/MunozPG07} provides the evidences that $\rho$DF reserves the normative semantics and core functionalities of RDFS. Moreover,  $\rho$DF can be considered relevant from  the Stream Reasoning research point of view, because several works in the field  has already successfully chosen it as entailment regime \cite{DBLP:conf/semweb/UrbaniMJHB13, Liu:2014:ERS:2567948.2577323}.
 
 \subsection{Web Ontology Language}\label{sec:owl}
 
 The Web Ontology Language (OWL) is the W3C standard for describing rich and complex knowledge about resources, groups of resources, and relations between resources, or more formally an \textit{Ontology}. Tom Gruber define an ontology as \textit{a specification of a conceptualization}\footnote{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}. Practically, it can be a set of Description Logic axioms which tries to represent a fragment of reality. 
 
-OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usage of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialects called Profiles\footnote{http://www.w3.org/TR/owl2-profiles/#OWL_2_EL}, in Dec. 2012. In the following we present them in order of increasing level of complexity:
+OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usage of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialects called Profiles\footnote{http://www.w3.org/TR/owl2-profiles/\#OWL\_2\_EL}, in Dec. 2012. In the following we present them in order of increasing level of complexity:
 
 \begin{itemize}
 \item OWL 2 EL - this profile is suitable for ontologies with a huge number of classes to manage the terminology or which include complex structural descriptions. It works well for domain an applications which has structurally complex objects. OWL 2 EL does not support negation, disjunction, and universal quantification on properties.
@@ -175,7 +175,7 @@ Linked Data refers to data published on the Web in such a way that it is machine
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/lod}
-	\caption{Linked Data Cloud August 2014 From lod-cloud.net} 
+	\caption[Linked Data Cloud]{Linked Data Cloud of August 2014\footnote{lod-cloud.net}} 
   	\label{fig:lod}
 \end{figure}
 
@@ -224,27 +224,21 @@ The code snippet \ref{code:sparql} contains a simple example of SPARQL Select qu
 
 \section{Information Flow Processing}\label{sec:ifp}
 
-The Information Flow Processing (IFP) domain includes all the applications which face the users need to collect information  flows produced by multiple, distributed sources. IFP applications extract new knowledge from the information flow as soon as it is collected, processing the information in a timely way.
+The application domain of Information Flow Processing (IFP) includes system able to collect information flows produced by multiple, distributed sources. IFP systems, namely IFP Engines, process the information in a timely way, extracting new knowledge from the information flow as soon as it is collected.
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/ifp}
-	\caption{IFP general Model proposed in \cite{Cugola:2012:PFI:2187671.2187677}  } 
+	\caption[IFP general Model]{The Information Flow Processing general Model proposed in \cite{Cugola:2012:PFI:2187671.2187677} highlights the distributed and heterogeneous nature of information flows. The IFP Engine is a rule-based system that processes information flows. Practically it applies rules filtering, combining and aggregating different data flows which have  heterogeneous domain origins, in order to produce a new information flow that will be consumed by other systems} 
   	\label{fig:ifp}
 \end{figure}
 
-We call IFP Engine \textit{a tool capable of timely processing large amount of information, which flows from the peripheral to the center of the system} \cite{Cugola:2012:PFI:2187671.2187677}. Years of research on IFP have developed two main models: the Data Stream Processing Model (DSMS) \cite{Babcock:2002:MID:543613.543615} and the Complex Event Processing (CEP) Model \cite{Luckham:2001:PEI:515781}. We detail these two models of IFP respectively for DSMS in Subsection \ref{sec:dsms} and for CEP in Subsection \ref{sec:cep}
+An IFP Engine is \textit{capable of timely processing large amount of information, which flows from the peripheral to the center of the system} as can be seen if Figure \ref{fig:ifp}, which shows the general IFP Engine model proposed in \cite{Cugola:2012:PFI:2187671.2187677}. The IFP Engine receives many input information flows and it processes the flow items, as soon as they are available, trough a set of processing rules. The ruleset specifies how to filter, combine, and aggregate the different flows of information. Item by item the IFP generates a new flow, which represents the output of the engine.
 
-Figure \ref{fig:ifp} shows the general IFP Engine model proposed in \cite{Cugola:2012:PFI:2187671.2187677}. As the figure shows, the IFP Engine receives as input information flows and it processes the flow items as soon as they are available. A set of processing rules define the processing, by specifying how to filter, combine, and aggregate different flows of information. Item by item the IFP generates a new flow, which represents the output of the engine.
+The research works in the IFP context have developed two main models: the Data Stream Processing Model (DSMS) \cite{Babcock:2002:MID:543613.543615} and the Complex Event Processing (CEP) Model \cite{Luckham:2001:PEI:515781}. 
+DSMS processing is led by two concepts, the Relational Data Stream and the Window. On the other hand  CEP processing exploits the notion of event and by considering the input flow as sequence of notifications which be aggregated to obtain high level information, catch the semantic value of the stream.
 
-IFP processing is led by two central concepts:
-\begin{itemize}
-
-\item \textit{Data streams} - which are (potentially infinite) sequences of timestamped data items (a.k.a., events) ordered by the temporal dimension. Notice that the velocity of data stream prevents secondary memory usage. 
-
-\item \textit{Windows} - which allow to cope with the infinite nature of streams, moving from infinite sequences to finite (and processable) sets of information items. Sliding windows are one of the most studied classes of window: intuitively, a sliding window creates a view over a portion of the stream that changes (slides) over time. Time-based sliding windows are sliding windows that create the window and slide it accordingly to time constraints: they are defined by two parameters, the width $\omega$	 – i.e. the time range that has to be considered by the window – and the slide $\beta$ – i.e. how much time the window moves ahead when it slides.
-
-\end{itemize}
+We detail these two models of IFP respectively for DSMS in Subsection \ref{sec:dsms} and for CEP in Subsection \ref{sec:cep}
 
 \subsection{Data Stream Management System}\label{sec:dsms}
 The DSMS research field  views this problem as an evolution of traditional data processing. The IFP problem is described as processing streams of data coming from different sources to produce new data streams as an output. A Data Stream Management Systems (DSMS) extends the traditional DBMSs, in particular for the following considerations:
@@ -261,18 +255,20 @@ Practically, DSMSs present many differences from traditional DBSM: first of all,
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/dsms}
-	\caption{DSMS Model proposed in \cite{Babu:2001:CQO:603867.603884}  } 
+	\caption[General Continuous Queries Architecture]{The Continuous queries architecture proposed in \cite{Babu:2001:CQO:603867.603884} shows that as a consequences of data streams processing, a set of continuous queries may produce four different outputs: the Stream, which is composed by all the element of the answer that never change; the Store, which is composed by the a part of the answer that may change; the Scratch, which represents the working memory of the system; the Throw, a sort of garbage collector of stream tuples} 
   	\label{fig:dsms}
 \end{figure}
 
-Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:2001:CQO:603867.603884}. The aim the model is to explicit several architectural choices and their consequences. A DSMS is modelled as a set of standing queries $Q$ and one or more input streams, the DSMS can produce four outputs \cite{Cugola:2012:PFI:2187671.2187677}:
+Figure \ref{fig:dsms} reports the general continuous queries architecture proposed in \cite{Babu:2001:CQO:603867.603884}. The aim this model is highlighting several architectural choices and their consequences. A DSMS is modelled as a set of standing queries $Q$ and one or more input streams, the DSMS can produce four outputs \cite{Cugola:2012:PFI:2187671.2187677}:
 
 \begin{itemize}
 \item The \textit{Stream} - it is formed by all the elements of the answer that are produced once and never changed;
-\item The \textit{Store} - it is filled with parts of the answer that may be changed or removed at a certain point in the future. The Stream and the Store together define the current answer to queries Q;
-\item The \textit{Scratch} - it represents the working memory of the system, i.e. a repository where it is possible to store data that is not part of the answer, but that may be useful to compute the answer;
-\item The \textit{Throw} - it is a sort of recycle bin, used to throw away unneeded tuples.
+\item The \textit{Store} - it is filled with parts of the answer that may be changed or removed at a certain point in the future. 
+\item The \textit{Scratch} - it represents the working memory of the system. It is exploited to store data that is not part of the answer, but that may be useful to compute the answer;
+\item The \textit{Throw} - it where the used unneeded tuples are collected and throw away.
 \end{itemize}
+
+Notice that the Stream and the Store together define the current answer to queries Q.
 
 
 \begin{figure}[tbh]
@@ -286,7 +282,7 @@ Moreover, the DB group of the Stanford University proposed the CQL stream proces
 
 A DSMS system is is composed by operators that are able to manage the information stream in different phases. Figure \ref{fig:cql} gives a representation of the general model. Tree modules compose the system in figure, which belong to three classes of operators:  
 
-The Stream-to-Relation (S2R) is the first class of operators that manage data streams.  A stream is a potentially unbounded, thus the S2R operators extract finite bags of timestamped data items, transforming streams in relations. There are several operators of this class and the sliding window is one of the most studied. 
+The Stream-to-Relation (S2R) is the first class of operators that manage data streams.  A stream is a potentially unbounded, thus the S2R operators extract finite bags of timestamped data items, transforming streams in relations. There are several operators of this class and the sliding window is one of the most studied. A sliding window creates a view over a portion of the stream that changes (slides) over time. Time-based sliding windows are sliding windows that create the window and slide it accordingly to time constraints: they are defined by two parameters, the width $\omega$ – i.e. the time range that has to be considered by the window – and the slide $\beta$ – i.e. how much time the window moves ahead when it slides.
 
 The next operator belongs to the second class: the Relation-to-Relation (R2R). The relation may be transformed in another relation through relational algebraic expressions, which are a well-known cases of this class of operators. 
 
@@ -301,17 +297,20 @@ Finally, the third class of operators is the Relation-to-Stream (R2S). This kind
 
 \subsection{Complex Event Processor}\label{sec:cep}
 
-The Complex Event Processing (CEP)  finds its origins in the publish-subscribe domain \cite{Eugster:2003:MFP:857076.857078}. It comes from interpreting IFP items as notifications of events which arrive from  external world.  However, CEP systems differ from the traditional publish-subscribes ones, which handle separately each incoming event, filtering at topic level or at content level to decide if an event is relevant for subscribers. The aim of a Complex Event Processing systems is filtering and combining the events to understand what is happening in terms of higher-level information. Thus, the focus of the CEP model is on detecting occurrences of particular event patterns that represent the higher-level information. For this reason, CEP systems increase the expressive power of the subscription language to consider complex event patterns that involve the occurrence of multiple, related events \cite{Cugola:2012:PFI:2187671.2187677}.
+The Complex Event Processing (CEP) finds its origins in the publish-subscribe domain \cite{Eugster:2003:MFP:857076.857078}. It comes from interpreting IFP items as notifications of events which arrive from  external world. The traditional publish-subscribes systems process the incoming information flows one event at time, applying the filtering methods at topic level or at content level and evaluating the event relevance w.r.t the subscribers. 
 
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/cep}
-	\caption{CEP Model proposed in \cite{Cugola:2012:PFI:2187671.2187677}  } 
+	\caption[CEP Model proposed]{The CEP model in figures is proposed in \cite{Cugola:2012:PFI:2187671.2187677}. It relies on the ability to identify patterns that match multiple incoming events, which are seen as notifications. The processing consist in filtering and correlating the incoming events on the basis of their content. The goal is notify to subscribed sinks the presence of a certain pattern or some ordering relationships between events. The CEP Engine output is an event stream too.} 
   	\label{fig:cep}
 \end{figure}
 
-A CEP Engine, Figure \ref{fig:cep}, is responsible for processing such events as explained above, in order understand what is happening in terms of higher-level information to be notified to sinks, which act as event consumers. CEP systems are designed to face the main limitation of most DSMSs: the ability to detect complex patterns of incoming items, involving sequencing and ordering relationships. The CEP model relies on the ability to identify event patterns that match incoming event notifications on the basis of their content and on some ordering relationships on them.
+On the other hand, Complex Event Processing systems extends this behaviour, they filter and combine the events to understand what is happening in terms of higher-level information. Thus, the focus of the CEP model is on detecting occurrences of particular event patterns, which actually represent the higher-level information flows. For this reason, CEP systems increase the expressive power of the subscription language to consider complex event patterns that involve the occurrence of multiple, related events \cite{Cugola:2012:PFI:2187671.2187677}.
 
+
+Figure \ref{fig:cep} shows the CEP Engine Model proposed in \cite{Cugola:2012:PFI:2187671.2187677}. A CEP Engine is responsible for processing such events as explained above, in order understand what is happening in terms of higher-level information. Sinks aim to   to be notified  about this new information level and thus they act as consumers of the CEP Engine output events. 
+CEP Engines are designed to face the main limitation of most DSMSs: the ability to detect complex patterns of incoming items, involving sequencing and ordering relationships.
 
 \section{Stream Reasoning}\label{sec:sfp}
 
