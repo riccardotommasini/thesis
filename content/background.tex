@@ -466,11 +466,11 @@ Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most 
 
 \subsection{RDF Stream Processing (RSP) Benchmark}\label{sec:sr-benchmarking}
 
-The increasing number of heterogeneous complex system demands Computer Science to focus on the empirical evaluation of such system, as we state in Section \ref{sec:empirical-research}. Semantic Flow Processing Engines represent are clearly an example of complex system, which face heterogeneous domains of application. This should be enough to follow the Tichy's suggestion and start their empirical evaluation. However, despite the number of RSP Engines is increasing, the works about their evaluation are still limited and do not address properly the definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
+The increasing number of heterogeneous complex system demands Computer Science to focus on the empirical evaluation of such system, as we state in Section \ref{sec:empirical-research}. RDF Stream Processing Engines represent a clearly example of complex system, which face heterogeneous domains of application. This should be enough to follow the Tichy's suggestion and start their empirical evaluation. However, despite the number of RSP Engines is increasing, the works about their evaluation are still limited and do not address properly the definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
 
-Recent works on RSP benchmarking try to follow the Linear Road example, firstly posing the main challenges for the SR benchmarking  and then developing them one by one. The result are known as Seven Commandments to follow on the benchmarking design for RSP \cite{DBLP:conf/esws/ScharrenbachUMVB13}. Following we report the commandments then we describe in section below how existing benchmarking solution may be evaluate w.r.t \cite{DBLP:conf/esws/ScharrenbachUMVB13}:
+Recent works on RSP benchmarking try to follow the Linear Road example, firstly posing the main challenges for the SR benchmarking  and then developing them one by one. The result are known as Seven Commandments to follow on the benchmarking design for RSP \cite{DBLP:conf/esws/ScharrenbachUMVB13}. In the following we report the commandments then we describe in section below how existing benchmarking solution may be evaluate w.r.t \cite{DBLP:conf/esws/ScharrenbachUMVB13}:
  
-Semantic Flow Processing Engines must implement good strategies for \textit{Load Balancing} [S.1], because they usually consider several input information streams with possible bursts. It is possible to stress the system under various conditions by repeatedly applying a set of changes to the input.
+RDF Stream Processing Engines must implement good strategies for \textit{Load Balancing} [S.1], because they usually consider several input information streams with possible bursts. It is possible to stress the system under various conditions by repeatedly applying a set of changes to the input.
 
 A stress test is required to measure the performance of \textit{Flow Data Joins And Inference} [S.2]. It has to consider increasingly complex cascades of joins in order to design the stress test for Simple joins, which put no further constraints on the join but on the join-equality. The benchmark has to add further constraints on the joins, and subsequently to the data. In this way is possible: to enable Sequential joins testing, which add a sequential constrains;  to allow Temporal joins testing, which extend sequential joins by enabling advanced temporal constraints. On the other and, \textit{joining stream and background data} [S.3] always results in simple joins. A stress-test must consider single joins and increasingly complex cascades.
 
@@ -499,13 +499,13 @@ Moreover, \cite{Zhang2012} provides some relevant metrics to evaluate the perfor
 SR Bench provides also a query set composed by seventeen queries, which are designed based on a real use case in LSD. In order test many properties of the RDF stream Engines the queries vary involving single or multiple input streams, queries over stream-only data sources or over mixed stream and static data source, etc. They cover the most important SPARQL operators and the common streaming SPARQL extensions and several queries require RDFS reasoning.
 
 SRBench was criticised w.r.t. proposed commandments above \cite{DBLP:conf/esws/ScharrenbachUMVB13}. It only cover [S.3] and [S.6] but with some limitations: the queries are fixed and thus do not allow an exhaustive assessment of join performance required by [S.3]. Testing variations of the expressive power is possible in SR but it was not done yet as demanded by [S.6]. The commandments [S.2] and [S.
-4 are partially satisfied. The SRBench provides data and use-cases for sequential joins but it does not implement stress tests for temporal joins [S.2]. About [S.4], SRBench tests the aggregates only trough single queries. The other commandments are not cover yes, even if some of was marked as potential extensions of SRBench in \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1.
+4 are partially satisfied. The SRBench provides data and use-cases for sequential joins but it does not implement stress tests for temporal joins [S.2]. About [S.4], SRBench tests the aggregates only trough single queries. The other commandments are not cover yet, even if some of them were marked as potential extensions of the current SRBench implementation. In \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1 summarises which features SRBench fulfil, which not, and which are only potential.
 
 \subsubsection{LSBench}\label{sec:lsbench}
 
-LS Bench was developed to propose methods and a framework that enable meaningful comparisons of RSP processing Engines. The framework provides several customisable tools for simulating realistic data, running engines, and analysing the output. 
+LS Bench was developed to propose methods and a framework that enables meaningful comparisons of RSP processing Engines. The framework provides several customisable tools for simulating realistic data, running engines, and analysing the output. 
 
-The methods proposed by LSBench include three tests to evaluate the RSP stream Engines \cite{DBLP:conf/semweb/DellAglioCBCV13}:
+LSBench includes three tests to evaluate the RSP stream Engines \cite{DBLP:conf/semweb/DellAglioCBCV13}:
 \begin{itemize}
 \item A functional test to verify the operators and the functionalities supported
 by the engines, similar to SR Bench \ref{sec:srbench}
@@ -514,8 +514,9 @@ by the engines, similar to SR Bench \ref{sec:srbench}
 \end{itemize}
 
 %\subsubsection{LSBench} S2 partially, S3 partially, S4 partially 
-
-The data generator, S2Gen, creates data set for benchmarking according to the \textit{Social Network Data Stream Logic Schema} presented in \cite{LePhuoc2012c} Figure 1. S2Gen allow to tune three parameters which influence the data generation task: 1) \textit{Generating period}, the period in which the social activities are generated; 2) Maximum number of posts/comments/photos for each user per week 3) the \textit{Correlation probabilities}: there are various parameters for the data correlations which can be customized to specify how data is related according to each data attribute.
+In \cite{DBLP:conf/esws/ScharrenbachUMVB13} Table 1 summarises which features SRBench fulfil, which not, and which are only potential.
+\cite{LePhuoc2012c},
+The S2Gen data generator proposed in \cite{LePhuoc2012c}, creates data set for benchmarking according to the \textit{Social Network Data Stream Logic Schema}. The schema can be found in Figure 1 of \cite{LePhuoc2012c}. S2Gen allows to tune three parameters which influence the data generation task: 1) \textit{Generating period}, the period in which the social activities are generated; 2) Maximum number of posts/comments/photos for each user per week 3) the \textit{Correlation probabilities}: there are various parameters for the data correlations which can be customized to specify how data is related according to each data attribute.
 
 Finally, LSBench \cite{LePhuoc2012c} provides for each test a set of 12 fixed queries. The queries in the set vary to address different features of the engines. 
 
