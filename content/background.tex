@@ -90,19 +90,60 @@ The Code Snippet \ref{code:rdf} contains an example of a simple RDF/XML document
 
 Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representation of an RDF model as RDF graph:  subjects and objects are the graph nodes and proprieties are represented as edges connecting a subject to an object. 
 
-%RHODF!!!
+\subsection{RDF Schema}\label{sec:rdfs}
+
+RDF Schema (RDFS) is a semantic extension of the RDF. It allows to describe taxonomies of classes and properties, define groups or  restrictions of resources which are related and  it enables to detail the relations between these resources. It is written in RDF and it also extends some RDF elements. Its constructs can be used to determine characteristics of other resources, such as the domains and ranges of properties.
+
+RDFS class and property system is similar to the one of traditional Object-Oriented programming languages.RDF Schema describes properties in terms of the classes of resource to which they apply, trough the domain and range properties. This property-centric approach aims of being easy-to-extend.
+
+RDFS contains fifteen classes, some of the comes from RDF. Among these classes the most relevant ones are:
+
+\begin{itemize}
+\item rdfs:Resource - everything in RDFS is an instance of this class.
+\item rdfs:Literal  -  it is sub class of rdfs:Resource represents a text string
+\item rdf:Property  -  it is sub class of rdfs:Resource and represents the properties
+\item rdfs:Class    -   it is sub class of rdfs:Resource, it represents the type concept typical of the OO programming languages and thus it is related to the rdf:type property. Every class is an instance of rdfs:Class
+\end{itemize}
+
+It also contains sixteen properties, all of them are instances of rdf:Property. We report in the following the most important ones:
+\begin{itemize}
+\item rdf:type - it is used to state that a resource is an instance of a certain rdf:Class.
+\item rdfs:subClassOf - it is used to state that all the instances of one class are instances of another.
+\item rdfs:subPropertyOf - it is used to state that all resources related by one property are also related by another.
+\item rdfs:range - it is used to state that the values of a given property are an instance of one or more classes
+\item rdfs:domain - it is used to state that any resource that has a given property is an instance of one or more classes
+\end{itemize}
 
 
+\subsection{$\rho$DF}\label{sec:rhodf}
+
+Efficient data processing in SW depends on the trade off between the size of the data and the expressiveness of the language describing it. Nowadays, the size of the data to be processed caj be enormous, and trying to to make RDF processing scalable has to face necessarily to its expressiveness. For this reason, RDF and RDF(S) fragments with good behaviour with respect to complexity of processing like and $\rho$DF \cite{DBLP:conf/esws/MunozPG07} exist. Moreover, it is the the minimal meaningful task for a Stream Reasoner.
+
+$\rho$DF is a fragment of RDFS that conserves the original semantic and covers only those vocabulary and axiomatic information that  serves to reason about the data it describes and not about the structure of the language itself. $\rho$DF comprehends:
+\begin{itemize}
+\item rdfs:subPropertyOf
+\item rdfs:subClassOf
+\item rdfs:domain 
+\item rdfs:range
+\item rdf:type 
+\end{itemize}
+
+Notice that w.r.t RDF(S) (see Section \ref{sec:rdfs}) it does not inclued the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
+
+\cite{DBLP:conf/esws/MunozPG07} provides the evidences that $\rhod$DF reserves the normative semantics and core functionalities of RDFS. Moreover,  $\rho$DF can be considered relevant from  the Stream Reasoning research point of view, because several works in the field  has already successfully chosen it as entailment regime\cite{DBLP:conf/semweb/UrbaniMJHB13, Liu:2014:ERS:2567948.2577323}.
 
 \subsection{Web Ontology Language}\label{sec:owl}
 
 The Web Ontology Language (OWL) is the W3C standard for describing rich and complex knowledge about resources, groups of resources, and relations between resources, or more formally an \textit{Ontology}. Tom Gruber define an ontology as \textit{a specification of a conceptualization}\footnote{http://www-ksl.stanford.edu/kst/what-is-an-ontology.html}. Practically, it can be a set of Description Logic axioms which tries to represent a fragment of reality. 
 
-OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usege of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialects, presented in order of increasing level of complexity
+OWL is obtained extending the RDF Schema Language with additional language constructs and some constrain on the usage of RDF(S)  ones. The aim of these constrains is to restrain the language to a subset of First Order Logic. Different constrains define different levels of expressiveness and complexity. The W3C has standardized three different OWL dialects called Profiles\footnote{http://www.w3.org/TR/owl2-profiles/#OWL_2_EL}, in Dec. 2012. In the following we present them in order of increasing level of complexity:
+
 \begin{itemize}
-\item OWL Lite - used to classify hierarchies and to model simple constraints. Being an equivalent of the SHIF description logic, it has the lower formal complexity in the group.
-\item OWL DL - provides the user with maximum possible expressiveness, while retaining the computational completeness. This last quality is enforced by the equivalence with the SROIQ[Dn] Description Logic.
-\item OWL Full - the user has the complete syntactic freedom with RDF, but there is no computational guarantee about the termination of the inferring procedure.
+\item OWL 2 EL - this profile is suitable for ontologies with a huge number of classes to manage the terminology or which include complex structural descriptions. It works well for domain an applications which has structurally complex objects. OWL 2 EL does not support negation, disjunction, and universal quantification on properties.
+
+\item OWL 2 QL  - this profile is suitable for application that aim to both represent database schemas  and translate reasoning into queries. It can be used as a high level database schema language, because it is realized using standard relational database technology (e.g., SQL). It also provides many of the main features necessary to express conceptual models such as UML class diagrams and ER diagrams. OWL 2 QL does not allow existential quantification of roles to a class expression, property chain axioms and equality.
+\item The OWL 2 RL - this profile is tailored for applications that demand a good trade off between scalable reasoning and expressive power. Rule-based implementations of OWL 2 RL, under RDF-Based Semantics, can be used with arbitrary RDF graphs. An ideal way to enrich existing RDF data, especially when the data must be massaged by additional rules. OWL 2 RL disallows statements where the existence of an individual enforces the existence of another individual: for in- stance, the statement "every person has a parent" is not expressible in OWL RL.
+
 \end{itemize}
 
 \begin{lstlisting}[language=XML, caption=An example of a simple OWL DL RDF/XML document:, label=code:owl]
