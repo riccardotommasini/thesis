@@ -236,11 +236,10 @@ Figure \ref{fig:dsms} reports a general DSMSs model proposed in \cite{Babu:2001:
 
 \begin{figure}[tbh]
   \centering
-	\includegraphics[width=\linewidth]{images/cql}
-	\caption{CLQ DSMS Model proposed in  \cite{Arasu2006} } 
+	\includegraphics[width=\linewidth]{images/cql-model}
+	\caption[CLQ DSMS Model]{The CLQ DSMS Model was proposed in \cite{Arasu2006}. The S2R operator transforms the incoming Relational Data Stream, which is possibly unbounded, into a bags of timestamped data items, we call Relations. The R2R operator applies relational algebra to the existing relations in order to transform into new ones. Finally, if the relations have to be transformed back to relational data stream, the R2S operator appends the results to the output stream} 
   	\label{fig:cql}
 \end{figure}
-
 
 Moreover, the DB group of the Stanford University proposed the CQL stream processing model, which defines a generic DSMS through three classes of operators \cite{Arasu2006}.
 
@@ -277,23 +276,25 @@ A CEP Engine, Figure \ref{fig:cep}, is responsible for processing such events as
 
 Answering such queries like \textit{What are the top 10 emerging topics under discussion on Twitter, Facebook and Goolge+ and who is driving the discussions?} requires systems that can manage rapidly changing worlds at the semantic level. \textbf{Stream Reasoning} is a novel research trend focused on combining DSMSs, which can analyse data on the fly (see Section \ref{sec:dsms}) and reasoners, which can perform such complex reasoning tasks (see Section \ref{sec:sw}), in order to make possible reasoning on rapidly changing information.
 
-A first step toward stream reasoning \cite{DBLP:conf/fis/ValleCBBC08} tries to combine the power of existing data stream management systems and the Semantic Web. In the context LarKC European Research Project\footnote{http://www.larkc.eu} \cite{4597242, 4120457} was proposed a pluggable algorithmic framework for a such a system, which includes the following steps:
-\begin{itemize}
-\item[1.] \textit{retrieve} relevant resources from the incoming input stream by a selection step, where the information is filtered
-\item[2.] \textit{abstract} by extracting information, calculating statistics and transforming from fine grain data streams into aggregated events.
-\item[3.] \textit{select} relevant problems/methods/data;
-\item[4.] \textit{reason} upon the aggregated knowledge; 
-\item[5.] \textit{decide} on the base of some decision criteria, defined by the application developer, if the quality of the answer is good enough or if a new iteration is needed.
-\end{itemize} 
+%A first step toward stream reasoning \cite{DBLP:conf/fis/ValleCBBC08} tries to combine the power of existing data stream management systems and the Semantic Web. In the context LarKC European Research Project\footnote{http://www.larkc.eu} \cite{4597242, 4120457} was proposed a pluggable algorithmic framework for a such a system, which includes the following steps:
+%\begin{itemize}
+%\item[1.] \textit{retrieve} relevant resources from the incoming input stream by a selection step, where the information is filtered
+%\item[2.] \textit{abstract} by extracting information, calculating statistics and transforming from fine grain data streams into aggregated events.
+%\item[3.] \textit{select} relevant problems/methods/data;
+%\item[4.] \textit{reason} upon the aggregated knowledge; 
+%\item[5.] \textit{decide} on the base of some decision criteria, defined by the application developer, if the quality of the answer is good enough or if a new iteration is needed.
+%\end{itemize} 
 
 
 \subsection{RDF Stream}\label{sec:rdfstream}
 
-Either for doing the abstraction step (1), or immediately after the abstraction, data streams are consolidated as \textit{RDF streams}, which are data streams where the data items are modelled through RDF~\footnote{Cf. \url{http://www.w3.org/TR/2004/REC-rdf-primer-20040210/}.} (one or more RDF statements). For example, let's consider the following stream: at time 1, an event $e_1$ states that an article \textit{:paper$_1$} is written by \textit{:alice}, while at time 5, a data item $e_2$ states that \textit{:paper$_2$} is written by \textit{:bob}. The stream $((e_1,1),(e_2,5))$ can be represented by the following RDF stream:
+Traditional DSMS system work with relational data stream, as the CQL general model in Figure \ref{fig:cql} reports. In the Stream Reasoning context the data streams have to be semantically processed. Thus the information flows require a semantic consolidation, which must consider both performances and expressiveness. We focus \textit{RDF streams}, which are data streams where the data items are modelled through RDF~\footnote{Cf. \url{http://www.w3.org/TR/2004/REC-rdf-primer-20040210/}.}. 
+
+For example, let's consider the following stream: at time 1, an event $e_1$ states that an article \textit{:paper$_1$} is written by \textit{:alice}, while at time 5, a data item $e_2$ states that \textit{:paper$_2$} is written by \textit{:bob}. The stream $((e_1,1),(e_2,5))$ can be represented by the following RDF stream:
 \[\textit{(:paper$_1$ ub:publicationAuthor :alice), 1}\]
 \[\textit{(:paper$_2$ ub:publicationAuthor :bob), 5}\]
 
-Initial works on RDF Stream formalisation proposed two alternative formats \cite{DBLP:conf/fis/ValleCBBC08}:
+Initial works on RDF Stream formalisation have proposed two alternative formats for the Stream consolidation\cite{DBLP:conf/fis/ValleCBBC08}:
 \begin{itemize}
 \item RDF molecules stream - it is an unbounded bag of pairs $< \rho, \tau >$, where $\rho$ is a RDF molecule \cite{TrackingMolecules} and $\tau$ is the timestamp that denotes the logical arrival time of RDF molecule $\rho$ on the stream \cite{DBLP:conf/fis/ValleCBBC08};
 \item RDF statements stream, is a special case of RDF molecules stream in which $\rho$ is an RDF statement instead of an RDF molecule  .
@@ -315,52 +316,75 @@ There are many extension of SPARQL, which extends the SPARQL 1.1 (see Section \r
 
 Continuous SPARQL (C-SPARQL)  is a language for continuous queries over streams of RDF data that extends SPARQL 1.1 \cite{Barbieri:2010:QRS:1860702.1860705}.
 
+For instance, the following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
+
+\begin{center}
+\raggedright
+\textit{SELECT ?person}\\
+\textit{FROM STREAM $<$http://www.ex.org/lubm-stream$>$ [RANGE 1w STEP 1d]}\\
+\textit{WHERE \{?person a ub:Person\}}\\
+%\textit{UNDER RDF ENTAILMENT REGIME}
+\label{code:query-bg}
+\end{center}
+Query: \ref{code:query-bg}: Example of C-SPARQL QUERY.\\
+
 Another example is CQELS-QL \cite{Lephuoc2011} – a declarative query language built from SPARQL 1.1 grammar. As C-SPARQL, it extends SPARQL with operators to query streams. The main difference between C-SPARQL and CQELS-QL is in the R2S operator supported: CQELS-QL supports only Istream, whereas C-SPARQL supports only Rstream. 
 
-Last but not least, SPARQLstream \cite{Calbimonte:2010:EOA:1940281.1940289} is another extension of SPARQL that supports operators over RDF streams such as time windows. Unlike CQELS and the C-SPARQL Engine, SPARQLstream supports all the streaming operators presented in Section 2.3.4. The language is adopted in morph-streams: it is an RDF stream query processor that uses Ontology-Based Data Access techniques [15] for the continuous execution of SPARQLstream queries against virtual RDF streams that logically represent relational data streams.
+Last but not least, SPARQLstream \cite{Calbimonte:2010:EOA:1940281.1940289} is another extension of SPARQL used in Morph$_{stream}$. Unlike CQELS and the C-SPARQL Engine, SPARQLstream supports all the streaming operators presented in Section 2.3.4. 
 
 \subsection{RDF Stream Processing Engine}\label{sec:rspengine}
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/rsp-engine-model}
+	\caption[RSP Engine Model]{This RSP Engine model is inspired to the CQL DSMS Model proposed in \cite{Arasu2006} and reported inf Figure \ref{fig:cql}. The incoming relation stream is now an RDF Stream. The S2R operator is usually implemented with a sliding window, which logically selects a portion of the RDF Stream. The evaluation of the continuous queries represents the R2R operator. The RSP Engine transforms the queries results back into an RDF Stream, applying the R2S operator.} 
+  	\label{fig:rsp-engine-model}
+\end{figure}
 
 Sections above report that RDF Stream Processing has three basic building blocks: 1) RDF streams, we introduced in Section \ref{sec:rdfstream} 2) continuos extensions of SPARQL, like the ones we briefly described in Section \ref{sec:continuous-sparql}, and 3) reasoning algorithms able to cope with rapidly changing information.
 
 Collectively, IFP Engines that process RDF streams using those SPARQL extensions and reasoning algorithm are known as \textbf{RDF Stream Processing} (RSP) \textbf{Engines}.
 
-Among RSP Engines, we target window-based RSP Engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{DBLP:journals/ijswis/CalbimonteJCA12}  are examples of window-based RSP Engines.  The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. For instance, the following C-SPARQL query asks to report every day the people mentioned during the last week in the stream of those who have published a paper:
-
-\vspace{5pt}
-\noindent\textit{SELECT ?person}\\
-\textit{FROM STREAM <http://www.ex.org/lubm-stream> [RANGE 1w STEP 1d]}\\
-\textit{WHERE \{?person a ub:Person\}}
-\vspace{5pt}
+Among RSP Engines, we target window-based RSP Engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave \cite{DBLP:conf/debs/KomazecCF12}, CQELS \cite{Lephuoc2011}, and Morph$_{stream}$ \cite{DBLP:journals/ijswis/CalbimonteJCA12}  are examples of window-based RSP Engines. The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. 
+Morph$_{stream}$ uses Ontology-Based Data Access techniques for the continuous execution of SPARQLstream queries against virtual RDF streams that logically represent relational data streams.
 
 The requested information is not explicitly stated, but being the range of the \textit{ub:publicationAuthor} property a \textit{ub:Person}, an RDFS reasoner can deduce it and, thus, it can allow to answer the query.
 
-The logical processing model of RSP Engines follows the one initially proposed in DSMS and it is composed by three logical steps\footnote{Physical evaluation may differ from this logical steps.}: 
+The logical processing model of RSP Engines in Figure \ref{fig:rsp-engine-model} follows the one initially proposed in DSMS (see Figure \ref{fig:cql}) and it is composed by three logical steps\footnote{Physical evaluation may differ from this logical steps.}: 
 \begin{itemize}
 \item[1.] A portion of the RDF stream is logically selected using a sliding window operator; This is the \textbf{stream-to-relation} step. 
-\item[2.] The WHERE clause of the query is evaluated (including the possibly required reasoning tasks) and a sequences of solution mappings are produced, this is the \textbf{relation-to-relation} step.
-\item[3.] Solution mappings are transformed back in timestamped elements and are appended to the output, this is the \textbf{relation-to-stream} step 
+\item[2.] The WHERE clause of the query is evaluated (including the possibly required reasoning tasks) and a sequences of results are produced, this is the \textbf{relation-to-relation} step.
+\item[3.] Results are transformed back in timestamped elements and are appended to the output, this is the \textbf{relation-to-stream} step 
 \end{itemize}
 
+Figure \ref{fig:rsp-engine-schema} proposes a block schema for RSP Engines, with the aim to clarify the general process presented in Figure \ref{fig:rsp-engine-model}. The schema disposes the S2R, the R2R and the R2S operators into a pipeline, drawing the RDF Stream path trough the RSP Engine.
+
+
+\begin{figure}[tbh]
+  \centering
+	\includegraphics[width=\linewidth]{images/rsp-block-schema}
+	\caption[RSP Engine Block Schema]{This Block schema translate the general RSP Engine model presented in Figure \ref{fig:rsp-engine-model}. It disposes each RSP Engine operator into a pipeline, clarifying the RDF Stream path. It goes trough the different operators: it is transformed into a a set of relations upon which it is possible to perform continuous queries (S2R); the R2R operator applies a relation algebra which can handle data stream and produce new relations, then the queries results are transformed back into an RDF Stream (R2S).}
+  	\label{fig:rsp-engine-schema}
+\end{figure}
 
 \section{Empirical Research}\label{sec:empirical-research}
 
-The problem of understating the nature of the Computer Science (CS) research has one stronghold in Tichy's work of 1995 \cite{Tichy:1995:EEC:209090.209093}. He and his collaborator evaluated 400 articles published in 1993, randomly selecting papers form ACM (50) and from a few journals in Systems and Software Engineering. Tichy's research had the aim of classify Computer Scientist research habits. Thus, he proposed the following taxonomy, quoted from \cite{Tichy:1995:EEC:209090.209093}:
+The problem of understating the nature of the Computer Science (CS) research has one stronghold in Tichy's work of 1995 \cite{Tichy:1995:EEC:209090.209093}. He and his collaborator evaluated 400 articles published in 1993, randomly selecting papers form ACM and from a few journals in Systems and Software Engineering. Tichy's research had the aim of classify Computer Scientist research habits. He proposed the following taxonomy \cite{Tichy:1995:EEC:209090.209093} for the classification of the CS research works:
 \begin{itemize}
-\item \textit{Formal theory}: articles whose main contributions are formally tractable propositions, e.g., lemmata and theorems and their proofs.
-\item \textit{Design and modelling}: systems, techniques, or models, whose claimed properties cannot be proven formally. Examples include software tools, performance prediction models, and complex hardware and software systems of all kinds. The papers in this class were further classified in the categories 0\%, 0–10\%, 10– 20\%, 20–50\, and +50\%, according to the proportion of the paper that was dedicated to the evaluation of the new system, technique, or model.
-\item \textit{Empirical work}: articles that collect, analyse, and interpret observations about known designs, systems, or models, or about abstract theories or subjects (as this paper does). The emphasis is on evaluation, not on new designs or models.
-\item \textit{Hypothesis testing}: articles that define hypotheses and describe experiments to test them.
-\item \textit{Others}: articles that do not fit any of the four categories above, e.g., surveys.
+\item \textit{Formal theory}: theorems and their proofs, which provide formally tractable main contributions. 
+\item \textit{Design and modelling}:  techniques and methods definition, models design and their implementation. Works like  software tools or performance prediction models provide a contribution that cannot be proven formally.
+\item \textit{Empirical work}: collection, analysis and observations about known techniques, systems, or models, or about abstract theories or subjects. The contribution of these works focuses on evaluation.
+\item \textit{Hypothesis testing}: hypotheses definition and the design of experiments for their verification. The contribution of these papers is opening new research scenarios.
+\item \textit{Others}: articles that do not fit any of the four categories above.
 \end{itemize}
 
-Practically, an empirical study is just a test that compares what we believe to what we observe. The testing activity, when properly designed and executed, can be used to support the scientific method and rather plays a fundamental role in modern science. Empirical studies help us understand how and why things work, and allow us to use this understanding to materially alter our world.
+Tichy's evaluation showed that, despite the engineering epistemology of the majority of the evaluated paper, there was a deficiency in term of empirical evaluation w.r.t model \textit{Design and Modelling} works. Researchers prefer to focus on the proposal of new models and their implementation rather than evaluating the existing ones. More recent works \cite{Wainer:2009:EEC:1518331.1518552} observe and confirm Tichy's observations: the amount of evaluation reported in the Computer Science papers is still low.
 
-Tichy's evaluation showed that, despite the engineering epistemology of the majority of the evaluated paper, there was a lack in empirical evaluation of the proposed research. More recent works \cite{Wainer:2009:EEC:1518331.1518552} observe and confirm Tichy's observations: the amount of evaluation reported in the Computer Science papers is low.
+Practically, an empirical study requires to define experiments for testing one or multiple systems. Comparing different results allows to distinguish what we believe it is truth from what we observe. The empirical evaluation has the aim of supporting the scientific method and rather plays a fundamental role in other research fields.
 
-Software Engineering (SE) and , in general, Computer Science have failed to produce the models and analytical tools that are common in other sciences \cite{Perry:2000:ESS:336512.336586}. CS research lacks the knowledge about the mechanisms which drive the costs and benefits of software tools and methods, making hard to understand whether analysis are  based on faulty assumptions or the new evaluation methods are properly.
+Software Engineering (SE) and many other Computer Science research areas have failed to produce the models and analytical tools that are common in other sciences \cite{Perry:2000:ESS:336512.336586}. CS research lacks the knowledge about the mechanisms which drive the costs and benefits of software tools and methods, making hard to understand whether analysis are based on faulty assumptions or the new evaluation methods are properly.
 
-It is important to remember that empirical studies can be used not only retrospectively to validate systems or idea after they have been implemented, but also proactively to direct the research. Formal experiments, case studies and prototyping exercises are all adequate empirical studies. Independently from their form, they are a key way to fill the lack and sustains our research with credible observations. Indeed empirical studies allow to learn something useful by comparing theory to reality trough the following steps \cite{Perry:2000:ESS:336512.336586}:
+It is important to remember that empirical studies can be used not only retrospectively to validate systems or idea after they have been implemented, but also proactively to direct the research. Formal experiments, case studies and prototyping exercises are all adequate empirical studies. Independently from their form, they are a key way to fill the lack and sustains with credible observations those CS research fields which requires an evaluation of the proposals. Indeed empirical studies allow to learn something useful by comparing theory to reality trough the following steps \cite{Perry:2000:ESS:336512.336586}:
 \begin{itemize}
 \item  formulating an hypothesis or question to test
 \item  observing a situation
