@@ -92,11 +92,11 @@ Last but not least, Figure \ref{fig:rdf-graph} shows the graphical representatio
 
 \subsection{RDF Schema}\label{sec:rdfs}
 
-RDF Schema (RDFS) is a semantic extension of the RDF. It allows to describe taxonomies of classes and properties, define groups or  restrictions of resources which are related and  it enables to detail the relations between these resources. It is written in RDF and it also extends some RDF elements. Its constructs can be used to determine characteristics of other resources, such as the domains and ranges of properties.
+RDF Schema (RDFS) is a semantic extension of the RDF. It allows to describe taxonomies of classes and properties, to define groups or restrictions of resources which are related and  it enables to detail the relations between these resources. It is written in RDF and it also extends some RDF elements. Its constructs can be used to determine characteristics of other resources, such as the domains and ranges of properties.
 
-RDFS class and property system is similar to the one of traditional Object-Oriented programming languages.RDF Schema describes properties in terms of the classes of resource to which they apply, trough the domain and range properties. This property-centric approach aims of being easy-to-extend.
+RDFS class and property system is similar to the one of traditional Object-Oriented programming languages. RDF Schema describes properties in terms of the classes of resource to which they apply, trough the domain and range properties. This property-centric approach aims of being easy-to-extend.
 
-RDFS contains fifteen classes, some of the comes from RDF. Among these classes the most relevant ones are:
+RDFS contains fifteen classes, some of them comes from RDF. Among these classes the most relevant ones are:
 
 \begin{itemize}
 \item rdfs:Resource - everything in RDFS is an instance of this class.
@@ -117,7 +117,7 @@ It also contains sixteen properties, all of them are instances of rdf:Property. 
 
 \subsection{$\rho$DF}\label{sec:rhodf}
 
-Efficient data processing in SW depends on the trade off between the size of the data and the expressiveness of the language describing it. Nowadays, the size of the data to be processed caj be enormous, and trying to to make RDF processing scalable has to face necessarily to its expressiveness. For this reason, RDF and RDF(S) fragments with good behaviour with respect to complexity of processing like and $\rho$DF \cite{DBLP:conf/esws/MunozPG07} exist. Moreover, it is the the minimal meaningful task for a Stream Reasoner.
+Efficient data processing in SW depends on the trade off between the size of the data and the expressiveness of the language describing it. Nowadays, the size of the data to be processed can be enormous and developer have to face with scalability problems. For this reason, several RDF and RDFS fragments with good trade off between performances and  and expressiveness, like and $\rho$DF \cite{DBLP:conf/esws/MunozPG07}, have been proposed.
 
 $\rho$DF is a fragment of RDFS that conserves the original semantic and covers only those vocabulary and axiomatic information that  serves to reason about the data it describes and not about the structure of the language itself. $\rho$DF comprehends:
 \begin{itemize}
@@ -128,7 +128,7 @@ $\rho$DF is a fragment of RDFS that conserves the original semantic and covers o
 \item rdf:type 
 \end{itemize}
 
-Notice that w.r.t RDF(S) (see Section \ref{sec:rdfs}) it does not include the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
+Notice that w.r.t RDFS (see Section \ref{sec:rdfs}) it does not include the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
 
 \cite{DBLP:conf/esws/MunozPG07} provides the evidences that $\rho$DF reserves the normative semantics and core functionalities of RDFS. Moreover,  $\rho$DF can be considered relevant from  the Stream Reasoning research point of view, because several works in the field  has already successfully chosen it as entailment regime \cite{DBLP:conf/semweb/UrbaniMJHB13, Liu:2014:ERS:2567948.2577323}.
 
@@ -200,6 +200,8 @@ RDF is a directed labelled graph data format, thus SPARQL is defined as a graph-
 \end{itemize}
 
 Each of these query forms takes a WHERE block to describe and restrict the searched graph pattern using keywords like FILTER, OPTIONAL, AND,or UNION.
+
+\pagebreak
 
 \begin{lstlisting}[language=SQL, caption=An example of a simple SPARQL query , keywords={PREFIX,SELECT,WHERE,ORDER,BY, LIMIT }, label=code:sparql]
 PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
@@ -302,7 +304,7 @@ The Complex Event Processing (CEP) finds its origins in the publish-subscribe do
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/cep}
-	\caption[CEP Model proposed]{The CEP model in figures is proposed in \cite{Cugola:2012:PFI:2187671.2187677}. It relies on the ability to identify patterns that match multiple incoming events, which are seen as notifications. The processing consist in filtering and correlating the incoming events on the basis of their content. The goal is notify to subscribed sinks the presence of a certain pattern or some ordering relationships between events. The CEP Engine output is an event stream too.} 
+	\caption[General CEP Model]{The CEP model in figures is proposed in \cite{Cugola:2012:PFI:2187671.2187677}. It relies on the ability to identify patterns that match multiple incoming events, which are seen as notifications. The processing consist in filtering and correlating the incoming events on the basis of their content. The goal is notify to subscribed sinks the presence of a certain pattern or some ordering relationships between events. The CEP Engine output is an event stream too.} 
   	\label{fig:cep}
 \end{figure}
 
@@ -518,7 +520,7 @@ Further works, like the BiCEP project\footnote{http://bicep.dei.uc.pt}, try to i
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/bicep_schema}
-	\caption{BiCEP System Modules and the CEP Engine proposed in \cite{bizarro:DSP:2007:1143}} 
+	\caption[BiCEP System Modules]{BiCEP System Modules and the CEP Engine proposed in \cite{bizarro:DSP:2007:1143}} 
   	\label{fig:bicep-schema}
 \end{figure}
 
