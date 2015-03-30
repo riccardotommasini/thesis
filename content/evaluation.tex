@@ -126,7 +126,6 @@ SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed nu
 		10000&10000  \\
 		\hline 
 	\end{tabular}
-	
 	 \vspace{10pt}
 	\caption[SOAK Tests Summary Table]{The number of triples in the window during the fifteen SOAK tests as a function of the Window size (in terms of $N$) and of the triples in each \textsc{CTEvent}.}
 	\label{tab:soaktests}
@@ -168,9 +167,6 @@ More formally the hypothesis to verify with SOAK experiments are:
 \item \textbf{HP.2} The Triple-based model for RDFStream is always better then the Graph-based one if we consider few triples, to compose each graph.
 \end{itemize}
 
- 
-
-
 %Notice that the goal of this evaluation is to show how \name helps RSP Engine analysis trough empirical research. Hypothesis verification and top-down analysis are the subject of our investigation, while our research question is:  "\textit{Can an engine test stands, together with queries, datasets and methods, support Systematic Comparative Research Approach for Stream Reasoning?}" %"Needs the Stream Reasoning research field a Test Stand like \name to investigate RSP Engines and sustain the research of such system with an Systematic Comparative Approach?"
 
 \subsection{Step Response Tests}\label{sec:step-es}
@@ -183,15 +179,15 @@ Step Response experiments are 40000 \textsc{CTEvent}s long. Since this duration 
  \begin{tabular}{c|c|c}
 	  	\hline
 	  	&\multicolumn{2}{c}{CTEvent size}  \\
-		Window Size & Initial Size & Final Size\\
+		Number of Slots & Initial Size & Final Size\\
 		\hline
 		\hline
 		 10 & 10 & 100\\
-		  10 & 100 & 1000\\
+		 10 & 100 & 1000\\
 		 10 & 10 & 1000\\
 		\hline 
  \end{tabular}
- \caption[Step Response Tests Summary Table]{Step Response Test Summary Table}
+ \caption[Step Response Tests Summary Table]{Step Response Test Summary Table -  the first column indicates that every Step Response test is executed with a number of slot equals to 10. At the beginning of the experiment the \textsc{CTEvent} sizes are indicated in the second column, while their sizes at the end of the experiment is reported in the third and last column. All the Step Response tests are 40.000 \textsc{CTEvent}s long, and the step position is always at the half of the experiment duration, thus 20.000 \textsc{CTEvent}s}
 \label{tab:steptests}
 \end{table}
 
