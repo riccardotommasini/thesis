@@ -11,8 +11,8 @@ Figure \ref{fig:architecture} shows \name \textsc{Test Stand} design. It contain
 
 \begin{figure}[tbh]
 \centering
-\includegraphics[scale=0.37]{images/schema2}
-\caption{\name modules and workflow} 
+\includegraphics[scale=0.37]{images/heaven-schema-workflow}
+\caption[\name Modules and Workflow]{The execution starts when the \textsc{Test Stand} received the Experiment $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ as an input (1). The \textsc{Streamer} pushes a \textsc{CTEvent}, an RSP Stream $\mathcal{D}$ fragment, to the RSP Engine in in use $\mathcal{E}$ (2). In (3) $\mathcal{E}$ pushes to the \textsc{ResultCollector} and \textsc{OutCTEvent} with the results of the queries $\mathcal{Q}$ w.r.t the Ontology $\mathcal{T}$. The event is wrapped by the \textsc{TestStand} into an \textsc{TSResult} event which contains also the measurement data sampled in (1) and (2) when $\mathcal{E}$ is not running. In (5) the data are persisted and then they are analysed in (6) by the \textsc{Analyser}.}
 \label{fig:architecture}
 \end{figure}
 
@@ -62,7 +62,7 @@ From an experimental point of view, which metrics we sample during the execution
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/er-db}
-	\caption{ER-Diagram \name data} 
+	\caption[\textsc{Test Stand} Data Stream ER-Diagram]{The diagram of the \textsc{Test Stand} data stream model. All the events exchanged during the execution are represented as entities which are unique within an \textsc{Experiment}. Two many-to-many relationships describe the relation between \textsc{Triple} and \textsc{Event} and \textsc{Result}. The \textsc{Measurement Set} provides extendibility modelling the many-to-many relation between \textsc{Measure} and \textsc{Result}.}
   	\label{fig:er}
 \end{figure}\\
 \noindent\textsc{Experiment}(\underline{ID}, Timestamp Start, Timestamp End, Engine, Ontology, Query, Dataset, Description)\\
@@ -127,7 +127,7 @@ Early works on SR \cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge
 \subfigure[Baseline B: Incremental]{
 	\includegraphics[width=\linewidth]{images/baseline-b}
 }
-	\caption{The Architecture of \name Baselines: Naive (A) and Incremental (B) Reasoning Approach}
+	\caption[\name Baselines Architecture]{The Architecture of \name Baselines: (A) The Naive reasoning approach, the DSMS outputs an RDF Snapshot of the current windows at each slide. (B) The Incremental reasoning approach, the DSMS outputs the IRStream, the differences between the current window and the previous one, $\Delta^{+}$ represents the new incoming triples while $\Delta^{-}$ represents the outgoing ones.}
 	\label{fig:baselines}
 \end{figure}
 

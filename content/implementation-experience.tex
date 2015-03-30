@@ -277,7 +277,7 @@ The \textsc{Analyser} Design includes Five Analysis Levels (see Section \ref{sec
 \end{figure}
 
 
-\subsubsection{Level 1 -  Statistical Values Comparison}\label{sec:impl-level1}
+\subsubsection{Level 1 - Statistical Values Comparison}\label{sec:impl-level1}
 
 \begin{table}[htb]
 \scriptsize
@@ -320,23 +320,26 @@ Actually this kind of analysis is possible thanks to a CSV report, which contain
 
 \subsubsection{Level 2 - Patter Identification}\label{sec:impl-level2}
 
-\begin{figure}[tbh]
-  \centering
-   \subfigure[Pattern Recognition Example: Memory in Time Domain]{
-  	\includegraphics[width=0.45\linewidth]{images/pattern-example-memory}
-  }
-  \subfigure[Pattern Recognition Example: Memory Distribution]{
-  	\includegraphics[width=0.45\linewidth]{images/pattern-example-density}
-  	
-  }
-   %\subfigure[Pattern Appear On the Wall..]{\includegraphics[width=0.45\linewidth]{images/pokepattern}}
-	\caption[\textsc{Analyser} Investigation Stack - Level 2 - Pattern Recognition Examples]{Two examples of pattern recognition. Level 2 exploits  easy-to-read layouts which highlights the experiment difference to enable \textit{Inter Experiment} comparisons} 
-  	\label{fig:pattern-examples}
-\end{figure}
+%\begin{figure}[tbh]
+%  \centering
+%   \subfigure[Pattern Recognition Example: Memory in Time Domain]{
+%  	\includegraphics[width=0.45\linewidth]{images/pattern-example-memory}
+%  }
+%  \subfigure[Pattern Recognition Example: Memory Distribution]{
+%  	\includegraphics[width=0.45\linewidth]{images/pattern-example-density}
+%  	
+%  }
+%   %\subfigure[Pattern Appear On the Wall..]{\includegraphics[width=0.45\linewidth]{images/pokepattern}}
+%	\caption[\textsc{Analyser} Investigation Stack - Level 2 - Pattern Recognition Examples]{Two examples of pattern recognition. Level 2 exploits  easy-to-read layouts which highlights the experiment difference to enable \textit{Inter Experiment} comparisons} 
+%  	\label{fig:pattern-examples}
+%\end{figure}
 
-\noindent Level 2 exploits the same experiment layout of Level 1, but it fills the tables cell with different charts for each experiment. Figure \ref{fig:pattern-examples} (a) and (b) are two examples. They report two possible memory analysis: representation in time domain (a) and representation of memory values distribution(b). The aim of this level is to identify patterns within the RSP Engine behaviour for a certain variable. For is reason it is necessary to appreciate together multiple experiments results, enabling \textit{Inter-Experiment} comparison.
+\input{content/images/pattern-examples}
 
-Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Figure \ref{fig:pattern-examples} allows a new a global observations.
+
+\noindent Level 2 exploits the same experiment layout of Level 1, but it fills the tables cell with different charts for each experiment. Tables \ref{tab:pattern-examples} (a) and (b) are two examples. They report two possible memory analysis: representation in time domain (a) and representation of memory values distribution (b). The aim of this level is to identify patterns within the RSP Engine behaviour for a certain variable. For is reason it is necessary to appreciate together multiple experiments results, enabling \textit{Inter-Experiment} comparison.
+
+Moving up and down in Table \ref{tab:pattern-examples}.b for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Table \ref{tab:pattern-examples} allows a new a global observations.
 
 \subsubsection{Level 3 - Visual Comparison}\label{sec:impl-level3}
 
@@ -348,10 +351,10 @@ Moving up and down in Figure \ref{fig:pattern-examples}.b for example is possibl
   \subfigure[Multi-Variables Comparison]{
   \includegraphics[width=0.80\linewidth]{images/comp-intra}
   }
-\caption[  \textsc{Analyser} Investigation Stack - Level 3 -  Visual Comparison Examples]{\textsc{Analyser} Investigation Stack - Level 3 -   Visual Comparison Exampless}
+\caption[\textsc{Analyser} Investigation Stack - Level 3 - Visual Comparison Examples]{Visual comparison: (a) an example of \textit{Inter Example} comparison shows the relation between memory usage in two experiment; (b) an example of \textit{Intra Experiment} comparison shows the latency and memory relation.}
   \label{fig:visual-comp}
 \end{figure}
 
-\noindent Finally, the lowest level of analysis focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two possible analysis enabled by Level 3. 
+\noindent Finally, Level 3 focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two examples of the possible analysis. 
 
-The aim of Figure \ref{fig:visual-comp}.a is identify the relation between the same variable over multiple experiment, thus  \textit{Inter-Experiment} comparison. \ref{fig:visual-comp}.b has the goal to understand what has in common memory and latency applying an \textit{Intra-Experiment} comparison.  For example we can state if one reaches the Steady State before the other as happens for Latency w.r.t Memory in this case.
+The aim of Figure \ref{fig:visual-comp}.a shows a case of \textit{Inter Experiment} where the relation between the same variable over multiple experiments is highlighted.\ref{fig:visual-comp}.b reports an example of \textit{Intra Experiment} comparison, in order to understand the relation between memory and latency. A possible insight can be the evidence of different transitory phases before reaching the Steady State.

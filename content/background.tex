@@ -456,7 +456,7 @@ The ST sub-field which tries to offer an objective and independent view of the s
 \item \textit{Soak testing} - it is performed to determine if the system can sustain the continuous expected load. It essentially involves applying a significant load to a system for an significant period of time. The goal is to discover how the system behaves under sustained use or identify steady state conditions. During soak tests, memory utilization is monitored to detect potential leaks. Also important, but often overlooked is performance degradation, i.e. to ensure that the throughput and/or response times after some long period of sustained activity are as good as or better than at the beginning of the test. 
 \end{itemize} 
 
-\section{Benchmarks}\label{sec:benchmarking}
+\section{Benchmarking}\label{sec:benchmarking}
 
 Benchmarking is the primary method for measuring the performance of a systems, hardware or an application [7]. Indeed a benchmark is a procedure, problem, or test that can be used to compare systems or components to each other or to a standard \cite{IEEEStd610.12-1990:glossary}. Thus, benchmark results are used to evaluate the performance of a given system on a well-defined workload \cite{Menasce:2001:CPW:560806}.
 
@@ -478,7 +478,7 @@ In order to distinguish among several solutions and workload, Gray states four k
 \item Simple: The benchmark must be understandable, otherwise it will lack credibility.
 \end{itemize} 
 
-\subsection{Reasoning Benchmark}\label{sec:lubm}
+\subsection{Reasoning Benchmarks}\label{sec:lubm}
 
 The number of different reasoners available is increasing and many of them are already commercial solutions. Usually, reasoners are able to process very expressive ontology languages, which can represent rather complete knowledge. However there is an high demand of less expressive ontology languages, which are less expensive in term of reasoning or other computational tasks. Commercial reasoners try to solve the issue called \textit{computational cliff}. They face the trade-off between \textit{complexity and expressiveness} versus \textit{scalability}. Benchmarking tools are useful to evaluate reasoning system w.r.t. ontology languages \cite{bock2008benchmarking}, and the most important one is the Lehigh University Benchmark  (LUBM) \cite{Guo2005}. This work proposes a  method for benchmarking Semantic Web knowledge base systems and provides an example of such a benchmarks.
 
@@ -501,7 +501,7 @@ Finally, Reasoning benchmarking require to understand which metrics evaluate for
 
 LUBM contains also two specific reasoning metrics: \textit{Query Completeness and Soundness}: partial answering is possible in semantic web, indeed LUBM evaluate the \textit{degree of completeness of each query answer as the percentage of the entailed answers that are returned by the system is also evaluated}. Moreover, LUBM also provides a metric for measuring the combination of  query response time and answer completeness and soundness, to  appreciate the potential trade-off.
 
-\subsection{DSMS \& CEP Benchmarking}\label{sec:linear-road}
+\subsection{DSMS \& CEP Benchmarks}\label{sec:linear-road}
 
 Initial work on Streaming data like Linear Road \cite{arasu2004linear} firstly poses  several challenges to the design of a benchmark.  Moreover, the variety of CEP and DSMS domains and the lack of standards in query languages and data formats extends these benchmark design challenges. First of all DSMS Benchmarking must consider the challenges presented in the Linear Road work:
 \begin{itemize}
@@ -528,7 +528,7 @@ Synthetic benchmarks offers many benefits like data availability, experimental c
 
 Finally, BiCEP project presents a set of metrics for CEP benchmarking, the most relevant ones in performance evaluation context are: \textit{Response time}: the time since the last event of some event pattern is fed into the system until the system notifies the event pattern detection. \textit{Scalability} in order to compare system with different scale levels; \textit{Adaptivity} the system response to input variation. It is mandatory, because CEP system rarely face stable input streams that allow the CEP Engine to reach a steady state condition.
 
-\subsection{RDF Stream Processing (RSP) Benchmark}\label{sec:sr-benchmarking}
+\subsection{RDF Stream Processing (RSP) Benchmarks}\label{sec:sr-benchmarking}
 
 The increasing number of heterogeneous complex system demands Computer Science to focus on the empirical evaluation of such system, as we state in Section \ref{sec:empirical-research}. RDF Stream Processing Engines represent a clearly example of complex system, which face heterogeneous domains of application. This should be enough to follow the Tichy's suggestion and start their empirical evaluation. However, despite the number of RSP Engines is increasing, the works about their evaluation are still limited and do not address properly the definition of the key performance indicators (see Section \ref{sec:sfp}), making harder any comparison of  the different systems.
 
