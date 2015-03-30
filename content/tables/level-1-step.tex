@@ -1,0 +1,67 @@
+\begin{sidewaystable}
+	\centering
+	\scriptsize
+	\begin{tabular}{c|c|cc|cc|cc|cc|} % creating eight columns
+	  	\hline
+		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
+		&& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final\\
+		\hline
+		\hline
+		10&100&0,83\%&	-2,36\%&	1,29\%&	-1,44\%&	2,07\%&	-0,94\%&	-0,12\%&	0,49\%\\	
+		10&1000&0,98\%&	-0,33\%&	1,77\%&	-0,07\%&	1,71\%&	0,98\%&	-0,12\%&	0,56\%\\
+	
+		100&100&	-0,47\%&	-1,18\%&	0,68\%&	0,00\%&	0,92\%&	1,05\%&	1,51\%&	-0,16\%\\
+		\hline % inserts single-line
+	\end{tabular}
+	\caption[\textsc{Analyser} Investigation Stack - Level 1 - SOAK Test Average Latency Comparison]{Mean Latency Comparison Step Response}
+	\label{tab:step_latency_comparisons_mean}	
+
+	\begin{tabular}{c|c|cc|cc|cc|cc|} % creating eight columns
+	  	\hline
+		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
+		&& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final\\
+		\hline
+		\hline
+		10	&100	&4,02\%&	-661,17\%&	8,10\%&	-773,91\%&	2,07\%&	-1100,97\%&	2,94\%&	-1136,63\%\\	
+		10	&1000	&3,05\%&	-102,62\%&	12,95\%&	-120,48\%&	1,71\%&	-122,80\%&	1,78\%&	-161,61\%	\\
+		100	&1000&	1,38\%&	-106,32\%&	6,20\%&	-137,48\%&	0,92\%&	-116,47\%&	2,35\%&	-155,82\%	\\
+
+		\hline % inserts single-line
+	\end{tabular}
+	\caption[\textsc{Analyser} Investigation Stack - Level 1 - SOAK Test Average Latency Comparison]{Max Latency Comparison Step Response}
+
+	\label{tab:step_latency_comparisons_max}
+	
+	\begin{tabular}{c|c|cc|cc|cc|cc|} % creating eight columns
+	  	\hline
+		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
+		&& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final\\
+		\hline
+		10&	100	& -1,37\%&	8,59\%&	8,68\%&	10,75\%&	-43,16\%&	12,72\%&	-1,72\%&	11,51\%	\\
+		10	&1000	&-2,00\%&	-0,24\%&	5,56\%&	0,51\%&	-32,68\%&	-2,34\%&	0,22\%&	1,07\%	\\
+		100	&1000&	1,37\%&	0,44\%&	-0,16\%&	0,39\%&	-0,63\%&	-2,07\%&	-2,19\%&	0,70\%	\\
+										
+		\hline % inserts single-line
+	\end{tabular}
+	\caption[\textsc{Analyser} Investigation Stack - Level 1 - SOAK Test Average Latency Comparison]{Mean Memory Comparison Step Response}
+	\label{tab:step_memory_comparisons_mean}	
+
+	\centering
+	\scriptsize
+	\begin{tabular}{c|c|cc|cc|cc|cc|} % creating eight columns
+	  	\hline
+		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
+		&& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final& SOAK Init & SOAK Final\\
+		\hline
+		\hline
+		10	&100	&4,02\%&	-661,17\%&	8,10\%&	-773,91\%&	2,07\%&	-1100,97\%&	2,94\%&	-1136,63\%\\	
+		10	&1000	&3,05\%&	-102,62\%&	12,95\%&	-120,48\%&	1,71\%&	-122,80\%&	1,78\%&	-161,61\%	\\
+		100	&1000&	1,38\%&	-106,32\%&	6,20\%&	-137,48\%&	0,92\%&	-116,47\%&	2,35\%&	-155,82\%	\\
+
+		\hline % inserts single-line
+	\end{tabular}
+	\caption[\textsc{Analyser} Investigation Stack - Level 1 - SOAK Test Average Latency Comparison]{Max Memory Comparison Step Response}
+	\label{tab:step_memory_comparisons_max}
+
+	
+\end{sidewaystable}

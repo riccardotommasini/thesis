@@ -11,7 +11,7 @@ Experiment design (ED) means defining our experiment in order to prove or refute
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/experiment-design}
-	\caption{Traditional Experiment design workflow} 
+	\caption[Experiment Design Process]{The traditional top-down research designs experiments in order to confirm or refuse hypothesis. The process starts from the theoretical knowledge, trough which it is possible to formulate assumptions. Hypothesis are formulated observing an exiting model and considering the assumptions as known truths that simplify the environment. Variations of the assumptions or on the involved model variables describe the design of a certain experiment}
   	\label{fig:experiment-design}
 \end{figure}
 
@@ -25,7 +25,9 @@ In Chapter \ref{chap:heaven} we describe the experiment tuple: $<\mathcal{D}, \m
 \item $\mathcal{Q}$ is the Query that $\mathcal{E}$ continuously answers.
 \end{itemize}
 
-In this section we present our choices about the four elements that compose an experiment, upon which the evaluation is built
+In this section we present our choices about the four elements that compose an experiment, upon which the evaluation is built.
+
+\pagebreak
 
 \subsection{Engine $\mathcal{E}$}
 
@@ -34,9 +36,10 @@ The architecture complexity of mature RSP Engines like the C-SPARQL Engine or CQ
 
 In Chapter \ref{chap:problem-settings} we describe which requirements guarantee that an RSP Engine is a baselines: Simplicity, Elementarily, Relevance and Eligibility (SERE properties) legitimate the evaluation. Thus, they can be considered as a simple term of comparison for further research on Stream Reasoning systems and this investigation can be followed as a guideline.
  
-The four baselines differ for two characteristics: RDF Stream Model and Reasoning architecture. The Table \ref{tab:baselines-names} summarises these few but well determined differences, naming the four baselines for the evaluation:\begin{table}[htb]
-\scriptsize
+The four baselines differ for two characteristics: RDF Stream Model and Reasoning architecture. The Table \ref{tab:baselines-names} summarises these few but well determined differences, naming the four baselines for the evaluation:
+\begin{table}[htb]
 \centering
+\large
 \begin{tabular}{c|cc} % creating eight columns
 	\hline
          & Naive & Incremental\\
@@ -224,7 +227,7 @@ All the SOAK Experiments reach the Steady State condition for latency, but some 
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.25\linewidth]{images/dashboard-legend}	
+	\includegraphics[width=0.50\linewidth]{images/dashboard-legend}	
 	\caption{Dashboard Legend} 
 	\label{fig:dashboard-legend}
 \end{figure}
@@ -310,7 +313,7 @@ The research over RSP Engines requires further analysis at deeper levels to moti
 
 \input{content/images/dashboards}
 
-
+\pagebreak
 \subsection{Level 1 - Statistical Values Comparison}\label{sec:eval-level1}
 
 The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1)
@@ -338,7 +341,7 @@ Further statistical analysis are certainly meaningful. Comparing maximum or mini
 
 Statistical analysis are meaningful, but may reduce too much the RSP Engine complexity by focusing on single element of comparison. A more complete analysis is required and \name can investigate the behaviour of the system over all the experiment execution.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
 	\includegraphics[width=\linewidth]{images/level2-pattern}
 	\caption[\textsc{Analyser} Investigation Stack - Level 2 - Recognised Latency Patterns for SOAK Experiments]{Recognised Latency Pattern for SOAK Experiments} 
@@ -359,70 +362,13 @@ All the four tables about memory time series and memory distribution show that t
 
 The quantitative nature of the hypothesis formulated in Section \ref{sec:soak-es} does not allow to exploit Level 3 for Hypothesis verification. Actually [Hp.1] and [Hp.2] consider the performance as the main evaluation metric, while Level 2 fulfils the necessity to understand the system nature. The insights above allow to improve the RSP Engine model, upon which is possible to formulate more precise hypothesis and to explain the unpredictable results we obtained from Level 0 and Level 1.
 
-\input{content/images/lat-log-graph}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/lat-log-graph}
-%	\caption{The Linear Representation Scale of the Latency Time Series for GN and GI} 
-%  	\label{fig:level2-latency-graph}
-%\end{figure}
-
-\input{content/images/lat-log-triple}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/lat-log-triple}
-%	\caption{The Linear Representation Scale of the Latency Time Series for TN and TI} 
-%  	\label{fig:level2-latency-triple}
-%\end{figure}
-
-\input{content/images/mema-graph}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/mema-graph}
-%	\caption{The Linear Representation Scale of the Memory Time Series for GN and GI} 
-%  	\label{fig:level2-memory-graph}
-%\end{figure}
-
-\input{content/images/mema-triple}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/mema-triple}
-%	\caption{The Linear Representation Scale of the Memory Time Series for TN and TI} 
-%  	\label{fig:level2-memory-triple}
-%\end{figure}
-
-\input{content/images/mema-dens-graph}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/mema-dens-graph}
-%	\caption{GN and GI Distribution of Memory Time Series Values over 10 Intervals between the Minimum to the Maximum over all the Experiments} 
-%  	\label{fig:level2-memory-density-graph}
-%\end{figure}
-
-
-\input{content/images/mema-dens-triple}
-
-%\begin{figure}[hbt]
-%  \centering
-%	\includegraphics[width=\linewidth]{images/mema-dens-triple}
-%	\caption{TN and TI Distribution of Memory Time Series Values over 10 Intervals between the Minimum to the Maximum over all the Experiments} 
-%  	\label{fig:level2-memory-density-triple}
-%\end{figure}
-
 \subsection{Level 3 - Single Visual Comparison}\label{sec:eval-level3}
 	
-Level 2 has shown some macroscopic differences between the all the experiments, which can explain the absence of a dominant solution over all the experiment w.r.t [Hp.1] and [Hp.2]. Level 3 operates a drill down from Level 2. For this evaluation we provide examples of intra experiment analysis. Our goals is understanding the relation between memory and latency, with the aim to understand what influence the performances. For this reason, even if at Level 3 it is possible also to provide inter-experiment comparison (see Section \ref{sec:analyser}) for soak test we only exploit multivarible comparison within an experiment.
-
-Level 2 has pointed out three important findings:
+Level 3 operates a drill down from Level 2, providing examples of \textit{Intra Experiment} comparisons, in order to highlight the relation between memory and latency performances. Level 2 has shown several differences that can explain the absence of a dominant Baseline solution over all the experiment and w.r.t [Hp.1] and [Hp.2]. Thus Level 3 starts from three important findings:
 \begin{itemize}
-\item Despite all the experiment reach a Steady State condition for latency, some of them do not reach it for memory.
-\item When the Steady State condition is reached: latency requires about 2.000-5.000 \textsc{CTEvent}s w.r.t the total experiment duration of 30.000; memory may requires from 5.000 to 25.000 \textsc{CTEvent}s w.r.t the total experiment duration.
-\item Filling phenomena can be identified for both memory and latency and may be further investigated trough direct comparisons.
+\item All the experiments reach the Steady State for latency, but several of them do not reach it for memory.
+\item When the Steady State condition is reached: latency requires about 2.000-5.000 \textsc{CTEvent}s w.r.t the total experiment duration of 30.000, while memory requires from 5.000 to 25.000 \textsc{CTEvent}s.
+\item Both memory and latency analysis show the presence of filling phenomena, which should be further investigated.
 \end{itemize}
 
 Figure \ref{fig:level3-not-steady-naive-graph-en11} contains two examples of experiment that reach the Steady State condition for latency but not for memory. Figure \ref{fig:level3-not-steady-naive-graph-en11}.a shows the latency and memory usage for the Baseline GN within the experiment eleven (\textsc{CTEvent} size = 10, Number of Slot = 100), Figure \ref{fig:level3-not-steady-naive-graph-en11}.b shows the latency and memory usage of the Baseline TI, within the same experiment. 
@@ -434,45 +380,63 @@ Probably Java focuses on speeding up the execution rather than saving resources.
 
 Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation between the filling phenomena together for latency and memory for the Baselines TN and TI within Experiment fifteen ( \textsc{CTEvent} size = 1 Number of Slot = 10000). Independently from which baseline we observe, the main insight regards how Java manages the initial warm-up phase. As we have seen in other experiments it starts allocating an excessive amount of memory, which it immediately tries to reduce. The different with other experiment is that the window dimension is increasing and thus the amount of memory occupation. The system worsening in term of latency follows the increasing memory usage. Finally, latency reaches the stability when the filling phenomenon ends, since the number of triples in the active window is now stable too.
 
+\input{content/images/lat-log-graph}
 
-\begin{figure}[tbh]
-  \centering
-  \subfigure[GN Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-not-steady-naive-graph-en11}}
-  \subfigure[TI Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-not-steady-inc-stmt-en11}}
-  \caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Not Steady State Reaching]{Comparison between memory and latency on difference in Steady State condition reaching} 
-  \label{fig:level3-not-steady-naive-graph-en11}
-\end{figure}
+\input{content/images/lat-log-triple}
 
-\begin{figure}[tbh]
-  \centering
-  \subfigure[GN Exp 7, \textsc{CTEvent} Size = 10, Num.Slot = 10]{\includegraphics[width=\linewidth]{images/level3-steady-naive-graph-en7}}
-   \subfigure[GI Exp 12, \textsc{CTEvent} Size = 100, Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-steady-inc-graph-en12}}
-  	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Steady State Reaching]{Comparison of steady state condition reaching between latency and memory}
-  	\label{fig:level3-steady-naive-graph-en12-7}  	
-\end{figure}
+\input{content/images/mema-graph}
 
-\begin{figure}[tbh]
-  \centering
-  \subfigure[TN Exp 15, \textsc{CTEvent} Size = 1 Num.Slot = 10000]{
-	\includegraphics[width=\linewidth]{images/level3-filling-naive-stmt-en15}
-	}
-\subfigure[TI Exp 15, \textsc{CTEvent} Size = 1 Num.Slot = 10000]{
-	\includegraphics[width=\linewidth]{images/level3-filling-inc-stmt-en15}
-	}
-	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Filling Phenomena]{Comparison of filling phenomena between latency and memory} 
-  	\label{fig:level3-filling-inc-stmt-en15}
-\end{figure}
+\input{content/images/mema-triple}
 
+\input{content/images/mema-dens-graph}
+
+\input{content/images/mema-dens-triple}
+
+\input{content/images/level3-soak}
 
 \section{Step Response Test Evaluation Results}\label{sec:stressres}
 
-In Section \ref{sec:analyser} we stated that Level 3 allows two alternative comparison methods: \textit{Intra Experiment} comparison, an example of which is included in Section \ref{sec:eval-level3}, and \textit{Inter Experiment} comparison that we show in this section. We exploit the Step Response Testing to build such analysis (design details about Step Response experimental set in Section \ref{sec:step-es}), with the aim to prove \name potential.
+In Section \ref{sec:soakres} we provided an example of how \name can lead the analysis trough the different levels of the \textsc{Analyser} Investigation Stack. 
+
+SOAK Testing is a standard testing procedure for dynamic systems (see Section \ref{sec:software-testing}). However, the goal of this chapter is to show how \name works and thus showing its potential, providing more than one use case of the comparative RSP Engine research.
+
+In this section we briefly show the Step Response testing results, exploiting the \textsc{Analyser} Investigation Stack, except for Level 2 as we explain in Section \ref{sec:level2-step-pattern}. In the following sections we focus on the evaluation, further details of each level of the Investigation Stack can be found in Section \ref{sec:analyser} and Section \ref{sec:analyser-impl}, while the design of this experimental set is described in Section \ref{sec:stressres}.
+
+\subsection{Level 0 - Dashboard}\label{sec:level0-step-dashboard}
+
+In Section \ref{sec:soak-es} we start the evaluation providing some example of an easy-to-ready dashboard view, then we tried to identify a hierarchy between the tested solution (the Baselines). 
+
+In this section we tried a different approach: we compare the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. 
+We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
+
+
+The Level 0 comparison is summarised in two separated dashboards. Figure \ref{fig:level-0-step-dashboard-1} shows the Step Response Experiment results, considering the case of a starting \textsc{CTEvent} size of 10 triples, and an ending one of 1000 triples.
+Notice that we can identify, trough the Steady State Identification Block, two possible Steady State conditions: before and after the step.  Thus, Figure \ref{fig:level-0-step-dashboard-1} contains the dashboard representation of the two phases of the Step Response Test. Moreover in Figure \ref{fig:level-0-step-dashboard-2} we include the results of the relative SOAK experiments. 
+
+Observing the figures we can formulate an first important insight for this experiment: the performances at Steady State are similar ,or at least comparable to the SOAK ones, for both the Step Response phases. This means that the transitory phase does not influence the Steady State condition reaching for this particular experiment.
+
+\subsection{Level 1 - Statistical Values Comparison}\label{sec:level1-step-stats}
+
+Level 0 has proved that, for the studied case, the average result values are comparable. However we know from Section \ref{sec:eval-level3} that the initial transitory phase of an RSP Engine is very different between memory and latency. Moreover, it may depend on the filling phenomena that may affect the window (This is not certainly the case of our naive experiment set).
+
+In this section we try to extends the statistical \textit{Inter Experiment} comparison proposed in Section \ref{sec:eval-level1}. We provide a different layout, which allows to compare the Baselines performances between the two phases of the Step Response tests and the relative SOAK experiment results.\\
+
+Tables \ref{tab:step_latency_comparisons_mean} and \ref{tab:step_memory_comparisons_mean} show the worsening of latency and memory between the Step Response tests and the related SOAK ones. We exploit the quantitative approach of Level 1 to evidence what actually we have seen in Level 0 trough the dashboard view.
+
+A better point of analysis is given by Tables \ref{tab:step_latency_comparisons_max} and \ref{tab:step_memory_comparisons_max}, which apply the same layout to the comparison of the latency an memory maximum. We consider all the values of each Step Response phase, without excluding the initial transitory phase. Then we build the comparison with the related SOAK tests. The differences between the maximum in the initial transitory phase do not follow any criterion, going from 1\% to 99\% or more. What it is meaningful instead, is the performance improvement in the post-step phase of the test w.r.t the SOAK experiment. This actually points out that there is a initialisation cost that influences the the performances, and it must be considered during the deployment of an RSP Engine.
+
+Finally, another meta-insight is that, despite what we observe for SOAK Test, we obtain similar results by comparing memory and latency.
+
+\subsection{Level 2 - Pattern Identification}\label{sec:level2-step-pattern}
+
+As we reported in the introduction, we actually do not apply this level analysis. The motivation can be found in the restricted dimension of the Step Response test, which makes not meaningful the pattern identification step. Moreover the number of slot which compose the active window is fixed to ten for this experiment set, because in general DSMSs do not allow to change the window dimension during the execution. This limitation in the experiment set make even less interesting the pattern analysis, since we have only a single controlling variable.
+
+\subsection{Level 3 - Single Visual Comparison}\label{sec:level3-step-inter}
+
+Finally, we conclude the SOAK Testing analysis trough several examples of \textit{Intra Experiment} comparison (see Section \ref{sec:eval-level3}). However, in Section \ref{sec:analyser} we stated that Level 3 allows the application of the  \textit{Inter Experiment} comparison method.
 
 %Figures \ref{fig:level3-step} (a) and (b) show an example of \textit{Inter Experiment} comparison.
-In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment. Notice that the number of slot which compose the active window is fixed to ten, because in general DSMSs do not allow to change the window dimension during the execution.  Thus experiment like Step Response ones, must be designed to control other variables, in this case the \textit{CTEvent} size.\\
-
-Thus, the involved experiments are:
-
+In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment.  We build the comparison variating the \textit{CTEvent} size, since the number of lost is fixed to ten. Thus, the involved experiments are:
 \begin{itemize}
 \item Step Response Test with \textsc{CTEvent} initial size fixed to 10 Triples and Final Size fixed to 100 triples
 \item SOAK Test Number 7, with \textsc{CTEvent} size fixed to 10 Triples
@@ -487,15 +451,31 @@ An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a: it is possible 
 
 Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
 
-
 \begin{figure}[tbh]
   \centering
   \subfigure[TI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
-	\includegraphics[width=\linewidth]{images/step_lat_incremental_triple_soak_init_7soak_final_8step_101}
+	\includegraphics[width=0.9\linewidth]{images/step_lat_incremental_triple_soak_init_7soak_final_8step_101}
 	}
 \subfigure[GI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
-	\includegraphics[width=\linewidth]{images/step_mema_incremental_graph_soak_init_7soak_final_8step_101}
+	\includegraphics[width=0.9\linewidth]{images/step_mema_incremental_graph_soak_init_7soak_final_8step_101}
 	}
 	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Inter Experiment Comparison - Step Response Test]{Comparison between latency and memory filling phenomena} 
   	\label{fig:level3-step}
 \end{figure}
+
+%\input{content/tables/level-1-step-lat}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/level-0-step-dashboard-1}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One -]{Dashboard One - \textsc{CTEvent} Initial Size 10 - \textsc{CTEvent} Final Size 1000 Split} 
+	\label{fig:level-0-step-dashboard-1}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/level-0-step-dashboard-2}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{SOAK Experiment 7, \textsc{CTEvent} Size = 10 and 9, \textsc{CTEvent} Size = 1000. They represent the two phases of the Step Response Stest inf Figure \ref{fig:level-0-step-dashboard-1}}
+	\label{fig:level-0-step-dashboard-2}
+\end{figure}
+
+\input{content/tables/level-1-step}

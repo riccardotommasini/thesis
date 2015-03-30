@@ -31,13 +31,13 @@ This thesis work tries to answer the research question posed in Section \ref{sec
 
 \name is a modular and extendible software environment for automated testing of RSP Engines. 
 
-The aerospace engineering inspired the development of a \textbf{Test Stand}, which allows to design and run an experiments over RSP Engines. The \textbf{Test Stand} accepts input RDF streams trough a dedicate module named \textbf{Streamer} and it gathers performance measures during the experiment execution. Those metrics are saved for further analysis trough a specific module named \textbf{Result Collector}.
+The aerospace engineering inspired the development of a \textbf{Test Stand}, which allows to design and run experiments over RSP Engines. The \textbf{Test Stand} accepts input RDF streams trough the \textbf{Streamer} specific module; it gathers performance measures during the experiment execution and it saves this data trough the \textbf{Result Collector} module, allowing further analysis.
 
-The framework ensures the analysis trough the \textbf{Analyser}, which consists of a set of methods and tools to investigate the RSP Engine performances. The Analyser methods describe how it is possible to drill down the analysis trough different levels of details. Moreover, the tool-set allows to visualise, analyse and compare experiments w.r.t the required analysis level. 
+The framework ensures the analysis trough the \textbf{Analyser}, which consists of a set of methods and tools for the RSP Engine performances investigation. The Analyser methods describe how it is possible to drill down the analysis trough different levels of details. Moreover, the tool-set allows to visualise, analyse and compare experiments w.r.t the required analysis level. 
 
 Last but not least, \name also includes four \textbf{baseline} implementations of RSP Engine under the $\rho$DF \cite{DBLP:conf/esws/MunozPG07} entailment regime. The Baselines can be exploited  as Simple, Eligible, Relevant and Elementary (Section \ref{sec:requirements}) terms of comparison within RSP Engine empirical research context.  
 
-Finally, this thesis work bring an experimental evidence of \name potential. We include the illustration of how to run a set of experiments to compare the four baseline we implemented. As a data stream we adapt LUBM generator to a streaming scenario trough a specific implementation of the \textbf{Streamer}. The insights we gathered from those experiments demonstrate how \name can lead to empirical evaluation of RSP Engines, enabling SCRA for the Stream Reasoning research field.
+Finally, this thesis work bring an experimental evidence of \name potential. We include an example of RSP Engine comparison evaluating \name Baselines. We adapt LUBM generator to a streaming scenario trough a specific implementation of the \textbf{Streamer}. The insights we gathered from those experiments demonstrate how \name can lead to empirical evaluation of RSP Engines, enabling SCRA for the Stream Reasoning research field.
 
 The entire \name (i.e., the test stand, the LUBM streamer, the four baselines and the analyser) are released open source\footnote{\url{https://github.com/streamreasoning/HeavenTeststand}} with the intention to foster comparative research of RSP Engines.
 
