@@ -6,15 +6,13 @@ The focus on the experimental infrastructure is the main difference between \nam
 
 In this chapter we recap this thesis works, presenting in Section \ref{sec:research-question-conclusion} our Research Question; in Section \ref{sec:research-results-conclusion} we briefly detail \namens, our work, which issues it involved and how we answer the research question. Finally, in Section \ref{sec:research-fw-conclusion} we point out \name limitations and future works of this thesis.
 
-\section{Research Question}\label{sec:research-question-conclusion}
+\section{Systematic Comparative Research Approach of RSP Engines}\label{sec:research-question-conclusion}
 
 Stream Processing research field is growing and the number of techniques to semantically handle data stream is increasing. RDF Stream Processing Engines, a.k.a. RSP Engines, are systems able to answer continuous extensions of SPARQL queries over RDF Streams. Due to their complexity, a systematic comparison of such systems, under repeatable conditions, is hard. 
 
 It is worth to note that, despite the Engineering epistemology of the Computer Science works, it is still present the lack of a Systematic Comparative Research Approach (SCRA) \cite{Tichy:1995:EEC:209090.209093}. SCRA is typical of those research areas which have to face very complex systems, and have difficulty to simplify the models. Architectural analysis are useful, but they are not sufficient to evaluate RSP Engine, because their behaviour must be studied during the execution. For this reason, the Stream Reasoning community has tried to define and develop solution to evaluates RSP Engines \cite{DBLP:conf/esws/ScharrenbachUMVB13}. Recent works like \cite{Zhang2012, LePhuoc2012c, DBLP:conf/semweb/DellAglioCBCV13} supported this approach with queries, dataset and methods. However the SR community still lacks an experimental infrastructure which enables the comparison of RSP Engines independently from RDF Stream, ontology, continuous query and entailment regime.  From aerospace engineering we borrow the idea of engine test stand: a facility to develop engine trough systematic testing under precise experimental conditions. Thus, we can formulate our research question as follow:\\
 
 \textit{”Can an engine test stand, together with queries, datasets and methods, support Systematic Comparative Research Approach for Stream Reasoning?”}
-
-\section{Research Results}\label{sec:research-results-conclusion}
 
 %esperiment, reproducibility, repetability and comparability to enable the SRCA by a test stand
 %simple terms of comparison to support the comparative research: SERE properties
@@ -24,7 +22,7 @@ It is worth to note that, despite the Engineering epistemology of the Computer S
 %we see that even for simple system like the baselines, which model is known, upredictable results may rise
 %now it is possible to improve existing RSP engine model trough finding provide by the different analysi levels of the stack
 
-The aerospace engineering idea of a test stand is a facility, that allows the user to design experiments for the engine evaluation and to collect the results of the experiment executions. 
+In this thesis we answered such research question presenting \name, an open source framework for SCRA of RSP Engines. In the following we provides evidence of the positive results of our work, describing each phases it involves as how they are organised in this thesis.  
 
 In Chapter \ref{chap:problem-settings} we describe how to borrow this idea of a test stand in the Stream Reasoning research field, with the goal of RSP Engine evaluation. We exploit the traditional experiment definition to grant the rigorous and systematic test of an RSP Engine. Three main experiment properties, \textit{reproducibility}, \textit{repeatability} and \textit{comparability}, allow us to formulate the requirements that a Test Stand for RSP Engine must fulfil, in order to answer our research question. SCRA, due to its case-oriented nature, demands simple terms of comparison, namely baselines, to exploit for initial evaluation examples. In Chapter \ref{chap:problem-settings} we detail which properties a baselines must have and we formulate them as  requirements for our work.
 
