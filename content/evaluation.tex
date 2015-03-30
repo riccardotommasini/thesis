@@ -63,7 +63,7 @@ Being LUBM static data, we exploit the \textit{RDF2RDFStream} component of the \
 
 \subsection{Query $\mathcal{Q}$}\label{sec:query}
  
-The the query $\mathcal{Q}$ used in our experiment depends on the reasoning approach of the RSP Engine in use. Actually, all  experiments uses variants of the same basic identity query that continuously asks for the materialisation of the active sliding window $\omega$, which differ from the sliding factor $\beta$.\\
+The query $\mathcal{Q}$ used in our experiment depends on the reasoning approach of the RSP Engine in use. Actually, all  experiments uses variants of the same basic identity query that continuously asks for the materialisation of the active sliding window $\omega$, which differ from the sliding factor $\beta$.\\
 
 \begin{center}
 \raggedright
@@ -159,7 +159,7 @@ Table \ref{tab:soaktests-alt} is an alternative layout where the columns of the 
 From theory we know that the incremental maintenance of the materialisation is more convenient when the dimension of the changes is small w.r.t the entire window, otherwise  for large changes it is more computationally expensive then  naive materialisation \cite{DellAglio2014,DBLP:conf/cikm/RenP11,DBLP:conf/semweb/UrbaniMJHB13}.
 This knowledge allow us to formulate a first hypothesis, which can state that the incremental reasoning approach is always better then the naive one, for small changes i.e. we consider small changes equal or less 20\% of the active window content.
 
-Form recent works like \cite{DBLP:conf/semweb/BalduiniVDTPC13} we know that the graph data structure may speed up reasoning when it contains multiple triples, but it does so introducing an overhead that may hinder performances when it contains few triples. Thus, we can formulate a second hypothesis, which affirms that the triple-based model for RDF Stream is always better then the graph-based one when the number of triples in the graphs is small, i.e 20\% of the active window.\\
+From recent works like \cite{DBLP:conf/semweb/BalduiniVDTPC13} we know that the graph data structure may speed up reasoning when it contains multiple triples, but it does so introducing an overhead that may hinder performances when it contains few triples. Thus, we can formulate a second hypothesis, which affirms that the triple-based model for RDF Stream is always better then the graph-based one when the number of triples in the graphs is small, i.e 20\% of the active window.\\
 
 More formally the hypothesis to verify with SOAK experiments are:
 \begin{itemize}
@@ -171,7 +171,7 @@ More formally the hypothesis to verify with SOAK experiments are:
 
 \subsection{Step Response Tests}\label{sec:step-es}
 
-Step Response testing allow to see how the system reacts to a sudden changing in the input condition (see Section \ref{sec:software-testing}). They are related to SOAK test, because they allow to study deeply the initial warm-up phase of the system. This set of experiments evidence the different responses of an RSP Engine if we move form an input condition to another instead of starting from scratch.
+Step Response testing allow to see how the system reacts to a sudden changing in the input condition (see Section \ref{sec:software-testing}). They are related to SOAK test, because they allow to study deeply the initial warm-up phase of the system. This set of experiments evidence the different responses of an RSP Engine if we move from an input condition to another instead of starting from scratch.
 
 Step Response experiments are 40000 \textsc{CTEvent}s long. Since this duration requires hours of execution we investigate only few configurations, all with 10 window slot size for all the four baselines. Table \ref{tab:steptests} summarises the step experiment set-up, where the step is positioned at the half of the execution, 20000 events.
 \begin{table}[htb]
@@ -205,7 +205,7 @@ In this section we analyse the results of the SOAK Test experiments, exploiting 
 The content of this section is organised as follow: 
 Subsection \ref{sec:eval-ssib} presents the output of the \textit{Steady State Identification} Block. 
 Subsection \ref{sec:eval-level0} presents the results obtained at Level 0, the dashboard visualisation.  
-Subsection \ref{sec:eval-level1} provided a qualitative comparison for latency and memory, built at Level 1. 
+Subsection \ref{sec:eval-level1} provides a qualitative comparison for latency and memory, built at Level 1. 
 Subsection \ref{sec:eval-level2} contains example of pattern identification at Level 2. 
 Finally in Subsection \ref{sec:eval-level3} we include some examples of the Level 3 \textit{Intra Experiment }comparisons, while in Section \ref{sec:stressres} we include examples of \textit{Inter Experiment }ones w.r.t the Step Response tests.
 
@@ -218,108 +218,110 @@ The \textit{Steady State Identification} (SSI) Block, as reported in Chapter \re
 \input{content/tables/ss-cond}
 
 
-All the SOAK Experiments reach the Steady State condition for latency, but some of them did not for memory. Notice in particular that GI does not reach the memory Steady State for experiment 1 (  \textsc{CTEvent}  Size = 1000 and a number of slot = 1). Moreover, all the baselines do no reach the memory  Steady State for expeirment 8, 11, 13, ( \textsc{CTEvent}  Size = 1000 and a number of slot form 10 to 1000)  Moreover Experiment number 5 ( the \textsc{CTEvent} Size = 10000 a slot Nnumber = 1=) did not terminate correctly for all the baselines, due to an execution error. The results of this experiment are not part of our evaluation.
+All the SOAK Experiments reach the Steady State condition for latency, but some of them did not for memory. Notice in particular that GI does not reach the memory Steady State for experiment 1 (  \textsc{CTEvent}  Size = 1000 and a number of slot = 1). Moreover, all the baselines do no reach the memory  Steady State for experiments 8, 11, 13, ( \textsc{CTEvent}  Size = 1000 and a number of slot from 10 to 1000)  Moreover Experiment number 5 ( the \textsc{CTEvent} Size = 10000 a slot Nnumber = 1=) did not terminate correctly for all the baselines, due to an execution error. The results of this experiment are not part of our evaluation.
 
 \subsection{Level 0 - Dashboards}\label{sec:eval-level0}
 
-\begin{figure}[tbh]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.25\linewidth]{images/dashboard-legend}	
 	\caption{Dashboard Legend} 
 	\label{fig:dashboard-legend}
 \end{figure}
 
-The SOAK test results analysis starts with the dashboard view at Level 0. Each dashboard presented is composed by two chart which shows in different form the relation between the different four baselines. Dashboard legend is fixed for all the following charts and reported in Figure \ref{fig:dashboard-legend}.
+The SOAK test results analysis starts with the dashboard view at Level 0. Each dashboard presented is composed by two charts which shows in different from the relation between the different four baselines. Dashboard legend is fixed for all the following charts and reported in Figure \ref{fig:dashboard-legend}.
 
-\textbf{Dashboard One - Fixed Size \textsc{CTEvent} = 1} - 
+\subsubsection{Dashboard One - Fixed Size \textsc{CTEvent} = 1} 
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-1-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Split Version]{Dashboard One - K=1 Split} 
-	\label{fig:result_dashboard_ka}
-\end{figure}
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-1}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Multiplot Version]{Dashboard One - K=1 Multiplot} 
-	\label{fig:result_dashboard_kb}
-\end{figure}
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=\linewidth]{images/dashboard-1-split}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Split Version]{Dashboard One - K=1 Split} 
+%	\label{fig:result_dashboard_ka}
+%\end{figure}
+%
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=0.90\linewidth]{images/dashboard-1}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Multiplot Version]{Dashboard One - K=1 Multiplot} 
+%	\label{fig:result_dashboard_kb}
+%\end{figure}
 
 %and \ref{fig:result_dashboard_kb}
 Figures \ref{fig:result_dashboard_ka} shows how the behaviour of the four Baselines changes between a set of experiments which has a fixed CTEvent size of 1 triple and variates the number of slot in the active window, from 1 (Tumbling) to 10000. This configuration means moving on the latest diagonal of Table \ref{tab:soaktests-alt}.
 
-In Figure \ref{fig:result_dashboard_ka} we can appreciate that increasing the number of slots in the active window, and thus the window size (in terms of triple), all the baselines have a worsening in terms of Latency. The Baselines which exploits the Incremental reasoning approach, GI and TI, are not represented in the Figure when the number of slides is equal to one (Tumbling window of only one triple), because their latency it too small to be represented in this scale. Increasing the number of slot, GI and TI have the major worsening in term of latency w.r.t GN and TN. Actually they do not became worse, but when the number of slots became high (10000) and the variation is about 2/10000, the Incremental approach is at least comparable with the naive one.
+In Figure \ref{fig:result_dashboard_ka} we can appreciate that increasing the number of slots in the active window, and thus the window size (in terms of triple), all the baselines show Latency worsening. The Baselines which exploits the Incremental reasoning approach, GI and TI, are not represented in the figure when the number of slides is equal to one (Tumbling window of only one triple), because their latency it too small to be represented in this scale. Increasing the number of slot, GI and TI have the major worsening in term of latency w.r.t GN and TN. Actually they do not became worse, but when the number of slots became high (10000) and the variation is about 2/10000, the Incremental approach is at least comparable with the naive one.
 
 Observing Figure \ref{fig:result_dashboard_kb}, which shows all the experiment within a single image,we can also individuate the worsening for the memory consumption. A first obvious insight may be that \textit{Bigger problem requires in general more resources}. %Another insight regards the difference in term of latency, the x-asis, between the different baselines.
 
-Dashboard One confirms Hypothesis [Hp.1]: the incremental approach has better latency and memory performance than the naive one. For [Hp.2] the confirmation is partial. The latest results in Figures \ref{fig:result_dashboard_ka} shows that the memory consumption strictly depends on the reasoning approach and the graph-based stream my be better than the triple-based one. For latency [Hp.2] is confirmed for the experiment with a big window, while the smaller one may works better with a graph-based stream.
+Dashboard One confirms Hypothesis [Hp.1]: the incremental approach has better latency and memory performance than the naive one. For [Hp.2] the confirmation is partial. The latest results in Figures \ref{fig:result_dashboard_ka} shows that the memory consumption strictly depends on the reasoning approach and the graph-based stream may be better than the triple-based one. For latency [Hp.2] is confirmed for the experiment with a big window, while the smaller one may works better with a graph-based stream.
 
 
-\textbf{Dashboard Two - Fixed Number of Slot = 10}
+\subsubsection{Dashboard Two - Fixed Number of Slot = 10}
 
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-2-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Split Version]{Dashboard Two - EW=10 Split} 
-	\label{fig:result_dashboard_ewa}
-\end{figure}
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=0.90\linewidth]{images/dashboard-2-split}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Split Version]{Dashboard Two - EW=10 Split} 
+%	\label{fig:result_dashboard_ewa}
+%\end{figure}
+%
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=0.90\linewidth]{images/dashboard-2}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Multiplot Version]{Dashboard Two - EW=10 Multiplot} 
+%	\label{fig:result_dashboard_ewb}
+%\end{figure}
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-2}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Multiplot Version]{Dashboard Two - EW=10 Multiplot} 
-	\label{fig:result_dashboard_ewb}
-\end{figure}
 
+Figure \ref{fig:result_dashboard_ewa} shows how the behaviour of the four Baselines changes between a set of experiments which have a fixed number of 10 slots in the active window, while the size of the \textsc{CTEvent} changes from 1 to 10000. This analysis means, w.r.t Table \ref{tab:soaktests-alt} layout, moving from the top to the bottom of the second column.
 
-Figure \ref{fig:result_dashboard_ewa} shows how the behaviour of the four Baselines changes between a set of experiments which has a fixed number of 10 slots in the active window, while the size of the \textsc{CTEvent} changes from 1 to 10000. This analysis means, w.r.t Table \ref{tab:soaktests-alt} layout, moving form the top to the bottom of the second column.
-
-Form the observation of the two Figures emerges that: (1) Latency worsening is still clearly visible in Figure \ref{fig:result_dashboard_ewa}, while the memory ones requires Figure \ref{fig:result_dashboard_ewb} (2) The behaviour of the baselines becomes indistinguishable when the window size in terms of triple is grown too much. 
+From the observation of the two figures emerges that: (1) Latency worsening is still clearly visible in Figure \ref{fig:result_dashboard_ewa}, while the memory ones requires Figure \ref{fig:result_dashboard_ewb} (2) The behaviour of the baselines becomes indistinguishable when the window size in terms of triple is grown too much. 
 
 [Hp.1] is confirmed for the latency performance, as can be seen in Figure \ref{fig:result_dashboard_ewb}: GN and TN are always slower than GI and TI. 
 
 For memory the results are ambiguous and requires further investigations, only 50\% of the experiments confirm the hypothesis. Figure \ref{fig:result_dashboard_ewb} shows that [Hp.2] is confirmed within a single reasoning approach, while in general the results are similar to the ones of [Hp.1].
 
-\textbf{Dashboard Three - Fixed Windows Size (Triples) = 10000 } 
+\subsubsection{Dashboard Three - Fixed Windows Size (Triples) = 10000 } 
 
+%\begin{figure}[tbh]
+%	\centering
+%	\includegraphics[width=0.90\linewidth]{images/dashboard-3-split}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Split Version]{Dashboard Three - $EW*K=10000$ Split} 
+%	\label{fig:result_dashboard_proba}
+%\end{figure}
+%\begin{figure}[tbh]
+%	\centering
+%	\includegraphics[width=0.90\linewidth]{images/dashboard-3}	
+%	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Multiplot Version]{Dashboard Three - $EW*K=10000$ Multiplot} 
+%	\label{fig:result_dashboard_probb}
+%\end{figure}
 
-\begin{figure}[tbh]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-3-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Split Version]{Dashboard Three - $EW*K=10000$ Split} 
-	\label{fig:result_dashboard_proba}
-\end{figure}
-\begin{figure}[tbh]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-3}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Multiplot Version]{Dashboard Three - $EW*K=10000$ Multiplot} 
-	\label{fig:result_dashboard_probb}
-\end{figure}
+Figure \ref{fig:result_dashboard_proba}  shows how the behaviour of the four Baselines changes between a set of experiments which have a constant number triples within the active window equal to 10000, stated by maintaining the product \textsc{CTEvent} size (K) and Slot Number (EW) constant to 10000 triples. Fixing the window size in terms of triple to 10000 means moving from the left to the right on the lowest row of Table \ref{tab:soaktests-alt}. 
 
-Figure \ref{fig:result_dashboard_proba}  shows how the behaviour of the four Baselines changes between a set of experiments which has a constant number triples within the active window equal to 10000, stated by maintaining the product \textsc{CTEvent} size (K) and Slot Number (EW) constant to 10000 triples. Fixing the window size in terms of triple to 10000 means moving form the left to the right on the lowest row of Table \ref{tab:soaktests-alt}. 
+The main observation we can state on Figures \ref{fig:result_dashboard_proba} and \ref{fig:result_dashboard_probb}  is that the baselines performances seems depending only on the dimension of the active windows, indeed for all the observed experiment  baselines memory usage and latency are disposed in a small interval.
 
-The main observation we can state on Figures \ref{fig:result_dashboard_proba} and \ref{fig:result_dashboard_probb}  is that the baselines performances seems depends only on the dimension of the active windows, indeed for all the observed experiment the baselines memory usage and latency are disposed in a small interval.
+[Hp.1] is confirmed for both the memory and the latency as the figures show. However the difference are very small between the approaches. [Hp.2] is confirmed again observing a single reasoning approach at time, while in general it is not possible to say that Triple-based RDF Stream performs better than the Graph-based one.
 
-[Hp.1] is confirmed for both the memory and the latency as the figures show. However the difference are very small between the approaches. [Hp.2] is confirmed again observing a single reasoning approach at time, while in general it is not possible to say that Triple-based RDF Stream perform better than the Graph-based one.
-
-Level 0 allows to state is there is no strong dominance of a Baseline w.r.t. the other ones in the provided analysis. Moreover, a week dominance can be observed in different steps both in term for latency  and memory. The most clear examples are the medium size problems in Figures \ref{fig:result_dashboard_ka} and \ref{fig:result_dashboard_kb} and in Figures \ref{fig:result_dashboard_ewa} and \ref{fig:result_dashboard_ewb}. However, result hierarchy is not absolute and it may changes by changing experiment configurations. This observation refutes explicitly [Hp.2] formulated in Section \ref{sec:soak-es}, while [Hp.1] was not completely confirmed. There are experiments where the naive  reasoning  approach seems performing better than the incremental one, at least in term of latency. 
+Level 0 allows to state that there is no strong dominance of a Baseline w.r.t. the other ones in the provided analysis. Moreover, a weak dominance can be observed in different steps both in term for latency  and memory. The most clear examples are the medium size problems in Figures \ref{fig:result_dashboard_ka} and \ref{fig:result_dashboard_kb} and in Figures \ref{fig:result_dashboard_ewa} and \ref{fig:result_dashboard_ewb}. However, result hierarchy is not absolute and it may change by changing experiment configurations. This observation refutes explicitly [Hp.2] formulated in Section \ref{sec:soak-es}, while [Hp.1] was not completely confirmed. There are experiments where the naive  reasoning  approach seems performing better than the incremental one, at least in term of latency. 
 
 The research over RSP Engines requires further analysis at deeper levels to motivate these unexpected findings.
+
+\input{content/images/dashboards}
+
 
 \subsection{Level 1 - Statistical Values Comparison}\label{sec:eval-level1}
 
 The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1)
 
-The current evaluation operates over the average values of latency and memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} contains in all the experiment results respectively for latency and memory.  Both the Tables dispose the results according with the layout of Table \ref{tab:soaktests-alt}. We decide to use the qualitative result representation, but \name allows also more detailed analysis with quantitative comparisons as shows in Section \ref{sec:analyser-impl}. To properly read the Tables note that they report that baseline is better than another one when the difference in term of latency or memory is bigger than 5\%, otherwise we consider the two terms of comparison as equal and we use the simble $\simeq$.
+The current evaluation operates over the average values of latency and memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} contains in all the experiment results respectively for latency and memory.  Both the tables dispose the results according with the layout of Table \ref{tab:soaktests-alt}. We decide to use the qualitative result representation, but \name allows also more detailed analysis with quantitative comparisons as shows in Section \ref{sec:analyser-impl}. To properly read the tables note that they report that baseline is better than another one when the difference in term of latency or memory is bigger than 5\%, otherwise we consider the two terms of comparison as equal and we use the simble $\simeq$.
 Moreover, we indicate that the better solution has not reached the Steady State Condition with the underlined symbols \underline{G}, \underline{T}, \underline{N}, \underline{I}
 
 
 When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{tab:soak_latency_comparisons}.c allow to say that using a Triple-base RDF stream is faster than Graph-based one. In particular, for the case $N$=1000 when the window contains 1000 triples (i.e., each \textsc{CTEvent} contains only one triple),  the Naive Triple-based approach is about 10\% faster  than the Naive Graph-based one while the Incremental Graph-based is even about 20\% faster. This findings confirm [Hp.2], while the cases  when N=10 the does not confirm the hypothesis because the results can be consider as equal (result differences are smaller than 5\%). A possible explanation is that the dimension of the graph can not be considered small w.r.t the window when $N$=10.
 
-When $N$=1 (i.e., the window contains only one \textit{CTEvent}) instead , the results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d shows that for large events that the Naive approach is faster than the Incremental one, as we stated when we formulate [Hp.1]. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach agi is faster and this is not intuitive, because to formulate [Hp.1] we consider the changes dimension in percentage.
+When $N$=1 (i.e., the window contains only one \textit{CTEvent}) instead, the results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d show that for large events the Naive approach is faster than the Incremental one, as we stated when we formulate [Hp.1]. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster and this is not intuitive, because to formulate [Hp.1] we consider the changes dimension in percentage.
 
 The results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:soak_latency_comparisons}.d support [Hp.1] by stating that when the number of changing triples in $\Delta+ \Delta-$ (Section \ref{sec:baselines}) is a small fraction of those in the window an Incremental approach is faster than the Naive one. The exception of case $N$=1, but it can be seen as a limit case, where the reasoner is asked to deduce all the implicit triples implied by the only explicit triple in the window.  
 
@@ -329,32 +331,31 @@ Table \ref{tab:soak_memory_comparisons} reports the results for the memory usage
 
 \input{content/tables/level-1-tables}
 
-Further statistical analysis are surely meaningful. Comparing Maximum or minimum as we did for the average values may detail much more the the system memory usage. Trough \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
+Further statistical analysis are certainly meaningful. Comparing maximum or minimum as we did for the average values may detail much more the system memory usage. %Trough \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
 
 
 \subsection{Level 2 - Patter Identification}\label{sec:eval-level2}
 
-Statistical analysis are meaningful, but may reduce to much the RSP Engine complexity by focusing on single element of comparison. A more complete analysis is required and \name can deepen trying to study the behaviour of the system over all the experiment execution.
+Statistical analysis are meaningful, but may reduce too much the RSP Engine complexity by focusing on single element of comparison. A more complete analysis is required and \name can investigate the behaviour of the system over all the experiment execution.
 
-Level 2 exploits again the layout of Table \ref{tab:soaktests-alt}, disposing in table cell a graphical representation of a certain variable (Latency, Memory). Which graphical representation use depends on the research necessities: time domain representations and value distribution are the ones we explored during our evaluation, both in log scale or linear scale.
-
-\begin{figure}[hbt]
+\begin{figure}[htb]
   \centering
 	\includegraphics[width=\linewidth]{images/level2-pattern}
 	\caption[\textsc{Analyser} Investigation Stack - Level 2 - Recognised Latency Patterns for SOAK Experiments]{Recognised Latency Pattern for SOAK Experiments} 
   	\label{fig:level2-pattern}
 \end{figure}
 
-The Tables \ref{tab:level2-latency-graph} and \ref{tab:level2-latency-triple} represent in linear scale the latency time series of the four Baselines. Immediately we can see that most of the systems reach a Steady State condition in a short period, between the 10\% and the 20\% of the entire experiment duration. Some of them show filling phenomena, when the sizes of the window start to be relevant w.r.t. the experiment duration. In general latency trend follows one of the pattern showed in Table \ref{tab:level2-pattern}. %Moreover, the responsiveness is not guaranteed for the biggest experiments, especially during the warm-up phase.
+Level 2 exploits again the layout of Table \ref{tab:soaktests-alt}, disposing in table cell a graphical representation of a certain variable (Latency, Memory). The graphical representation choice depends on the research necessities: time domain representations and value distribution are the ones we explored during our evaluation, both in log scale or linear scale.
 
-The Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple} represent the  representation in linear scale of the Memory Time Series of the four Baselines. We can observe that, despite what happens for latency, memory usage does not reach a Steady State condition for all the experiments (Baseline GI and TI for Windows of dimension 1000 Triples with more than one slot).  When it is reached, the Steady State condition requires form 10\% to 80\% of the entire experiment duration, and in general it has not a common behaviour. The variance of these results is high and can be motivated arguing about how Java is managing the memory during the execution. The optimisation policies work better when the system have to handle a lot of triples. The proof of this insight can be seen in Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple}, where the lower levels reach the Steady State condition before the higher ones, which actually does not reach the Steady State at all for some Experiment with GI and TI.  For very small problems with the Incremental Approach, the Steady State is not even reached, maybe because the memory consume does not alert the JVM at all. 
+The Tables \ref{tab:level2-latency-graph} and \ref{tab:level2-latency-triple} represent in linear scale the latency time series of the four Baselines. Immediately we can see that most of the systems reach a Steady State condition in a short period, between the 10\% and the 20\% of the entire experiment duration. Some of them show filling phenomena, when the sizes of the window start to be relevant w.r.t. the experiment duration. In general latency trend follows one of the pattern showed in Table \ref{fig:level2-pattern}. %Moreover, the responsiveness is not guaranteed for the biggest experiments, especially during the warm-up phase.
 
+The Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple} represent the  representation in linear scale of the Memory Time Series of the four Baselines. We can observe that, despite what happens for latency, memory usage does not reach a Steady State condition for all the experiments (Baseline GI and TI for Windows of dimension 1000 Triples with more than one slot).  When it is reached, the Steady State condition requires from 10\% to 80\% of the entire experiment duration, and in general it has not a common behaviour. The variance of these results is high and can be motivated arguing about how Java is managing the memory during the execution. The optimisation policies work better when the system have to handle a lot of triples. The proof of this insight can be seen in Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple}, where the lower levels reach the Steady State condition before the higher ones, which actually does not reach the Steady State at all for some Experiment with GI and TI.  For very small problems with the Incremental Approach, the Steady State is not even reached, maybe because the memory consume does not alert the JVM at all. 
 
 The filling phenomena we identified for latency are still visible in both the tables. This denotes the existence of a relation between memory and latency. This is one of the point we can further investigate trough the next analysis step: Level 3.
 
-Tables \ref{tab:level2-memory-density-graph}.a and \ref{tab:level2-memory-density-graph}.b represent the distribution of memory time series values of the four Baselines. To obtain this representation we individuate the minimum and the maximum between all the experiments. We divided the span in some intervals and automatically we count ho many values of the memory time series fit the intervals, repeating this count for all the experiment. Trough this representation we can see how the memory usage is distributed during the experiment execution. We can observe that the memory has a "Gaussian" distribution, which variances is lower for baselines GI and TI, which exploit incremental reasoning and thus have a smarter usage of the memory. When the window size increases, the memory consumption shift to the right, towards the intervals with higher values.
+Tables \ref{tab:level2-memory-density-graph} and \ref{tab:level2-memory-density-triple} represent the distribution of memory time series values of the four Baselines. To obtain this representation we individuate the minimum and the maximum between all the experiments. We divided the span in some intervals and automatically we count how many values of the memory time series fit the intervals, repeating this count for all the experiment. Trough this representation we can see how the memory usage is distributed during the experiment execution. We can observe that the memory values for the baselines that exploit incremental reasoning, GI and TI, are distributed in a smaller interval w.r.t the baselines which exploit the Naive reasoning approach and thus GI and T I have a smarter usage of the memory. When the window size increases, the memory consumption shift to the right, towards the intervals with higher values.
 
-All the four Tables about memory time series and memory distribution show that there are strong difference between the experiment subset with Window dimension of 1000  triples and the ones with window dimension 10000 triples. This is a meta-insight that improve the Experiment Design model. Actually we are still not able to predict the baselines behaviour, but we can further investigate trough \namens.
+All the four tables about memory time series and memory distribution show that there are strong difference between the experiment subset with Window dimension of 1000  triples and the ones with window dimension 10000 triples. This is a meta-insight that improves the Experiment Design model. Actually we are still not able to predict the baselines behaviour, but we can further investigate trough \namens.
 
 The quantitative nature of the hypothesis formulated in Section \ref{sec:soak-es} does not allow to exploit Level 3 for Hypothesis verification. Actually [Hp.1] and [Hp.2] consider the performance as the main evaluation metric, while Level 2 fulfils the necessity to understand the system nature. The insights above allow to improve the RSP Engine model, upon which is possible to formulate more precise hypothesis and to explain the unpredictable results we obtained from Level 0 and Level 1.
 
@@ -415,52 +416,48 @@ The quantitative nature of the hypothesis formulated in Section \ref{sec:soak-es
 
 \subsection{Level 3 - Single Visual Comparison}\label{sec:eval-level3}
 	
-Level 2 has shown some macroscopic differences between the all the experiments, which can explain the absence of a dominant solution over all the experiment w.r.t [Hp.1] and [Hp.2]. Level 3 operates a drill down from Level 2. For this evaluation we provide examples of intra experiment analysis. Our goals is understand the relation between memory and latency, with the aim to understand what influence the performances. For this reason, even if at Level 3 it is possible also to provide inter-experiment comparison (see Section \ref{sec:analyser}) for soak test we only exploit multivarible comparison within an experiment.
+Level 2 has shown some macroscopic differences between the all the experiments, which can explain the absence of a dominant solution over all the experiment w.r.t [Hp.1] and [Hp.2]. Level 3 operates a drill down from Level 2. For this evaluation we provide examples of intra experiment analysis. Our goals is understanding the relation between memory and latency, with the aim to understand what influence the performances. For this reason, even if at Level 3 it is possible also to provide inter-experiment comparison (see Section \ref{sec:analyser}) for soak test we only exploit multivarible comparison within an experiment.
 
 Level 2 has pointed out three important findings:
 \begin{itemize}
-\item Despite all the experiment reach a Steady State condition for latency, some of does not reach it for memory.
-\item When the Steady State condition is reached, form memory it required 10-20\% of the total experiment duration, while for memory it necessities of 30-70\% of the total number of streamed events.
-\item Filling phenomena can be identified for both memory and latency and my be further investigate trough direct comparisons.
+\item Despite all the experiment reach a Steady State condition for latency, some of them do not reach it for memory.
+\item When the Steady State condition is reached: latency requires about 2.000-5.000 \textsc{CTEvent}s w.r.t the total experiment duration of 30.000; memory may requires from 5.000 to 25.000 \textsc{CTEvent}s w.r.t the total experiment duration.
+\item Filling phenomena can be identified for both memory and latency and may be further investigated trough direct comparisons.
 \end{itemize}
 
-Figure \ref{fig:level3-not-steady-naive-graph-en11} contains two examples of experiment that reach the Steady State condition for latency but not for memory. Figure \ref{fig:level3-not-steady-naive-graph-en11}.a shows the latency and memory usage for the Baseline GN within the experiment eleven (\textsc{CTEvent} size = 10, Number of Slot = 100), Figure \ref{fig:level3-not-steady-naive-graph-en11}.b shows within the same experiment the latency and memory usage of the Baseline TI. 
+Figure \ref{fig:level3-not-steady-naive-graph-en11} contains two examples of experiment that reach the Steady State condition for latency but not for memory. Figure \ref{fig:level3-not-steady-naive-graph-en11}.a shows the latency and memory usage for the Baseline GN within the experiment eleven (\textsc{CTEvent} size = 10, Number of Slot = 100), Figure \ref{fig:level3-not-steady-naive-graph-en11}.b shows the latency and memory usage of the Baseline TI, within the same experiment. 
 
-If we consider only the memory trend, we note an oscillating behaviour which contrast with the idea of Steady State. A more careful analysis identifies the presence of some spikes in the latency time series. It represent a certain period of time where the content of the window requires a strong reasoning effort. This may also influence the memory usage. Moreover, this kind of analysis can not be seen form higher level. 
+If we consider only the memory trend, we note an oscillating behaviour which contrast with the idea of Steady State. A more careful analysis identifies the presence of some spikes in the latency time series. It represent a certain period of time where the content of the window requires a strong reasoning effort. This may also influence the memory usage. Moreover, this kind of analysis can not be seen from higher level. 
+
+Figure \ref{fig:level3-steady-naive-graph-en12-7} (a) and (b) show two examples of steady state condition reaching. The figure \ref{fig:level3-steady-naive-graph-en12-7}.a describes that the Baseline GN for experiment seven (\textsc{CTEvent} size = 10, Number of Slot = 10) reaches the Steady State around the 10\% of the entire experiment duration for latency and about 45\% for memory. 
+Probably Java focuses on speeding up the execution rather than saving resources. A completely different behaviour can be appreciate in the subfigure (b), where both latency and memory reach the Steady State around the 10\% of the entire execution. It seems that bigger is the amount of resources required by the program, faster Java's optimization policies work.
+
+Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation between the filling phenomena together for latency and memory for the Baselines TN and TI within Experiment fifteen ( \textsc{CTEvent} size = 1 Number of Slot = 10000). Independently from which baseline we observe, the main insight regards how Java manages the initial warm-up phase. As we have seen in other experiments it starts allocating an excessive amount of memory, which it immediately tries to reduce. The different with other experiment is that the window dimension is increasing and thus the amount of memory occupation. The system worsening in term of latency follows the increasing memory usage. Finally, latency reaches the stability when the filling phenomenon ends, since the number of triples in the active window is now stable too.
+
 
 \begin{figure}[tbh]
   \centering
-  \subfigure[GN Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=0.40\linewidth]{images/level3-not-steady-naive-graph-en11}}
-  \subfigure[TI Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=0.40\linewidth]{images/level3-not-steady-inc-stmt-en11}}
+  \subfigure[GN Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-not-steady-naive-graph-en11}}
+  \subfigure[TI Exp 11, \textsc{CTEvent} Size = 10 Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-not-steady-inc-stmt-en11}}
   \caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Not Steady State Reaching]{Comparison between memory and latency on difference in Steady State condition reaching} 
   \label{fig:level3-not-steady-naive-graph-en11}
 \end{figure}
 
-Figure \ref{fig:level3-steady-naive-graph-en7-12} (a) and (b) show two examples of steady state condition reaching. The subfigure (a) describes that the Baseline GN for experiment seven (\textsc{CTEvent} size = 10, Number of Slot = 10) reaches the Steady State around the 10\% of the entire experiment duration for latency and about 45\% for memory. 
-Probably Java focuses on speeding up the execution rather than saving resources. A completely different behaviour can be appreciate in the subfigure (b), where both latency and memory reach the Steady State around the 10\% of the entire execution. It seems that bigger is the amount of resources required by the program, faster Java optimization policies work.
-
-
 \begin{figure}[tbh]
   \centering
-  \subfigure[GN Exp 7, \textsc{CTEvent} Size = 10, Num.Slot = 10]{
-	\includegraphics[width=0.40\linewidth]{images/level3-steady-naive-graph-en7}
-	}
-	\subfigure[GI Exp 12, \textsc{CTEvent} Size = 100, Num.Slot = 100]{
-	  \includegraphics[width=0.40\linewidth]{images/level3-steady-inc-graph-en12}
-	}
-  	\label{fig:level3-steady-naive-graph-en7-12}  	
-  	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Steady State Reaching]{Comparison of steady state condition reaching between latency and memory} 
+  \subfigure[GN Exp 7, \textsc{CTEvent} Size = 10, Num.Slot = 10]{\includegraphics[width=\linewidth]{images/level3-steady-naive-graph-en7}}
+   \subfigure[GI Exp 12, \textsc{CTEvent} Size = 100, Num.Slot = 100]{\includegraphics[width=\linewidth]{images/level3-steady-inc-graph-en12}}
+  	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Steady State Reaching]{Comparison of steady state condition reaching between latency and memory}
+  	\label{fig:level3-steady-naive-graph-en12-7}  	
 \end{figure}
-
-Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation between the filling phenomena together for latency and memory for the Baselines TN and TI within Experiment fifteen ( \textsc{CTEvent} size = 1 Number of Slot = 10000). Independently from which baseline we observe, the main insight regards how Java manages the initial warm-up phase. As we seen in other experiments it starts allocating an excessive amount of memory, which it immediately tries to reduce. The different with other experiment is that the window dimension is increasing and thus the amount of memory occupation. The system worsening in term of latency follows the increasing memory usage. Finally, when Java has evaluated the correct (stable) amount of memory to handle the active window, the latency and reaches the stability too.
 
 \begin{figure}[tbh]
   \centering
   \subfigure[TN Exp 15, \textsc{CTEvent} Size = 1 Num.Slot = 10000]{
-	\includegraphics[width=0.40\linewidth]{images/level3-filling-naive-stmt-en15}
+	\includegraphics[width=\linewidth]{images/level3-filling-naive-stmt-en15}
 	}
-\subfigure[[TI Exp 15, \textsc{CTEvent} Size = 1 Num.Slot = 10000]{
-	\includegraphics[width=0.40\linewidth]{images/level3-filling-inc-stmt-en15}
+\subfigure[TI Exp 15, \textsc{CTEvent} Size = 1 Num.Slot = 10000]{
+	\includegraphics[width=\linewidth]{images/level3-filling-inc-stmt-en15}
 	}
 	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Intra Experiment Comparison - SOAK Test Latency vs Memory Filling Phenomena]{Comparison of filling phenomena between latency and memory} 
   	\label{fig:level3-filling-inc-stmt-en15}
@@ -469,11 +466,10 @@ Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 
 \section{Step Response Test Evaluation Results}\label{sec:stressres}
 
-In Section \ref{sec:analyser} we stated that Level 3 allows two alternative comparison methods: \textit{Intra Experiment} comparison, an example of which is included in Section \ref{sec:eval-level3}, and \textit{Inter Experiment} comparison, we show in this section. We exploit the Step Response Tests set to build such analysis (design details about Step Response experimental set in Section \ref{sec:step-es}), with the aim to prove \name potential.
+In Section \ref{sec:analyser} we stated that Level 3 allows two alternative comparison methods: \textit{Intra Experiment} comparison, an example of which is included in Section \ref{sec:eval-level3}, and \textit{Inter Experiment} comparison that we show in this section. We exploit the Step Response Testing to build such analysis (design details about Step Response experimental set in Section \ref{sec:step-es}), with the aim to prove \name potential.
 
 %Figures \ref{fig:level3-step} (a) and (b) show an example of \textit{Inter Experiment} comparison.
-In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment, all with a number of slot in the window of 10. In general, DSMSs do not allow to change the window dimension during the execution, thus experiment like Step Response ones, must be designed to control other variables, in this case the \textit{CTEvent} size. \\
-
+In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment. Notice that the number of slot which compose the active window is fixed to ten, because in general DSMSs do not allow to change the window dimension during the execution.  Thus experiment like Step Response ones, must be designed to control other variables, in this case the \textit{CTEvent} size.\\
 
 Thus, the involved experiments are:
 
@@ -485,11 +481,11 @@ Thus, the involved experiments are:
 
 Notice that, Figure \ref{fig:level3-step}.a reports the latency time series for the Baseline TI, while \ref{fig:level3-step}.b presents the memory usage for the Baseline GI. We selected the two most expressive graphs, in order to show the following insight.
 
-The Figures \ref{fig:level3-step} (a) and (b) answer two standard questions of Step Response Test, which contextualised in SR context are (Q.1) There is a initial transitory phase also for a sudden changes in the RDF Stream dimension, an thus in the window dimension? (Q.2) Does the system reaches a Steady State condition after a sudden changes in the RDF Stream dimension, an thus in the window dimension?
+The Figures \ref{fig:level3-step} (a) and (b) answer two standard questions of Step Response Test, which ,contextualised in SR, are (Q.1) There is a initial transitory phase also for a sudden changes in the RDF Stream dimension, an thus in the window dimension? (Q.2) Does the system reaches a Steady State condition after a sudden changes in the RDF Stream dimension, an thus in the window dimension?
 
-An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a : it is possible to see that after the step there is no transitory phase for the RSP Engine latency. A similar behaviour is observable for memory in Figure \ref{fig:level3-step}.b. 
+An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a: it is possible to see that after the step there is no transitory phase for the RSP Engine latency. A similar behaviour is observable for memory in Figure \ref{fig:level3-step}.b. 
 
-Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java has already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
+Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
 
 
 \begin{figure}[tbh]
