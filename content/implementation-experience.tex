@@ -77,7 +77,7 @@ Figure \ref{fig:uml_tstreamer} contains also the \textit{RDF2RDFStream} implemen
 
 The \textit{Parser} component, in Figure \ref{fig:uml_flowrateprofiler} can be accessed statically. It reads in memory one by one the triples in the file guaranteeing data independence [R.1] and it does not influence the memory footprint [R.5] by allocating only the memory necessary to parse a triple. 
 
-Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and it builds such an event. The In this way, \textit{RDF2RDFStream} can generate different RDF streams $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
+Figure \ref{fig:uml_flowrateprofiler} also includes the \textit{FlowRateProfiler}. This component determines the number of triples to add to a \textit{CTEvent} and it builds such an event. The In this way, \textit{RDF2RDFStream} can generate different RDF streams to use as $\mathcal{D}$, which differ on the number of contemporary triples in the stream. 
 
 \input{content/images/flow-rate-examples}
 
@@ -107,7 +107,7 @@ K2, &\text{if $x >= M$} $ where $ K2 >> K1, K2 \in N
 The remaining two  \textit{FlowRateProfiler} implementations in \name that are not related to our evaluation are:
 \begin{itemize}
 \item \textit{LinearStepFlowRateProfile} - it streams $x$ \textsc{CTEvents} of dimension $y$, in terms of triples, then linearly increase the number of a quantity $M$: \[y=x*M, \text{ where } x,y,M \in N\]
-\item \textit{ConstantRandomFlowRateProfiler} - it changes $y$ and $x$ according with two random generators directed by two seeds. \[y=random(seed), \text{ where } random(seed),y \in N\]
+\item \textit{ConstantRandomFlowRateProfiler} - it changes $y$ and $x$ according with two random integer generators directed by two seeds. The generators provided integer numbers according to a certain probability \[y=randomInt(seed), \text{ where } random(seed),y \in N\]
 \end{itemize}
 
 
