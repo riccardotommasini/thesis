@@ -87,7 +87,7 @@ The Baseline GN and TN exploit the Naive Reasoning approach and thus the query \
 
 The entailment regime of the RSP Engines influence performances. For this reason we take for the Baselines $\rho$DF, an RDF-S fragment that reduces complexity while preserving the normative semantics and core functionalities. \cite{DBLP:conf/esws/MunozPG07}  Several works in the field \cite{DBLP:conf/semweb/UrbaniMJHB13, Liu:2014:ERS:2567948.2577323} choose $\rho$DF, because it is the minimal meaningful task for a Stream Reasoner.
 
-\section{Experiment Set-Up}
+\section{Experiment Set-Up}\label{sec:experiment-setup}
 
 The \textit{RDF2RDFStream} allows to control the triple distribution in the RDFStream, thus it is possible to build experiment upon this distribution. 
 
@@ -334,7 +334,6 @@ When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{t
 
 When $N$=1 (i.e., the window contains only one \textit{CTEvent}) instead, the results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d show that for large events the Naive approach is faster than the Incremental one, as we stated when we formulate [Hp.1]. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster and this is not intuitive, because to formulate [Hp.1] we consider the changes dimension in percentage.
 
-
 The results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:soak_latency_comparisons}.d support [Hp.1] by stating that when the number of changing triples in $\Delta+ \Delta-$ (Section \ref{sec:baselines}) is a small fraction of those in the window an Incremental approach is faster than the Naive one. The exception of case $N$=1, but it can be seen as a limit case, where the reasoner is asked to deduce all the implicit triples implied by the only explicit triple in the window.  
 
 While is possible to state meaningful observation over latency data, the same is not possible for memory ones. \name shows that the study of the memory can not be faced with the same methods to study latency (comparison of the average values under a clearly identified the Steady State condition). 
@@ -404,54 +403,87 @@ Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 
 \section{Step Response Test Evaluation Results}\label{sec:stressres}
 
-In Section \ref{sec:soakres} we provided an example of how \name can lead the analysis trough the different levels of the \textsc{Analyser} Investigation Stack. 
+In this chapter we present examples of the three possible contributes that \name provides to the SR research: (i) we explain how to design experiments trough the \name definition $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ (Section \ref{sec:experiment-design}); (ii) we include two example of test sets and the lecture-key to drive the result analysis (Section \ref{sec:experiment-setup}); (iii) we provide a concrete use-case analysis, which show how \name supports the SCRA (Section \ref{sec:soakres}).
 
-SOAK Testing is a standard testing procedure for dynamic systems (see Section \ref{sec:software-testing}). However, the goal of this chapter is to show how \name works and thus showing its potential, providing more than one use case of the comparative RSP Engine research.
+However we still missing a forth contribution, which can prove \name flexibility. Experiment design, experiment execution and results analysis are not enough to state that \name allows to support in general SCRA.
 
-In this section we briefly show the Step Response testing results, exploiting the \textsc{Analyser} Investigation Stack, except for Level 2 as we explain in Section \ref{sec:level2-step-pattern}. In the following sections we focus on the evaluation, further details of each level of the Investigation Stack can be found in Section \ref{sec:analyser} and Section \ref{sec:analyser-impl}, while the design of this experimental set is described in Section \ref{sec:stressres}.
+For this reason we decide to extend the Result Section , providing further examples of \name capabilities. SOAK Testing is a standard testing procedure for dynamic systems (see Section \ref{sec:software-testing}) and Step Response stress test is a standard complementary Testing procedure for it. We exploit the Step Response Test set presented in Section \ref{sec:step-es}
+to show an examples of \textit{Inter Experiment} analysis. 
 
-
+In the following we briefly show the Step Response testing results, exploiting the \textsc{Analyser} Investigation Stack, except for Level 2 as we explain in Section \ref{sec:level2-step-pattern}. We focus on the evaluation, because further details of each level of the Investigation Stack can be found in Section \ref{sec:analyser} and Section \ref{sec:analyser-impl}, while the design of this experimental set is described in Section \ref{sec:step-es}.
 
 \subsection{Steady Stete Identification Block}\label{sec:level0-step-ssib}
 
-As in Section \ref{sec:soak-es} the analysis start with the identification of the Steady State condition for the variables involved in the experiments, again memory and latency. For SOAK test the Steady State is unique over all the processing. For the experiments in Step Response Test set we can identify two possible Steady State conditions: before and after the step. This design allows us to provide a different analysis method. In this section we will try a different comparative approach: we contrast the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
+The analysis starts with the identification of the Steady State condition for the variables involved in the experiments, memory and latency, as we did in Section \ref{sec:level0-step-ssib}. For SOAK Test experiments the Steady State condition has a single meaning w.r.t the execution. For Step Response Test experiment instead, we can identify two possible Steady State conditions: ante step (AS) and post step (PS). In this section we apply a different comparative approach, contrasting the results of Step Response and SOAK experiment, which are relate as reported in Section \ref{sec:step-es}. 
 
-The following Tables \ref{tab:ss-step-latency} and \ref{tab:ss-step-memory} reports the results of the SSIB pre-processing. Each table includes the results for the two phases which compose a Step Response Test: ante-step (AS) and post-step (PS). As we expected all the experiment reach the Steady State condition for latency, in both the AS and the PS phases. For memory instead, several of them, which are highlighted in Table \ref{tab:ss-step-memory}, do not reach the condition in one or both AS and PS phases.
+The SSI Block analysis is extended to reach this experimental characteristic. The following Tables \ref{tab:ss-step-latency} and \ref{tab:ss-step-memory} report the results from the SSI Block. Each of them includes the results for the two phases which compose a Step Response Test: ante-step (AS) and post-step (PS). 
+
+As we expected, latency reaches Steady State condition for both the AS and the PS phases in all experiments. Instead memory does not reach the Steady State condition for several experiments,  which are highlighted in Table \ref{tab:ss-step-memory}, and independently from AS and PS phases.
 
 \begin{table}[h]
 \centering
 \scriptsize
 
-\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
-\cline{3-10}
-                                       &                   & \multicolumn{2}{c|}{GN} & \multicolumn{2}{c|}{GI} & \multicolumn{2}{c|}{TN} & \multicolumn{2}{c|}{TI} \\ \hline
-\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS         & PS         & AS         & PS         & AS         & PS         & AS         & PS         \\ \hline
-\multicolumn{1}{|l|}{10}               & 100               & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
-\multicolumn{1}{|l|}{10}               & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
-\multicolumn{1}{|l|}{100}              & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+%\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
+%\cline{3-10}
+%                                       &                   & \multicolumn{2}{c|}{GN} & \multicolumn{2}{c|}{GI} & \multicolumn{2}{c|}{TN} & \multicolumn{2}{c|}{TI} \\ \hline
+%\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS         & PS         & AS         & PS         & AS         & PS         & AS         & PS         \\ \hline
+%\multicolumn{1}{|l|}{10}               & 100               & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+%\multicolumn{1}{|l|}{10}               & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+%\multicolumn{1}{|l|}{100}              & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+%\end{tabular}
+
+\begin{tabular}{ll|c|c|c|c|c|c|c|c}
+\hline
+\textsc{CTEvent}&\textsc{CTEvent}&\multicolumn{2}{c|}{GN}& \multicolumn{2}{c|}{GI}& \multicolumn{2}{c|}{TN}& \multicolumn{2}{c}{TI} \\
+ Init Size & Final Size & AS& PS& AS& PS& AS& PS& AS & PS\\ 
+\hline
+\hline
+10 & 100 & Yes& Yes & Yes & Yes & Yes& Yes & Yes & Yes \\ 
+10 & 1000& Yes& Yes& Yes & Yes& Yes& Yes& Yes& Yes\\ 
+100& 1000& Yes & Yes& Yes & Yes& Yes & Yes& Yes  & Yes\\ 
+\hline
 \end{tabular}
-\caption[Steady State Identification Block - Step Response Summary Table - Latency]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables reports the SSIB results for the evaluation of the latency variable. All the experiment reach the Steady State for both the AS and the PS phases.}
+\caption[Steady State Identification Block - Step Response Summary Table - Latency]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables report the SSIB results for the evaluation of the latency variable. All the experiment reach the Steady State for both the AS and the PS phases.}
 \label{tab:ss-step-latency}
 \end{table}
 
+%\begin{table}[h]
+%\centering
+%\scriptsize
+%\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
+%                                       &                   & \multicolumn{2}{c|}{GN}                                 & \multicolumn{2}{c|}{GI}                                 & \multicolumn{2}{c|}{TN}                                 & \multicolumn{2}{c|}{TI}                                  \\ \hline
+%\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS                         & PS                         & AS                         & PS                         & AS                         & PS                         & AS                          & PS                         \\ \hline
+%\multicolumn{1}{|l|}{10}               & 100               & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{FFFFFF}Yes & \cellcolor[HTML]{C0C0C0}No \\ \hline
+%\multicolumn{1}{|l|}{10}               & 1000              & Yes                        & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & Yes                        & Yes                        & Yes                         & Yes                        \\ \hline
+%\multicolumn{1}{|l|}{100}              & 1000              & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No  & Yes                        \\ \hline
+%\end{tabular}
+%\caption[Steady State Identification Block - Step Response Summary Table - Memory]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables report the SSIB results for the evaluation of the memory variable. Several experiments, highlighted in the table, do not reach the Steady State in one or both the AS and the PS phases.}
+%\label{tab:ss-step-memory}
+%\end{table}
+
+
 \begin{table}[h]
 \centering
 \scriptsize
-\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
-\cline{3-10}
-                                       &                   & \multicolumn{2}{c|}{GN}                                 & \multicolumn{2}{c|}{GI}                                 & \multicolumn{2}{c|}{TN}                                 & \multicolumn{2}{c|}{TI}                                  \\ \hline
-\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS                         & PS                         & AS                         & PS                         & AS                         & PS                         & AS                          & PS                         \\ \hline
-\multicolumn{1}{|l|}{10}               & 100               & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{FFFFFF}Yes & \cellcolor[HTML]{C0C0C0}No \\ \hline
-\multicolumn{1}{|l|}{10}               & 1000              & Yes                        & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & Yes                        & Yes                        & Yes                         & Yes                        \\ \hline
-\multicolumn{1}{|l|}{100}              & 1000              & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No  & Yes                        \\ \hline
+\begin{tabular}{ll|c|c|c|c|c|c|c|c}
+\hline
+\textsc{CTEvent}&\textsc{CTEvent}&\multicolumn{2}{c|}{GN}& \multicolumn{2}{c|}{GI}& \multicolumn{2}{c|}{TN}& \multicolumn{2}{c}{TI} \\
+ Init Size & Final Size & AS& PS& AS& PS& AS& PS& AS & PS\\ 
+\hline
+\hline
+10 & 100 & Yes& \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & Yes& \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{FFFFFF}Yes & \cellcolor[HTML]{C0C0C0}No \\ 
+10 & 1000& Yes& Yes& \cellcolor[HTML]{C0C0C0}No & Yes& Yes& Yes& Yes& Yes\\ 
+100& 1000& \cellcolor[HTML]{C0C0C0}No & Yes& \cellcolor[HTML]{C0C0C0}No & Yes& \cellcolor[HTML]{C0C0C0}No & Yes& \cellcolor[HTML]{C0C0C0}No  & Yes\\ 
+\hline
 \end{tabular}
-\caption[Steady State Identification Block - Step Response Summary Table - Memory]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables reports the SSIB results for the evaluation of the memory variable. Several experiments, highlighted in the table, do not reach the Steady State in one or both the AS and the PS phases.}
+\caption[Steady State Identification Block - Step Response Summary Table - Memory]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables report the SSIB results for the evaluation of the memory variable. Several experiments, highlighted in the table, do not reach the Steady State in one or both the AS and the PS phases.}
 \label{tab:ss-step-memory}
 \end{table}
 
 \subsection{Level 0 - Dashboard}\label{sec:level0-step-dashboard}
 
-In Section \ref{sec:soak-es} we start the evaluation providing some example of an easy-to-ready dashboard view, then we tried to identify a hierarchy between the tested solution (the Baselines). 
+In this section we continue the evaluation providing some examples of an easy-to-ready dashboard view. As we did Section \ref{sec:soak-es} where we tried to identify a hierarchy between the tested solution (the Baselines). 
 
 \begin{figure}[htbp]
 	\centering
@@ -467,40 +499,34 @@ In Section \ref{sec:soak-es} we start the evaluation providing some example of a
 	\label{fig:level-0-step-dashboard-2}
 \end{figure}
 
-The Level 0 comparison is summarised in two separated dashboards. Figure \ref{fig:level-0-step-dashboard-1} shows the Step Response Experiment results, considering the case of a starting \textsc{CTEvent} size of 10 triples, and an ending one of 1000 triples.
-Notice that 
+The Level 0 comparison is summarised in two separated dashboards: Figure \ref{fig:level-0-step-dashboard-1} shows the two phases of the Step Response Test execution, AS and PS. Figure \ref{fig:level-0-step-dashboard-2} displays the results of the relative SOAK experiments. Considering the figures, SOAK I and AS results refer to a \textsc{CTEvent} size of 10, while SOAK F and PS refer to a \textsc{CTEvent} size of 1000.
 
-
-Thus, Figure \ref{fig:level-0-step-dashboard-1} contains the dashboard representation of the two phases of the Step Response Test. Moreover in Figure \ref{fig:level-0-step-dashboard-2} we include the results of the relative SOAK experiments. 
-
-Observing the figures we can formulate an first important insight for this experiment: the performances at Steady State are similar ,or at least comparable to the SOAK ones, for both the Step Response phases. This means that the transitory phase does not influence the Steady State condition reaching for this particular experiment.
+Observing the figures we can formulate an first important insight: the performances at Steady State for both the AS and PS phases are similar to the relative SOAK one. This means that the transitory phase does not influence the Steady State condition reaching for this particular experiment.
 
 \subsection{Level 1 - Statistical Values Comparison}\label{sec:level1-step-stats}
 
-Level 0 has proved that, for the studied case, the average result values are comparable. However we know from Section \ref{sec:eval-level3} that the initial transitory phase of an RSP Engine is very different between memory and latency. Moreover, it may depend on the filling phenomena that may affect the window (This is not certainly the case of our naive experiment set).
+%Level 0 has proved that, for the studied case, the average result values are comparable. However we know from Section \ref{sec:eval-level3} that the initial transitory phase of an RSP Engine is very different between memory and latency. Moreover, it may depend on the filling phenomena that may affect the window (This is not certainly the case of our naive experiment set).
 
-In this section we try to extends the statistical \textit{Inter Experiment} comparison proposed in Section \ref{sec:eval-level1}. We provide a different layout, which allows to compare the Baselines performances between the two phases of the Step Response tests and the relative SOAK experiment results.\\
+In this section we try to extends the statistical \textit{Inter Experiment} comparison proposed in Section \ref{sec:eval-level1}. We provide a different layout, which allows to compare the Baselines performances between the two phases of the Step Response tests and the relative SOAK experiment results.
 
-Tables \ref{tab:step_latency_comparisons_mean} and \ref{tab:step_memory_comparisons_mean} show the worsening of latency and memory between the Step Response tests and the related SOAK ones. We exploit the quantitative approach of Level 1 to evidence what actually we have seen in Level 0 trough the dashboard view.
+Tables \ref{tab:step_latency_comparisons_mean} and \ref{tab:step_memory_comparisons_mean} show the worsening of latency and memory between the Step Response tests and the related SOAK ones. We exploit the quantitative approach of Level 1 to evidence what actually we have seen in Level 0 trough the dashboard view. Indeed, if we observe the relative results, for the average values the variations between AS and SOAK I and between PS and SOAK F are minimal, from the 0.5\% to the maximum 10\%.
 
-A better point of analysis is given by Tables \ref{tab:step_latency_comparisons_max} and \ref{tab:step_memory_comparisons_max}, which apply the same layout to the comparison of the latency an memory maximum. We consider all the values of each Step Response phase, without excluding the initial transitory phase. Then we build the comparison with the related SOAK tests. The differences between the maximum in the initial transitory phase do not follow any criterion, going from 1\% to 99\% or more. What it is meaningful instead, is the performance improvement in the post-step phase of the test w.r.t the SOAK experiment. This actually points out that there is a initialisation cost that influences the the performances, and it must be considered during the deployment of an RSP Engine.
+A better point of analysis is given by Tables \ref{tab:step_latency_comparisons_max} and \ref{tab:step_memory_comparisons_max}, which apply the same layout to the comparison of maximum values, for memory and latency. We take all the execution, considering also the initial transitory phase. We compare them with the SOAK I and SOAK F maximum, observing that: (i) he differences between AS and SOAK I, which consider the initial transitory phase for the Step Response test, do not follow any criterion. They go from 1\% to 99\% or more. (ii) The performance improvement between PS and SOAK F is much more relevant and meaningful. It points out that there is a initialisation cost that influences the performances, and it must be considered during the deployment of an RSP Engine.
 
-Finally, another meta-insight is that, despite what we observe for SOAK Test, we obtain similar results by comparing memory and latency.
+Finally, another meta-insight is that, despite what we observe for SOAK Test, we obtain similar results by comparing memory and latency, reinforcing the idea of a deep and complex relation between this two variable.
 
 \input{content/tables/level-1-step}
 
-\pagebreak
 
 \subsection{Level 2 - Pattern Identification}\label{sec:level2-step-pattern}
 
-As we reported in the introduction, we actually do not apply this level analysis. The motivation can be found in the restricted dimension of the Step Response test, which makes not meaningful the pattern identification step. Moreover the number of slot which compose the active window is fixed to ten for this experiment set, because in general DSMSs do not allow to change the window dimension during the execution. This limitation in the experiment set make even less interesting the pattern analysis, since we have only a single controlling variable.
+As we reported in the introduction, we actually do not apply this level analysis. The motivation can be found in the restricted dimension of the Step Response test, which makes not meaningful the pattern identification step. Moreover the number of slots, which compose the active window, is fixed to ten for this experiment set. In general DSMSs do not allow to change the window dimension during the execution. This limitation makes even less interesting the pattern analysis, since we have only a single controlling variable.
 
 \subsection{Level 3 - Single Visual Comparison}\label{sec:level3-step-inter}
 
-Finally, we conclude the SOAK Testing analysis trough several examples of \textit{Intra Experiment} comparison (see Section \ref{sec:eval-level3}). However, in Section \ref{sec:analyser} we stated that Level 3 allows the application of the  \textit{Inter Experiment} comparison method.
+Finally, we conclude the SOAK Testing analysis trough several examples of \textit{Intra Experiment} comparison (see Section \ref{sec:eval-level3}). In this section we provide the alternative analysis method of Level 3, presented in Section \ref{sec:analyser}:the  \textit{Inter Experiment} comparison method.
 
-%Figures \ref{fig:level3-step} (a) and (b) show an example of \textit{Inter Experiment} comparison.
-In the Figures \ref{fig:level3-step} (a) and (b) we draw on the same graph the latency and the memory series for three experiment.  We build the comparison variating the \textit{CTEvent} size, since the number of lost is fixed to ten. Thus, the involved experiments are:
+Figures \ref{fig:level3-step} (a) and (b) draw on the same graph the latency and the memory series for three experiment.  We build the comparison diversifying the \textit{CTEvent} size, since the number of lost is fixed to ten. Thus, the involved experiments are:
 \begin{itemize}
 \item Step Response Test with \textsc{CTEvent} initial size fixed to 10 Triples and Final Size fixed to 100 triples
 \item SOAK Test Number 7, with \textsc{CTEvent} size fixed to 10 Triples
