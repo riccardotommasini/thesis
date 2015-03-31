@@ -72,6 +72,7 @@ The query $\mathcal{Q}$ used in our experiment depends on the reasoning approach
 
 \begin{center}
 \raggedright
+\small
 REGISTER QUERY Q AS \\
 SELECT ?s ?p ?o \\
 FROM STREAM S [RANGE $\omega$ STEP $\beta$]\\
@@ -112,7 +113,7 @@ The following subsections contain further details about the two test sets, respe
 
 \subsection{SOAK: Tests and Hypothesis}\label{sec:soak-es}
 
-Soak testing show the system dynamics, injecting into the RSP Engine in use a constant and continuous input flow (see Section \ref{sec:software-testing}) . We maintain constant the number of contemporary triples in the RDF Stream trough the \textit{RDF2RDFStream} module. %Moreover, Section \ref{sec:query} describe how we variates the query between experiments.
+SOAK testing show the system dynamics, injecting into the RSP Engine in use a constant and continuous input flow (see Section \ref{sec:software-testing}) . We maintain constant the number of contemporary triples in the RDF Stream trough the \textit{RDF2RDFStream} module. %Moreover, Section \ref{sec:query} describe how we variates the query between experiments.
 
 SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed number of RDF triples, which depend on the specific experiment. Unlikely, it is not possible to foretell how many events are required in to reach the Steady State condition for each variable involved, especially memory. Multiple attempts and empirical evaluations are the only way to set up the correct duration.
 
@@ -494,8 +495,8 @@ In this section we continue the evaluation providing some examples of an easy-to
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.90\linewidth]{images/level-0-step-dashboard-2}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{
-\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments - The figure shows in log-scale the average performance values for memory (Y) and latency (X) of the SOAK Experiment related to the Step Test of Figure \ref{fig:level-0-step-dashboard-1}. The SOAK test related to the first Step Response phase (SOAK I) has a \textsc{CTEvent} size of 10, while the SOAK test related to the second Step Response phase (SOAK F) has a \textsc{CTEvent} size of 1000.}
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related SOAK Experiments]{
+\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related SOAK Experiments - The figure shows in log-scale the average performance values for memory (Y) and latency (X) of the SOAK Experiment related to the Step Test of Figure \ref{fig:level-0-step-dashboard-1}. The SOAK test related to the first Step Response phase (SOAK I) has a \textsc{CTEvent} size of 10, while the SOAK test related to the second Step Response phase (SOAK F) has a \textsc{CTEvent} size of 1000.}
 	\label{fig:level-0-step-dashboard-2}
 \end{figure}
 
@@ -539,17 +540,19 @@ The Figures \ref{fig:level3-step} (a) and (b) answer two standard questions of S
 
 An answer to Q.1 can be found in Figure \ref{fig:level3-step}.a. It is possible to see that after the step there is no transitory phase for the RSP Engine latency. A similar behaviour is observable for memory in Figure \ref{fig:level3-step}.b. 
 
-Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
+%Answering Q.2 is easier for latency, where the Steady State is exactly the same of the SOAK Test, rather than for memory. In the second case indeed, also the SOAK Test shows a growth trend. However, we can state that Java already started its optimisation policies, because memory oscillations are limited to a small interval and their required less events than for SOAK Testing. Finally we can observe that once the JVM has stared the optimization over stable RDF Stream, if the RSP Engine will reach the Steady State only depends on the experiment duration.
+
+A positive answer to Q.2 is given by the Latency, whose Steady State condition reaching does not changes between the SOAK Tests and the Step Response phases AS and PS. For memory instead, the growth trend is still present  in both the SOAK and Step Response tests, but in tje second one Java anticipates its optimisation policies, limiting the variance of memory oscillations. 
 
 \begin{figure}[tbh]
   \centering
-  \subfigure[TI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
+  \subfigure[TI Step Response vs SOAK Tests - \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
 	\includegraphics[width=0.9\linewidth]{images/step_lat_incremental_triple_soak_init_7soak_final_8step_101}
 	}
-\subfigure[GI Exp STEP, \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
+\subfigure[GI tep Response vs SOAK Tests - \textsc{CTEvent} Init Size = 10 Final Size 100 Num.Slot = 10]{
 	\includegraphics[width=0.9\linewidth]{images/step_mema_incremental_graph_soak_init_7soak_final_8step_101}
 	}
-	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Inter Experiment Comparison - Step Response Test]{Comparison between latency and memory filling phenomena} 
+	\caption[\textsc{Analyser} Investigation Stack - Level 3 - Inter Experiment Comparison - Step Response Test]{\textsc{Analyser} Investigation Stack - Level 3 -  Inter Experiment comparison of latency in  Figure (a) and memory in Figure (b)} 
   	\label{fig:level3-step}
 \end{figure}
 

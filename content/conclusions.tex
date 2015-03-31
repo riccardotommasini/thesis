@@ -51,10 +51,10 @@ Due to these limitations, the future works and possible extensions of \name belo
 
 \noindent We aim extending the \textit{Research Work} creating a ready-to-use benchmarking suite built upon \namens, which allows to test any RSP Engine with a set of well defined experiments. Form preliminary studies we know that to cover the most important uses case an essential set of experiment must include the following tests:
 \begin{itemize}
-\item[T1] SOAK
-\item[T2] Stress Step
-\item[T3] Stress Sine Wave
-\item[T4] Random Distribution (e.g., gaussian and exponential)
+\item \textbf{T1} SOAK
+\item \textbf{T2} Stress Step
+\item \textbf{T3} Stress Sine Wave
+\item \textbf{T4} Random Distribution (e.g., gaussian and exponential)
 \end{itemize}
 
 The experiments definition still follows the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$. The ready-to-use benchmarking suite will give the user the possibility to execute those test on his own RSP Engine. Moreover it should include \name Baselines as example of $\mathcal{E}$ and simple terms of comparison for benchmarking results.
@@ -78,7 +78,7 @@ As we stated in Chapter \ref{chap:evaluation}, the content of the current window
 
 \noindent Future works on \textit{Software Engineering and Development} regard the \textsc{Analyser}.  We aim to complete automate the analysis procedure, involving at least the current measurement set and tools. 
 
-As a long term goal, we intend to standardise and publish the entire tool-set which supports analysis methods presented in Chapter \ref{chap:heaven}. We are imagining the \name \textsc{Analyser} as a Web-based environment where all existing RSP engines are already available and those: who want to run experiments, have just to configure them picking up one or more RDF streams, ontologies, and queries; who want to compare the results of its own RSP Engine can upload the raw data and wait for the evaluations results. A visual facility to compare different experiments and the publication of result experiments as linked data would complete this environment. \\
+As a long term goal, we intend to standardise the entire tool-set which supports analysis methods presented in Chapter \ref{chap:heaven}. We are imagining the \textsc{Analyser} as a Web-based environment where all existing RSP engines are already available; the experiments design and execution are accessible as a service trough the selection of RDF streams, ontologies, and queries; the results analysis of any external RSP Engine is allowed providing the data and the involved variables.Finally, a visual facility to compare different experiments and the publication of result experiments as linked data would complete this environment. \\
 
 
-\noindent Finally, by evaluating the Baselines to prove \name potential we identified an intrinsic scientific value of this analysis. We would like to continue the \textit{Research of Baselines}, proving another contribution beyond the developments proposed above. In order to study the problem of responsiveness we have to add four alternative implementation of the Baselines, which do not exploit the external time control. The Baselines should be evaluated by [T1] T2] [T3] and [T4] but also with real data and a $\mathcal{T}$ different from LUBM, for example exploiting LS Bench queries and data to design an experiment set. 
+\noindent Finally, we would like to continue the \textit{Research of Baselines}, because during the evaluation \name  we identified an intrinsic scientific value of this analysis, which can be another contribution beyond the developments proposed above. In order to study the problem of responsiveness we have to add four alternative implementation of the Baselines, which do not exploit the external time control. The Baselines should be evaluated by [T1] T2] [T3] and [T4] but also with real data and a $\mathcal{T}$ different from LUBM, for example exploiting LS Bench queries and data to design an experiment set. 

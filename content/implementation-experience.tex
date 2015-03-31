@@ -349,23 +349,22 @@ Actually this kind of analysis is possible thanks to a CSV report, which contain
 
 \input{content/images/pattern-examples}
 
+\noindent Level 2 exploits the same experiment layout of Level 1 to compare many graphical representation of the experiment variable. Two examples of memory analysis at Level 2 are reported in Tables \ref{tab:pattern-examples} (a) and (b). Table \ref{tab:pattern-examples}.a show the memory behaviour in time domain. It allows answer questions like "How the system changes the memory behaviour changing the input dimension?". Table \ref{tab:pattern-examples}.b reports the distribution memory values upon several intervals. It allows to understand how memory distribution is influenced by changing the variable on the Table axes or diagonals.
 
-\noindent Level 2 exploits the same experiment layout of Level 1, but it fills the tables cell with different charts for each experiment. Tables \ref{tab:pattern-examples} (a) and (b) are two examples. They report two possible memory analysis: representation in time domain (a) and representation of memory values distribution (b). The aim of this level is to identify patterns within the RSP Engine behaviour for a certain variable. For is reason it is necessary to appreciate together multiple experiments results, enabling \textit{Inter-Experiment} comparison.
-
-Moving up and down in Table \ref{tab:pattern-examples}.b for example is possible to understand how memory distribution is influenced by changing the variable on the vertical axes. The same observation can be done moving from the left to the right or cross tables diagonals. Ordering experiment like in Table \ref{tab:pattern-examples} allows a new a global observations.
+Level 3 aims of pattern identification for a given variable in an experimental set. It is an example of \textit{Inter-Experiment} comparison which enable a new kind of global analysis, because it requires to state observation upon the entire set of experiment.
 
 \subsubsection{Level 3 - Visual Comparison}\label{sec:impl-level3}
+
+\noindent Finally, Level 3 focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two examples of the possible analysis. Figure \ref{fig:visual-comp}.a shows a case of \textit{Inter Experiment}comparison, highlighting the relation between the same variable over multiple experiments; Figure \ref{fig:visual-comp}.b provides an example of \textit{Intra Experiment} comparison, highlighting the relation between memory and latency within the same experiment.
 
 \begin{figure}[tbh]
   \centering
   \subfigure[Multi-Experiment Comparison]{
-  			\includegraphics[width=0.80\linewidth]{images/comp-inter}
+  			\includegraphics[width=0.70\linewidth]{images/comp-inter}
   			}
   \subfigure[Multi-Variables Comparison]{
-  \includegraphics[width=0.80\linewidth]{images/comp-intra}
+  \includegraphics[width=0.70\linewidth]{images/comp-intra}
   }
-\caption[\textsc{Analyser} Investigation Stack - Level 3 - Visual Comparison Examples]{\textsc{Analyser} Investigation Stack - Level 3 -  Examples visual comparison: Figure (a) shows an case of \textit{Inter Experiment} comparison presenting the relation between memory usage in two experiments; Figure (a) shows (b) an case of \textit{Intra Experiment} comparison displaying the latency and memory relation.}
+\caption[\textsc{Analyser} Investigation Stack - Level 3 - Visual Comparison Examples]{\textsc{Analyser} Investigation Stack - Level 3 - Figure (a) shows a case of \textit{Inter Experiment} visual comparison of the memory usage while Figure (b) present a case of \textit{Intra Experiment} comparison of latency and memory.}
   \label{fig:visual-comp}
 \end{figure}
-
-\noindent Finally, Level 3 focuses on single graphical visualisation. Figure \ref{fig:visual-comp} contains two examples of the possible analysis. Figure \ref{fig:visual-comp}.a shows a case of \textit{Inter Experiment}comparison, highlighting the relation between the same variable over multiple experiments; Figure \ref{fig:visual-comp}.b provides an example of \textit{Intra Experiment} comparison, highlighting the relation between memory and latency within the same experiment.
