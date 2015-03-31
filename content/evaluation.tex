@@ -336,7 +336,6 @@ Table \ref{tab:soak_memory_comparisons} reports the results for the memory usage
 
 Further statistical analysis are certainly meaningful. Comparing maximum or minimum as we did for the average values may detail much more the system memory usage. %Trough \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
 
-
 \subsection{Level 2 - Patter Identification}\label{sec:eval-level2}
 
 Statistical analysis are meaningful, but may reduce too much the RSP Engine complexity by focusing on single element of comparison. A more complete analysis is required and \name can investigate the behaviour of the system over all the experiment execution.
@@ -352,7 +351,7 @@ Level 2 exploits again the layout of Table \ref{tab:soaktests-alt}, disposing in
 
 The Tables \ref{tab:level2-latency-graph} and \ref{tab:level2-latency-triple} represent in linear scale the latency time series of the four Baselines. Immediately we can see that most of the systems reach a Steady State condition in a short period, between the 10\% and the 20\% of the entire experiment duration. Some of them show filling phenomena, when the sizes of the window start to be relevant w.r.t. the experiment duration. In general latency trend follows one of the pattern showed in Table \ref{fig:level2-pattern}. %Moreover, the responsiveness is not guaranteed for the biggest experiments, especially during the warm-up phase.
 
-The Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple} represent the  representation in linear scale of the Memory Time Series of the four Baselines. We can observe that, despite what happens for latency, memory usage does not reach a Steady State condition for all the experiments (Baseline GI and TI for Windows of dimension 1000 Triples with more than one slot).  When it is reached, the Steady State condition requires from 10\% to 80\% of the entire experiment duration, and in general it has not a common behaviour. The variance of these results is high and can be motivated arguing about how Java is managing the memory during the execution. The optimisation policies work better when the system have to handle a lot of triples. The proof of this insight can be seen in Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple}, where the lower levels reach the Steady State condition before the higher ones, which actually does not reach the Steady State at all for some Experiment with GI and TI.  For very small problems with the Incremental Approach, the Steady State is not even reached, maybe because the memory consume does not alert the JVM at all. 
+The Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple} represent the  representation in linear scale of the Memory Time Series of the four Baselines. Despite what happens for latency, we can observe that the memory usage does not reach a Steady State condition for all the experiments (Baseline GI and TI for Windows of dimension 1000 Triples with more than one slot).  To reach the Steady State condition for memory, the system requires from 3.000 to 25.000 \textsc{CTEvent}s, but in general it has not a common behaviour. The variance of these results is high and can be motivated arguing about how Java is managing the memory during the execution. The optimisation policies work better when the system have to handle a lot of triples. The proof of this insight can be seen in Tables \ref{tab:level2-memory-graph} and \ref{tab:level2-memory-triple}. The lower levels of the Tables reach the Steady State condition before the higher ones. For those experiments that involved GI and TI, the Baselines with an incremental reasoning approach, the Steady State is not even reached, maybe because the memory consume does not alert the JVM at all. 
 
 The filling phenomena we identified for latency are still visible in both the tables. This denotes the existence of a relation between memory and latency. This is one of the point we can further investigate trough the next analysis step: Level 3.
 
@@ -361,6 +360,8 @@ Tables \ref{tab:level2-memory-density-graph} and \ref{tab:level2-memory-density-
 All the four tables about memory time series and memory distribution show that there are strong difference between the experiment subset with Window dimension of 1000  triples and the ones with window dimension 10000 triples. This is a meta-insight that improves the Experiment Design model. Actually we are still not able to predict the baselines behaviour, but we can further investigate trough \namens.
 
 The quantitative nature of the hypothesis formulated in Section \ref{sec:soak-es} does not allow to exploit Level 3 for Hypothesis verification. Actually [Hp.1] and [Hp.2] consider the performance as the main evaluation metric, while Level 2 fulfils the necessity to understand the system nature. The insights above allow to improve the RSP Engine model, upon which is possible to formulate more precise hypothesis and to explain the unpredictable results we obtained from Level 0 and Level 1.
+
+\pagebreak
 
 \subsection{Level 3 - Single Visual Comparison}\label{sec:eval-level3}
 	
@@ -393,6 +394,8 @@ Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 \input{content/images/mema-dens-triple}
 
 \input{content/images/level3-soak}
+
+\pagebreak
 
 \section{Step Response Test Evaluation Results}\label{sec:stressres}
 
