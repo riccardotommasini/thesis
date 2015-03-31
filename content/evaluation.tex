@@ -41,7 +41,7 @@ In Chapter \ref{chap:problem-settings} we describe which requirements guarantee 
 The four baselines differ for two characteristics: RDF Stream Model and Reasoning architecture. The Table \ref{tab:baselines-names} summarises these few but well determined differences, naming the four baselines for the evaluation:
 \begin{table}[htb]
 \centering
-\large
+\normalsize
 \begin{tabular}{c|cc} % creating eight columns
 	\hline
          & Naive & Incremental\\
@@ -118,7 +118,7 @@ SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed nu
 
 \begin{table}[htb]
 \centering
-\normalsize
+\small
  \begin{tabular}{l| ccccc}
 	  	\hline
 		\textsc{CTEvent}  &\multicolumn{5}{c}{Number of Slot}  \\
@@ -138,7 +138,7 @@ SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed nu
 
 \begin{table}[htb]
 	\centering
-	\normalsize
+	\small
 	\begin{tabular}{l | ccccc} % creating eight columns
 	  	\hline
 		Triple in & \multicolumn{5}{c}{Number of Slots}  \\
@@ -240,15 +240,15 @@ The SOAK test results analysis starts with the dashboard view at Level 0. Each d
 
 \begin{figure}[h!tb]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-1}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Multiplot Version]{Dashboard One - K=1 Multiplot} 
+	\includegraphics[width=0.85\linewidth]{images/dashboard-1}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Multiplot Version]{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant \textsc{CTEvent} Size (K) = 1 triple (Experiment (EN) 1,6,10,13,15). EW indicates the number of slots in the window.} 
 	\label{fig:result_dashboard_kb}
 \end{figure}
 
 \begin{figure}[t!hb]
 	\centering
 	\includegraphics[width=\linewidth]{images/dashboard-1-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Split Version]{Dashboard One - K=1 Split} 
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - Split Version]{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard One - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant \textsc{CTEvent} Size (K) = 1 triple (Experiment (EN) 1,6,10,13,15); EW indicates the number of slots in the window. The results are reported comparing experiments on different stand alone plots} 
 	\label{fig:result_dashboard_ka}
 \end{figure}
 
@@ -258,7 +258,7 @@ In Figure \ref{fig:result_dashboard_ka} we can appreciate that increasing the nu
 
 Observing Figure \ref{fig:result_dashboard_kb}, which shows all the experiment within a single image,we can also individuate the worsening for the memory consumption. A first obvious insight may be that \textit{Bigger problem requires in general more resources}. %Another insight regards the difference in term of latency, the x-asis, between the different baselines.
 
-Dashboard One confirms Hypothesis [Hp.1]: the incremental approach has better latency and memory performance than the naive one. For [Hp.2] the confirmation is partial. The latest results in Figures \ref{fig:result_dashboard_ka} shows that the memory consumption strictly depends on the reasoning approach and the graph-based stream may be better than the triple-based one. For latency [Hp.2] is confirmed for the experiment with a big window, while the smaller one may works better with a graph-based stream.
+Dashboard One confirms Hypothesis [Hp.1], the incremental approach performs better than the naive one for both latency and memory, and it partially confirms  [Hp.2]: the latest results in Figure \ref{fig:result_dashboard_ka} shows that the memory usage depends on the reasoning approach and thus the relation between graph-based streams and triple-based one depends on it too. The figure confirms [Hp.2], the latency is smaller in experiments with a big window and a triple-based stream, while for smaller windows a graph-based one may work better.
 
 
 \subsubsection{Dashboard Two - Fixed Number of Slot = 10}
@@ -266,15 +266,16 @@ Dashboard One confirms Hypothesis [Hp.1]: the incremental approach has better la
 
 \begin{figure}[h!tbp]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-2}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Multiplot Version]{Dashboard Two - EW=10 Multiplot} 
+	\includegraphics[width=0.85\linewidth]{images/dashboard-2}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Multiplot Version]{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant number of slots in window (EW) of 10 (Experiment (EN) 6,2,8,9). K indicates the \textsc{CTEvent} size.} 	
+	
 	\label{fig:result_dashboard_ewb}
 \end{figure}
 
 \begin{figure}[h|tbp]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-2-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Split Version]{Dashboard Two - EW=10 Split} 
+	\includegraphics[width=0.80\linewidth]{images/dashboard-2-split}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - Split Version]{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Two - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant number of slot in window (EW) of 10 (Experiment (EN) 6,2,8,9). K indicates the \textsc{CTEvent} size. The results are reported comparing experiments on different stand alone plots.}
 	\label{fig:result_dashboard_ewa}
 \end{figure}
 
@@ -293,15 +294,15 @@ For memory the results are ambiguous and requires further investigations, only 5
 
 \begin{figure}[h!tbp]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-3}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Multiplot Version]{Dashboard Three - $EW*K=10000$ Multiplot} 
+	\includegraphics[width=0.85\linewidth]{images/dashboard-3}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Multiplot Version]	{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant number of triple in the active window, thus a constant product of \textsc{CTEvent} Size (K) * Num.Slots (EW) = 10000 (Experiment (EN) 9,12,14,15, experiment 5 is excluded for an erroneous execution).}
 	\label{fig:result_dashboard_probb}
 \end{figure}
 
 \begin{figure}[h!tbp]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/dashboard-3-split}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Split Version]{Dashboard Three - $EW*K=10000$ Split} 
+	\includegraphics[width=0.75\linewidth]{images/dashboard-3-split}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - Split Version]	{\textsc{Analyser} Investigation Stack - Level 0 - Dashboard Three - The figure shows how the Baselines performances variate between a subset of SOAK Test experiments, composed by experiments with a constant product of \textsc{CTEvent} Size (K) * Num.Slots (EW) = 10000 (Experiment (EN) 9,12,14,15 - 5 is excluded for an erroneous execution).  The results are reported comparing experiments on different stand alone plots.}
 	\label{fig:result_dashboard_proba}
 \end{figure}
 
@@ -317,21 +318,22 @@ The research over RSP Engines requires further analysis at deeper levels to moti
 
 %\input{content/images/dashboards}
 
-\pagebreak
+
 \subsection{Level 1 - Statistical Values Comparison}\label{sec:eval-level1}
 
-The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1)
+The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see \ref{sec:analyser} Level 1).
+
+\input{content/tables/level-1-table-lat}
 
 The current evaluation operates over the average values of latency and memory. Tables \ref{tab:soak_latency_comparisons} and \ref{tab:soak_memory_comparisons} contains in all the experiment results respectively for latency and memory.  Both the tables dispose the results according with the layout of Table \ref{tab:soaktests-alt}. We decide to use the qualitative result representation, but \name allows also more detailed analysis with quantitative comparisons as shows in Section \ref{sec:analyser-impl}. To properly read the tables note that they report that baseline is better than another one when the difference in term of latency or memory is bigger than 5\%, otherwise we consider the two terms of comparison as equal and we use the simble $\simeq$.
 Moreover, we indicate that the better solution has not reached the Steady State Condition with the underlined symbols \underline{G}, \underline{T}, \underline{N}, \underline{I}
 
-\input{content/tables/level-1-table-lat}
+\input{content/tables/level-1-table-mem}
 
 When $N>$1, the results in Table \ref{tab:soak_latency_comparisons}.a and \ref{tab:soak_latency_comparisons}.c allow to say that using a Triple-base RDF stream is faster than Graph-based one. In particular, for the case $N$=1000 when the window contains 1000 triples (i.e., each \textsc{CTEvent} contains only one triple),  the Naive Triple-based approach is about 10\% faster  than the Naive Graph-based one while the Incremental Graph-based is even about 20\% faster. This findings confirm [Hp.2], while the cases  when N=10 the does not confirm the hypothesis because the results can be consider as equal (result differences are smaller than 5\%). A possible explanation is that the dimension of the graph can not be considered small w.r.t the window when $N$=10.
 
 When $N$=1 (i.e., the window contains only one \textit{CTEvent}) instead, the results in Table \ref{tab:soak_latency_comparisons}.b and Table \ref{tab:soak_latency_comparisons}.d show that for large events the Naive approach is faster than the Incremental one, as we stated when we formulate [Hp.1]. Instead, when \textit{CTEvent} contains only few triples, the Incremental approach is faster and this is not intuitive, because to formulate [Hp.1] we consider the changes dimension in percentage.
 
-\input{content/tables/level-1-table-mem}
 
 The results in Table \ref{tab:soak_latency_comparisons}.b and \ref{tab:soak_latency_comparisons}.d support [Hp.1] by stating that when the number of changing triples in $\Delta+ \Delta-$ (Section \ref{sec:baselines}) is a small fraction of those in the window an Incremental approach is faster than the Naive one. The exception of case $N$=1, but it can be seen as a limit case, where the reasoner is asked to deduce all the implicit triples implied by the only explicit triple in the window.  
 
@@ -382,7 +384,7 @@ If we consider only the memory trend, we note an oscillating behaviour which con
 Figure \ref{fig:level3-steady-naive-graph-en12-7} (a) and (b) show two examples of steady state condition reaching. The figure \ref{fig:level3-steady-naive-graph-en12-7}.a describes that the Baseline GN for experiment seven (\textsc{CTEvent} size = 10, Number of Slot = 10) reaches the Steady State around the 10\% of the entire experiment duration for latency and about 45\% for memory. 
 Probably Java focuses on speeding up the execution rather than saving resources. A completely different behaviour can be appreciate in the subfigure (b), where both latency and memory reach the Steady State around the 10\% of the entire execution. It seems that bigger is the amount of resources required by the program, faster Java's optimization policies work.
 
-Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation between the filling phenomena together for latency and memory for the Baselines TN and TI within Experiment fifteen ( \textsc{CTEvent} size = 1 Number of Slot = 10000). Independently from which baseline we observe, the main insight regards how Java manages the initial warm-up phase. As we have seen in other experiments it starts allocating an excessive amount of memory, which it immediately tries to reduce. The different with other experiment is that the window dimension is increasing and thus the amount of memory occupation. The system worsening in term of latency follows the increasing memory usage. Finally, latency reaches the stability when the filling phenomenon ends, since the number of triples in the active window is now stable too.
+Figures \ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation between the filling phenomena together for latency and memory for the Baselines TN and TI within Experiment 15 ( \textsc{CTEvent} size = 1 Num. Slots = 10000). The main insight regards how Java manages the initial warm-up phase. We have seen that the JVM usually over-estimates the necessary amount of memory at the beginning of the execution, then it tries to optimize. When the window dimension in terms of triple is increasing the memory occupation has a worsening and latency follows the same behaviour. Finally, latency and memory reach the stability when the filling phenomenon ends, since the number of triples in the active window is now constant.
 
 \input{content/images/lat-log-graph}
 
@@ -412,24 +414,39 @@ In this section we briefly show the Step Response testing results, exploiting th
 
 \subsection{Steady Stete Identification Block}\label{sec:level0-step-ssib}
 
-As in Section \ref{sec:soak-es} the analysis start with the identification of the Steady State condition for the variables involved in the experiments, again memory and latency. For SOAK test the Steady State is unique over all the processing. For the experiments in Step Response Test set we can identify two possible Steady State conditions: before and after the step. This design allows us to provide a different analysis method. In this section we will try a different comparative approach: we contrast the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. 
-We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
+As in Section \ref{sec:soak-es} the analysis start with the identification of the Steady State condition for the variables involved in the experiments, again memory and latency. For SOAK test the Steady State is unique over all the processing. For the experiments in Step Response Test set we can identify two possible Steady State conditions: before and after the step. This design allows us to provide a different analysis method. In this section we will try a different comparative approach: we contrast the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
 
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+The following Tables \ref{tab:ss-step-latency} and \ref{tab:ss-step-memory} reports the results of the SSIB pre-processing. Each table includes the results for the two phases which compose a Step Response Test: ante-step (AS) and post-step (PS). As we expected all the experiment reach the Steady State condition for latency, in both the AS and the PS phases. For memory instead, several of them, which are highlighted in Table \ref{tab:ss-step-memory}, do not reach the condition in one or both AS and PS phases.
+
 \begin{table}[h]
 \centering
 \scriptsize
-\begin{tabular}{ll|l|l|ll|l|l|l|l|l|l|ll|l|ll|l|}
-\cline{3-18}
-                                                                                  &                                                              & \multicolumn{4}{c|}{GN}                                                          & \multicolumn{4}{c|}{GI}                                                          & \multicolumn{4}{c|}{TN}                                                          & \multicolumn{4}{c|}{TI}                                                                  \\ \cline{3-18} 
-                                                                                  &                                                              & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L}         & \multicolumn{2}{c|}{M}                                  \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}CTEvent\\ Init Size\end{tabular}} & \begin{tabular}[c]{@{}l@{}}CTEvent\\ Final Size\end{tabular} & AS         & PS        & \multicolumn{1}{l|}{AS}    & PS                         & AS         & PS        & AS                         & PS                         & AS         & PS        & \multicolumn{1}{l|}{AS}    & PS                         & AS  & \multicolumn{1}{l|}{PS}  & AS                         & PS                         \\ \hline
-\multicolumn{1}{|l|}{10}                                                          & 100                                                          & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & \cellcolor[HTML]{656565}No & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & \cellcolor[HTML]{9B9B9B}No & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & \cellcolor[HTML]{9B9B9B}No & Yes & \multicolumn{1}{l|}{Yes} & Yes                        & \cellcolor[HTML]{9B9B9B}No \\ \hline
-\multicolumn{1}{|l|}{10}                                                          & 1000                                                         & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & Yes                        & Yes & \multicolumn{1}{l|}{Yes} & Yes                        & Yes                        \\ \hline
-\multicolumn{1}{|l|}{100}                                                         & 1000                                                         & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes & Yes                      & \cellcolor[HTML]{9B9B9B}No & Yes                        \\ \hline
+
+\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
+\cline{3-10}
+                                       &                   & \multicolumn{2}{c|}{GN} & \multicolumn{2}{c|}{GI} & \multicolumn{2}{c|}{TN} & \multicolumn{2}{c|}{TI} \\ \hline
+\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS         & PS         & AS         & PS         & AS         & PS         & AS         & PS         \\ \hline
+\multicolumn{1}{|l|}{10}               & 100               & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+\multicolumn{1}{|l|}{10}               & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
+\multicolumn{1}{|l|}{100}              & 1000              & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        & Yes        \\ \hline
 \end{tabular}
+\caption[Steady State Identification Block - Step Response Summary Table - Latency]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables reports the SSIB results for the evaluation of the latency variable. All the experiment reach the Steady State for both the AS and the PS phases.}
+\label{tab:ss-step-latency}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{ll|l|l|l|l|l|l|l|l|}
+\cline{3-10}
+                                       &                   & \multicolumn{2}{c|}{GN}                                 & \multicolumn{2}{c|}{GI}                                 & \multicolumn{2}{c|}{TN}                                 & \multicolumn{2}{c|}{TI}                                  \\ \hline
+\multicolumn{1}{|l|}{CTEventInit Size} & CTEventFinal Size & AS                         & PS                         & AS                         & PS                         & AS                         & PS                         & AS                          & PS                         \\ \hline
+\multicolumn{1}{|l|}{10}               & 100               & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & \cellcolor[HTML]{FFFFFF}Yes & \cellcolor[HTML]{C0C0C0}No \\ \hline
+\multicolumn{1}{|l|}{10}               & 1000              & Yes                        & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & Yes                        & Yes                        & Yes                         & Yes                        \\ \hline
+\multicolumn{1}{|l|}{100}              & 1000              & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No & Yes                        & \cellcolor[HTML]{C0C0C0}No  & Yes                        \\ \hline
+\end{tabular}
+\caption[Steady State Identification Block - Step Response Summary Table - Memory]{Steady State Identification Block - Step Response Summary Table - The Steady State condition is evaluated for both the two phases of the Step Response Test execution: Ante Step (AS) and Post Step (PS). This tables reports the SSIB results for the evaluation of the memory variable. Several experiments, highlighted in the table, do not reach the Steady State in one or both the AS and the PS phases.}
+\label{tab:ss-step-memory}
 \end{table}
 
 \subsection{Level 0 - Dashboard}\label{sec:level0-step-dashboard}
@@ -439,13 +456,14 @@ In Section \ref{sec:soak-es} we start the evaluation providing some example of a
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/level-0-step-dashboard-1}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One -]{Dashboard One - \textsc{CTEvent} Initial Size 10 - \textsc{CTEvent} Final Size 1000 Split} 
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One]{\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One - The figure shows in log-scale the average performance values for memory (Y) and latency (X) of the Step Response Test with an \textsc{CTEvent} Initial Size of 10 and with a \textsc{CTEvent} Final Size of 1000. We distinguish the two phases that compose the experiment as ante-step (AS) and post-step (PS) with different representation explained in the Legend}
 	\label{fig:level-0-step-dashboard-1}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.90\linewidth]{images/level-0-step-dashboard-2}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{SOAK Experiment 7, \textsc{CTEvent} Size = 10 and 9, \textsc{CTEvent} Size = 1000. They represent the two phases of the Step Response Stest inf Figure \ref{fig:level-0-step-dashboard-1}}
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{
+\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments - The figure shows in log-scale the average performance values for memory (Y) and latency (X) of the SOAK Experiment related to the Step Test of Figure \ref{fig:level-0-step-dashboard-1}. The SOAK test related to the first Step Response phase (SOAK I) has a \textsc{CTEvent} size of 10, while the SOAK test related to the second Step Response phase (SOAK F) has a \textsc{CTEvent} size of 1000.}
 	\label{fig:level-0-step-dashboard-2}
 \end{figure}
 
@@ -468,6 +486,10 @@ Tables \ref{tab:step_latency_comparisons_mean} and \ref{tab:step_memory_comparis
 A better point of analysis is given by Tables \ref{tab:step_latency_comparisons_max} and \ref{tab:step_memory_comparisons_max}, which apply the same layout to the comparison of the latency an memory maximum. We consider all the values of each Step Response phase, without excluding the initial transitory phase. Then we build the comparison with the related SOAK tests. The differences between the maximum in the initial transitory phase do not follow any criterion, going from 1\% to 99\% or more. What it is meaningful instead, is the performance improvement in the post-step phase of the test w.r.t the SOAK experiment. This actually points out that there is a initialisation cost that influences the the performances, and it must be considered during the deployment of an RSP Engine.
 
 Finally, another meta-insight is that, despite what we observe for SOAK Test, we obtain similar results by comparing memory and latency.
+
+\input{content/tables/level-1-step}
+
+\pagebreak
 
 \subsection{Level 2 - Pattern Identification}\label{sec:level2-step-pattern}
 
@@ -511,4 +533,3 @@ Answering Q.2 is easier for latency, where the Steady State is exactly the same 
 
 
 
-\input{content/tables/level-1-step}
