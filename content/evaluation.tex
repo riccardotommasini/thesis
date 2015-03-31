@@ -408,16 +408,52 @@ SOAK Testing is a standard testing procedure for dynamic systems (see Section \r
 
 In this section we briefly show the Step Response testing results, exploiting the \textsc{Analyser} Investigation Stack, except for Level 2 as we explain in Section \ref{sec:level2-step-pattern}. In the following sections we focus on the evaluation, further details of each level of the Investigation Stack can be found in Section \ref{sec:analyser} and Section \ref{sec:analyser-impl}, while the design of this experimental set is described in Section \ref{sec:stressres}.
 
+
+
+\subsection{Steady Stete Identification Block}\label{sec:level0-step-ssib}
+
+As in Section \ref{sec:soak-es} the analysis start with the identification of the Steady State condition for the variables involved in the experiments, again memory and latency. For SOAK test the Steady State is unique over all the processing. For the experiments in Step Response Test set we can identify two possible Steady State conditions: before and after the step. This design allows us to provide a different analysis method. In this section we will try a different comparative approach: we contrast the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. 
+We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{ll|l|l|ll|l|l|l|l|l|l|ll|l|ll|l|}
+\cline{3-18}
+                                                                                  &                                                              & \multicolumn{4}{c|}{GN}                                                          & \multicolumn{4}{c|}{GI}                                                          & \multicolumn{4}{c|}{TN}                                                          & \multicolumn{4}{c|}{TI}                                                                  \\ \cline{3-18} 
+                                                                                  &                                                              & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L} & \multicolumn{2}{c|}{M}                                  & \multicolumn{2}{c|}{L}         & \multicolumn{2}{c|}{M}                                  \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}CTEvent\\ Init Size\end{tabular}} & \begin{tabular}[c]{@{}l@{}}CTEvent\\ Final Size\end{tabular} & AS         & PS        & \multicolumn{1}{l|}{AS}    & PS                         & AS         & PS        & AS                         & PS                         & AS         & PS        & \multicolumn{1}{l|}{AS}    & PS                         & AS  & \multicolumn{1}{l|}{PS}  & AS                         & PS                         \\ \hline
+\multicolumn{1}{|l|}{10}                                                          & 100                                                          & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & \cellcolor[HTML]{656565}No & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & \cellcolor[HTML]{9B9B9B}No & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & \cellcolor[HTML]{9B9B9B}No & Yes & \multicolumn{1}{l|}{Yes} & Yes                        & \cellcolor[HTML]{9B9B9B}No \\ \hline
+\multicolumn{1}{|l|}{10}                                                          & 1000                                                         & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \multicolumn{1}{l|}{Yes}   & Yes                        & Yes & \multicolumn{1}{l|}{Yes} & Yes                        & Yes                        \\ \hline
+\multicolumn{1}{|l|}{100}                                                         & 1000                                                         & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes        & Yes       & \cellcolor[HTML]{9B9B9B}No & Yes                        & Yes & Yes                      & \cellcolor[HTML]{9B9B9B}No & Yes                        \\ \hline
+\end{tabular}
+\end{table}
+
 \subsection{Level 0 - Dashboard}\label{sec:level0-step-dashboard}
 
 In Section \ref{sec:soak-es} we start the evaluation providing some example of an easy-to-ready dashboard view, then we tried to identify a hierarchy between the tested solution (the Baselines). 
 
-In this section we tried a different approach: we compare the results of Step Response experiments with the SOAK ones that represent the starting and ending condition. 
-We build all the analysis exploiting an  \textit{Inter Experiment} comparisons between the two test sets.\\
-
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/level-0-step-dashboard-1}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One -]{Dashboard One - \textsc{CTEvent} Initial Size 10 - \textsc{CTEvent} Final Size 1000 Split} 
+	\label{fig:level-0-step-dashboard-1}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/level-0-step-dashboard-2}	
+	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{SOAK Experiment 7, \textsc{CTEvent} Size = 10 and 9, \textsc{CTEvent} Size = 1000. They represent the two phases of the Step Response Stest inf Figure \ref{fig:level-0-step-dashboard-1}}
+	\label{fig:level-0-step-dashboard-2}
+\end{figure}
 
 The Level 0 comparison is summarised in two separated dashboards. Figure \ref{fig:level-0-step-dashboard-1} shows the Step Response Experiment results, considering the case of a starting \textsc{CTEvent} size of 10 triples, and an ending one of 1000 triples.
-Notice that we can identify, trough the Steady State Identification Block, two possible Steady State conditions: before and after the step.  Thus, Figure \ref{fig:level-0-step-dashboard-1} contains the dashboard representation of the two phases of the Step Response Test. Moreover in Figure \ref{fig:level-0-step-dashboard-2} we include the results of the relative SOAK experiments. 
+Notice that 
+
+
+Thus, Figure \ref{fig:level-0-step-dashboard-1} contains the dashboard representation of the two phases of the Step Response Test. Moreover in Figure \ref{fig:level-0-step-dashboard-2} we include the results of the relative SOAK experiments. 
 
 Observing the figures we can formulate an first important insight for this experiment: the performances at Steady State are similar ,or at least comparable to the SOAK ones, for both the Step Response phases. This means that the transitory phase does not influence the Steady State condition reaching for this particular experiment.
 
@@ -471,18 +507,7 @@ Answering Q.2 is easier for latency, where the Steady State is exactly the same 
 
 %\input{content/tables/level-1-step-lat}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\linewidth]{images/level-0-step-dashboard-1}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard One -]{Dashboard One - \textsc{CTEvent} Initial Size 10 - \textsc{CTEvent} Final Size 1000 Split} 
-	\label{fig:level-0-step-dashboard-1}
-\end{figure}
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.90\linewidth]{images/level-0-step-dashboard-2}	
-	\caption[\textsc{Analyser} Investigation Stack - Level 0 - Step Response Dashboard Two - Related Soak Experiments]{SOAK Experiment 7, \textsc{CTEvent} Size = 10 and 9, \textsc{CTEvent} Size = 1000. They represent the two phases of the Step Response Stest inf Figure \ref{fig:level-0-step-dashboard-1}}
-	\label{fig:level-0-step-dashboard-2}
-\end{figure}
+
 
 
 
