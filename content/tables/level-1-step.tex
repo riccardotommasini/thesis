@@ -1,37 +1,33 @@
 \begin{sidewaystable}
 	\centering
 	\scriptsize
+%---------LATENCY AVG -------
 	\begin{tabular}{c|c|cc|cc|cc|cc} % creating eight columns
 	  	\hline
 		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
 		&& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F\\
 		\hline
 		\hline
-		10&100&0,83\%&	-2,36\%&	1,29\%&	-1,44\%&	2,07\%&	-0,94\%&	-0,12\%&	0,49\%\\	
-		10&1000&0,98\%&	-0,33\%&	1,77\%&	-0,07\%&	1,71\%&	0,98\%&	-0,12\%&	0,56\%\\
-	
-		100&100&	-0,47\%&	-1,18\%&	0,68\%&	0,00\%&	0,92\%&	1,05\%&	1,51\%&	-0,16\%\\
-		\hline % inserts single-line
+		10&100&-0,83\%&2,31\%&-1,31\%&1,42\%&-2,12\%&0,93\%&0,12\%&-0,49\%\\		10&1000&-0,99\%&0,32\%&-1,80\%&0,07\%&-1,74\%&-0,99\%&0,12\%&-0,56\%\\		100&1000&0,47\%&1,17\%&-0,69\%&0,00\%&-0,93\%&-1,06\%&-1,54\%&0,16\%\\
+		\hline
 	\end{tabular}
 	\caption[\textsc{Analyser} Investigation Stack - Level 1 \\ Step Response Test Average Latency Comparison]{\textsc{Analyser} Investigation Stack - Level 1 - Step Response Test average latency comparison }
 	\label{tab:step_latency_comparisons_mean}	
-
 	
-	
+%---------MEMORY AVG --------
 	\begin{tabular}{c|c|cc|cc|cc|cc} % creating eight columns
 	  	\hline
 		Init Size&FinalSize &\multicolumn{2}{c}{Graph Naive}  &\multicolumn{2}{c}{Triple Naive}&\multicolumn{2}{c}{Graph Inc}  &\multicolumn{2}{c}{Triple Inc}\\\
 		&& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F\\
 		\hline
-		10&	100	& -1,37\%&	8,59\%&	8,68\%&	10,75\%&	-43,16\%&	12,72\%&	-1,72\%&	11,51\%	\\
-		10	&1000	&-2,00\%&	-0,24\%&	5,56\%&	0,51\%&	-32,68\%&	-2,34\%&	0,22\%&	1,07\%	\\
-		100	&1000&	1,37\%&	0,44\%&	-0,16\%&	0,39\%&	-0,63\%&	-2,07\%&	-2,19\%&	0,70\%	\\
-										
-		\hline % inserts single-line
+		\hline
+		10&100&-9,50\%&-12,04\%&-1,39\%&-0,44\%&30,15\%&-14,57\%&-0,22\%&-1,08\%\\		10&1000&24,63\%&2,28\%&2,15\%&-0,71\%&1,35\%&-9,39\%&-5,89\%&-0,52\%\\		100&1000&1,96\%&0,24\%&0,16\%&-0,39\%&1,69\%&-13,00\%&0,62\%&2,02\%\\
+		\hline
 	\end{tabular}
 	\caption[\textsc{Analyser} Investigation Stack - Level 1 \\ Step Response Test Average Memory Comparison]{\textsc{Analyser} Investigation Stack - Level 1 - Step Response Test average memory comparison }
 	\label{tab:step_memory_comparisons_mean}
 
+%---------LATENCY MAX -------
 
 	\begin{tabular}{c|c|cc|cc|cc|cc} % creating eight columns
 	  	\hline
@@ -39,15 +35,13 @@
 		&& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F\\
 		\hline
 		\hline
-		10	&100	&4,02\%&\cellcolor[HTML]{C0C0C0}	-661,17\%&	8,10\%&\cellcolor[HTML]{C0C0C0}-773,91\%&	2,07\%&	\cellcolor[HTML]{C0C0C0}-1100,97\%&	2,94\%&\cellcolor[HTML]{C0C0C0}	-1136,63\%\\	
-		10	&1000	&3,05\%&\cellcolor[HTML]{C0C0C0}	-102,62\%&	12,95\%&\cellcolor[HTML]{C0C0C0}	-120,48\%&	1,71\%&	\cellcolor[HTML]{C0C0C0}-122,80\%&	1,78\%&\cellcolor[HTML]{C0C0C0}-161,61\%	\\
-		100	&1000&	1,38\%&\cellcolor[HTML]{C0C0C0}-106,32\%&	6,20\%&\cellcolor[HTML]{C0C0C0}-137,48\%&	0,92\%&\cellcolor[HTML]{C0C0C0}-116,47\%&	2,35\%&	\cellcolor[HTML]{C0C0C0}-155,82\%	\\
-
-		\hline % inserts single-line
+		10&100&-4,19\%&\cellcolor[HTML]{C0C0C0}86,86\%&-8,82\%&\cellcolor[HTML]{C0C0C0}88,56\%&-2,12\%&\cellcolor[HTML]{C0C0C0}91,67\%&-3,03\%&\cellcolor[HTML]{C0C0C0}91,91\%\\		10&1000&-3,14\%&\cellcolor[HTML]{C0C0C0}50,65\%&-14,88\%&\cellcolor[HTML]{C0C0C0}54,64\%&-1,74\%&\cellcolor[HTML]{C0C0C0}55,12\%&-1,82\%&\cellcolor[HTML]{C0C0C0}61,78\%\\		100&1000&-1,40\%&\cellcolor[HTML]{C0C0C0}51,53\%&-6,61\%&\cellcolor[HTML]{C0C0C0}57,89\%&-0,93\%&\cellcolor[HTML]{C0C0C0}53,80\%&-2,40\%&\cellcolor[HTML]{C0C0C0}60,91\%\\
+		\hline
 	\end{tabular}
 	\caption[\textsc{Analyser} Investigation Stack - Level 1 - Step Response Test Maximum Latency Comparison]{\textsc{Analyser} Investigation Stack - Level 1 Step Response Test maximum latency comparison }
 	\label{tab:step_latency_comparisons_max}
 	
+%---------MEMORY MAX --------	
 
 	\begin{tabular}{c|c|cc|cc|cc|cc} % creating eight columns
 	  	\hline
@@ -55,14 +49,10 @@
 		&& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F& SOAK I & SOAK F\\
 		\hline
 		\hline
-		10	&100	&4,02\%&\cellcolor[HTML]{C0C0C0}	-661,17\%&	8,10\%&\cellcolor[HTML]{C0C0C0}	-773,91\%&	2,07\%&	\cellcolor[HTML]{C0C0C0}-1100,97\%&	2,94\%&\cellcolor[HTML]{C0C0C0}	-1136,63\%\\	
-		10	&1000	&3,05\%&	\cellcolor[HTML]{C0C0C0}-102,62\%&	12,95\%&	\cellcolor[HTML]{C0C0C0}-120,48\%&	1,71\%&	\cellcolor[HTML]{C0C0C0}-122,80\%&	1,78\%&\cellcolor[HTML]{C0C0C0}	-161,61\%	\\
-		100	&1000&	1,38\%&	\cellcolor[HTML]{C0C0C0}-106,32\%&	6,20\%&\cellcolor[HTML]{C0C0C0}	-137,48\%&	0,92\%&\cellcolor[HTML]{C0C0C0}	-116,47\%&	2,35\%&	\cellcolor[HTML]{C0C0C0}-155,82\%	\\
-
-		\hline % inserts single-line
+		10&100&42,97\%&\cellcolor[HTML]{C0C0C0}57,59\%&10,82\%&25,56\%&49,87\%&\cellcolor[HTML]{C0C0C0}67,48\%&27,99\%&17,64\%\\		10&1000&39,42\%&22,06\%&17,25\%&12,87\%&25,12\%&\cellcolor[HTML]{C0C0C0}64,62\%&37,69\%&10,87\%\\		100&1000&20,75\%&29,71\%&5,13\%&12,43\%&33,84\%&\cellcolor[HTML]{C0C0C0}69,09\%&8,97\%&27,48\%\\
+		\hline
 	\end{tabular}
 	\caption[\textsc{Analyser} Investigation Stack - Level 1 - Step Response Test Maximum Memory Comparison]{\textsc{Analyser} Investigation Stack - Level 1 Step Response Test maximum memory comparison }
-
 	\label{tab:step_memory_comparisons_max}
 
 	

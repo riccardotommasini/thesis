@@ -1,13 +1,13 @@
 \section{Heaven}\label{sec:impl-intro}
 
-In Chapter \ref{chap:problem-settings} we posed the requirements that any solution must fulfil, in order to properly answer our research question. Then in Chapter \ref{chap:heaven} we face each requirement at design level, stating how one possible implementation of \name must be realised to fulfil them. 
+In Chapter \ref{chap:problem-settings} we posed the requirements that any solution must fulfil, in order to properly answer our research question. Then in Chapter \ref{chap:heaven} we faced each requirement at design level, stating how an implementation of \name must be realised to fulfil them. 
 
 In this chapter we describe our implementation experience of \namens: 
-Firstly in Section \ref{sec:abstractions} we present the pillars concepts of this development. In Section \ref{sec:data-impl} we describe the data model of the \textsc{Test Stand} and the \textsc{Analyser}. In Section \ref{sec:modules-impl} we introduce each \name module: the \textsc{Streamer}, the \textsc{ResultCollector} and the \textsc{Test Stand Supporting Structure}. In Section \ref{sec:baselines-impl} we describe how we implement four baseline RSP Engines and finally, in Section \ref{sec:analyser-impl}, we describe how the \textsc{Analyser} Implementation Stack is realised w.r.t the Evaluation we will present in Chapter \ref{chap:evaluation}.
+Firstly in Section \ref{sec:abstractions} we present the pillar concepts of this development. In Section \ref{sec:data-impl} we describe the data model of the \textsc{Test Stand} and of the \textsc{Analyser}. In Section \ref{sec:modules-impl} we introduce each \name module: the \textsc{Streamer}, the \textsc{ResultCollector} and the \textsc{Test Stand Supporting Structure}. In Section \ref{sec:baselines-impl} we describe how we implement four baseline RSP Engines and finally, in Section \ref{sec:analyser-impl}, we describe how the \textsc{Analyser} Implementation Stack is realised w.r.t the Evaluation we will present in Chapter \ref{chap:evaluation}.
 
 \section{Event Processor}\label{sec:abstractions}
 
-The architecture of the \textsc{Test Stand} consists in three stand alone modules that establish a mono-directional communication flow: \textsc{Streamer}, \textsc{RSP Engine} and \textsc{Result Collector}. 
+The architecture of the \textsc{Test Stand} consists of three stand alone modules that establish a mono-directional communication flow: \textsc{Streamer}, \textsc{RSP Engine} and \textsc{Result Collector}. 
 
 \begin{figure}[h!tb]
   \centering
