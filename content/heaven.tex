@@ -128,7 +128,7 @@ In step (5), the \textsc{Result Collector} saves the content of any \textsc{TSRe
 Early works on SR describe the most simple approach to create a stream reasoning system as pipelining a DSMS with a reasoner~\cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge}. The DSMS is responsible to handle the data stream, moving from infinite sequences to finite (and processable) sets of events. The reasoner instead applies SPARQL queries on this set of events, exploiting its reasoning capabilities over a context that can be considered as static, but remains continuous. We focus on RDF Stream Processing, whose foundations, as explained in Section~\ref{sec:sfp}, are: 
 \begin{enumerate}
 \item[1.] RDF streams, detailed in Section~\ref{sec:rdfstream},
-\item[2.] An extensions of SPARQL to manage continuous data (see Section~\ref{sec:continuous-sparql},
+\item[2.] A continuous extensions of SPARQLs, detailed in Section~\ref{sec:continuous-sparql},
 \item[3.] reasoning algorithms.
 \end{enumerate}
 
@@ -215,14 +215,13 @@ Once the Steady State is identified, it is possible to proceed with the central 
 
 The investigation can be decomposed in four levels with increasing details degree and different goals. Figure~\ref{fig:analysis-method} is a graphical representation of the investigation stack implemented within the \textit{Analysis} block, the detail level grows from the top to the bottom.
 
-\pagebreak
-
 \noindent Before presenting the levels of the stack one by one, we introduce two concepts about the experiment analysis:
 \begin{itemize}
 \item \textit{Intra Experiment Comparison} -  it means building comparisons between variables upon a single, well-determined experiment.
 \item \textit{Inter Experiment Comparison} -  it means building comparisons of different experiments upon a single variable. 
 \end{itemize}
 
+\pagebreak
 
 \subsubsection{Level 0 - Dashboards}\label{sec:heaven-level0}
 

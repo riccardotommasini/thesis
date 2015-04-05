@@ -122,7 +122,7 @@ It also contains sixteen properties, all instances of rdf:Property, and the most
 
 Efficient data processing in SW depends on the trade off between the expressiveness of the language that describes the data and the dimension of the dataset. Nowadays, developers have to face with scalability problems, due to the enormous size of data to process. For this reason, several RDF and RDFS fragments, with good trade off between performances and expressiveness, have been proposed.
 
-$\rho$DF is a fragment of RDFS that conserves the original semantic and covers only those vocabulary and axiomatic information that  serves to reason about the data it describes and not about the structure of the language itself. $\rho$DF comprehends:
+$\rho$DF~\cite{DBLP:conf/esws/MunozPG07}, is a fragment of RDFS that conserves the original semantic and covers only those vocabulary and axiomatic information that  serves to reason about the data it describes and not about the structure of the language itself. $\rho$DF comprehends:
 \begin{itemize}
 \item rdfs:subPropertyOf
 \item rdfs:subClassOf
@@ -202,8 +202,6 @@ SPARQL is defined as a graph-matching query language to face the RDF labelled gr
 \item DESCRIBE query: used to extract an RDF graph based on the infor- mation related to the retrieved resources.
 \end{itemize}
 
-Further restrictions can be applied using keywords like FILTER, ORDER BY, LIMIT, AND, or UNION.
-
 \begin{lstlisting}[language=SQL, caption=An example of a simple SPARQL query , keywords={PREFIX,SELECT,WHERE,ORDER,BY, LIMIT }, label=code:sparql]
 PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
 SELECT ?person ?name
@@ -222,6 +220,8 @@ The code snippet~\ref{code:sparql} contains a simple example of SPARQL Select qu
 \item WHERE: The WHERE keyword provides the graph pattern to match against the data graph. The graph pattern can be in different form of simple graph pattern, group graph pattern, optional graph pattern, alternative graph pattern. Different keywords can be used in this clause such as OPTIONAL (for optional patterns), UNION (for unions of patterns), FILTER (for filtering patterns).
 \item Solution modifiers: this clause use different keywords like ORDER BY, LIMIT,. . . in order to modify the result of the query.
 \end{itemize}
+
+Further restrictions can be applied using keywords like FILTER, ORDER BY, LIMIT, AND, or UNION.
 
 %\subsection{Reasoning}\label{sec:reasoning}
 \pagebreak
@@ -374,6 +374,8 @@ For instance, the following C-SPARQL query asks to report every day the people m
 \end{center}
 Query:~\ref{code:query-bg}: Example of C-SPARQL QUERY.\\
 
+The requested information is not explicitly stated, but being the range of the \textit{ub:publicationAuthor} property a \textit{ub:Person}, an RDFS reasoner can deduce it and, thus, it can allow to answer the query.
+
 Another example is CQELS-QL~\cite{Lephuoc2011} – a declarative query language built from SPARQL 1.1 grammar. As C-SPARQL, it extends SPARQL with operators to query streams. The main difference between C-SPARQL and CQELS-QL is in the R2S operator supported: CQELS-QL supports only Istream, whereas C-SPARQL supports only Rstream. 
 
 Last but not least, SPARQLstream~\cite{Calbimonte:2010:EOA:1940281.1940289} is another extension of SPARQL used in Morph$_{stream}$. Unlike CQELS and the C-SPARQL Engine, SPARQLstream supports all the streaming operators presented in Section 2.3.4. 
@@ -394,9 +396,9 @@ Collectively, IFP Engines that process RDF streams using those SPARQL extensions
 Among RSP Engines, we target window-based RSP Engines, i.e. processors whose \textbf{continuous query language} allows to open sliding windows to capture segments of RDF streams. The C-SPARQL Engine\footnote{\url{https://github.com/streamreasoning/CSPARQL-engine}}, Sparkwave~\cite{DBLP:conf/debs/KomazecCF12}, CQELS~\cite{Lephuoc2011}, and Morph$_{stream}$~\cite{DBLP:journals/ijswis/CalbimonteJCA12}  are examples of window-based RSP Engines. The first two processes C-SPARQL~\cite{Barbieri2010}, continuous queries, where as the second two proposes their own extensions (respectively, CQELS-QL and SPARQL$_{stream}$). The first two can also process C-SPARQL queries under RDFS entailment regime\footnote{\url{http://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime}}. 
 Morph$_{stream}$ uses Ontology-Based Data Access techniques for the continuous execution of SPARQLstream queries against virtual RDF streams that logically represent relational data streams.
 
-The requested information is not explicitly stated, but being the range of the \textit{ub:publicationAuthor} property a \textit{ub:Person}, an RDFS reasoner can deduce it and, thus, it can allow to answer the query.
+The logical processing model of RSP Engines in Figure~\ref{fig:rsp-engine-model} follows the one initially proposed in DSMS (see Figure~\ref{fig:cql}).
 
-The logical processing model of RSP Engines in Figure~\ref{fig:rsp-engine-model} follows the one initially proposed in DSMS (see Figure~\ref{fig:cql}) and it is composed by three logical steps\footnote{Physical evaluation may differ from this logical steps.}: 
+The following three logical steps\footnote{Physical evaluation may differ from this logical steps.} compose such model: 
 \begin{itemize}
 \item[1.] A portion of the RDF stream is logically selected using a sliding window operator; This is the \textbf{stream-to-relation} step. 
 \item[2.] The WHERE clause of the query is evaluated (including the possibly required reasoning tasks) and a sequences of results are produced, this is the \textbf{relation-to-relation} step.
