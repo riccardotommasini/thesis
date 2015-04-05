@@ -13,7 +13,7 @@ Experiment design (ED) means defining our experiment in order to prove or refute
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/experiment-design}
-	\caption[Experiment Design Process]{The traditional top-down research designs experiments in order to confirm or refuse hypothesis. The process starts from the theoretical knowledge, trough which it is possible to formulate assumptions. Hypothesis are formulated observing an exiting model and considering the assumptions as known truths that simplify the environment. Variations of the assumptions or on the involved model variables describe the design of a certain experiment}
+	\caption[Experiment Design Process]{The traditional top-down research designs experiments in order to confirm or refuse hypothesis. The process starts from the theoretical knowledge, through which it is possible to formulate assumptions. Hypothesis are formulated observing an exiting model and considering the assumptions as known truths that simplify the environment. Variations of the assumptions or on the involved model variables describe the design of a certain experiment}
   	\label{fig:experiment-design}
 \end{figure}
 
@@ -113,7 +113,7 @@ The following subsections contain further details about the two test sets, respe
 
 \subsection{SOAK: Tests and Hypothesis}\label{sec:soak-es}
 
-SOAK testing show the system dynamics, injecting into the RSP Engine in use a constant and continuous input flow (see Section~\ref{sec:software-testing}) . We maintain constant the number of contemporary triples in the RDF Stream trough the \textit{RDF2RDFStream} module. %Moreover, Section~\ref{sec:query} describe how we variates the query between experiments.
+SOAK testing show the system dynamics, injecting into the RSP Engine in use a constant and continuous input flow (see Section~\ref{sec:software-testing}) . We maintain constant the number of contemporary triples in the RDF Stream through the \textit{RDF2RDFStream} module. %Moreover, Section~\ref{sec:query} describe how we variates the query between experiments.
 
 SOAK Experiment are 30000 \textsc{CTEvent}s long. Each event contains a fixed number of RDF triples, which depend on the specific experiment. Unlikely, it is not possible to foretell how many events are required in to reach the Steady State condition for each variable involved, especially memory. Multiple attempts and empirical evaluations are the only way to set up the correct duration.
 
@@ -173,7 +173,7 @@ More formally the hypothesis to verify with SOAK experiments are:
 \item \textbf{HP.2} The Triple-based model for RDFStream is always better then the Graph-based one if we consider few triples, to compose each graph.
 \end{itemize}
 
-%Notice that the goal of this evaluation is to show how \name helps RSP Engine analysis trough empirical research. Hypothesis verification and top-down analysis are the subject of our investigation, while our research question is:  "\textit{Can an engine test stands, together with queries, datasets and methods, support Systematic Comparative Research Approach for Stream Reasoning?}" %"Needs the Stream Reasoning research field a Test Stand like \name to investigate RSP Engines and sustain the research of such system with an Systematic Comparative Approach?"
+%Notice that the goal of this evaluation is to show how \name helps RSP Engine analysis through empirical research. Hypothesis verification and top-down analysis are the subject of our investigation, while our research question is:  "\textit{Can an engine test stands, together with queries, datasets and methods, support Systematic Comparative Research Approach for Stream Reasoning?}" %"Needs the Stream Reasoning research field a Test Stand like \name to investigate RSP Engines and sustain the research of such system with an Systematic Comparative Approach?"
 
 \subsection{Step Response Tests}\label{sec:step-es}
 
@@ -322,7 +322,7 @@ The research over RSP Engines requires further analysis at deeper levels to moti
 
 \subsection{Level 1 - Statistical Values Comparison}\label{sec:eval-level1}
 
-The Analysis Level 1 exploits statistical investigation trough an easy to ready layout, which simplify the inter-experiment comparison (see~\ref{sec:analyser} Level 1).
+The Analysis Level 1 exploits statistical investigation through an easy to ready layout, which simplify the inter-experiment comparison (see~\ref{sec:analyser} Level 1).
 
 \input{content/tables/level-1-table-lat}
 
@@ -341,7 +341,7 @@ While is possible to state meaningful observation over latency data, the same is
 
 Table~\ref{tab:soak_memory_comparisons} reports the results for the memory usage during the experiments. Table entries do not confirm what we observed in Table~\ref{tab:soak_latency_comparisons} and sometimes it even refutes our findings. It is clear that memory usage does not follow the same behaviour of latency, even if [Hp.1] and [Hp.2] are not totally refused by the results.
 
-Further statistical analysis are certainly meaningful. Comparing maximum or minimum as we did for the average values may detail much more the system memory usage. %Trough \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
+Further statistical analysis are certainly meaningful. Comparing maximum or minimum as we did for the average values may detail much more the system memory usage. %through \name it is possible explore completely the analysis at a certain level, or we can lead the analysis to another level, following the inspected results we obtained.
 
 \subsection{Level 2 - Patter Identification}\label{sec:eval-level2}
 
@@ -360,11 +360,11 @@ The Tables~\ref{tab:level2-latency-graph} and~\ref{tab:level2-latency-triple} re
 
 The Tables~\ref{tab:level2-memory-graph} and~\ref{tab:level2-memory-triple} represent the  representation in linear scale of the Memory Time Series of the four Baselines. Despite what happens for latency, we can observe that the memory usage does not reach a Steady State condition for all the experiments (Baseline GI and TI for Windows of dimension 1000 Triples with more than one slot).  To reach the Steady State condition for memory, the system requires from 3.000 to 25.000 \textsc{CTEvent}s, but in general it has not a common behaviour. The variance of these results is high and can be motivated arguing about how Java is managing the memory during the execution. The optimisation policies work better when the system have to handle a lot of triples. The proof of this insight can be seen in Tables~\ref{tab:level2-memory-graph} and~\ref{tab:level2-memory-triple}. The lower levels of the Tables reach the Steady State condition before the higher ones. For those experiments that involved GI and TI, the Baselines with an incremental reasoning approach, the Steady State is not even reached, maybe because the memory consume does not alert the JVM at all. 
 
-The filling phenomena we identified for latency are still visible in both the tables. This denotes the existence of a relation between memory and latency. This is one of the point we can further investigate trough the next analysis step: Level 3.
+The filling phenomena we identified for latency are still visible in both the tables. This denotes the existence of a relation between memory and latency. This is one of the point we can further investigate through the next analysis step: Level 3.
 
-Tables~\ref{tab:level2-memory-density-graph} and~\ref{tab:level2-memory-density-triple} represent the distribution of memory time series values of the four Baselines. To obtain this representation we individuate the minimum and the maximum between all the experiments. We divided the span in some intervals and automatically we count how many values of the memory time series fit the intervals, repeating this count for all the experiment. Trough this representation we can see how the memory usage is distributed during the experiment execution. We can observe that the memory values for the baselines that exploit incremental reasoning, GI and TI, are distributed in a smaller interval w.r.t the baselines which exploit the Naive reasoning approach and thus GI and T I have a smarter usage of the memory. When the window size increases, the memory consumption shift to the right, towards the intervals with higher values.
+Tables~\ref{tab:level2-memory-density-graph} and~\ref{tab:level2-memory-density-triple} represent the distribution of memory time series values of the four Baselines. To obtain this representation we individuate the minimum and the maximum between all the experiments. We divided the span in some intervals and automatically we count how many values of the memory time series fit the intervals, repeating this count for all the experiment. through this representation we can see how the memory usage is distributed during the experiment execution. We can observe that the memory values for the baselines that exploit incremental reasoning, GI and TI, are distributed in a smaller interval w.r.t the baselines which exploit the Naive reasoning approach and thus GI and T I have a smarter usage of the memory. When the window size increases, the memory consumption shift to the right, towards the intervals with higher values.
 
-All the four tables about memory time series and memory distribution show that there are strong difference between the experiment subset with Window dimension of 1000  triples and the ones with window dimension 10000 triples. This is a meta-insight that improves the Experiment Design model. Actually we are still not able to predict the baselines behaviour, but we can further investigate trough \namens.
+All the four tables about memory time series and memory distribution show that there are strong difference between the experiment subset with Window dimension of 1000  triples and the ones with window dimension 10000 triples. This is a meta-insight that improves the Experiment Design model. Actually we are still not able to predict the baselines behaviour, but we can further investigate through \namens.
 
 The quantitative nature of the hypothesis formulated in Section~\ref{sec:soak-es} does not allow to exploit Level 3 for Hypothesis verification. Actually [Hp.1] and [Hp.2] consider the performance as the main evaluation metric, while Level 2 fulfils the necessity to understand the system nature. The insights above allow to improve the RSP Engine model, upon which is possible to formulate more precise hypothesis and to explain the unpredictable results we obtained from Level 0 and Level 1.
 
@@ -404,7 +404,7 @@ Figures~\ref{fig:level3-filling-inc-stmt-en15} (a) and (b) show the relation bet
 
 \section{Step Response Test Evaluation Results}\label{sec:stressres}
 
-In the previous sections of this chapter we presented the three contributes that \name provides to the SR research: (i) we explain how to design experiments trough the \name definition $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ (Section~\ref{sec:experiment-design}); (ii) we include two examples of test sets and the lecture-key to drive the result analysis for one of them (Section~\ref{sec:experiment-setup}); (iii) we provide a concrete use-case analysis, exploiting one of the test set provided in (ii) (Section~\ref{sec:soakres}). However, in other to prove that \name supports the SCRA we are still missing a forth contribution: (iv) proving the generality of (i), (ii), (iii) and consequently demonstrate the flexibility of the research powered by \namens.
+In the previous sections of this chapter we presented the three contributes that \name provides to the SR research: (i) we explain how to design experiments through the \name definition $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ (Section~\ref{sec:experiment-design}); (ii) we include two examples of test sets and the lecture-key to drive the result analysis for one of them (Section~\ref{sec:experiment-setup}); (iii) we provide a concrete use-case analysis, exploiting one of the test set provided in (ii) (Section~\ref{sec:soakres}). However, in other to prove that \name supports the SCRA we are still missing a forth contribution: (iv) proving the generality of (i), (ii), (iii) and consequently demonstrate the flexibility of the research powered by \namens.
 
 Further examples of (i), (ii) and (iii) are not enough to show \name capabilities proving (iv). We have to change the research paradigm, providing a complete different kind of analysis. SOAK Testing is a standard testing procedure for dynamic systems (see Section~\ref{sec:software-testing}) and Step Response stress test is a standard complementary Testing procedure for it. In order to prove the generality of the SCRA enabled by \namens, we provide an example of \textit{Inter Experiment} analysis. We exploit the Step Response Test set presented in Section~\ref{sec:step-es} together with the results of the SOAK Test set of Section~\ref{sec:soak-es}, presenting a new kind of insight.
 
@@ -504,7 +504,7 @@ As we reported in the introduction, we actually do not apply this level analysis
 
 \subsection{Level 3 - Single Visual Comparison}\label{sec:level3-step-inter}
 
-Finally, we conclude the SOAK Testing analysis trough several examples of \textit{Intra Experiment} comparison (see Section~\ref{sec:eval-level3}). In this section we provide the alternative analysis method of Level 3, presented in Section~\ref{sec:analyser}: the \textit{Inter Experiment} comparison method.
+Finally, we conclude the SOAK Testing analysis through several examples of \textit{Intra Experiment} comparison (see Section~\ref{sec:eval-level3}). In this section we provide the alternative analysis method of Level 3, presented in Section~\ref{sec:analyser}: the \textit{Inter Experiment} comparison method.
 
 Figures~\ref{fig:level3-step} (a) and (b) draw on the same graph the latency and the memory series for three experiments.  We build the comparison diversifying the \textit{CTEvent} size, since the number of slots is fixed to ten. Thus, the involved experiments are:
 \begin{itemize}

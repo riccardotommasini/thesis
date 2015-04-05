@@ -1,24 +1,24 @@
-In Chapter~\ref{chap:problem-settings} we posed the requirements that any solution must fulfil, in order to properly answer our research question. Then in Chapter~\ref{chap:heaven} we faced each requirement at design level, stating how an implementation of \name must be realised to fulfil them. 
+In Chapter~\ref{chap:problem-settings}, we posed the requirements that any solution must fulfil, in order to properly answer our research question. Then, in Chapter~\ref{chap:heaven}, we faced each requirement at design level, stating how an implementation of \name must be realised to fulfil them. 
 
-In this chapter we describe the implementation experience of \namens: 
-Firstly in Section~\ref{sec:test-stand-general} we present the pillar concepts of this development: the basis abstraction in Section~\ref{sec:abstractions} and the data model of the \textsc{Test Stand} in Section~\ref{sec:data-impl}. In Section~\ref{sec:modules-impl} we introduce each \name module: the \textsc{Streamer}, the \textsc{ResultCollector} and the \textsc{Test Stand Supporting Structure}. In Section~\ref{sec:baselines-impl} we present how we implement four baseline RSP Engines. Finally, in Section~\ref{sec:analyser-impl}, we describe how the \textsc{Analyser} Investigation Stack is realised w.r.t the Evaluation we will present in Chapter~\ref{chap:evaluation}.
+In this chapter, we describe the implementation experience of \namens: 
+Firstly in Section~\ref{sec:test-stand-general}, we present the pillar concepts of this development: the basis abstractions, in Section~\ref{sec:abstractions}, and the data model of the \textsc{Test Stand}, in Section~\ref{sec:data-impl}. In Section~\ref{sec:modules-impl}, we introduce each \name module: the \textsc{Streamer}, the \textsc{ResultCollector} and the \textsc{Test Stand Supporting Structure}. In Section~\ref{sec:baselines-impl}, we present how we implement the four baseline RSP Engines. Finally, in Section~\ref{sec:analyser-impl}, we describe how the \textsc{Analyser} Investigation Stack is realised w.r.t the Evaluation we will present in Chapter~\ref{chap:evaluation}.
 
 \section{Test Stand}\label{sec:test-stand-general}
 
 \begin{figure}[h!tb]
   \centering
 	\includegraphics[width=\linewidth]{images/fsm-schema}
-	\caption[\textit{EventProcessor} States Diagram]{The finite state machine diagram of any \name module and the Baselines. It is realised trough the \textit{Startable} interfaces, which provide the \textit{init()} and \textit{close() }methods, and trough the \textit{EventProcessor} interface, which declares the \textit{process(Event e)} method. The execution is possible only during the RUNNING state, which can be achieved by one and only module at time, as a constrain. The ERROR state prevents the propagation of erroneous behaviour to the data.}
+	\caption[\textit{EventProcessor} States Diagram]{The finite state machine diagram of any \name module and the Baselines. It is realised through the \textit{Startable} interfaces, which provide the \textit{init()} and \textit{close() }methods, and through the \textit{EventProcessor} interface, which declares the \textit{process(Event e)} method. The execution is possible only during the RUNNING state, which can be achieved by one and only module at time, as a constrain. The ERROR state prevents the propagation of erroneous behaviour to the data.}
   	\label{fig:module-fsm}
 \end{figure}
 
-The architecture of the \textsc{Test Stand} consists of three stand alone modules that establish a mono-directional communication flow: \textsc{Streamer}, \textsc{RSP Engine} and \textsc{Result Collector}. Moreover, the idea of an external structure which supports the other modules bring to the concept of the \textsc{Test Stand Supporting Structure}. All this components communicate exchanging events data, exploiting and event-based and modular architecture ad demanded by [R.10] and [R.11]. In the following we presents the two abstractions that allows this architecture: \textit{EventProcessor} and the \textit{Event}. Then we detail how the \textsc{Test Stand} Data Model is implemented.
+The architecture of the \textsc{Test Stand} consists of three stand alone modules that establish a mono-directional communication flow: the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{Result Collector}. Moreover, the idea of an external structure which supports the other modules brings to the concept of the \textsc{Test Stand Supporting Structure}. All these components communicate exchanging events data, exploiting an event-based and modular architecture as demanded by [R.10] and [R.11]. In the following, we presents the two abstractions that allow this architecture: \textit{EventProcessor} and the \textit{Event}. Then, we detail how the \textsc{Test Stand} Data Model is implemented.
 
 \subsection{Abstractions}\label{sec:abstractions}
 
-Among all the requirements reported in Section~\ref{sec:requirements} two of them are immediately relevant: [R.10], i.e. the need of an \textit{Extendible Design}, and [R.11], which states the necessity of an \textit{Event-base architecture} to properly face any RSPEngine. In order to to fulfil both \textsc{Test Stand} requires two main abstractions:
+Among all the requirements reported in Section~\ref{sec:requirements}, two of them are immediately relevant: [R.10], i.e. the need of an \textit{Extendible Design}, and [R.11], which states the necessity of an \textit{Event-base architecture} to properly face any RSPEngine. In order to to fulfil both, the \textsc{Test Stand} requires two main abstractions:
 \begin{itemize}
-\item The \textit{Event} - which is required to build a hierarchical communication. Indeed, the \textsc{Test Stand} may handle three events flows: one internal to the RSP Engine module, one for the communication between modules and one to communicate with the user. Next section about data clarifies the communication structured. 
+\item The \textit{Event} - which is required to build a hierarchical communication. Indeed, the \textsc{Test Stand} may handle three event flows: one internal to the RSP Engine module, one for the communication between modules and one to communicate with the user. Next section about data clarifies the communication structured. 
 \item The \textit{Event Processor} -  which guarantees the system to be modular, it standardizes the interaction simplifying the behaviour of each component in the system. Thus, a module is an \textit{Event Processor} which can be positioned everywhere in the the \textsc{Test Stand} pipeline
 \end{itemize}
 
@@ -28,7 +28,7 @@ To cover this requirement we designed the status of each module as a Finite Stat
 
 The schema in Figure~\ref{fig:module-fsm} represents the FSM that each module of \namens, the Baselines, and also for the \textsc{Test Stand External Structure} implements. 
 
-The \textit{Startable} Interface standardises two methods, \textit{init()} and \textit{close()} which allow to control the behaviour of the module at the beginning and the end of the execution. The interface allows to move from the CLOSED state to the READY trough the \textit{init()} method and from the READY to the CLOSED trough the \textit{close()} method. 
+The \textit{Startable} Interface standardises two methods, \textit{init()} and \textit{close()} which allow to control the behaviour of the module at the beginning and the end of the execution. The interface allows to move from the CLOSED state to the READY through the \textit{init()} method and from the READY to the CLOSED through the \textit{close()} method. 
 
 The diagram is completed by the \textit{process (Event e)} method, which belongs to the \textit{EventProcessor} interface, The method brings the module into the RUNNING state until the processing ends, and then back to the READY one. As a constrain, one and only one module can be in the RUNNING state in a certain moment during the execution.
 
@@ -84,7 +84,7 @@ Figure~\ref{fig:uml_tstreamer} contains also the \textit{RDF2RDFStream} implemen
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.75\linewidth]{images/uml_flowrateprofiler}
-	\caption[Internal Components of \textit{RDF2RDFStream} - UML Schema]{The \textit{RDF2RDFStream} exploits two subcomponents to build an RDF Stream: the \textit{Parser}, which allows to ready in memory RDF Triples, and the \textit{FlowRateProfiler}, which attaches to RDF triple a timestamp and it builds \textit{CTEvent}s according to a function $f=f(x)$. The \textit{FlowRateProfileImpl} provides implementation of the \textit{append(TripleContainer tc}) method and of the two utility methods \textit{isReady()} and \textit{getEvent()}. Specific implementations of the \textit{FlowRateProfiler} control the function $f$ trough the \textit{updateSize()} method.} 
+	\caption[Internal Components of \textit{RDF2RDFStream} - UML Schema]{The \textit{RDF2RDFStream} exploits two subcomponents to build an RDF Stream: the \textit{Parser}, which allows to ready in memory RDF Triples, and the \textit{FlowRateProfiler}, which attaches to RDF triple a timestamp and it builds \textit{CTEvent}s according to a function $f=f(x)$. The \textit{FlowRateProfileImpl} provides implementation of the \textit{append(TripleContainer tc}) method and of the two utility methods \textit{isReady()} and \textit{getEvent()}. Specific implementations of the \textit{FlowRateProfiler} control the function $f$ through the \textit{updateSize()} method.} 
   	\label{fig:uml_flowrateprofiler}
 \end{figure}
 
@@ -134,7 +134,7 @@ The remaining two  \textit{FlowRateProfiler} implementations in \name that are n
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=0.5\linewidth]{images/uml_resultcollector}
-	\caption[\textsc{ResultCollector} Current Implementation - UML Schema]{The current implementation of the \textsc{ResultCollector} interface is the \textit{TSResultCollector} which processes events that implements the \textit{EventResult Interface}. \textit{ResultEvent} interface hides the saving procedure, delegating the implementation to the event provider trough    the \textit{save()} method. \textit{TSResultCollector} exposes also the method process(Event e, String where), which allows the caller to specify the destination. } 
+	\caption[\textsc{ResultCollector} Current Implementation - UML Schema]{The current implementation of the \textsc{ResultCollector} interface is the \textit{TSResultCollector} which processes events that implements the \textit{EventResult Interface}. \textit{ResultEvent} interface hides the saving procedure, delegating the implementation to the event provider through    the \textit{save()} method. \textit{TSResultCollector} exposes also the method process(Event e, String where), which allows the caller to specify the destination. } 
   	\label{fig:uml_resultcollector}
 \end{figure}
 
@@ -170,14 +170,14 @@ Both the saving procedure exploit a service class, respectively the \textit{File
 
 \noindent \name \textsc{Test Stand} was defined as set of modules which interact exchanging events during the execution. However, Chapter~\ref{chap:heaven} describes at the design level the presence of an external structure which orchestrates the communication between the \textsc{Streamer}, the \textsc{RSP Engine} and the \textsc{ResultCollector}. This external structure also exposes the APIs for users interaction. Figure~\ref{fig:uml_teststand} represent this idea into an UML schema where the abstract class \textit{TestStand} implements both the \textit{Startable} interface  defining the \textit{init()} and \textit{close()} methods and also the \textit{EventProcessor} interface, but it leaves the implementation of the \textit{process(CTEvent e)} method to the current implementation: the \textit{TestStandImpl}. 
 
-The relation between the \textit{TestStand} and other modules is presented in Figure~\ref{fig:uml_teststand_modules}. The \textit{TSStreamer}, the \textit{RSPEngine} and the \textit{TSResulCollector} are linked to the \textit{TestStandImpl} trough an initialisation class which receives the configuration file, and sets up these modules according with the requirements [R.1]  [R.2] and [R.3] (respectively data independence, engine independence and query independence). Once the set-up phase is completed the \textit{TestStandImpl} is initialized and it consequently initialises all the upstanding modules. The \textit{Experiment} is created externally and  the \textit{TestStandImpl} receives it to start the execution. 
+The relation between the \textit{TestStand} and other modules is presented in Figure~\ref{fig:uml_teststand_modules}. The \textit{TSStreamer}, the \textit{RSPEngine} and the \textit{TSResulCollector} are linked to the \textit{TestStandImpl} through an initialisation class which receives the configuration file, and sets up these modules according with the requirements [R.1]  [R.2] and [R.3] (respectively data independence, engine independence and query independence). Once the set-up phase is completed the \textit{TestStandImpl} is initialized and it consequently initialises all the upstanding modules. The \textit{Experiment} is created externally and  the \textit{TestStandImpl} receives it to start the execution. 
 
 During the execution \textit{TestStandImpl} gets the \textit{CTEvents} form the \textit{TSStreamer} and sends them to the \textit{RSPEngine} (see Section~\ref{sec:test-stand-workflow}). The \textit{TestStandImpl} gathers the measurements data according with the \textit{Experiment} specification. It calculates latency starting a timer when the \textit{CTEvent} arrives and stopping the timer when it \textit{RSPEngine} outputs the results as \textit{OutCTEvent}. It retrieves the memory usage asking the JVM in both the point above [R.6]. To fulfil requirements [R.7] any new measurement can take place only when the \textit{RSPEngine} is not running. Once the \textit{OutCTEvents} comes form the \textit{RSPEngine}, the \textit{TestStandImpl} immediately wraps the event into a \textit{TSResult}, which is sent to the \textit{TSResultCollector} to persist the query results and the measurement data, fulfilling [R.8] and supporting [R.9] for further analysis with the \textsc{Analyser}.
 
 \begin{figure}[p!]
   \centering
 	\includegraphics[width=0.9\linewidth]{images/uml_teststand_modules}
-	\caption[\name \textsc{TestStand} and Modules  - UML Schema] {The \textit{TestStand} contains references of the \textit{TSStreamer}, the engine behind the \textit{RSPEngine} interface and the \textit{TSResultCollector}. The \textit{TSStreamer} and current \textit{RSPEngine} are linked to the next element in the pipeline trough the \textit{TestStand}. Two arrows, labelled with "next", point to the  \textit{TestStand} indicating that it receives the events from all modules and it orchestrates the communication. The arrow which start from the \textit{RSPEngine} is coloured in gray to highlight that it can not be seen at this level of detail, because \textit{RSPEngine} is an interface. The \textit{ResultCollector} receives the result to save at the end of each cycle, it does need a "next", because the process ends when it returns the call.} 
+	\caption[\name \textsc{TestStand} and Modules  - UML Schema] {The \textit{TestStand} contains references of the \textit{TSStreamer}, the engine behind the \textit{RSPEngine} interface and the \textit{TSResultCollector}. The \textit{TSStreamer} and current \textit{RSPEngine} are linked to the next element in the pipeline through the \textit{TestStand}. Two arrows, labelled with "next", point to the  \textit{TestStand} indicating that it receives the events from all modules and it orchestrates the communication. The arrow which start from the \textit{RSPEngine} is coloured in gray to highlight that it can not be seen at this level of detail, because \textit{RSPEngine} is an interface. The \textit{ResultCollector} receives the result to save at the end of each cycle, it does need a "next", because the process ends when it returns the call.} 
   	\label{fig:uml_teststand_modules}
 \end{figure}
 
@@ -191,7 +191,7 @@ The RSP Engine pipeline is composed by Esper\footnote{$http://www.espertech.com/
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/uml_baselines_general}
-	\caption[\textit{RSPEngine} Implementation Trough Esper and Jena - UML Schema]{The \textit{RSPEngine} interface extends both the \textit{EventProcessor} and the \textit{Startable} ones. The \textit{RSPEsperEngine} class in picture implements the interface adding the Esper runtime to handle its internal events. The \textit{JenaEngine} together with the \textit{RSPListener} integrate the Jena reasoning system into the engine.}
+	\caption[\textit{RSPEngine} Implementation Through Esper and Jena - UML Schema]{The \textit{RSPEngine} interface extends both the \textit{EventProcessor} and the \textit{Startable} ones. The \textit{RSPEsperEngine} class in picture implements the interface adding the Esper runtime to handle its internal events. The \textit{JenaEngine} together with the \textit{RSPListener} integrate the Jena reasoning system into the engine.}
   	\label{fig:uml_baselines_general}
 \end{figure}
 
@@ -232,7 +232,7 @@ The current Baselines implementation divides the different architectural element
 %  	\label{fig:uml_baselines_rel_listener_event}
 %\end{figure}
 %
-%\textit{\textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handle the events which come form the DSMS trough the \textit{JenaEsperEvent} interface, Figure~\ref{fig:uml_baselines_rel_listener_event} report  the structure for the case of Graph-based event representation (see Section~\ref{sec:baselines} for event details). }
+%\textit{\textit{JenaNaiveListener} and the  \textit{JenaIncrementalListener} handle the events which come form the DSMS through the \textit{JenaEsperEvent} interface, Figure~\ref{fig:uml_baselines_rel_listener_event} report  the structure for the case of Graph-based event representation (see Section~\ref{sec:baselines} for event details). }
 
 \pagebreak
 
@@ -256,7 +256,7 @@ The Figure~\ref{fig:analyser-block-schema-impl} shows the \textsc{Analyser} rece
 \end{itemize}
 
 
-In the original block schema (See Figure~\ref{fig:analyser-block-schema}) both inputs directly enter the \textit{Steady State Identification} Block (SSI) and the \textit{Analysis} Block (AB). In Figure~\ref{fig:analyser-block-schema-impl}   instead, the first block in the process is the \textit{Pre-Processing Block}. Empirical analysis can not rely on a single execution of an experiment, because even if the \textit{Test Stand} is designed to be system independent, it remains a dynamic system. Thus, strange behaviours may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures The \textit{Pre-Processing} Block ensures data reliability extrapolating a unique dataset from multiple executions. Moreover, time series describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification trough statistical values, which always consider the the Steady State to allow the generalisation of the insights. The \textit{Pre-Processing} Block calculates most common statistical metrics as average , standard deviation and maximum or minimum for a certain variable.
+In the original block schema (See Figure~\ref{fig:analyser-block-schema}) both inputs directly enter the \textit{Steady State Identification} Block (SSI) and the \textit{Analysis} Block (AB). In Figure~\ref{fig:analyser-block-schema-impl}   instead, the first block in the process is the \textit{Pre-Processing Block}. Empirical analysis can not rely on a single execution of an experiment, because even if the \textit{Test Stand} is designed to be system independent, it remains a dynamic system. Thus, strange behaviours may happen while an experiment is running. In order to reduce and possible eliminate the outliers, multiple runs of the same experiment must be mediated obtaining the average measures The \textit{Pre-Processing} Block ensures data reliability extrapolating a unique dataset from multiple executions. Moreover, time series describes how a dynamic system evolves over time, so it is meaningful to attempt hypothesis verification through statistical values, which always consider the the Steady State to allow the generalisation of the insights. The \textit{Pre-Processing} Block calculates most common statistical metrics as average , standard deviation and maximum or minimum for a certain variable.
 
 %Indeed, both the Steady State Identification Block and Analysis Block require an automatic procedure, named pre-processing in Figure~\ref{fig:analyser-block-schema-impl}, which averages the data of multiple executions of the same experiment and calculate the statistically relevant data. 
 
@@ -281,12 +281,12 @@ We know that the graphical method is limited, because it must be applied for eac
 
 \begin{figure}[h!tbp]
   \centering
-	\includegraphics[width=0.45\linewidth]{images/dashboard-example}
+	\includegraphics[width=0.6\linewidth]{images/dashboard-example}
 	\caption[\textsc{Analyser} Investigation Stack - Level 0 -  Dashboard Representation Examples]{\textsc{Analyser} Investigation Stack - Level 0 -  Dashboard Representation Examples}
   	\label{fig:dashboard-example}
 \end{figure}
 
-\noindent Figure~\ref{fig:dashboard-example} contains an example of the possible Dashboard representations. We implement the dashboard to represent data on a bi-dimensional Cartesian space where memory and latency are the axis of the graph. This kind of representation allows to define solution dominance, w.r.t the involved variable, trough inter-experiment comparisons. Thus, we can easily state which RSP Engine, if any, is better then another one looking to a dashboard.
+\noindent Figure~\ref{fig:dashboard-example} contains an example of the possible Dashboard representations. We implement the dashboard to represent data on a bi-dimensional Cartesian space where memory and latency are the axis of the graph. This kind of representation allows to define solution dominance, w.r.t the involved variable, through inter-experiment comparisons. Thus, we can easily state which RSP Engine, if any, is better then another one looking to a dashboard.
 
 \subsubsection{Level 1 - Statistical Values Comparison}\label{sec:impl-level1}
 
