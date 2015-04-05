@@ -31,19 +31,25 @@
 
 @STRING{WWW2012 = {Proc. 21st international conference on World wide web WWW 2012}}
 
-@INPROCEEDINGS{Anicic2011,
-  author = {Anicic, D. and Fodor, P. and Rudolph, S. and Stojanovic, N.},
-  title = {{EP-SPARQL}: a unified language for event processing and stream reasoning},
-  booktitle = WWW2011,
-  year = {2011},
-  pages = {635--644},
-  file = {:/media/Add/ref/rdfstreams/Anicic2011.pdf:PDF}
+@inproceedings{Anicic2011,
+  author    = {Darko Anicic and
+               Paul Fodor and
+               Sebastian Rudolph and
+               Nenad Stojanovic},
+  title     = {{EP-SPARQL:} a unified language for event processing and stream reasoning},
+  booktitle = {Proceedings of the 20th International Conference on World Wide Web,
+               {WWW} 2011, Hyderabad, India, March 28 - April 1, 2011},
+  pages     = {635--644},
+  year      = {2011},
+  crossref  = {DBLP:conf/www/2011},
+  url       = {http://doi.acm.org/10.1145/1963405.1963495},
+  doi       = {10.1145/1963405.1963495},
+  timestamp = {Mon, 04 Apr 2011 13:52:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/AnicicFRS11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
-
-
 @article{DBLP:journals/semweb/ValleSKBCH13,
-  author    = {Emanuele {Della Valle} and
+  author    = {Emanuele Della Valle and
                Stefan Schlobach and
                Markus Kr{\"{o}}tzsch and
                Alessandro Bozzon and
@@ -56,6 +62,7 @@
   number    = {2},
   pages     = {219--231},
   year      = {2013},
+  url       = {http://dx.doi.org/10.3233/SW-2012-0085},
   doi       = {10.3233/SW-2012-0085},
   timestamp = {Tue, 16 Apr 2013 15:50:01 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/semweb/ValleSKBCH13},
@@ -72,6 +79,7 @@
   volume    = {25},
   pages     = {24--44},
   year      = {2014},
+  url       = {http://dx.doi.org/10.1016/j.websem.2014.02.001},
   doi       = {10.1016/j.websem.2014.02.001},
   timestamp = {Sun, 06 Jul 2014 12:10:06 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ws/MargaraUHB14},
@@ -79,87 +87,112 @@
 }
 
 @inproceedings{oezcep14streamDL,
-  abstract = {The paper contributes to the recent efforts on temporalizing and streamifiying ontology based data access (OBDA) by discussing aspects of rewritability, i.e., compilability of the TBox into ontology-level queries,   and unfoldability, i.e., transformability  of ontology-level queries to queries  on datasource level, for the new query-language framework STARQL. The distinguishing feature  of STARQL is its  general stream windowing and ABox sequencing strategy which allows it to plugin well-known query languages such as unions of conjunctive queries (UCQs)  in combination with TBox languages such as DL-Lite and do temporal reasoning with a sorted first-order logic on top of them. 
-The paper discusses safety aspects under which STARQL queries that embed UCQs over DL-Lite ontologies can be rewritten and unfolded   to back-end relational stream query languages such as CQL.  With these results, the adoption of description logic technology in industrially relevant application areas such as industrial monitoring is crucially fostered.},
-  added-at = {2014-10-14T13:11:15.000+0200},
-  audience = {academic},
-  author = {{\"Ozg\"ur L. \"Oz\c{c}ep} and {M\"oller}, Ralf and Neuenstadt, Christian},
-  biburl = {http://www.bibsonomy.org/bibtex/2b7ba9ab3c576994db8ba4fc2251cb447/oezcep},
-  booktitle = {{DL}},
-  keywords = {OBDA optique-project},
-  partneroptique = {TUHH},
-  title = {A Stream-Temporal Query Language for Ontology Based Data Access},
-  wpoptique = {WP5},
-  year = 2014,
-  yearoptique = {Y2}
+   author    = {{\"{O}}zg{\"{u}}r L{\"{u}}tf{\"{u}} {\"{O}}z{\c{c}}ep and
+               Ralf M{\"{o}}ller and
+               Christian Neuenstadt},
+  title     = {A Stream-Temporal Query Language for Ontology Based Data Access},
+  booktitle = {{KI} 2014: Advances in Artificial Intelligence - 37th Annual German
+               Conference on AI, Stuttgart, Germany, September 22-26, 2014. Proceedings},
+  pages     = {183--194},
+  year      = {2014},
+  crossref  = {DBLP:conf/ki/2014},
+  url       = {http://dx.doi.org/10.1007/978-3-319-11206-0_18},
+  doi       = {10.1007/978-3-319-11206-0_18},
+  timestamp = {Mon, 15 Sep 2014 11:10:26 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ki/OzcepMN14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }  
 
 @article{Arasu2006,
- author = {Arasu, Arvind and Babu, Shivnath and Widom, Jennifer},
- title = {The CQL Continuous Query Language: Semantic Foundations and Query Execution},
- journal = {The VLDB Journal},
- issue_date = {June 2006},
- volume = {15},
- number = {2},
- month = jun,
- year = {2006},
- issn = {1066-8888},
- pages = {121--142},
- numpages = {22},
- url = {http://dx.doi.org/10.1007/s00778-004-0147-z},
- doi = {10.1007/s00778-004-0147-z},
- acmid = {1146463},
- publisher = {Springer-Verlag New York, Inc.},
- address = {Secaucus, NJ, USA},
- keywords = {Continuous queries, Data streams, Query language, Query processing},
+ author    = {Arvind Arasu and
+               Shivnath Babu and
+               Jennifer Widom},
+  title     = {The {CQL} continuous query language: semantic foundations and query
+               execution},
+  journal   = {{VLDB} J.},
+  volume    = {15},
+  number    = {2},
+  pages     = {121--142},
+  year      = {2006},
+  url       = {http://dx.doi.org/10.1007/s00778-004-0147-z},
+  doi       = {10.1007/s00778-004-0147-z},
+  timestamp = {Tue, 18 Jul 2006 08:09:17 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/vldb/ArasuBW06},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 
-@ARTICLE{Barbieri2010,
-  author = {Davide Francesco Barbieri and Daniele Braga and Stefano Ceri and
-	Emanuele {Della Valle} and Michael Grossniklaus},
-  title = {{C-SPARQL}: A Continuous Query Language for {RDF} Data Streams},
-  journal = {IJSC},
-  year = {2010},
-  volume = {4},
-  pages = {3--25},
-  number = {1},
-  file = {:/media/Add/ref/rdfstreams/Barbieri2010.pdf:PDF}
+@article{Barbieri2010,
+  author    = {Davide Francesco Barbieri and
+               Daniele Braga and
+               Stefano Ceri and
+               Emanuele Della Valle and
+               Michael Grossniklaus},
+  title     = {{C-SPARQL:} a Continuous Query Language for {RDF} Data Streams},
+  journal   = {Int. J. Semantic Computing},
+  volume    = {4},
+  number    = {1},
+  pages     = {3--25},
+  year      = {2010},
+  url       = {http://dx.doi.org/10.1142/S1793351X10000936},
+  doi       = {10.1142/S1793351X10000936},
+  timestamp = {Sun, 07 Nov 2010 18:13:58 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ijsc/BarbieriBCVG10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@ARTICLE{Bizer2009,
-  author = {Christian Bizer and Andreas Schultz},
-  title = {The Berlin {SPARQL} Benchmark},
-  journal = {IJSWIS},
-  year = {2009},
-  volume = {5},
-  pages = {1-24},
-  number = {2},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  ee = {http://dx.doi.org/10.4018/jswis.2009040101}
+@article{Bizer2009,
+  author    = {Christian Bizer and
+               Andreas Schultz},
+  title     = {The Berlin {SPARQL} Benchmark},
+  journal   = {Int. J. Semantic Web Inf. Syst.},
+  volume    = {5},
+  number    = {2},
+  pages     = {1--24},
+  year      = {2009},
+  url       = {http://dx.doi.org/10.4018/jswis.2009040101},
+  doi       = {10.4018/jswis.2009040101},
+  timestamp = {Fri, 09 Nov 2012 14:42:10 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ijswis/BizerS09},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @ARTICLE{Botan2010,
-  author = {Botan, Irina and Derakhshan, Roozbeh and Dindar, Nihal and  Haas,
-	Laura and Miller, Renée J. and Tatbul, Nesime},
-  title = {{Secret: A model for analysis of the execution semantics of stream
-	processing systems}},
-  journal = {PVLDB},
-  year = {2010},
-  volume = {3},
-  pages = {232--243},
-  number = {1},
-  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/secret.pdf:pdf},
-  }
+  author    = {Irina Botan and
+               Roozbeh Derakhshan and
+               Nihal Dindar and
+               Laura M. Haas and
+               Ren{\'{e}}e J. Miller and
+               Nesime Tatbul},
+  title     = {{SECRET:} {A} Model for Analysis of the Execution Semantics of Stream
+               Processing Systems},
+  journal   = {{PVLDB}},
+  volume    = {3},
+  number    = {1},
+  pages     = {232--243},
+  year      = {2010},
+  url       = {http://www.comp.nus.edu.sg/~vldb2010/proceedings/files/papers/R20.pdf},
+  timestamp = {Thu, 23 Sep 2010 15:39:20 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/pvldb/BotanDDHMT10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
 
-@CONFERENCE{Calbimonte2010,
-  author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
-  title = {{Enabling ontology-based access to streaming data sources}},
-  booktitle = ISWC2010,
-  year = {2010},
-  pages = {96--111},
-  file = {:http\://oa.upm.es/5121/1/Enabling_Ontology-based_Access_to_Streaming_Data_Sources.pdf:PDF;:/media/Add/ref/rdfstreams/Calbimonte2010.pdf:PDF},
-  isbn = {364217745X}
+@conference{Calbimonte2010,
+  author    = {Jean{-}Paul Calbimonte and
+               {\'{O}}scar Corcho and
+               Alasdair J. G. Gray},
+  title     = {Enabling Ontology-Based Access to Streaming Data Sources},
+  booktitle = {The Semantic Web - {ISWC} 2010 - 9th International Semantic Web Conference,
+               {ISWC} 2010, Shanghai, China, November 7-11, 2010, Revised Selected
+               Papers, Part {I}},
+  pages     = {96--111},
+  year      = {2010},
+  crossref  = {DBLP:conf/semweb/2010-1},
+  url       = {http://dx.doi.org/10.1007/978-3-642-17746-0_7},
+  doi       = {10.1007/978-3-642-17746-0_7},
+  timestamp = {Mon, 04 Apr 2011 12:13:23 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/CalbimonteCG10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @article{DBLP:journals/ijswis/CalbimonteJCA12,
@@ -180,14 +213,6 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@INPROCEEDINGS{DellAglio2013,
-  author = {Daniele {Dell'Aglio} and Marco Balduini and Emanuele {Della Valle}},
-  title = {On the need to include functional testing in RDF stream engine benchmarks},
-  booktitle = {BeRSys 2013},
-  year = {2013},
-  owner = {jpc},
-  timestamp = {2013.05.07}
-}
 
 @ARTICLE{Guo2005,
   author = {Yuanbo Guo and Zhengxiang Pan and Jeff Heflin},
@@ -224,70 +249,109 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   year         = 2014,
 }
 
-@ARTICLE{Gutierrez2007,
-  author = {Gutierrez, C. and Hurtado, C.A. and Vaisman, A.},
-  title = {Introducing time into {RDF}},
-  journal = {IEEE Transactions on Knowledge and Data Engineering},
-  year = {2007},
-  volume = {19},
-  pages = {207--218},
-  number = {2},
-  publisher = {IEEE}
+@article{Gutierrez2007,
+  author    = {Claudio Gutierrez and
+               Carlos A. Hurtado and
+               Alejandro A. Vaisman},
+  title     = {Introducing Time into {RDF}},
+  journal   = {{IEEE} Trans. Knowl. Data Eng.},
+  volume    = {19},
+  number    = {2},
+  pages     = {207--218},
+  year      = {2007},
+  url       = {http://dx.doi.org/10.1109/TKDE.2007.34},
+  doi       = {10.1109/TKDE.2007.34},
+  timestamp = {Thu, 03 Nov 2011 13:55:23 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tkde/GutierrezHV07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@INPROCEEDINGS{LePhuoc2012c,
-  author = {Danh Le-Phuoc and Minh Dao-Tran and Minh-Duc Pham and Peter Boncz
-	and Thomas Eiter and Michael Fink},
-  title = {Linked Stream Data Processing Engines: Facts and Figures},
-  booktitle = ISWC2012,
-  year = {2012},
-  pages = {300-312},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
+@inproceedings{LePhuoc2012c,
+  author    = {Danh Le Phuoc and
+               Minh Dao{-}Tran and
+               Minh{-}Duc Pham and
+               Peter A. Boncz and
+               Thomas Eiter and
+               Michael Fink},
+  title     = {Linked Stream Data Processing Engines: Facts and Figures},
+  booktitle = {The Semantic Web - {ISWC} 2012 - 11th International Semantic Web Conference,
+               Boston, MA, USA, November 11-15, 2012, Proceedings, Part {II}},
+  pages     = {300--312},
+  year      = {2012},
+  crossref  = {DBLP:conf/semweb/2012-2},
+  url       = {http://dx.doi.org/10.1007/978-3-642-35173-0_20},
+  doi       = {10.1007/978-3-642-35173-0_20},
+  timestamp = {Wed, 06 Feb 2013 07:48:53 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/PhuocDPBEF12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@INPROCEEDINGS{Srivastava2004,
-  author = {Srivastava, Utkarsh and Widom, Jennifer},
-  title = {{Flexible time management in data stream systems}},
-  booktitle = {PODS},
-  year = {2004},
-  pages = {263},
-  address = {New York, New York, USA},
-  file = {:media/dani/DATA/Dropbox/PhD-Daniele/state-of-the-art/stream-reasoning/flexible-time-management.pdf:pdf},
-  isbn = {158113858X},
+@inproceedings{Srivastava2004,
+author    = {Utkarsh Srivastava and
+               Jennifer Widom},
+  title     = {Flexible Time Management in Data Stream Systems},
+  booktitle = {Proceedings of the Twenty-third {ACM} {SIGACT-SIGMOD-SIGART} Symposium
+               on Principles of Database Systems, June 14-16, 2004, Paris, France},
+  pages     = {263--274},
+  year      = {2004},
+  crossref  = {DBLP:conf/pods/2004},
+  url       = {http://doi.acm.org/10.1145/1055558.1055596},
+  doi       = {10.1145/1055558.1055596},
+  timestamp = {Wed, 23 May 2012 16:53:24 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pods/SrivastavaW04},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
  }
 
 @INPROCEEDINGS{Zhang2012,
-  author = {Zhang, Y. and Duc, P. and Corcho, O. and Calbimonte, J.-P.},
-  title = {{SRBench: A Streaming RDF/SPARQL Benchmark}},
-  booktitle = ISWC2012,
-  year = {2012},
-  pages = {641--657}
+ author    = {Ying Zhang and
+               Minh{-}Duc Pham and
+               {\'{O}}scar Corcho and
+               Jean{-}Paul Calbimonte},
+  title     = {SRBench: {A} Streaming {RDF/SPARQL} Benchmark},
+  booktitle = {The Semantic Web - {ISWC} 2012 - 11th International Semantic Web Conference,
+               Boston, MA, USA, November 11-15, 2012, Proceedings, Part {I}},
+  pages     = {641--657},
+  year      = {2012},
+  crossref  = {DBLP:conf/semweb/2012-1},
+  url       = {http://dx.doi.org/10.1007/978-3-642-35176-1_40},
+  doi       = {10.1007/978-3-642-35176-1_40},
+  timestamp = {Mon, 14 Jan 2013 19:42:33 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/ZhangDCC12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{DBLP:conf/fis/ValleCBBC08,
-  author    = {Emanuele {Della Valle} and
+  author    = {Emanuele Della Valle and
                Stefano Ceri and
                Davide Francesco Barbieri and
                Daniele Braga and
                Alessandro Campi},
   title     = {A First Step Towards Stream Reasoning},
-  booktitle = {{FIS}},
+  booktitle = {Future Internet - {FIS} 2008, First Future Internet Symposium, {FIS} 2008, Vienna, Austria, September 29-30, 2008, Revised Selected Papers},
   pages     = {72--81},
   year      = {2008},
+  crossref  = {DBLP:conf/fis/2008},
+  url       = {http://dx.doi.org/10.1007/978-3-642-00985-3_6},
+  doi       = {10.1007/978-3-642-00985-3_6},
+  timestamp = {Wed, 18 Mar 2009 12:20:43 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/fis/ValleCBBC08},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{Walavalkar08streamingknowledge,
-    author = {Onkar Walavalkar and Anupam Joshi and Tim Finin and Yelena Yesha},
-    title = {Streaming knowledge bases},
-    booktitle = {In International Workshop on Scalable Semantic Web Knowledge Base Systems},
-    year = {2008}
+	author = "Onkar Walavalkar and Anupam Joshi and Tim Finin and Yelena Yesha",
+  	title = "{Streaming Knowledge Bases}",
+  	month = "October",
+  	year = "2008",
+ 	address = ", Karlsruhe, DE",
+ 	booktitle = "Proceedings of the Fourth International Workshop on Scalable Semantic Web knowledge Base Systems",
 }
 
 @article{DBLP:journals/sigmod/BarbieriBCVG10,
   author    = {Davide Francesco Barbieri and
                Daniele Braga and
                Stefano Ceri and
-               Emanuele {Della Valle} and
+               Emanuele Della Valle and
                Michael Grossniklaus},
   title     = {Querying {RDF} streams with {C-SPARQL}},
   journal   = {{SIGMOD} Record},
@@ -295,6 +359,8 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   number    = {1},
   pages     = {20--26},
   year      = {2010},
+  url       = {http://doi.acm.org/10.1145/1860702.1860705},
+  doi       = {10.1145/1860702.1860705},
   timestamp = {Wed, 19 Sep 2012 09:16:25 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/sigmod/BarbieriBCVG10},
   bibsource = {dblp computer science bibliography, http://dblp.org}
@@ -305,21 +371,29 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
                Jeff Z. Pan and
                Yuan Ren},
   title     = {TrOWL: Tractable {OWL} 2 Reasoning Infrastructure},
-  booktitle = {{ESWC} Part {II}},
+  booktitle = {The Semantic Web: Research and Applications, 7th Extended Semantic
+               Web Conference, {ESWC} 2010, Heraklion, Crete, Greece, May 30 - June
+               3, 2010, Proceedings, Part {II}},
   pages     = {431--435},
   year      = {2010},
+  crossref  = {DBLP:conf/esws/2010-2},
+  url       = {http://dx.doi.org/10.1007/978-3-642-13489-0_38},
+  doi       = {10.1007/978-3-642-13489-0_38},
   timestamp = {Tue, 08 Jun 2010 16:23:22 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/esws/ThomasPR10},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{DBLP:conf/cikm/RenP11,
-  author    = {Yuan Ren and
+ author    = {Yuan Ren and
                Jeff Z. Pan},
   title     = {Optimising ontology stream reasoning with truth maintenance system},
-  booktitle = {{CIKM}},
+  booktitle = {Proceedings of the 20th {ACM} Conference on Information and Knowledge
+               Management, {CIKM} 2011, Glasgow, United Kingdom, October 24-28, 2011},
   pages     = {831--836},
   year      = {2011},
+  crossref  = {DBLP:conf/cikm/2011},
+  url       = {http://doi.acm.org/10.1145/2063576.2063696},
   doi       = {10.1145/2063576.2063696},
   timestamp = {Fri, 11 Nov 2011 19:52:08 +0100},
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/cikm/RenP11},
@@ -328,43 +402,42 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
 
 
 @inproceedings{DBLP:conf/esws/MunozPG07,
- author = {Mu\~{n}oz, Sergio and P{\'e}rez, Jorge and Gutierrez, Claudio},
- title = {Minimal Deductive Systems for RDF},
- booktitle = {Proceedings of the 4th European Conference on The Semantic Web: Research and Applications},
- series = {ESWC '07},
- year = {2007},
- isbn = {978-3-540-72666-1},
- location = {Innsbruck, Austria},
- pages = {53--67},
- numpages = {15},
- url = {http://dx.doi.org/10.1007/978-3-540-72667-8_6},
- doi = {10.1007/978-3-540-72667-8_6},
- acmid = {1419670},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
+	author    = {Sergio Mu{\~{n}}oz and
+               Jorge P{\'{e}}rez and
+               Claudio Guti{\'{e}}rrez},
+  title     = {Minimal Deductive Systems for {RDF}},
+  booktitle = {The Semantic Web: Research and Applications, 4th European Semantic
+               Web Conference, {ESWC} 2007, Innsbruck, Austria, June 3-7, 2007, Proceedings},
+  pages     = {53--67},
+  year      = {2007},
+  crossref  = {DBLP:conf/esws/2007},
+  url       = {http://dx.doi.org/10.1007/978-3-540-72667-8_6},
+  doi       = {10.1007/978-3-540-72667-8_6},
+  timestamp = {Tue, 05 Mar 2013 07:41:59 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/esws/MunozPG07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 
 @inproceedings{Liu:2014:ERS:2567948.2577323,
- author = {Liu, Chang and Urbani, Jacopo and Qi, Guilin},
- title = {Efficient RDF Stream Reasoning with Graphics Processingunits (GPUs)},
- booktitle = {Proceedings of the Companion Publication of the 23rd International Conference on World Wide Web Companion},
- series = {WWW Companion '14},
- year = {2014},
- isbn = {978-1-4503-2745-9},
- location = {Seoul, Korea},
- pages = {343--344},
- numpages = {2},
- url = {http://dx.doi.org/10.1145/2567948.2577323},
- doi = {10.1145/2567948.2577323},
- acmid = {2577323},
- publisher = {International World Wide Web Conferences Steering Committee},
- address = {Republic and Canton of Geneva, Switzerland},
- keywords = {GPU, parallel computing, semantic web, stream reasoning},
+  author    = {Chang Liu and
+               Jacopo Urbani and
+               Guilin Qi},
+  title     = {Efficient {RDF} stream reasoning with graphics processingunits (GPUs)},
+  booktitle = {23rd International World Wide Web Conference, {WWW} '14, Seoul, Republic
+               of Korea, April 7-11, 2014, Companion Volume},
+  pages     = {343--344},
+  year      = {2014},
+  crossref  = {DBLP:conf/www/2014c},
+  url       = {http://doi.acm.org/10.1145/2567948.2577323},
+  doi       = {10.1145/2567948.2577323},
+  timestamp = {Tue, 15 Apr 2014 21:35:34 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/LiuUQ14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @article{DBLP:journals/expert/ValleCHF09,
-  author    = {Emanuele {Della Valle} and
+  author    = {Emanuele Della Valle and
                Stefano Ceri and
                Frank van Harmelen and
                Dieter Fensel},
@@ -374,6 +447,7 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   number    = {6},
   pages     = {83--89},
   year      = {2009},
+  url       = {http://doi.ieeecomputersociety.org/10.1109/MIS.2009.125},
   doi       = {10.1109/MIS.2009.125},
   timestamp = {Thu, 10 Dec 2009 15:25:24 +0100},
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/expert/ValleCHF09},
@@ -384,32 +458,39 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
   author    = {Thomas Scharrenbach and
                Jacopo Urbani and
                Alessandro Margara and
-               Emanuele {Della Valle} and
+               Emanuele Della Valle and
                Abraham Bernstein},
   title     = {Seven Commandments for Benchmarking Semantic Flow Processing Systems},
-  booktitle = {{ESWC}},
+  booktitle = {The Semantic Web: Semantics and Big Data, 10th International Conference,
+               {ESWC} 2013, Montpellier, France, May 26-30, 2013. Proceedings},
   pages     = {305--319},
   year      = {2013},
-  }
+  crossref  = {DBLP:conf/esws/2013},
+  url       = {http://dx.doi.org/10.1007/978-3-642-38288-8_21},
+  doi       = {10.1007/978-3-642-38288-8_21},
+  timestamp = {Thu, 23 May 2013 13:26:25 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/esws/ScharrenbachUMVB13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
 
 
 @inproceedings{DBLP:conf/semweb/DellAglioCBCV13,
-  author    = {Daniele {Dell'Aglio} and
+author    = {Daniele Dell'Aglio and
                Jean{-}Paul Calbimonte and
                Marco Balduini and
                {\'{O}}scar Corcho and
-               Emanuele {Della Valle}},
+               Emanuele Della Valle},
   title     = {On Correctness in {RDF} Stream Processor Benchmarking},
-  booktitle = {{ISWC}},
+  booktitle = {The Semantic Web - {ISWC} 2013 - 12th International Semantic Web Conference,
+               Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part {II}},
   pages     = {326--342},
   year      = {2013},
-  }
-
-  @book{dustin2009implementing,
-  title={Implementing automated software testing: How to save time and lower costs while raising quality},
-  author={Dustin, Elfriede and Garrett, Thom and Gauf, Bernie},
-  year={2009},
-  publisher={Pearson Education}
+  crossref  = {DBLP:conf/semweb/2013-2},
+  url       = {http://dx.doi.org/10.1007/978-3-642-41338-4_21},
+  doi       = {10.1007/978-3-642-41338-4_21},
+  timestamp = {Thu, 17 Oct 2013 16:01:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/DellAglioCBCV13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{DBLP:conf/semweb/UrbaniMJHB13,
@@ -419,107 +500,287 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
                Frank van Harmelen and
                Henri E. Bal},
   title     = {DynamiTE: Parallel Materialization of Dynamic {RDF} Data},
-  booktitle = {{ISWC} Part {I}},
+  booktitle = {The Semantic Web - {ISWC} 2013 - 12th International Semantic Web Conference,
+               Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part {I}},
   pages     = {657--672},
   year      = {2013},
-  }
+  crossref  = {DBLP:conf/semweb/2013-1},
+  url       = {http://dx.doi.org/10.1007/978-3-642-41335-3_41},
+  doi       = {10.1007/978-3-642-41335-3_41},
+  timestamp = {Thu, 17 Oct 2013 16:01:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/UrbaniMJHB13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
 
-  @inproceedings{DBLP:conf/pods/BabcockBDMW02,
+@inproceedings{DBLP:conf/pods/BabcockBDMW02,
   author    = {Brian Babcock and
                Shivnath Babu and
                Mayur Datar and
                Rajeev Motwani and
                Jennifer Widom},
-  title     = {Models and issues in data stream systems. In Popa [34], pages 1?16.},
-  booktitle = {{SIGMOD}},
+  title     = {Models and Issues in Data Stream Systems},
+  booktitle = {Proceedings of the Twenty-first {ACM} {SIGACT-SIGMOD-SIGART} Symposium
+               on Principles of Database Systems, June 3-5, Madison, Wisconsin, {USA}},
   pages     = {1--16},
   year      = {2002},
- 
+  crossref  = {DBLP:conf/pods/2002},
+  url       = {http://doi.acm.org/10.1145/543613.543615},
+  doi       = {10.1145/543613.543615},
+  timestamp = {Wed, 23 May 2012 16:53:24 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pods/BabcockBDMW02},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{DBLP:conf/debs/KomazecCF12,
   author    = {Srdjan Komazec and
                Davide Cerri and
                Dieter Fensel},
-  title     = {Sparkwave: continuous schema-enhanced pattern matching over {RDF}
-               data streams},
-  booktitle = {{DEBS}},
+  title     = {Sparkwave: continuous schema-enhanced pattern matching over {RDF} data streams},
+  booktitle = {Proceedings of the Sixth {ACM} International Conference on Distributed
+               Event-Based Systems, {DEBS} 2012, Berlin, Germany, July 16-20, 2012},
   pages     = {58--68},
   year      = {2012},
-  }
+  crossref  = {DBLP:conf/debs/2012},
+  url       = {http://doi.acm.org/10.1145/2335484.2335491},
+  doi       = {10.1145/2335484.2335491},
+  timestamp = {Fri, 07 Sep 2012 11:05:52 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/debs/KomazecCF12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
 
 @inproceedings{DBLP:conf/semweb/BalduiniVDTPC13,
   author    = {Marco Balduini and
-               Emanuele {Della Valle} and
-               Daniele {Dell'Aglio} and
+               Emanuele Della Valle and
+               Daniele Dell'Aglio and
                Mikalai Tsytsarau and
                Themis Palpanas and
                Cristian Confalonieri},
   title     = {Social Listening of City Scale Events Using the Streaming Linked Data
                Framework},
-  booktitle = {{ISWC} Part {II}},
+  booktitle = {The Semantic Web - {ISWC} 2013 - 12th International Semantic Web Conference,
+               Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part {II}},
   pages     = {1--16},
   year      = {2013},
+  crossref  = {DBLP:conf/semweb/2013-2},
+  url       = {http://dx.doi.org/10.1007/978-3-642-41338-4_1},
+  doi       = {10.1007/978-3-642-41338-4_1},
+  timestamp = {Thu, 17 Oct 2013 16:01:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/BalduiniVDTPC13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-  @article{Tatbul2003b,
-  author = {N. Tatbul and U. Cetintemel and {S. B.} Zdonik and M. Cherniak and M. Stonebraker},
-  title = {Exploiting punctuation semantics in continuous data streams.},
-  journal = {IEEE Trans. on Knowledge and Data Eng.},
-  volume = {15},
-  number = {3},
-  year = {2003},
-  issn = {1089-7801},
-  pages = {555-568}
-  }
-
-  
- 
-@techreport{IEEEStd610.12-1990:glossary,
-    abstract = {{Describes the IEEE Std 610.12-1990, IEEE standard glossary of software engineering terminology, which identifies terms currently in use in the field of software engineering. Standard definitions for those terms are established.>}},
-    citeulike-article-id = {1341545},
-    citeulike-linkout-0 = {http://dx.doi.org/10.1109/ieeestd.1990.101064},
-    citeulike-linkout-1 = {http://ieeexplore.ieee.org/xpls/abs\_all.jsp?arnumber=159342},
-    doi = {10.1109/ieeestd.1990.101064},
-    journal = {IEEE Std 610.12-1990},
-    keywords = {ieee, software, standard, test},
-    pages = {1+},
-    posted-at = {2009-05-24 10:46:47},
-    priority = {2},
-    author = {IEEE},
-    publisher = {IEEE},
-    title = {{IEEE Standard Glossary of Software Engineering Terminology}},
-    url = {http://dx.doi.org/10.1109/ieeestd.1990.101064},
-    year = {1990}
+@inproceedings{bock2008benchmarking,
+  title={Benchmarking OWL reasoners},
+  author={Bock, J{\"u}rgen and Haase, Peter and Ji, Qiu and Volz, Raphael},
+  booktitle={Proc. of the ARea2008 Workshop, Tenerife, Spain (June 2008)},
+  year={2008}
 }
 
-@book{Molyneaux:2009:AAP:1550832,
- author = {Molyneaux, Ian},
- title = {The Art of Application Performance Testing: Help for Programmers and Quality Assurance},
- year = {2009},
- isbn = {0596520662, 9780596520663},
- edition = {1st},
- publisher = {O'Reilly Media, Inc.},
+@inproceedings{arasu2004linear,
+author    = {Arvind Arasu and
+               Mitch Cherniack and
+               Eduardo F. Galvez and
+               David Maier and
+               Anurag Maskey and
+               Esther Ryvkina and
+               Michael Stonebraker and
+               Richard Tibbetts},
+  title     = {Linear Road: {A} Stream Data Management Benchmark},
+  booktitle = {(e)Proceedings of the Thirtieth International Conference on Very Large
+               Data Bases, Toronto, Canada, August 31 - September 3 2004},
+  pages     = {480--491},
+  year      = {2004},
+  crossref  = {DBLP:conf/vldb/2004},
+  url       = {http://www.vldb.org/conf/2004/RS12P1.PDF},
+  timestamp = {Mon, 17 Sep 2012 22:06:33 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/vldb/ArasuCGMMRST04},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@book{Menasce:2001:CPW:560806,
- author = {Menasce, Daniel A. and Almeida, Virgilio},
- title = {Capacity Planning for Web Services: Metrics, Models, and Methods},
- year = {2001},
- isbn = {0130659037},
- edition = {1st},
- publisher = {Prentice Hall PTR},
- address = {Upper Saddle River, NJ, USA},
+@inproceedings{bizarro:DSP:2007:1143,
+  author    = {Pedro Bizarro},
+  title     = {BiCEP - Benchmarking Complex Event Processing Systems},
+  booktitle = {Event Processing, 6.5. - 11.5.2007},
+  year      = {2007},
+  crossref  = {DBLP:conf/dagstuhl/2007P7191},
+  url       = {http://drops.dagstuhl.de/opus/volltexte/2007/1143},
+  timestamp = {Wed, 19 Jun 2013 12:19:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/dagstuhl/Bizarro07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@book{Gray:1992:BHD:530588,
-  editor    = {Jim Gray},
-  title     = {The Benchmark Handbook for Database and Transaction Systems (2nd Edition)},
-  publisher = {Morgan Kaufmann},
-  year      = {1993},
-  isbn      = {1-55860-292-5},
-  timestamp = {Thu, 03 Jan 2002 11:51:33 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/books/mk/Gray93},
+@inproceedings{Mendes:2013:FBT:2479871.2479941,
+  author    = {Marcelo R. N. Mendes and
+               Pedro Bizarro and
+               Paulo Marques},
+  title     = {FINCoS: benchmark tools for event processing systems},
+  booktitle = {{ACM/SPEC} International Conference on Performance Engineering, ICPE'13,
+               Prague, Czech Republic - April 21 - 24, 2013},
+  pages     = {431--432},
+  year      = {2013},
+  crossref  = {DBLP:conf/wosp/2013},
+  url       = {http://doi.acm.org/10.1145/2479871.2479941},
+  doi       = {10.1145/2479871.2479941},
+  timestamp = {Mon, 03 Jun 2013 09:11:59 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/wosp/MendesBM13b},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Mendes:2013:TSE:2479871.2479913,
+ 	author    = {Marcelo R. N. Mendes and
+               Pedro Bizarro and
+               Paulo Marques},
+  title     = {Towards a standard event processing benchmark},
+  booktitle = {{ACM/SPEC} International Conference on Performance Engineering, ICPE'13,
+               Prague, Czech Republic - April 21 - 24, 2013},
+  pages     = {307--310},
+  year      = {2013},
+  crossref  = {DBLP:conf/wosp/2013},
+  url       = {http://doi.acm.org/10.1145/2479871.2479913},
+  doi       = {10.1145/2479871.2479913},
+  timestamp = {Mon, 03 Jun 2013 09:11:59 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/wosp/MendesBM13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Perry:2000:ESS:336512.336586,
+  author    = {Dewayne E. Perry and
+               Adam A. Porter and
+               Lawrence G. Votta},
+  title     = {Empirical studies of software engineering: a roadmap},
+  booktitle = {22nd International Conference on on Software Engineering, Future of
+               Software Engineering Track, {ICSE} 2000, Limerick Ireland, June 4-11,
+               2000.},
+  pages     = {345--355},
+  year      = {2000},
+  crossref  = {DBLP:conf/icse/2000future},
+  url       = {http://doi.acm.org/10.1145/336512.336586},
+  doi       = {10.1145/336512.336586},
+  timestamp = {Fri, 18 May 2012 15:03:01 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icse/PerryPV00},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Babcock:2002:MID:543613.543615,
+  author    = {Brian Babcock and
+               Shivnath Babu and
+               Mayur Datar and
+               Rajeev Motwani and
+               Jennifer Widom},
+  title     = {Models and Issues in Data Stream Systems},
+  booktitle = {Proceedings of the Twenty-first {ACM} {SIGACT-SIGMOD-SIGART} Symposium
+               on Principles of Database Systems, June 3-5, Madison, Wisconsin, {USA}},
+  pages     = {1--16},
+  year      = {2002},
+  crossref  = {DBLP:conf/pods/2002},
+  url       = {http://doi.acm.org/10.1145/543613.543615},
+  doi       = {10.1145/543613.543615},
+  timestamp = {Wed, 23 May 2012 16:53:24 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pods/BabcockBDMW02},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{Lephuoc2011,
+ author = {Le-Phuoc, Danh and Dao-Tran, Minh and Parreira, Josiane Xavier and Hauswirth, Manfred},
+ title = {A Native and Adaptive Approach for Unified Processing of Linked Streams and Linked Data},
+ booktitle = {Proceedings of the 10th International Conference on The Semantic Web - Volume Part I},
+ series = {ISWC'11},
+ year = {2011},
+ isbn = {978-3-642-25072-9},
+ location = {Bonn, Germany},
+ pages = {370--388},
+ numpages = {19},
+ url = {http://dl.acm.org/citation.cfm?id=2063016.2063041},
+ acmid = {2063041},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+ keywords = {RDF streams, dynamic query planning, linked data, linked streams, query optimisation, stream processing},
+}
+
+
+@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
+ author    = {Jean{-}Paul Calbimonte and
+               {\'{O}}scar Corcho and
+               Alasdair J. G. Gray},
+  title     = {Enabling Ontology-Based Access to Streaming Data Sources},
+  booktitle = {The Semantic Web - {ISWC} 2010 - 9th International Semantic Web Conference,
+               {ISWC} 2010, Shanghai, China, November 7-11, 2010, Revised Selected
+               Papers, Part {I}},
+  pages     = {96--111},
+  year      = {2010},
+  crossref  = {DBLP:conf/semweb/2010-1},
+  url       = {http://dx.doi.org/10.1007/978-3-642-17746-0_7},
+  doi       = {10.1007/978-3-642-17746-0_7},
+  timestamp = {Mon, 04 Apr 2011 12:13:23 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/CalbimonteCG10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{4618773, 
+  author    = {Sven Groppe and
+               Jinghua Groppe and
+               Dirk Kukulenz and
+               Volker Linnemann},
+  title     = {A {SPARQL} Engine for Streaming {RDF} Data},
+  booktitle = {Third International {IEEE} Conference on Signal-Image Technologies
+               and Internet-Based System, {SITIS} 2007, Shanghai, China, December
+               16-18, 2007},
+  pages     = {167--174},
+  year      = {2007},
+  crossref  = {DBLP:conf/sitis/2007},
+  url       = {http://doi.ieeecomputersociety.org/10.1109/SITIS.2007.22},
+  doi       = {10.1109/SITIS.2007.22},
+  timestamp = {Fri, 26 Oct 2012 13:44:06 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/sitis/GroppeGKL07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{4597242, 
+author    = {Dieter Fensel and
+               Frank van Harmelen and
+               Bo Andersson and
+               Paul Brennan and
+               Hamish Cunningham and
+               Emanuele Della Valle and
+               Florian Fischer and
+               Zhisheng Huang and
+               Atanas Kiryakov and
+               Tony Kyung{-}il Lee and
+               Lael Schooler and
+               Volker Tresp and
+               Stefan Wesner and
+               Michael Witbrock and
+               Ning Zhong},
+  title     = {Towards LarKC: {A} Platform for Web-Scale Reasoning},
+  booktitle = {Proceedings of the 2th {IEEE} International Conference on Semantic
+               Computing {(ICSC} 2008), August 4-7, 2008, Santa Clara, California,
+               {USA}},
+  pages     = {524--529},
+  year      = {2008},
+  crossref  = {DBLP:conf/semco/2008},
+  url       = {http://dx.doi.org/10.1109/ICSC.2008.41},
+  doi       = {10.1109/ICSC.2008.41},
+  timestamp = {Tue, 25 Nov 2014 17:05:19 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semco/FenselHABCVFHKLSTWWZ08},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{Tatbul2003b,
+	author    = {Peter A. Tucker and
+               David Maier and
+               Tim Sheard and
+               Leonidas Fegaras},
+  title     = {Exploiting Punctuation Semantics in Continuous Data Streams},
+  journal   = {{IEEE} Trans. Knowl. Data Eng.},
+  volume    = {15},
+  number    = {3},
+  pages     = {555--568},
+  year      = {2003},
+  url       = {http://doi.ieeecomputersociety.org/10.1109/TKDE.2003.1198390},
+  doi       = {10.1109/TKDE.2003.1198390},
+  timestamp = {Wed, 02 Nov 2011 16:47:15 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tkde/TuckerMSF03},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
@@ -578,113 +839,21 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  acmid = {209093},
  publisher = {Elsevier Science Inc.},
  address = {New York, NY, USA},
-} 
-
-
-
-@book{DBLP:books/mk/Gray93,
-  editor    = {Jim Gray},
-  title     = {The Benchmark Handbook for Database and Transaction Systems (2nd Edition)},
-  publisher = {Morgan Kaufmann},
-  year      = {1993},
-  isbn      = {1-55860-292-5},
-  timestamp = {Thu, 03 Jan 2002 11:51:33 +0100},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/books/mk/Gray93},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
 
 @article{gardiner2006automated,
-  title={Automated Benchmarking of Description Logic Reasoners.},
-  author={Gardiner, Tom and Horrocks, Ian and Tsarkov, Dmitry},
-  journal={Description Logics},
-  volume={189},
-  year={2006}
-}
-
-@inproceedings{bock2008benchmarking,
-  title={Benchmarking OWL reasoners},
-  author={Bock, J{\"u}rgen and Haase, Peter and Ji, Qiu and Volz, Raphael},
-  booktitle={Proc. of the ARea2008 Workshop, Tenerife, Spain (June 2008)},
-  year={2008}
-}
-
-@inproceedings{arasu2004linear,
-  title={Linear road: a stream data management benchmark},
-  author={Arasu, Arvind and Cherniack, Mitch and Galvez, Eduardo and Maier, David and Maskey, Anurag S and Ryvkina, Esther and Stonebraker, Michael and Tibbetts, Richard},
-  booktitle={Proceedings of the Thirtieth international conference on Very large data bases-Volume 30},
-  pages={480--491},
-  year={2004},
-  organization={VLDB Endowment}
-}
-
-@InProceedings{bizarro:DSP:2007:1143,
-  author =	{Pedro Bizarro},
-  title =	{BiCEP - Benchmarking Complex Event Processing Systems},
-  booktitle =	{Event Processing},
-  year =	{2007},
-  editor =	{Mani Chandy and Opher Etzion and Rainer von Ammon},
-  number =	{07191},
-  series =	{Dagstuhl Seminar Proceedings},
-  ISSN =	{1862-4405},
-  publisher =	{Internationales Begegnungs- und Forschungszentrum f{\"u}r Informatik (IBFI), Schloss Dagstuhl, Germany},
-  address =	{Dagstuhl, Germany},
-  URL =		{http://drops.dagstuhl.de/opus/volltexte/2007/1143},
-  annote =	{Keywords: Complex Event Processing, benchmark, synthetic benchmark, events, response time, throughput, scalability, adaptivity, query processing}
-}
-
-@inproceedings{Mendes:2013:FBT:2479871.2479941,
- author = {Mendes, Marcelo R.N. and Bizarro, Pedro and Marques, Paulo},
- title = {FINCoS: Benchmark Tools for Event Processing Systems},
- booktitle = {Proceedings of the 4th ACM/SPEC International Conference on Performance Engineering},
- series = {ICPE '13},
- year = {2013},
- isbn = {978-1-4503-1636-1},
- location = {Prague, Czech Republic},
- pages = {431--432},
- numpages = {2},
- url = {http://doi.acm.org/10.1145/2479871.2479941},
- doi = {10.1145/2479871.2479941},
- acmid = {2479941},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {benchmarking, cep, event processing, framework, tools},
-}
-
-@inproceedings{Mendes:2013:TSE:2479871.2479913,
- author = {Mendes, Marcelo R.N. and Bizarro, Pedro and Marques, Paulo},
- title = {Towards a Standard Event Processing Benchmark},
- booktitle = {Proceedings of the 4th ACM/SPEC International Conference on Performance Engineering},
- series = {ICPE '13},
- year = {2013},
- isbn = {978-1-4503-1636-1},
- location = {Prague, Czech Republic},
- pages = {307--310},
- numpages = {4},
- url = {http://doi.acm.org/10.1145/2479871.2479913},
- doi = {10.1145/2479871.2479913},
- acmid = {2479913},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {benchmark, cep, event processing, performance, scalability},
-}
-
-@inproceedings{Perry:2000:ESS:336512.336586,
- author = {Perry, Dewayne E. and Porter, Adam A. and Votta, Lawrence G.},
- title = {Empirical Studies of Software Engineering: A Roadmap},
- booktitle = {Proceedings of the Conference on The Future of Software Engineering},
- series = {ICSE '00},
- year = {2000},
- isbn = {1-58113-253-0},
- location = {Limerick, Ireland},
- pages = {345--355},
- numpages = {11},
- url = {http://doi.acm.org/10.1145/336512.336586},
- doi = {10.1145/336512.336586},
- acmid = {336586},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {empirical studies, software engineering},
+  author    = {Tom Gardiner and
+               Ian Horrocks and
+               Dmitry Tsarkov},
+  title     = {Automated Benchmarking of Description Logic Reasoners},
+  booktitle = {Proceedings of the 2006 International Workshop on Description Logics
+               (DL2006), Windermere, Lake District, UK, May 30 - June 1, 2006},
+  year      = {2006},
+  crossref  = {DBLP:conf/dlog/2006},
+  url       = {http://www.ceur-ws.org/Vol-189/submission_23.pdf},
+  timestamp = {Wed, 31 Oct 2007 12:27:05 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/dlog/GardinerHT06},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @article{Cugola:2012:PFI:2187671.2187677,
@@ -708,151 +877,54 @@ The paper discusses safety aspects under which STARQL queries that embed UCQs ov
  keywords = {Complex event processing, publish-subscribe, stream processing},
 }
 
-
 @article{Babu:2001:CQO:603867.603884,
-          volume = {30 },
-          number = {3},
-           month = {September},
-          author = {Shivnath Babu and Jennifer Widom},
-       booktitle = {International Conference on Management of Data (SIGMOD 2001)},
-           title = {Continuous Queries over Data Streams},
-         journal = {SIGMOD Record},
-            year = {2001},
-        keywords = {Data Streams, Continuous Queries},
-             url = {http://ilpubs.stanford.edu:8090/527/},
-        abstract = {In many modern applications, data may take the form of infinite "data streams", rather than finite stored data sets.  Several aspects of data management need to be reconsidered in the presence of data streams, offering a new research direction for the database community. In this paper we focus primarily on the problem of query processing, specifically on how to define and evaluate "continuous queries" over data streams.  We address semantic issues as well as efficiency concerns.  Our main contributions are threefold.  First, we specify a general and flexible architecture for query processing in the presence of data streams.  Second, we use our basic architecture as a tool to clarify alternative semantics and processing techniques for continuous queries.  The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views.  Finally, we map out research topics in the area of query processing over data streams, showing where previous work is relevant and describing problems yet to be addressed. Please note that this paper was prepared as a ``vision'' contribution.  Its main goal is to identify in detail what we believe to be an interesting new research direction, which also happens to have near-term practical relevance.}
+  author    = {Shivnath Babu and
+               Jennifer Widom},
+  title     = {Continuous Queries over Data Streams},
+  journal   = {{SIGMOD} Record},
+  volume    = {30},
+  number    = {3},
+  pages     = {109--120},
+  year      = {2001},
+  url       = {http://doi.acm.org/10.1145/603867.603884},
+  doi       = {10.1145/603867.603884},
+  timestamp = {Wed, 19 Sep 2012 09:16:25 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/sigmod/BabuW01},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
-
-
-@book{Luckham:2001:PEI:515781,
- author = {Luckham, David C.},
- title = {The  Power of Events: An Introduction to Complex Event Processing in Distributed Enterprise Systems},
- year = {2001},
- isbn = {0201727897},
- publisher = {Addison-Wesley Longman Publishing Co., Inc.},
- address = {Boston, MA, USA},
-}
-
 
 @article{Eugster:2003:MFP:857076.857078,
- author = {Eugster, Patrick Th. and Felber, Pascal A. and Guerraoui, Rachid and Kermarrec, Anne-Marie},
- title = {The Many Faces of Publish/Subscribe},
- journal = {ACM Comput. Surv.},
- issue_date = {June 2003},
- volume = {35},
- number = {2},
- month = jun,
- year = {2003},
- issn = {0360-0300},
- pages = {114--131},
- numpages = {18},
- url = {http://doi.acm.org/10.1145/857076.857078},
- doi = {10.1145/857076.857078},
- acmid = {857078},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {Distribution, interaction, publish/subscribe},
+ author    = {Patrick Th. Eugster and
+               Pascal Felber and
+               Rachid Guerraoui and
+               Anne{-}Marie Kermarrec},
+  title     = {The many faces of publish/subscribe},
+  journal   = {{ACM} Comput. Surv.},
+  volume    = {35},
+  number    = {2},
+  pages     = {114--131},
+  year      = {2003},
+  url       = {http://doi.acm.org/10.1145/857076.857078},
+  doi       = {10.1145/857076.857078},
+  timestamp = {Wed, 19 Nov 2003 13:42:51 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/csur/EugsterFGK03},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-
-@inproceedings{Babcock:2002:MID:543613.543615,
- author = {Babcock, Brian and Babu, Shivnath and Datar, Mayur and Motwani, Rajeev and Widom, Jennifer},
- title = {Models and Issues in Data Stream Systems},
- booktitle = {Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART Symposium on Principles of Database Systems},
- series = {PODS '02},
- year = {2002},
- isbn = {1-58113-507-6},
- location = {Madison, Wisconsin},
- pages = {1--16},
- numpages = {16},
- url = {http://doi.acm.org/10.1145/543613.543615},
- doi = {10.1145/543613.543615},
- acmid = {543615},
- publisher = {ACM},
- address = {New York, NY, USA},
-}
-
-@misc{rdfconcepts,
-  abstract = {The Resource Description Framework (RDF) is a
-		 framework for representing information in the Web. RDF
-		 Concepts and Abstract Syntax defines an abstract 
-
-syntax
-		 on which RDF is based, and which serves to link its
-		 concrete syntax to its formal semantics. It also
-		 includes discussion of design goals, key concepts,
-		 datatyping, character normalization and handling of 
-
-URI
-		 references.},
-  added-at = {2009-07-17T22:34:37.000+0200},
-  author = {Klyne, Graham and Carroll, Jeremy J.},
-  biburl = {http://www.bibsonomy.org/bibtex/2ab037eb2a34cc988d4eb90ddeb144b0a/kf},
-  description = {Ontology and GIS},
-  howpublished = {World Wide Web Consortium, Recommendation
-		 REC-rdf-concepts-20040210},
-  interhash = {4ec789f7af499569daace4f3ae925cec},
-  intrahash = {ab037eb2a34cc988d4eb90ddeb144b0a},
-  keywords = {imported},
-  month = {February},
-  timestamp = {2009-07-17T22:35:30.000+0200},
-  title = {Resource Description Framework ({RDF}): Concepts and
-		 Abstract Syntax},
-  topic = {rdf[1]},
-  updates = {rdf},
-  uri = {http://www.w3.org/TR/2004/REC-rdf-concepts-20040210},
-  year = 2004
-}
-
-@ARTICLE{4120457, 
-author={Fensel, D. and van Harmelen, F.}, 
-journal={Internet Computing, IEEE}, 
-title={Unifying Reasoning and Search to Web Scale}, 
-year={2007}, 
-month={March}, 
-volume={11}, 
-number={2}, 
-pages={96-95}, 
-keywords={inference mechanisms;semantic Web;Web page descriptions;inference methods;proof engine;reasoning methods;semantic Web;Context-aware services;Engines;HTML;Hardware;Humans;Logic programming;Resource description framework;Semantic Web;Telecommunications;Web pages;Web;logic;reasoning;scalability;search}, 
-doi={10.1109/MIC.2007.51}, 
-ISSN={1089-7801},}
-
-@INPROCEEDINGS{4597242, 
-author={Fensel, D. and van Harmelen, F. and Andersson, B. and Brennan, P. and Cunningham, H. and Della Valle, E. and Fischer, F. and Huang, Zhisheng and Kiryakov, A. and Lee, T.K.-i. and Schooler, L. and Tresp, V. and Wesner, S. and Witbrock, M. and Ning Zhong}, 
-booktitle={Semantic Computing, 2008 IEEE International Conference on}, 
-title={Towards LarKC: A Platform for Web-Scale Reasoning}, 
-year={2008}, 
-month={Aug}, 
-pages={524-529}, 
-keywords={distributed processing;inference mechanisms;semantic Web;LarKC;Web-scale reasoning;computing-at-home;high-performance computing cluster;large knowledge collider;logic-based reasoning;massive distributed incomplete reasoning;reasoning system;semantic Web;Artificial intelligence;Cancer;Data analysis;Distributed computing;Europe;Home computing;Humans;Logic;Scalability;Semantic Web;Semantic Web;scalability;web-scale reasoning}, 
-doi={10.1109/ICSC.2008.41},}
-
-@InProceedings{TrackingMolecules,
-  author = "Li  Ding and Tim  Finin and Anupam  Joshi and Yun  Peng and Paulo  Pinheiro da Silva and Deborah L. McGuinness",
-  title = "{Tracking RDF Graph Provenance using RDF Molecules}",
-  month = "November",
-  year = "2005",
-  note = "Poster paper.  A longer version is available as a Technical report",
-  booktitle = "Proceedings of the 4th International Semantic Web Conference",
-}
-
-@misc{prudhommeaux_sparql_2008,
-  added-at = {2009-02-19T13:28:52.000+0100},
-  biburl = {http://www.bibsonomy.org/bibtex/291fc1839fc67dd44bde01bed33e73f69/ivan},
-  editor = {Prud'hommeaux, Eric and Seaborne, Andy},
-  interhash = {cab8b1f0c09d6337e91bee3d2c6bee78},
-  intrahash = {91fc1839fc67dd44bde01bed33e73f69},
-  keywords = {RDF SPARQL semantic_web},
-  location = {spec:sparql},
-  publisher = {World Wide Web Consortium},
-  timestamp = {2009-02-19T13:31:11.000+0100},
-  title = {{SPARQL} Query Language for {RDF,} {W3C} Recommendation},
-  url = {http://www.w3.org/TR/rdf-sparql-query/},
-  author={Prud’Hommeaux, Eric and Seaborne, Andy and others},
-  journal={W3C recommendation},
-  volume={15},
-  year = 2008
+@article{4120457, 
+ author    = {Dieter Fensel and
+               Frank van Harmelen},
+  title     = {Unifying Reasoning and Search to Web Scale},
+  journal   = {{IEEE} Internet Computing},
+  volume    = {11},
+  number    = {2},
+  pages     = {94--96},
+  year      = {2007},
+  url       = {http://doi.ieeecomputersociety.org/10.1109/MIC.2007.51},
+  doi       = {10.1109/MIC.2007.51},
+  timestamp = {Thu, 08 Nov 2007 08:29:14 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/internet/FenselH07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @article{Barbieri:2010:QRS:1860702.1860705,
@@ -874,41 +946,6 @@ doi={10.1109/ICSC.2008.41},}
  address = {New York, NY, USA},
 }
 
-@inproceedings{Lephuoc2011,
- author = {Le-Phuoc, Danh and Dao-Tran, Minh and Parreira, Josiane Xavier and Hauswirth, Manfred},
- title = {A Native and Adaptive Approach for Unified Processing of Linked Streams and Linked Data},
- booktitle = {Proceedings of the 10th International Conference on The Semantic Web - Volume Part I},
- series = {ISWC'11},
- year = {2011},
- isbn = {978-3-642-25072-9},
- location = {Bonn, Germany},
- pages = {370--388},
- numpages = {19},
- url = {http://dl.acm.org/citation.cfm?id=2063016.2063041},
- acmid = {2063041},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
- keywords = {RDF streams, dynamic query planning, linked data, linked streams, query optimisation, stream processing},
-}
-
-
-@inproceedings{Calbimonte:2010:EOA:1940281.1940289,
- author = {Calbimonte, Jean-Paul and Corcho, Oscar and Gray, Alasdair J. G.},
- title = {Enabling Ontology-based Access to Streaming Data Sources},
- booktitle = {Proceedings of the 9th International Semantic Web Conference on The Semantic Web - Volume Part I},
- series = {ISWC'10},
- year = {2010},
- isbn = {3-642-17745-X, 978-3-642-17745-3},
- location = {Shanghai, China},
- pages = {96--111},
- numpages = {16},
- url = {http://dl.acm.org/citation.cfm?id=1940281.1940289},
- acmid = {1940289},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
-} 
-
-
 @article{DBLP:journals/ws/LecueTHTBST14,
   author    = {Freddy L{\'{e}}cu{\'{e}} and
                Simone Tallevi{-}Diotallevi and
@@ -928,33 +965,8 @@ doi={10.1109/ICSC.2008.41},}
   timestamp = {Wed, 17 Dec 2014 16:59:35 +0100},
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ws/LecueTHTBST14},
   bibsource = {dblp computer science bibliography, http://dblp.org}
-		}
-		
-@proceedings{DBLP:conf/semweb/2013-2,
-  editor    = {Harith Alani and
-               Lalana Kagal and
-               Achille Fokoue and
-               Paul T. Groth and
-               Chris Biemann and
-               Josiane Xavier Parreira and
-               Lora Aroyo and
-               Natasha F. Noy and
-               Chris Welty and
-               Krzysztof Janowicz},
-  title     = {The Semantic Web - {ISWC} 2013 - 12th International Semantic Web Conference,
-               Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part {II}},
-  series    = {Lecture Notes in Computer Science},
-  volume    = {8219},
-  publisher = {Springer},
-  year      = {2013},
-  url       = {http://dx.doi.org/10.1007/978-3-642-41338-4},
-  doi       = {10.1007/978-3-642-41338-4},
-  isbn      = {978-3-642-41337-7},
-  timestamp = {Wed, 16 Oct 2013 20:09:16 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/2013-2},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-		
+				
 @article{DBLP:journals/ws/BalduiniCDVHLKT12,
   author    = {Marco Balduini and
                Irene Celino and
@@ -977,20 +989,6 @@ doi={10.1109/ICSC.2008.41},}
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ws/BalduiniCDVHLKT12},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
-
-
-@INPROCEEDINGS{4618773, 
-author={Groppe, S. and Groppe, J. and Kukulenz, D. and Linnemann, V.}, 
-booktitle={Signal-Image Technologies and Internet-Based System, 2007. SITIS '07. Third International IEEE Conference on}, 
-title={A SPARQL Engine for Streaming RDF Data}, 
-year={2007}, 
-month={Dec}, 
-pages={167-174}, 
-keywords={query languages;query processing;semantic Web;RDF data streaming;RDF query languages;SPARQL engine;SPARQL query;semantic Web;streaming query engines;Algebra;Costs;Database languages;Information systems;Internet;Resource description framework;Runtime environment;Search engines;Semantic Web;Standards development;RDF;SPARQL;Semantic Web;Streams}, 
-doi={10.1109/SITIS.2007.22},
-}
-
 
 @article{Gruber:1993:TAP:173743.173747,
  author = {Gruber, Thomas R.},
@@ -1022,6 +1020,164 @@ doi={10.1109/SITIS.2007.22},
   publisher={Morgan \& Claypool Publishers}
 }
 
+@techreport{TrackingMolecules,
+  author = "Li  Ding and Yun  Peng and Paulo  Pinheiro da Silva and Deborah L. McGuinness",
+  title = "{Tracking RDF Graph Provenance using RDF Molecules}",
+  month = "April",
+  year = "2005",
+  booktitle = "TR-CS-05-06",
+  institution = "UMBC",
+}
+
+@techreport{IEEEStd610.12-1990:glossary,
+    abstract = {{Describes the IEEE Std 610.12-1990, IEEE standard glossary of software engineering terminology, which identifies terms currently in use in the field of software engineering. Standard definitions for those terms are established.>}},
+    citeulike-article-id = {1341545},
+    citeulike-linkout-0 = {http://dx.doi.org/10.1109/ieeestd.1990.101064},
+    citeulike-linkout-1 = {http://ieeexplore.ieee.org/xpls/abs\_all.jsp?arnumber=159342},
+    doi = {10.1109/ieeestd.1990.101064},
+    journal = {IEEE Std 610.12-1990},
+    keywords = {ieee, software, standard, test},
+    pages = {1+},
+    posted-at = {2009-05-24 10:46:47},
+    priority = {2},
+    author = {IEEE},
+    publisher = {IEEE},
+    title = {{IEEE Standard Glossary of Software Engineering Terminology}},
+    url = {http://dx.doi.org/10.1109/ieeestd.1990.101064},
+    year = {1990}
+}
+
+@misc{prudhommeaux_sparql_2008,
+  added-at = {2009-02-19T13:28:52.000+0100},
+  biburl = {http://www.bibsonomy.org/bibtex/291fc1839fc67dd44bde01bed33e73f69/ivan},
+  editor = {Prud'hommeaux, Eric and Seaborne, Andy},
+  interhash = {cab8b1f0c09d6337e91bee3d2c6bee78},
+  intrahash = {91fc1839fc67dd44bde01bed33e73f69},
+  keywords = {RDF SPARQL semantic_web},
+  location = {spec:sparql},
+  publisher = {World Wide Web Consortium},
+  timestamp = {2009-02-19T13:31:11.000+0100},
+  title = {{SPARQL} Query Language for {RDF,} {W3C} Recommendation},
+  url = {http://www.w3.org/TR/rdf-sparql-query/},
+  author={Prud’Hommeaux, Eric and Seaborne, Andy and others},
+  journal={W3C recommendation},
+  volume={15},
+  year = 2008
+}
+
+
+@misc{rdfconcepts,
+  abstract = {The Resource Description Framework (RDF) is a
+		 framework for representing information in the Web. RDF
+		 Concepts and Abstract Syntax defines an abstract 
+
+syntax
+		 on which RDF is based, and which serves to link its
+		 concrete syntax to its formal semantics. It also
+		 includes discussion of design goals, key concepts,
+		 datatyping, character normalization and handling of 
+
+URI
+		 references.},
+  added-at = {2009-07-17T22:34:37.000+0200},
+  author = {Klyne, Graham and Carroll, Jeremy J.},
+  biburl = {http://www.bibsonomy.org/bibtex/2ab037eb2a34cc988d4eb90ddeb144b0a/kf},
+  description = {Ontology and GIS},
+  howpublished = {World Wide Web Consortium Recommendation},
+  interhash = {4ec789f7af499569daace4f3ae925cec},
+  intrahash = {ab037eb2a34cc988d4eb90ddeb144b0a},
+  keywords = {imported},
+  month = {February},
+  timestamp = {2009-07-17T22:35:30.000+0200},
+  title = {Resource Description Framework ({RDF}): Concepts and
+		 Abstract Syntax},
+  topic = {rdf[1]},
+  updates = {rdf},
+  uri = {http://www.w3.org/TR/2004/REC-rdf-concepts-20040210},
+  year = 2004
+}
+
+@proceedings{DBLP:conf/semweb/2013-2,
+  editor    = {Harith Alani and
+               Lalana Kagal and
+               Achille Fokoue and
+               Paul T. Groth and
+               Chris Biemann and
+               Josiane Xavier Parreira and
+               Lora Aroyo and
+               Natasha F. Noy and
+               Chris Welty and
+               Krzysztof Janowicz},
+  title     = {The Semantic Web - {ISWC} 2013 - 12th International Semantic Web Conference,
+               Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part {II}},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8219},
+  publisher = {Springer},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1007/978-3-642-41338-4},
+  doi       = {10.1007/978-3-642-41338-4},
+  isbn      = {978-3-642-41337-7},
+  timestamp = {Wed, 16 Oct 2013 20:09:16 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/semweb/2013-2},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@book{dustin2009implementing,
+  title={Implementing automated software testing: How to save time and lower costs while raising quality},
+  author={Dustin, Elfriede and Garrett, Thom and Gauf, Bernie},
+  year={2009},
+  publisher={Pearson Education}
+}
+
+@book{Molyneaux:2009:AAP:1550832,
+ author = {Molyneaux, Ian},
+ title = {The Art of Application Performance Testing: Help for Programmers and Quality Assurance},
+ year = {2009},
+ isbn = {0596520662, 9780596520663},
+ edition = {1st},
+ publisher = {O'Reilly Media, Inc.},
+}
+
+@book{Menasce:2001:CPW:560806,
+ author = {Menasce, Daniel A. and Almeida, Virgilio},
+ title = {Capacity Planning for Web Services: Metrics, Models, and Methods},
+ year = {2001},
+ isbn = {0130659037},
+ edition = {1st},
+ publisher = {Prentice Hall PTR},
+ address = {Upper Saddle River, NJ, USA},
+}
+
+@book{Gray:1992:BHD:530588,
+  editor    = {Jim Gray},
+  title     = {The Benchmark Handbook for Database and Transaction Systems (2nd Edition)},
+  publisher = {Morgan Kaufmann},
+  year      = {1993},
+  isbn      = {1-55860-292-5},
+  timestamp = {Thu, 03 Jan 2002 11:51:33 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/books/mk/Gray93},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@book{DBLP:books/mk/Gray93,
+  editor    = {Jim Gray},
+  title     = {The Benchmark Handbook for Database and Transaction Systems (2nd Edition)},
+  publisher = {Morgan Kaufmann},
+  year      = {1993},
+  isbn      = {1-55860-292-5},
+  timestamp = {Thu, 03 Jan 2002 11:51:33 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/books/mk/Gray93},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@book{Luckham:2001:PEI:515781,
+ author = {Luckham, David C.},
+ title = {The  Power of Events: An Introduction to Complex Event Processing in Distributed Enterprise Systems},
+ year = {2001},
+ isbn = {0201727897},
+ publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+ address = {Boston, MA, USA},
+}
 
 %Other research fields
 @article{felsenstein1985phylogenies,
@@ -1044,17 +1200,7 @@ doi={10.1109/SITIS.2007.22},
   volume = 125,
   year = 1985
 }
-@incollection{CBO9781139174053A009,
-author = "Thomas Janoski and Alexander M. Hicks",
-title = {Methodological innovations in comparative political economy: an introduction}, 
-booktitle = {The Comparative Political Economy of the Welfare State}, 
-publisher = {Cambridge University Press}, 
-year = {1994},
-pages = {1--28},
-isbn = {9781139174053}, 
-note = {Cambridge Books Online}, 
-url = {http://dx.doi.org/10.1017/CBO9781139174053.002}
-}
+
 @article{CSS:4411600,
 author = {Skocpol,Theda and Somers,Margaret},
 title = {The Uses of Comparative History in Macrosocial Inquiry},
@@ -1068,6 +1214,18 @@ pages = {174--197},
 numpages = {24},
 doi = {10.1017/S0010417500009282},
 URL = {http://journals.cambridge.org/article_S0010417500009282},
+}
+
+@incollection{CBO9781139174053A009,
+author = "Thomas Janoski and Alexander M. Hicks",
+title = {Methodological innovations in comparative political economy: an introduction}, 
+booktitle = {The Comparative Political Economy of the Welfare State}, 
+publisher = {Cambridge University Press}, 
+year = {1994},
+pages = {1--28},
+isbn = {9781139174053}, 
+note = {Cambridge Books Online}, 
+url = {http://dx.doi.org/10.1017/CBO9781139174053.002}
 }
 
 
