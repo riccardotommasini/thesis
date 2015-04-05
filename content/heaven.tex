@@ -3,68 +3,61 @@ It consists in four Baselines and two main components: the Test Stand and the An
 
 \section{Test Stand}\label{sec:teststand}
 
-Aerospace engineering defines an engine test stand as a facility used to develop, study and characterise engines. It allows to test operating regimes and offers measurement of several variables associated with engine process. A test stand may use actuators for attaining a specific engine state, which is a unique combination of the engine properties. The information collected through the sensors depends on the engine manufacturer, which usually provides his own stand or the facilities to test the engine with commercial solutions. The test stand executes black box testing over engines, because its users can not rely to known engine internal mechanisms.
+Aerospace engineering defines an engine test stand as a facility used to develop, study and characterise engines. It allows to test operating regimes and offers measurement of several variables associated with engine process. A test stand may use actuators for attaining a specific engine state, which is a unique combination of the engine properties. The information collected through the sensors depends on the engine manufacturer, which usually provides his own stand or the facilities to test the engine with commercial solutions. The test stand executes black box testing over engines, because its users can not rely on the knowledge of engine internal mechanisms.
 
 The definition above still holds its relevance in the SR context, with the difference that engines subject of the testing, RSP Engines, are IO-Systems. An RSP Engine consumes  RDF Streams and it produces new ones, by applying queries under some entailment regime and w.r.t. an ontology which does not change over time. Describing an RSP Engine means understanding the relation between input streams, the queries registered to it and what we call \textit{operational semantics}, which requires to know the RSP Engine internal processes. Indeed, black box testing is the only possibility to analyse such system with a test stand. Even having access to the entire RSP Engine code, may result hard to characterise all the RSP Engine properties a priori. 
 
-Figure~\ref{fig:architecture} shows \name Test Stand design. It contains the block schema of the modules that compose the Test Stand pipeline. Moreover, we enumerates in the figure the events that pass through the Test Stand while it is executing and experiment. In the following section we describe each elements that Figure~\ref{fig:architecture} summarises. In Subsection~\ref{sec:modules} we describe the Test Stand pipeline and each module that composes it. In Section~\ref{sec:test-stand-data-model}, we detail the Data Model exploited to represent experiments, events, query results and measurements. Finally, in Section~\ref{sec:test-stand-workflow}, we describe the Test Stand workflow, how it executes experiments to stress the RSP Engine that we want to test.
+%Figure~\ref{fig:architecture} shows \name Test Stand design. It contains the block schema of the modules that compose the Test Stand pipeline. Moreover, we enumerates in the figure the events that pass through the Test Stand while it is executing and experiment. 
 
-\begin{figure}[tbh]
-\centering
-\includegraphics[scale=0.37]{images/heaven-schema-workflow}
-\caption[\name Modules and Workflow]{The execution starts when the \textsc{Test Stand} received the Experiment $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ as an input (1). The \textsc{Streamer} pushes a \textsc{CTEvent}, an RSP Stream $\mathcal{D}$ fragment, to the RSP Engine in in use $\mathcal{E}$ (2). In (3) $\mathcal{E}$ pushes to the \textsc{ResultCollector} and \textsc{OutCTEvent} with the results of the queries $\mathcal{Q}$ w.r.t the Ontology $\mathcal{T}$. The event is wrapped by the \textsc{TestStand} into an \textsc{TSResult} event which contains also the measurement data sampled in (1) and (2) when $\mathcal{E}$ is not running. In (5) the data are persisted and then they are analysed in (6) by the \textsc{Analyser}.}
-\label{fig:architecture}
-\end{figure}
-
+In the following section we describe each elements that Figure~\ref{fig:architecture} summarises. In Section~\ref{sec:modules} we describe the Test Stand pipeline and each module that composes it. In Section~\ref{sec:test-stand-data-model}, we detail the Data Model exploited to represent experiments, events, query results and measurements. Finally, in Section~\ref{sec:test-stand-workflow}, we describe the Test Stand workflow, representing in Figure~\ref{fig:architecture} how it executes experiments to stress the RSP Engine that we want to test.
 
 \subsection{Modules}\label{sec:modules}
 
 \noindent An aerospace test stand exploits different modules to simulate the operating regime for the engine in use  i.e a module for fuel distribution, one for the engine mechanic support or to enable users interaction during the execution. Modularity allows to extend the test stand and specify testing procedure. 
 
-We design \name \textsc{Test Stand} as a modular system for the same reasons, guaranteeing modularity [R.10]. It consists into the following three stand-alone modules:
+For the same reasons, requirement [R.10] demands to design \name \textsc{Test Stand} as a modular system and, thus, it consists in the following three stand-alone modules:
 \begin{itemize}
 \item the \textsc{Streamer}, a source for the input RDF Stream;
 \item the RSP Engine we want to test;
 \item the \textsc{Result Collector}, a data acquisition system for both the query results and the gathered measurements.
 \end{itemize}
 
-\noindent The architecture of \name \textsc{Test Stand} is represented in Figure~\ref{fig:architecture}. The \textsc{Test Stand} modules are arranged into a pipeline and communicate exchanging events [R.11]. Their interfaces allow each of them to be replaceable with an other one with a different behaviour, but which complies with the interface specifications.
+\noindent The architecture of \name \textsc{Test Stand} is represented in Figure~\ref{fig:architecture}. The \textsc{Test Stand} modules are arranged into a pipeline and communicate exchanging events [R.11]. %Their interfaces allow each of them to be replaceable with an other one with a different behaviour, but which complies with the interface specifications.
 
 The execution starts with the \textsc{Streamer} that hides the data generation logic in order to obtain data independence [R.1]. It pushes an RDF Stream directly to the mounted RSP Engine. It is up to the \textsc{Streamer} to respect [R.5] and not to influence the memory footprint with heavy data loading tasks. 
 
-An interface adapts the event flow to the RSP Engine in use, fulfilling [R.2] (Engine Independence) and hiding the query registration process [R.3] (Query independence), which happens at engine level and it is up to the RSP Engine provider.
+An interface fulfils [R.2] and [R.3] (Query and Engine independence). It adapts the event flow to the RSP Engine in use and hides the query registration process, which happens at engine level and it is up to the RSP Engine provider.
 
 The \textsc{Result Collector} is at the tail of the pipeline. It is part of the \textsc{Test Stand} because the performance measurements are gathered during the execution together with the queries results data. The \textsc{Result Collector} is responsible to save this data at the end of each cycle without influencing the system. The evaluation usually happens a-posteriori through the Analyser (Section~\ref{sec:analyser}). However, real time analysis of the performance measurements are possible, but they may violate requirements like [R.4] and [R.5]. 
 
-Last but not least, the \textsc{Test Stand} has an external structure that sustains other modules and can be considered as a module itself. It allows the user to control the process through accessible APIs. It gathers the data sampled by the sensors during the execution and adds them to the query results. The \textit{Test Stand Supporting Structure} allows the user (the RSP Engine developer) to develop a specific testing procedure for a given engine. The measure set extensions are possible by adding user defined metrics, according to requirements [R.7] and [R.10]. Finally, it controls the process ensuring that the \textsc{Test Stand} does not run when the RSP Engine is running, as required by [R.4].
+Last but not least, the \textsc{Test Stand} has an external structure that sustains other modules and it provides APIs through which control the process. It gathers the data during the execution adding them to the query results. It controls the process ensuring that the \textsc{Test Stand} does not run when the RSP Engine is running, as required by [R.4]. Finally, the \textit{Test Stand Supporting Structure} allows the user (the RSP Engine developer) to develop a specific testing procedure for a given engine, extending the measurements set with new metrics, according to requirements [R.7] and [R.10].  
 
 \subsection{Data Model}\label{sec:test-stand-data-model}
 
 \noindent The Test Stand accepts as input an \textsc{Experiment} in the form of a tuple \\ $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$ where:
 \begin{itemize}
-\item $\mathcal{E}$ is the RSP Engine subject of the evaluation (satisfying requirement [R.3]); 
+\item $\mathcal{E}$ is the RSP Engine subject of the evaluation [R.3]; 
 \item $\mathcal{D}$ is the input dataset [R.1]; 
 \item $\mathcal{T}$ is the ontology [R.1]; 
 \item $\mathcal{Q}$ is the query to be continuously answered by $\mathcal{E}$ [R.2]. 
 \end{itemize}
 
-From an experimental point of view, which metrics we sample during the execution have a different influence on the measurements. For example, asking to the system for the memory usage may influence the latency calculus or saving on disk the query results may influence the memory footprint. Thus, we define there main kinds of experiment, distinguishing on the data we want to sample and save. Notice that which experiment kind to choose depends on the goal and the error tolerance of the research.
-
+From an experimental point of view, which metrics we sample during the execution have a different influence on the measurements. For example, asking to the system for the memory usage may influence the latency calculus or saving on disk the query results may influence the memory footprint. Thus, we define there main kinds of experiment, which can also be combined, distinguishing on the data we want to sample and save. The choice of the experiment kind depends on the goal and the error tolerance of the research.
 \begin{itemize}
 \item Query Experiment, query results are saved on file.
 \item Latency Experiment, only latency metrics are saved on file.
 \item Memory Experiment, only memory metrics are saved on file.
-\item Any combination of the previous experiment types.
 \end{itemize}
 
-\begin{figure}[t!bh]
+\begin{figure}[h!]
   \centering
 	\includegraphics[width=\linewidth]{images/er-db}
-	\caption[\textsc{Test Stand} Data Stream ER-Diagram]{The diagram of the \textsc{Test Stand} data stream model. All the events exchanged during the execution are represented as entities which are unique within an \textsc{Experiment}. Two many-to-many relationships describe the relation between \textsc{Triple} and \textsc{Event} and \textsc{Result}. The \textsc{Measurement Set} provides extendibility modelling the many-to-many relation between \textsc{Measure} and \textsc{Result}.}
+	\caption[\textsc{Test Stand} Data Stream ER-Diagram]{\textsc{Test Stand} Data Stream ER-Diagram. The entities \textsc{Event} and \textsc{Result} represent unique events within an \textsc{Experiment}. Their relationships with \textsc{Triple} is described in two many-to-many relations. \textsc{Result} is also related to \textsc{Measure} by another many-to-many relation.}
   	\label{fig:er}
 \end{figure}
 
-\noindent In order to describe the Data Model exploited by the \textsc{Test Stand}, we draw the Entity-Relation diagram in Figure~\ref{fig:er}. The diagram does not include entity attributes to simplify the interpretation, but they are reported in the following Logic Schema:
+\noindent In order to describe the \textsc{Test Stand} Data Model, Figure~\ref{fig:er} shows its Entity-Relation diagram. The entity attributes are not reported to simplify the interpretation, but they are included in the relative Logic Schema.
+
 \noindent\textsc{Experiment}(\underline{ID}, Timestamp Start, Timestamp End, Engine, Ontology, Query, Dataset, Description)\\
 \textsc{Event}(\underline{ID, Experiment ID}, Timestamp)\\
 \textsc{Result}(\underline{Result ID, Experiment ID}, Event ID)\\
@@ -73,6 +66,19 @@ From an experimental point of view, which metrics we sample during the execution
 \textsc{Triple}(\underline{S,P,O})\\
 \textsc{Output Triple}(\underline{Result ID, Experiment ID, S, P, O})\\
 \textsc{Input Triple}(\underline{Event ID, Experiment ID, S, P, O})\\
+
+%\begin{itemize}
+%\item \noindent\textsc{Experiment}(\underline{ID}, Timestamp Start, Timestamp End, Engine, Ontology, Query, Dataset, Description).
+%\item \textsc{Event}(\underline{ID, Experiment ID}, Timestamp).
+%\item \textsc{Result}(\underline{Result ID, Experiment ID}, Event ID).
+%\item \textsc{Measure}(\underline{ID}, Value).
+%\item \textsc{Measurement Set}(\underline{Measure ID, Result ID, Experiment ID}).
+%\item \textsc{Triple}(\underline{S,P,O}).
+%\item \textsc{Output Triple}(\underline{Result ID, Experiment ID, S, P, O}).
+%\item \textsc{Input Triple}(\underline{Event ID, Experiment ID, S, P, O}).
+%\label{code:logic-schema}
+%\end{itemize}
+
 
 The \textsc{Experiment} entity contains the metadata of the tuple $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q},>$, which semantic is explained above. "Timestamp Start" and "Timestamp End" are relevant metrics for further analysis and system control. 
 
@@ -85,6 +91,13 @@ The \textsc{Measurement Set} table represents the many-to-many relation between 
 We include the concept of the \textsc{Triple} in order to model the content of \textsc{Event} and \textsc{Result}. \textsc{Input Triple} and \textsc{Output Triple} are the tables which represent two many-to-many relations, respectively between \textsc{Triple} and \textsc{Event} and \textsc{Triple}  and \textsc{Result}.
 
 \subsection{Workflow}\label{sec:test-stand-workflow}
+
+\begin{figure}[t!bh]
+\centering
+\includegraphics[scale=0.37]{images/heaven-schema-workflow}
+\caption[\name Modules and Workflow]{The execution starts when the \textsc{Test Stand} received the Experiment $<\mathcal{E},\mathcal{D},\mathcal{T},\mathcal{Q}>$ as an input (1). The \textsc{Streamer} pushes a \textsc{CTEvent}, an RSP Stream $\mathcal{D}$ fragment, to the RSP Engine in in use $\mathcal{E}$ (2). In (3) $\mathcal{E}$ pushes to the \textsc{ResultCollector} and \textsc{OutCTEvent} with the results of the queries $\mathcal{Q}$ w.r.t the Ontology $\mathcal{T}$. The event is wrapped by the \textsc{TestStand} into an \textsc{TSResult} event which contains also the measurement data sampled in (1) and (2) when $\mathcal{E}$ is not running. In (5) the data are persisted and then they are analysed in (6) by the \textsc{Analyser}.}
+\label{fig:architecture}
+\end{figure}
 
 \noindent The \textsc{Test Stand} orchestrates the communication between the upstanding models, forcing the \textsc{Streamer} to push events to the RSP Engine and the \textsc{Result Collector} to listen the output and collect the results. To explain the \textsc{Test Stand} workflow, we split the process at the points when the modules exchange events. Indeed, each message represents a different logic step in the experiment execution cycle.
 
@@ -99,20 +112,20 @@ In step (3), $\mathcal{E}$ pushes to the \textsc{Result Collector} an event \tex
 
 Notably, to place any RSP engine on the \textsc{Test Stand} (requirement [R.3]) \name provides a simple software wrapper that, when it receives a \textsc{CTEvent}, adapts it to the RSP engine specific format, pushes it in the RSP engine, and listens to the RSP engine output so to transform such an output in a \textsc{OutCTEvent}.
 
-To measure performances (requirement [R.6]) the \textsc{Test Stand} performs several actions both before step (2) and after step (3) to collect data from the sensors. Previous works about Stream reasoning~\cite{DBLP:conf/esws/ScharrenbachUMVB13} shows that the minimal performance measure set includes \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Load} -- defined as the difference between total system memory and the free one --, and \textbf{Completeness \& Soundness} of query-answering results. To measure latency, it starts a timer before (2) and stops it after (3). To measure memory load, it asks for the free memory of the system after step (3). Completeness \& Soundness are evaluated with post-processing analysis of the query results data.
+To measure performances (requirement [R.6]) the \textsc{Test Stand} performs several actions both before step (2) and after step (3). Previous works about Stream reasoning~\cite{DBLP:conf/esws/ScharrenbachUMVB13} shows that the minimal performance measure set includes \textbf{Latency} -- defined as the delay between the injection of an event in the RSP engine and its response to it --, \textbf{Memory Load} -- defined as the difference between total system memory and the free one -- and \textbf{Completeness \& Soundness} of query-answering results. To measure latency, it starts a timer before (2) and stops it after (3). To measure memory load, it asks for the free memory of the system after step (3). Completeness \& Soundness are evaluated with post-processing analysis of the query results data.
 
 In step (4), those observations are added to the outputs of $\mathcal{E}$ as annotations and are pushed to the \textsc{Result Collector}.  We name \textsc{TSResult} the event that contains the sensor data plus the query results produced by the engine.  
 
 The \textsc{Test Stand} works in a single thread mode, blocking the execution of its components when it performs the measurements in (2) and (3) [R.4].  
 
-In step (5), the \textsc{Result Collector} saves \textsc{TSResult} for post process analysis [R.9] executed through the \textsc{Analyzer}. It does so saving the content of any TSResult  [R.8].
+In step (5), the \textsc{Result Collector} saves the content of any \textsc{TSResult} [R.8] for post process analysis [R.9] executed through the \textsc{Analyzer}.
 
 \section{Baselines}\label{sec:baselines}
 
 \noindent In Chapter~\ref{chap:problem-settings}, we state that a Systematic Comparative Research Approach needs initial terms of comparison to lead the investigation. \name contains a set simple and easy-to-use RSP Engines called "Baseline". As the name lets to guess, these engines fulfil the four characteristics, detailed in Section~\ref{sec:requirements}, required by an RSP Engine to be classified as a baseline inside the SR research field. Thus, \name Baselines are \textit{Elementary}, \textit{Relevant}, \textit{Simple} and \textit{Eligible}.
 
 %We exploit them to define some qualitative methods of investigation and to prove the usability of the Test Stand. 
-Early works on SR~\cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge} describe the most simple approach to create a stream reasoning system as pipelining a DSMS with a reasoner. The DSMS is responsible to handle the data stream, moving from infinite sequences to finite (and processable) sets of events. The reasoner instead applies SPARQL queries on this set of events, exploiting its reasoning capabilities over a context that can be considered as static, but remains continuous. We focus on RDF Stream Processing, whose foundations, as explained in Section~\ref{sec:sfp}, are: 
+Early works on SR describe the most simple approach to create a stream reasoning system as pipelining a DSMS with a reasoner~\cite{DBLP:conf/fis/ValleCBBC08,Walavalkar08streamingknowledge}. The DSMS is responsible to handle the data stream, moving from infinite sequences to finite (and processable) sets of events. The reasoner instead applies SPARQL queries on this set of events, exploiting its reasoning capabilities over a context that can be considered as static, but remains continuous. We focus on RDF Stream Processing, whose foundations, as explained in Section~\ref{sec:sfp}, are: 
 \begin{enumerate}
 \item[1.] RDF streams, detailed in Section~\ref{sec:rdfstream},
 \item[2.] An extensions of SPARQL to manage continuous data (see Section~\ref{sec:continuous-sparql},
@@ -148,11 +161,11 @@ The RDF Stream model describes how the input RDF Stream is processed, different 
 \item RDF Graphs-based: the event pushed in the DSMS are timestamped RDF graph. The timestamps are increasing and the graph is used as a form of punctuation~\cite{Tatbul2003b} to separate consequent portions of the RDF stream.
 \end{itemize}
 
-The Stream Reasoning depends on the way data flow from the DSMS to the reasoner. Figure~\ref{fig:baselines} shows the two reasoning solutions exist for the two triples data flow:
+The Stream Reasoning depends on the way data flow from the DSMS to the reasoner. Figure~\ref{fig:baselines} shows the two reasoning solutions related to the two triples data flow above:
 
 \begin{itemize}
 \item Naive solution: (Figure~\ref{fig:baselines}-A) the DSMS produces an RDF Snapshot of the active window. It sends the entire content of the window to the reasoner that materialises all the implied triples at each cycle. This is the approach implemented in the C-SPARQL Engine~\cite{DBLP:journals/sigmod/BarbieriBCVG10} and in Sparkwave~\cite{DBLP:conf/debs/KomazecCF12}.
-\item Incremental solution: (Figure~\ref{fig:baselines}-B) the DSMS outputs an IRStream, the differences between the current window and the previous one. The $\Delta^{+}$ snapshot contains the triples that have just entered in the window, while the $\Delta^{-}$ snapshot contains the triples that have just exited from the window. The reasoner, using $\Delta^{+}$ and $\Delta^{-}$, incrementally maintains the materialisation over time. This approach is taken as term of comparison in~\cite{DellAglio2014} and it is inspired from~\cite{DBLP:conf/cikm/RenP11}.
+\item Incremental solution: (Figure~\ref{fig:baselines}-B) the DSMS outputs an IRStream, the differences between the active window and the previous one. The $\Delta^{+}$ snapshot contains the triples that have just entered in the window, while the $\Delta^{-}$ snapshot contains the triples that have just exited from the window. The reasoner, using $\Delta^{+}$ and $\Delta^{-}$, incrementally maintains the materialisation over time. This approach is taken as term of comparison in~\cite{DellAglio2014} and it is inspired from~\cite{DBLP:conf/cikm/RenP11}.
 \end{itemize}
 
 Baseline \textsc{Eligibility} requires fair performance measurements w.r.t mature RSP Engines. The choice of the DSMS and the reasoner affect baselines \textsc{Elementarily} and it influences their performances too. To evaluate the Baselines, we must use the minimal measure set presented in Section~\ref{sec:teststand}: the latency, memory and the Completeness and Soundness of the query results. It is easy to compare latency and memory performance values, while for Completeness and Soundness further consideration are needed. To be fair with mature RSP Engine the baselines query results must output the correct answers under a given entailment regime. The recent work~\cite{DBLP:conf/semweb/DellAglioCBCV13} explains the importance of external time control  to ensure the RSP Engine output correctness (even when overloaded). The Baselines must exploit the ability of some DSMS to be temporally controlled by an external agent, in order to ensure Completeness and Soundness of the results even in case of high stress condition. Comparable measure of latency and memory and external time control can  prove the Baseline \textsc{Eligibility}.
@@ -170,23 +183,23 @@ We follow the researcher vision (ii) and, thus, in this section define the metho
 \begin{figure}[tbh]
   \centering
 	\includegraphics[width=\linewidth]{images/analyser-block-schema}
-	\caption[\textsc{Analyser} Block Schema - Design Detail Level]{Two inputs start the \textsc{Analyser} processing: the \textsc{Test Stand} output and the investigation variables. At first, Steady State Identification (SSI) block indicates if a variable reached the Steady State. Analysis Block (AB) builds the analysis exploiting both the initial inputs and the SSI block results. AS outputs an human readable data to answer hypothesis or state new insights upon.}
+	\caption[\textsc{Analyser} Block Schema - Design Detail Level]{Two inputs start the \textsc{Analyser} processing: the \textsc{Test Stand} output and the investigation variables. At first, Steady State Identification (SSI) block indicates if a variable reached the Steady State. Analysis block (AB) builds the analysis exploiting both the initial inputs and the SSI block results. AS outputs an human readable data to answer hypothesis or state new insights upon.}
   	\label{fig:analyser-block-schema}
 \end{figure}
 
 Figure~\ref{fig:analyser-block-schema} shows the different phases of the data processing. The methods that compose the \textsc{Analyser} can be divided into three main blocks, each one with different supporting tools and different goals.
 
-The \textsc{Analyser} takes as input the raw data produced by the \textsc{Test Stand} by executing the experiment, and the variables on which the analysis will be based on. The \textsc{Test Stand} outputs raw data in times series format. The \textsc{Test Stand} measurement set may vary according to requirement [R.7]. To this extent, the \textsc{Analyser} should be extendible too, and the variables of the analysis must be seen as an input provided by \name user.
+The \textsc{Analyser} takes as input the raw data produced by the \textsc{Test Stand} by executing the experiment, and the variables on which the analysis will be based on. The \textsc{Test Stand} outputs raw data in times series format. The \textsc{Test Stand} measurements set may vary according to requirement [R.7]. To this extent, the \textsc{Analyser} should be extendible too, and the variables of the analysis must be seen as an input provided by \name user.
 
-To properly compare results between $n$ different RSP Engines data must be standardized. In the \textit{Steady State Identification} Block data are processed according to the variables, identifying which variable has reached a Steady State condition.
+To properly compare results between $n$ different RSP Engines data must be standardized. In the \textit{Steady State Identification} block data are processed according to the variables, identifying which variable has reached a Steady State condition.
 
-The last step in the high level Analyser Block Schema consists in the formalisation of theoretical results. The aim of this step is obviously confirm or refute hypothesis formulated at experiment design level. However, \name has the aim of sustaining the empirical research over RSP Engine which allow a new kind of observation that may improve existing theoretical models of the Stream Reasoning area.
+The last step of the high level Analyser Block Schema, in the figure, consists in the formalisation of theoretical results. The aim of this step is obviously confirm or refute hypothesis formulated at experiment design level. However, \name has the aim of sustaining the empirical research over RSP Engine, which allows a new kind of observation that may improve existing theoretical models of the Stream Reasoning area.
 
-In the next sections we provided further details on the \textit{Steady State Identification} Block, Section~\ref{sec:analyser-ss-block}, and about the \textit{Analysis} Block, Section~\ref{sec:analyser-analysis-block}. 
+In the next sections we provided further details on the \textit{Steady State Identification} block, Section~\ref{sec:analyser-ss-block}, and about the \textit{Analysis} block, Section~\ref{sec:analyser-analysis-block}. 
 
 \subsection{Steady State Identification Block}\label{sec:analyser-ss-block}
 
-The \textit{Steady State Identification} (SSI) Block is the first element in Figure~\ref{fig:analyser-block-schema}. In general, it applies a pre-analysis of the raw data. It outputs if a given variable of the tested RSP Engine has not reached the Steady State condition, which is the moment when a dynamic system reaches the equilibrium for a certain variable. The SSI is a common step in almost any research on dynamic systems, because those systems usually have an initial transitory phase which inhibits generalisations and comparisons. Figure~\ref{fig:steady-state} shows the typical behaviour, in the time domain, for a certain variable and it also evidences the point when the series reaches the Steady State condition. The \textit{Steady State Identification} Block allows to understand the degree of reliability of the data, i.e. how we can assume a certain observation is confirmed and generalizable.
+The \textit{Steady State Identification} (SSI) block is the first element in Figure~\ref{fig:analyser-block-schema}. In general, it applies a pre-analysis of the raw data, evaluating the final condition of each variable and establishing if it has reached or not the Steady State condition. The Steady State is the moment when a dynamic system reaches the equilibrium for a certain variable. The SSI is a common step in almost any research on dynamic systems, because those systems usually have an initial transitory phase which inhibits generalisations and comparisons. Figure~\ref{fig:steady-state} shows the typical behaviour, in the time domain, for a certain variable and it also evidences the point when the series reaches the Steady State condition. The \textit{Steady State Identification} block allows to understand the degree of reliability of the data, i.e. how we can assume a certain observation is confirmed and generalizable.
 
 \begin{figure}[h!]
   \centering
@@ -198,16 +211,16 @@ The \textit{Steady State Identification} (SSI) Block is the first element in Fig
 
 \subsection{Analysis Block}\label{sec:analyser-analysis-block}
 
-Once the Steady State is identified, it is possible to proceed with the central data analysis, which is summarised in Figure~\ref{fig:analyser-block-schema} by the \textit{Analysis} Block. This Block exploits the \textit{Steady State Identification} output to study the transitory phase, which is a crucial part of the dynamic system comprehension and, thus, of the Hypothesis confirmation.
+Once the Steady State is identified, it is possible to proceed with the central data analysis, which is summarised in Figure~\ref{fig:analyser-block-schema} by the \textit{Analysis} block. This block exploits the \textit{Steady State Identification} output to study the transitory phase, which is a crucial part of the dynamic system comprehension and, thus, of the Hypothesis confirmation.
 
-The investigation can be decomposed in four levels within the \textit{Analysis} Block, with increasing details degree and different goals. Figure~\ref{fig:analysis-method} is a graphical representation of the investigation stack implemented within the \textit{Analysis} Block, the detail level grows from the top to the bottom.
+The investigation can be decomposed in four levels with increasing details degree and different goals. Figure~\ref{fig:analysis-method} is a graphical representation of the investigation stack implemented within the \textit{Analysis} block, the detail level grows from the top to the bottom.
 
 \pagebreak
 
 \noindent Before presenting the levels of the stack one by one, we introduce two concepts about the experiment analysis:
 \begin{itemize}
 \item \textit{Intra Experiment Comparison} -  it means building comparisons between variables upon a single, well-determined experiment.
-\item \textit{Inter Experiment Comparison} -  it means building comparisons of different experiment upon a single variable. 
+\item \textit{Inter Experiment Comparison} -  it means building comparisons of different experiments upon a single variable. 
 \end{itemize}
 
 
@@ -222,7 +235,7 @@ Dashboards are the highest level of analysis offered by \name for \textit{Inter-
   	\label{fig:radar}
 \end{figure}
 
-The idea of a single visualisation method which allows to answer to any hypothesis is desirable, but not probable.  Unfortunately, the reliability of the methods depend on the system complexity and not only on the complexity of the method itself. Thus, this level of analysis may not be able to represent the entire system complexity. The Steady State condition represents another point of weakness. If it is not reached by all the variable involved, the analysis generalisation can not be granted and dashboard relevance becomes frail. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
+The idea of a single visualisation method, which allows to answer to any hypothesis, is desirable but not probable.  Unfortunately, the reliability of the methods depend on the system complexity and not only on the complexity of the method itself. Thus, this level of analysis may not be able to represent the entire system complexity. The Steady State condition represents another point of weakness. If it is not reached by all the variable involved, the analysis generalisation can not be granted and dashboard relevance becomes frail. Further levels of analysis are required, at least for a better comprehension of those unpredictable results that refute even naive hypothesis, formulated on well known theoretical truths.
 
 
 \subsubsection{Level 1 -  Statistical Values Comparison}\label{sec:heaven-level1}
