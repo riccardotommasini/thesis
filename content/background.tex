@@ -103,9 +103,9 @@ RDFS contains fifteen classes and the most relevant ones are:
 
 \begin{itemize}
 \item rdfs:Resource - everything in RDFS is an instance of this class.
-\item rdfs:Literal  -  sub class of rdfs:Resource represents a text string
-\item rdf:Property  -  sub class of rdfs:Resource and represents the properties
-\item rdfs:Class    -  sub class of rdfs:Resource, it represents the type concept typical of the OO programming languages and thus it is related to the rdf:type property. Every class is an instance of rdfs:Class
+\item rdfs:Literal  -  sub class of rdfs:Resource represents a text string.
+\item rdf:Property  -  sub class of rdfs:Resource and represents the properties.
+\item rdfs:Class    -  sub class of rdfs:Resource, it represents the type concept typical of the OO programming languages and thus it is related to the rdf:type property. Every class is an instance of rdfs:Class.
 \end{itemize}
 
 It also contains sixteen properties, all instances of rdf:Property, and the most important ones are:
@@ -113,8 +113,8 @@ It also contains sixteen properties, all instances of rdf:Property, and the most
 \item rdf:type - used to state that a resource is an instance of a certain rdf:Class.
 \item rdfs:subClassOf - used to state that all the instances of one class are instances of another.
 \item rdfs:subPropertyOf - used to state that all resources related by one property are also related by another.
-\item rdfs:range - used to state that the values of a given property are an instance of one or more classes
-\item rdfs:domain -  used to state that any resource that has a given property is an instance of one or more classes
+\item rdfs:range - used to state that the values of a given property are an instance of one or more classes.
+\item rdfs:domain -  used to state that any resource that has a given property is an instance of one or more classes.
 \end{itemize}
 
 
@@ -124,11 +124,11 @@ Efficient data processing in SW depends on the trade off between the expressiven
 
 $\rho$DF~\cite{DBLP:conf/esws/MunozPG07}, is a fragment of RDFS that conserves the original semantic and covers only those vocabulary and axiomatic information that  serves to reason about the data it describes and not about the structure of the language itself. $\rho$DF comprehends:
 \begin{itemize}
-\item rdfs:subPropertyOf
-\item rdfs:subClassOf
-\item rdfs:domain 
-\item rdfs:range
-\item rdf:type 
+\item rdfs:subPropertyOf.
+\item rdfs:subClassOf.
+\item rdfs:domain.
+\item rdfs:range.
+\item rdf:type. 
 \end{itemize}
 
 Notice that w.r.t RDFS (see Section~\ref{sec:rdfs}) it does not include the rdfs:Class, which is relevant for Semantic Web ontological level, but it does not play any relevant role in the frame of RDFS deductions. A similar argument can be done for rdfs:subClassOf and rdfs:subPropertyOf reflexivity, which do not play any relevant role in the semantics and thus can be avoided without having side-effects.
@@ -248,9 +248,9 @@ We detail these two models of IFP respectively for DSMS in Subsection~\ref{sec:d
 The DSMS research field views the IFP problem as an evolution of traditional data processing, describing it as \textit{processing streams of data coming from different sources to produce new data streams as an output}. A Data Stream Management Systems (DSMS) extends the traditional DBMSs, in particular for the following considerations:
 
 \begin{itemize}
-\item streams are usually unbounded, while tables are not
-\item assumption on data arrival order and rate can not be formulated
-\item size and time constraints make hard, probable impossible, storing and processing data stream; one-time processing is the typical mechanism used to deal with streams
+\item streams are usually unbounded, while tables are not,
+\item no assumption on data arrival order and rate can be formulated and
+\item size and time constraints make hard, probable impossible, storing and processing data stream: one-time processing is the typical mechanism used to deal with streams.
 \end{itemize} 
 
 DSMSs present also two main practical differences from traditional DBSMs: (i) DBMSs are designed to work on persistent data, while DSMSs are focused into transient data management, because data are continuously updated. (ii) DBMSs queries are run once and then return a complete answer. DSMSs queries instead are continuous queries, which continuously answer as new data arrives. 
@@ -436,11 +436,11 @@ Software Engineering (SE) and many other Computer Science research areas have fa
 
 It is important to remember that empirical studies can be used not only retrospectively to validate systems or idea after they have been implemented, but also proactively to direct the research. Formal experiments, case studies and prototyping exercises are all adequate empirical studies. Independently from their form, they are a key way to fill the lack and sustains with credible observations those CS research fields which requires an evaluation of the proposals. Indeed empirical studies allow to learn something useful by comparing theory to reality through the following steps~\cite{Perry:2000:ESS:336512.336586}:
 \begin{itemize}
-\item  formulating an hypothesis or question to test
-\item  observing a situation
-\item  abstracting observations into data
-\item  analysing the data
-\item  drawing conclusions with respect to the tested hypothesis
+\item  formulating an hypothesis or question to test,
+\item  observing a situation,
+\item  abstracting observations into data,
+\item  analysing the data and
+\item  drawing conclusions with respect to the tested hypothesis.
 \end{itemize}
 \pagebreak
 
@@ -457,7 +457,9 @@ Black-box testing  methods  examine the functionality of a system without peerin
 
 White-box testing  method instead exploits complete knowledge about software internal structures. In WBT an internal perspective of the system is required to design test cases. The test designer analyses the code, understands the expected output and chooses many inputs to properly exercise the paths he has found. 
 
-The ST sub-field which tries to offer an objective and independent view of the software is Software Performance Testing (SPT), defined as  \textit{testing conducted to evaluate the compliance of a system or component with specified performance requirements}~\cite{IEEEStd610.12-1990:glossary}. SPT requires to identify the key transactions and their data requirements. Once it is done, the test designer creates a number of different types of tests, in order to evaluate software performance w.r.t test variations. The design of the test follows the researcher needs about metrics evaluation. The choice depends on the nature of the application and how much time is available for performance testing. The following testing terms are generally well known in the industry~\cite{Molyneaux:2009:AAP:1550832}:
+The ST sub-field which tries to offer an objective and independent view of the software is Software Performance Testing (SPT), defined as  \textit{testing conducted to evaluate the compliance of a system or component with specified performance requirements}~\cite{IEEEStd610.12-1990:glossary}. SPT requires to identify the key transactions and their data requirements. Once it is done, the test designer creates a number of different types of tests, in order to evaluate software performance w.r.t test variations. The design of the test follows the researcher needs about metrics evaluation. The choice depends on the nature of the application and how much time is available for performance testing.\\
+
+The following testing terms are generally well known in the industry~\cite{Molyneaux:2009:AAP:1550832}:
 
 \begin{itemize}
 \item \textit{Load testing} - it is the simplest form of performance testing, its aim is to understand the behaviour of the system under an expected load (the load kind depends on the software system). Moreover, it points to meet performance targets for availability, concurrency or throughput, and response time. This test will give out the response times of all the critical transactions and it can point out bottlenecks in the application software. Load testing is the closest approximation of real application use.
@@ -481,7 +483,9 @@ A single metric can not measure the performance relative to all applications of 
 
 It is worth to note the work of Jim Gray about Domain-specific benchmarks~\cite{DBLP:books/mk/Gray93}, a kind of benchmarking methods and tools  which responds to computer system diversity. A Domain-specific benchmark specifies a synthetic workload characterising typical applications in that problem domain. 
 
-In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful. It must be:
+In order to distinguish among several solutions and workload, Gray states four key criteria that a Domain-Specific Benchmark must meet to be useful.\\
+
+Thus, an useful Domain-specific benchmark must be:
 \begin{itemize}
 \item Relevant: It must measure the peak performance and price/performance of systems when performing typical operations within that problem domain.
 \item Portable: It should be easy to implement the benchmark on many different systems and architectures.
@@ -507,7 +511,7 @@ Finally. LUBM contains three metrics for reasoners evaluation, which are commonl
 \item \textit{Load Time} - the stand alone elapsed time for storing the specified dataset to the system;
 \item \textit{Repository Size} -  the resulting size of the repository after loading the specified benchmark data into the system;
 \item \textit{Query Response Time} - it similar to databases benchmarking: for each test query the evaluation consist into
-  	1) Opening the repository; 2) Executing the query for 10 times and computing the average response time. 3) Closing the repository
+  	1) Opening the repository; 2) Executing the query for 10 times and computing the average response time. 3) Closing the repository.
 \end{itemize}
 
 LUBM contains two specific reasoning metrics: \textit{Query Completeness and Soundness}: partial answering is possible in semantic web, indeed LUBM evaluate the \textit{degree of completeness of each query answer as the percentage of the entailed answers that are returned by the system}. Moreover, LUBM also provides a metric for measuring the combination of  query response time and answer completeness and soundness, to  appreciate the potential trade-off.
