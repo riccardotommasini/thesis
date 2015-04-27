@@ -1,0 +1,1476 @@
+PWD /Users/Riccardo/Projects/Tesi Project/Thesis
+INPUT /usr/local/texlive/2014/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.tex
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.log
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithm.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithm.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/pifont.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/pifont.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/upzd.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/upzd.fd
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/upsy.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/upsy.fd
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/epsfig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/epsfig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psfrag/psfrag.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psfrag/psfrag.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/lscape.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/lscape.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/rotating/rotating.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/rotating/rotating.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.tex
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.aux
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.aux
+INPUT /usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+INPUT /usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.tex
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/logopm.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/logopm.pdf
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/logopm.pdf
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/abstract.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/abstract.tex
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/estratto.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/estratto.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.toc
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.toc
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.toc
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lof
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lof
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lof
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lot
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lot
+OUTPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.lot
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/introduction.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/introduction.tex
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/background.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/background.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/semantic_web_stack.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/semantic_web_stack.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/semantic_web_stack.png
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/omlcmr.fd
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rdf-graph-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lod.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lod.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lod.jpg
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/ifp-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dsms-eps-converted-to.pdf
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cql-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/cep-eps-converted-to.pdf
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-engine-model-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/rsp-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/bicep_schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/problem-settings.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/problem-settings.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/heaven.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/heaven.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/er-db-eps-converted-to.pdf
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/heaven-schema-workflow-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-a-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/baseline-b-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/steady-state-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/radar-plot-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analysis-method-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/implementation-experience.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/implementation-experience.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/fsm-schema.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/fsm-schema.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/fsm-schema.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_tstreamer-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_flowrateprofiler-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/flow-rate-examples.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/flow-rate-examples.tex
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_resultcollector_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_teststand_modules-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_general-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_listener-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/uml_baselines_events-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/analyser-block-schema-impl-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-example-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/pattern-examples.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/pattern-examples.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-inter.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-inter.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-inter.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-intra.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-intra.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/comp-intra.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/evaluation.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/evaluation.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/experiment-design-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/ss-cond.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/ss-cond.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-legend.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-legend.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-legend.png
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-1-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-2-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/dashboard-3-split-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-table-lat.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-table-lat.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-table-mem.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-table-mem.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level2-pattern-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/lat-log-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/lat-log-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/lat-log-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/lat-log-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/lat-log-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-dens-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-dens-graph.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-graph/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-dens-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/mema-dens-triple.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/N15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I1.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I2.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I6.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I3.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I7.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I10.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I4.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I8.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I11.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I13.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I5.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I9.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I12.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I14.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/mema-dens-triple/I15.jpg
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/level3-soak.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/images/level3-soak.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-naive-graph-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-not-steady-inc-stmt-en11-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-naive-graph-en7-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-steady-inc-graph-en12-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-naive-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level3-filling-inc-stmt-en15-eps-converted-to.pdf
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-1-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/level-0-step-dashboard-2-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_lat_incremental_triple_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101.eps
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/images/step_mema_incremental_graph_soak_init_7soak_final_8step_101-eps-converted-to.pdf
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-step.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/tables/level-1-step.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/conclusions.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/conclusions.tex
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.bbl
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.bbl
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/citation
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/content/citation
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/thesis.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.aux
+INPUT /Users/Riccardo/Projects/Tesi Project/Thesis/title.aux
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

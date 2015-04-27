@@ -223,7 +223,9 @@ The Baselines relevance, demanded by [R.15], is only partially fulfilled by the 
   	\label{fig:uml_baselines_events}
 \end{figure}
 
-Notice that, when a \textit{CTEvents} comes to the RSP Engine, it will be transformed into the events handled by the DSMS, contained in Figure~\ref{fig:uml_baselines_events}. This translation process influences the latency calculus, because the time spent by the engine to translate events from the RDF~Stream into its internal mechanism may be relevant. Once the processing is complete, the output of the RSP Engine is translated again into an \textit{OutCTEvent} and passed to the next \textit{EventProcessor}, again spending time that influences the latency. However, this assumption is coherent with the black box testing provided by \namens. Every buffering or translating process applied by the RSP Engine in use, must be considered part of its internal mechanism and, thus, part of the latency calculus and memory consumption.
+When a \textit{CTEvents} comes to the RSP Engine, it will be transformed into the events handled by the DSMS, contained in Figure~\ref{fig:uml_baselines_events}. This translation process influences the latency calculus, because the time spent by the engine to translate events from the RDF~Stream into its internal mechanism may be relevant. Once the processing is complete, the output of the RSP Engine is translated again into an \textit{OutCTEvent} and passed to the next \textit{EventProcessor}, again spending time that influences the latency. 
+
+This assumption is inspired by the related work \cite{bizarro:DSP:2007:1143}, which endorses the idea of black box testing provided by \namens. \cite{bizarro:DSP:2007:1143} states that every buffering or translation process, which is applied by the engine in use, must be considered part of its internal mechanism and, thus, part of the performance measurement.
 
 The current Baseline implementations divide the different architectural elements and delegate to each element a specific task to share the majority of the code and thus fulfilling [R.16], which demands baseline Simplicity.
 
